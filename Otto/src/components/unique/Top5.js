@@ -3,7 +3,7 @@ import { Button, View } from 'react-native';
 
 class Top5 extends React.Component {
   static navigationOptions = {
-    title: 'Home',
+    title: 'Top 5',
   };
   render() {
     const { navigate } = this.props.navigation;
