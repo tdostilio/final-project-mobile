@@ -1,19 +1,22 @@
 import React from 'react';
-import {
-  AppRegistry,
-  Text,
-} from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { Button } from 'react-native';
 
-class HomeScreen extends React.Component {
+class Home extends React.Component {
   static navigationOptions = {
-    title: 'Welcome',
+    title: 'Home',
   };
   render() {
-    return <Text>Hello, Navigation!</Text>;
+    const { navigate } = this.props.navigation;
+    return (
+      <Button
+        title="Go to Welcome"
+        onPress={() =>
+          navigate('Welcome', { name: 'Jane' })
+        }
+      />
+    );
   }
 }
 
-export default SimpleApp = StackNavigator({
-  Home: { screen: HomeScreen },
-});
+export default Home;
+
