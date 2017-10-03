@@ -1,14 +1,14 @@
 import React from 'react';
 import { Button, View } from 'react-native';
 
-class Home extends React.Component {
+class Top5 extends React.Component {
   static navigationOptions = {
     title: 'Home',
   };
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View>
+        <View>
         <Button
         title="Go to Welcome"
         onPress={() =>
@@ -16,9 +16,9 @@ class Home extends React.Component {
         }
         />
         <Button
-        title="Go to Top 5"
+        title="Go to Home"
         onPress={() =>
-        navigate('Top5')
+        navigate('Home')
         }
         />
         <Button
@@ -32,5 +32,5 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default Top5;
 
