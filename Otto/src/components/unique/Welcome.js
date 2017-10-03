@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, View } from 'react-native';
+import { Button, View, Image } from 'react-native';
 
 class Welcome extends React.Component {
     static navigationOptions = {
@@ -9,6 +9,10 @@ class Welcome extends React.Component {
       const { navigate } = this.props.navigation;
       return (
         <View>
+            <Image
+            source={require('../images/mainlogo.png')}
+            style={styles.logoStyle}
+            />
             <Button
             title="Go to Home"
             onPress={() =>
@@ -31,7 +35,16 @@ class Welcome extends React.Component {
       );
     }
   }
-  
-  export default Welcome;
+
+const styles = {
+    logoStyle: {
+    height: 200, 
+    width: 200, 
+    alignSelf: 'center', 
+    justifyContent: 'center',
+    }
+}
+
+export default Welcome;
   
   
