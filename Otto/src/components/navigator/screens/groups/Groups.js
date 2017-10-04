@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button, View, Text, AsyncStorage } from 'react-native';
-import { Card, CardSection, Input, Spinner, NoStyleCard } from '../../../util/';
+// import { Card, CardSection, Input, Spinner, NoStyleCard } from '../../../util/';
 import { ContactManager } from 'NativeModules';
 import GroupList from './GroupList';
 import LottiePlayer from '../../../util/LottiePlayer';
-import { Card, CardSection, Input, Spinner } from '../../../../components/util'
+import { Card, CardSection, Input, Spinner, NoStyleCard } from '../../../../components/util'
 import Header from '../../util/Header'
 
 

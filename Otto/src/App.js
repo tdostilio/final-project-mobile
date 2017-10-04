@@ -12,7 +12,7 @@ export default class App extends Component {
 
   state = {
 
-    userAuthenticated: true
+    userAuthenticated: true,
     userReceived: false,
     checkUserAuthentication: false,
     firstTimeUser: false
