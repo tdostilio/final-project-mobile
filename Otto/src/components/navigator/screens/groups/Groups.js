@@ -14,24 +14,23 @@ class Groups extends React.Component {
 
 
 
-    // componentWillMount() {
-    //     return (
-            
-    //     )
-    //     // ContactManager.getContacts( (err, result) => {
-    //     //     this.setState({contacts: result}, () => {
-    //     //         // AsyncStorage.setItem(result, 'Legend').then(console.log('did it'));
-    //     //         console.log('State set');
-    //     //     });
-    //     //   },
-    //     //   (err) => {
-    //     //     console.log(err);
-    //     //   }
-    //     // );
-    // }
-    // componentDidMount() {
-    // //  <LottiePlayer />
-    // }
+    componentWillMount() {
+        return (
+            ContactManager.getContacts( (err, result) => {
+                this.setState({contacts: result}, () => {
+                    // AsyncStorage.setItem(result, 'Legend').then(console.log('did it'));
+                    console.log('State set');
+                });
+            },
+            (err) => {
+                console.log(err);
+            }
+            )
+        );
+    }
+    componentDidMount() {
+    //  <LottiePlayer />
+    }
 
     render() {
       const { navigate } = this.props.navigation;
@@ -55,7 +54,7 @@ class Groups extends React.Component {
             navigate('Top5')
         }
         />
-        <Card>
+        {/* <Card>
             <CardSection>
                 <Input 
                     placeholder="Kevin..."
@@ -64,7 +63,7 @@ class Groups extends React.Component {
                     onChangeText={email => this.setState({ email })}
                 />
             </CardSection>
-        </Card>
+        </Card> */}
         <Card>
             <View>
                 {this.state.contacts ? <GroupList contacts={this.state.contacts}/>:null}
