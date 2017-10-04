@@ -11,31 +11,35 @@ export default class LottiePlayer extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View>
-          <Animation
-            ref={animation => {
-              this.animation = animation;
-            }}
-            style={{
-              width: 200,
-              height: 200
-            }}
-            loop={true}
-            source={anim}
-          />
+    //   <View style={styles.container}>
+        <View style={styles.container}>
+            <Text style={styles.container}>Importing Contacts...</Text>
+            <View style={styles.container}>
+                <Animation
+                ref={animation => {
+                    this.animation = animation;
+                }}
+                style={{
+                    alignSelf: 'center',
+                    width: 200,
+                    height: 200,
+                    
+                }}
+                loop={true}
+                source={anim}
+                />
+                </View>
         </View>
-    </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#A6207E',
-    marginTop: 10,
-    height: 100
+    borderWidth: 0,
+    shadowRadius: 0,
+    shadowOffset: {width:0, height: 0}
   }
 });

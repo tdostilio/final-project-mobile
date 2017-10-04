@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, View, Text, AsyncStorage } from 'react-native';
-import { Card, CardSection, Input, Spinner } from '../../../util/';
+import { Card, CardSection, Input, Spinner, NoStyleCard } from '../../../util/';
 import { ContactManager } from 'NativeModules';
 import GroupList from './GroupList';
 import LottiePlayer from '../../../util/LottiePlayer';
@@ -27,9 +27,6 @@ class Groups extends React.Component {
             }
             )
         );
-    }
-    componentDidMount() {
-    //  <LottiePlayer />
     }
 
     render() {
@@ -64,14 +61,14 @@ class Groups extends React.Component {
                 />
             </CardSection>
         </Card> */}
-        <Card>
+        <NoStyleCard style={styles.noStyling}>
             <View>
                 {this.state.contacts ? <GroupList contacts={this.state.contacts}/>:null}
             </View>
-        </Card>
-        <Card>
+        </NoStyleCard>
+        <NoStyleCard style={styles.noStyling}>
             <LottiePlayer />
-        </Card>
+        </NoStyleCard>
       </View>
       );
     }
@@ -82,7 +79,9 @@ const styles = {
         fontSize: 20,
         alignSelf: 'center',
         color: 'red'
-
+    },
+    noStyling: {
+        marginTop: 200
     }
 };
   
