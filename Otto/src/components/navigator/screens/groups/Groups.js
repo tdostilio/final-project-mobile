@@ -1,8 +1,9 @@
 import React from 'react';
-import { Button, View, Text } from 'react-native';
+import { Button, View, Text, AsyncStorage } from 'react-native';
 import { Card, CardSection, Input, Spinner } from '../../../util/';
 import { ContactManager } from 'NativeModules';
 import GroupList from './GroupList';
+import LottiePlayer from '../../../util/';
 
 
 class Groups extends React.Component {
@@ -11,9 +12,12 @@ class Groups extends React.Component {
       title: 'Groups',
     };
 
+
+
     componentWillMount() {
         ContactManager.getContacts( (err, result) => {
             this.setState({contacts: result}, () => {
+                // AsyncStorage.setItem(result, 'Legend').then(console.log('did it'));
                 console.log('State set');
             });
           },
@@ -21,6 +25,11 @@ class Groups extends React.Component {
             console.log(err);
           }
         );
+    }
+    componentDidMount() {
+        // AsyncStorage.getItem('FillMurray').then((value) => {
+        //     console.log(value);
+        // })
     }
 
     render() {

@@ -1,6 +1,6 @@
 import { CardSection } from '../../../util/';
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 
 class GroupList extends Component {
     renderContacts = (contacts) => {
@@ -10,9 +10,9 @@ class GroupList extends Component {
     }
     render() {
         return (
-            <View>
+            <ScrollView>
                 {this.renderContacts(this.props.contacts)}
-            </View>
+            </ScrollView>
         );
     }
 }
