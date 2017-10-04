@@ -11,9 +11,10 @@ import './components/util/LottiePlayer'
 export default class App extends Component {
 
   state = {
+
+    userAuthenticated: true
     userReceived: false,
     checkUserAuthentication: false,
-    userAuthenticated: false,
     firstTimeUser: false
   }
 
