@@ -32,9 +32,12 @@ class Welcome extends React.Component {
                 navigate('Groups')
             }
             />
-            <StartButton>
-                Lets Get Started!
-            </StartButton>
+            <Button
+                title='Lets Get Started!'
+                 onPress={() =>
+                navigate('Who')
+            }
+            />
         </View>
       );
     }

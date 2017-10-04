@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button, View, Image, Text } from 'react-native';
-import { StartButton } from './StartButton';
+import { ActivityIndicator, ListView, Button, Text, View, Image } from 'react-native';
 
 class Who extends React.Component {
     static navigationOptions = {
@@ -10,7 +9,12 @@ class Who extends React.Component {
       const { navigate } = this.props.navigation;
       return ( 
           <View>
-            <Text>Who Shall We Otto?</Text>
+            <Button
+            title="Who Shall We Otto?"
+            onPress={() =>
+                navigate('What')
+            }
+            />
           </View>
       )
     }
