@@ -11,10 +11,10 @@ class Success extends React.Component {
           <View style={styles.mainStyle}>
             <Text style={styles.successText}>You did it!</Text>
             <Image
+            style={styles.imageStyle}
             source={require('../images/check.gif')}
             />
             <Button
-            style={styles.buttonStyle}
             title="Otto Something Else?"
             onPress={() =>
                 navigate('Welcome')
@@ -30,6 +30,9 @@ const styles = {
         fontSize: 24,
         color: '#007aff',
         marginBottom: 20,
+    },
+    imageStyle: {
+        marginBottom: 20
     },
     mainStyle: {
         flex: 1,
