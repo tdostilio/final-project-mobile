@@ -9,7 +9,7 @@ import Login from './components/login/Login'
 export default class App extends Component {
 
   state = {
-    userAuthenticated: false
+    userAuthenticated: true
   }
 
   render() {

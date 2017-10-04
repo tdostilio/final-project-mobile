@@ -1,10 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 const CardSection = (props) => {
     return (
         <View style={styles.containerStyle}>
-            {props.children}
+            {
+                props.contact ? 
+                <Text>{props.contact.givenName.toString()+ " " +props.contact.familyName.toString()}</Text>
+                :<Text>hello</Text>
+            }
         </View>
     );
 };

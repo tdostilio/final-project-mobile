@@ -17,6 +17,7 @@
 		"babel-jest": "21.2.0",
 		"babel-preset-react-native": "4.0.0",
 		"jest": "21.2.1",
+		"react-devtools": "^2.5.2",
 		"react-test-renderer": "16.0.0-alpha.12"
 	},
 	"jest": {
