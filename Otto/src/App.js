@@ -13,17 +13,22 @@ export default class App extends Component {
   state = {
     userReceived: false,
     checkUserAuthentication: false,
-    userAuthenticated: false
+    userAuthenticated: false,
+    firstTimeUser: false
   }
 
   handleUserSubmit = (user) => {
     this.setState({userReceived: true})
   }
 
-  render() {
-    const { userAuthenticated } = this.state
+  handleUserCreate = (user) => {
 
-    if (!userReceived) {
+  }
+
+  render() {
+    const { userAuthenticated, userReceived } = this.state
+
+    if (!userReceived && !userAuthenticated) {
       return (
         <Login
         handleUserSubmit={this.handleUserSubmit}
