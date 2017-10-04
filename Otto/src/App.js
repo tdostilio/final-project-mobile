@@ -5,19 +5,29 @@ import { Logo, Button, CardSection, Spinner } from './components/util/'
 import AppNavigator from './components/navigator/AppNavigator'
 import Login from './components/login/Login'
 
+import './components/util/LottiePlayer'
+
 
 export default class App extends Component {
 
   state = {
+    userReceived: false,
+    checkUserAuthentication: false,
     userAuthenticated: false
+  }
+
+  handleUserSubmit = (user) => {
+    this.setState({userReceived: true})
   }
 
   render() {
     const { userAuthenticated } = this.state
 
-    if (!userAuthenticated) {
+    if (!userReceived) {
       return (
-        <Login />
+        <Login
+        handleUserSubmit={this.handleUserSubmit}
+        />
       )
     }
 
