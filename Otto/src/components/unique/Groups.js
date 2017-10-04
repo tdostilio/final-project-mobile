@@ -1,12 +1,29 @@
 import React from 'react';
 import { Button, View, Text } from 'react-native';
 import { Card, CardSection, Input, Spinner } from '../common';
+import { ContactManager } from 'NativeModules';
+
+
 
 class Groups extends React.Component {
     state = { email: '', password: '', error: '', loading: false };
     static navigationOptions = {
       title: 'Groups',
     };
+
+    componentDidMount() {
+        ContactManager.getContacts( (err, result) => {
+            console.log('haaaay');
+            debugger;
+            console.log(result);
+          },
+          (err) => {
+            console.log('booo');
+            console.log(err);
+          }
+        );
+    }
+
     render() {
       const { navigate } = this.props.navigation;
       return (
