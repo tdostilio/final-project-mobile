@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Animation from 'lottie-react-native';
 
-import anim from '../../assets/lottie/preloader.json';
+import anim from '../../../assets/lottie/preloader';
 
 export default class LottiePlayer extends Component {
   componentDidMount() {

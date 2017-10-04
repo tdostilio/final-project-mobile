@@ -1,9 +1,8 @@
 import React from 'react';
 import { Button, View, Text, AsyncStorage } from 'react-native';
-import { Card, CardSection, Input, Spinner } from '../../../util/';
+import { Card, CardSection, Input, Spinner, LottiePlayer } from '../../../util/';
 import { ContactManager } from 'NativeModules';
 import GroupList from './GroupList';
-import LottiePlayer from '../../../util/';
 
 
 class Groups extends React.Component {
@@ -15,21 +14,22 @@ class Groups extends React.Component {
 
 
     componentWillMount() {
-        ContactManager.getContacts( (err, result) => {
-            this.setState({contacts: result}, () => {
-                // AsyncStorage.setItem(result, 'Legend').then(console.log('did it'));
-                console.log('State set');
-            });
-          },
-          (err) => {
-            console.log(err);
-          }
-        );
+        return (
+            LottiePlayer
+        )
+        // ContactManager.getContacts( (err, result) => {
+        //     this.setState({contacts: result}, () => {
+        //         // AsyncStorage.setItem(result, 'Legend').then(console.log('did it'));
+        //         console.log('State set');
+        //     });
+        //   },
+        //   (err) => {
+        //     console.log(err);
+        //   }
+        // );
     }
     componentDidMount() {
-        // AsyncStorage.getItem('FillMurray').then((value) => {
-        //     console.log(value);
-        // })
+    //  <LottiePlayer />
     }
 
     render() {
@@ -68,6 +68,9 @@ class Groups extends React.Component {
             <View>
                 {this.state.contacts ? <GroupList contacts={this.state.contacts}/>:null}
             </View>
+        </Card>
+        <Card>
+            <LottiePlayer />
         </Card>
       </View>
       );

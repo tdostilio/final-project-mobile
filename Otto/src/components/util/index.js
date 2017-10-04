@@ -8,3 +8,4 @@ export * from './Logo';
 export * from './LogoImage';
 export * from './Navbar';
 export * from './Chatscreen';
+export * from './LottiePlayer';
