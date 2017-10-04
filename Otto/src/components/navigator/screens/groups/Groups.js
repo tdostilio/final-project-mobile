@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button, View, Text, AsyncStorage } from 'react-native';
-import { Card, CardSection, Input, Spinner, LottiePlayer } from '../../../util/';
+import { Card, CardSection, Input, Spinner } from '../../../util/';
 import { ContactManager } from 'NativeModules';
 import GroupList from './GroupList';
+import LottiePlayer from '../../../util/LottiePlayer';
 
 
 class Groups extends React.Component {
@@ -13,24 +14,24 @@ class Groups extends React.Component {
 
 
 
-    componentWillMount() {
-        return (
-            LottiePlayer
-        )
-        // ContactManager.getContacts( (err, result) => {
-        //     this.setState({contacts: result}, () => {
-        //         // AsyncStorage.setItem(result, 'Legend').then(console.log('did it'));
-        //         console.log('State set');
-        //     });
-        //   },
-        //   (err) => {
-        //     console.log(err);
-        //   }
-        // );
-    }
-    componentDidMount() {
-    //  <LottiePlayer />
-    }
+    // componentWillMount() {
+    //     return (
+            
+    //     )
+    //     // ContactManager.getContacts( (err, result) => {
+    //     //     this.setState({contacts: result}, () => {
+    //     //         // AsyncStorage.setItem(result, 'Legend').then(console.log('did it'));
+    //     //         console.log('State set');
+    //     //     });
+    //     //   },
+    //     //   (err) => {
+    //     //     console.log(err);
+    //     //   }
+    //     // );
+    // }
+    // componentDidMount() {
+    // //  <LottiePlayer />
+    // }
 
     render() {
       const { navigate } = this.props.navigation;
@@ -55,14 +56,14 @@ class Groups extends React.Component {
         }
         />
         <Card>
-            {/* <CardSection>
+            <CardSection>
                 <Input 
                     placeholder="Kevin..."
                     label='Name'
                     value={this.state.email}
                     onChangeText={email => this.setState({ email })}
                 />
-            </CardSection> */}
+            </CardSection>
         </Card>
         <Card>
             <View>
