@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, View, Image } from 'react-native';
+import { StartButton } from './StartButton';
 
 class Welcome extends React.Component {
     static navigationOptions = {
@@ -31,6 +32,9 @@ class Welcome extends React.Component {
                 navigate('Groups')
             }
             />
+            <StartButton>
+                Lets Get Started!
+            </StartButton>
         </View>
       );
     }
