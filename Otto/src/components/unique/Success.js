@@ -27,7 +27,9 @@ class Success extends React.Component {
 
 const styles = {
     successText: {
-        fontSize: 18
+        fontSize: 24,
+        color: '#007aff',
+        marginBottom: 20,
     },
     mainStyle: {
         flex: 1,
