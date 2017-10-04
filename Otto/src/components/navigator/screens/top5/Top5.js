@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Button, View } from 'react-native'
 
+import Header from '../../util/Header'
+
 
 export default class Top5 extends Component {
 
@@ -12,25 +14,8 @@ export default class Top5 extends Component {
     const { navigate } = this.props.navigation
     return (
         <View>
-        <Button
-        title="Go to Welcome"
-        onPress={() =>
-            navigate('Welcome')
-        }
-        />
-        <Button
-        title="Go to Home"
-        onPress={() =>
-        navigate('Home')
-        }
-        />
-        <Button
-        title="Go to Groups"
-        onPress={() =>
-            navigate('Groups')
-        }
-        />
-      </View>
+          <Header navigate={navigate}/>
+        </View>
     )
   }
 }
