@@ -8,9 +8,13 @@ class Success extends React.Component {
     render() {
       const { navigate } = this.props.navigation;
       return ( 
-          <View>
+          <View style={styles.mainStyle}>
             <Text style={styles.successText}>You did it!</Text>
+            <Image
+            source={require('../images/check.gif')}
+            />
             <Button
+            style={styles.buttonStyle}
             title="Otto Something Else?"
             onPress={() =>
                 navigate('Welcome')
@@ -23,8 +27,13 @@ class Success extends React.Component {
 
 const styles = {
     successText: {
+        fontSize: 18
+    },
+    mainStyle: {
+        flex: 1,
+        flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     }
 }
 
