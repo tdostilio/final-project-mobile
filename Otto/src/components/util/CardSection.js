@@ -1,10 +1,17 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 const CardSection = (props) => {
+    wrapText = (info) => {
+        return <Text>{info}</Text>
+    }
     return (
         <View style={styles.containerStyle}>
-            {props.children}
+            {
+                props.contact ? 
+                wrapText(props.contact.givenName.toString()+ " " +props.contact.familyName.toString())
+                :wrapText('No Contacts Found')
+            }
         </View>
     );
 };
