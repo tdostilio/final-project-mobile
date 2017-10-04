@@ -45,13 +45,10 @@ export default class Welcome extends Component {
                 }
                 />
             </View>
-        <Image
-        source={logo}
-        style={styles.logoStyle}
-        />
-        <Text>
-            {this.props.first_name}
-        </Text>
+            <Image
+            source={logo}
+            style={styles.logoStyle}
+            />
         </View>
       )
     }
