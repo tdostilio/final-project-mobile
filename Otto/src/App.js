@@ -1,15 +1,30 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-// import WelcomePage from './components/unique/WelcomePage';
-import { Logo, Button, CardSection, Spinner } from './components/common';
-import LottiePlayer from './components/unique/LottiePlayer';
-import AppNavigator from './components/unique/AppNavigator';
+import React, { Component } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
-export default class App extends React.Component {
+import { Logo, Button, CardSection, Spinner } from './components/util/'
+import LottiePlayer from './components/util/LottiePlayer'
+import AppNavigator from './components/navigator/AppNavigator'
+import Login from './components/login/Login'
+
+
+export default class App extends Component {
+
+  state = {
+    userAuthenticated: false
+  }
+
   render() {
+    const { userAuthenticated } = this.state
+
+    if (!userAuthenticated) {
+      return (
+        <Login />
+      )
+    }
+
     return (
         // <LottiePlayer /> 
           <AppNavigator />
-    );
+    )
   }
 }
