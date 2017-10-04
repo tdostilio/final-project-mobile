@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, TextInput, Image, KeyboardAvoidingView } from 'react-native'
-import LinearGradient from 'react-native-linear-gradient'
 
 import mainlogo from '../../static/images/mainlogo.png'
 import LoginForm from './LoginForm'
