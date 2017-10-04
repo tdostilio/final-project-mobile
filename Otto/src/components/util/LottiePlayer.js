@@ -12,7 +12,6 @@ export default class LottiePlayer extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>The ultimate personal relationship manager</Text>
         <View>
           <Animation
             ref={animation => {
@@ -26,7 +25,7 @@ export default class LottiePlayer extends Component {
             source={anim}
           />
         </View>
-      </View>
+    </View>
     );
   }
 }
@@ -38,13 +37,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#A6207E',
     marginTop: 10,
     height: 100
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    marginLeft: 1,
-    marginRight: 1,
-    color: '#ffffff',
-    padding: 10
   }
 });
