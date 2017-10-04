@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Button, View, Text } from 'react-native'
 
 import { Card, CardSection, Input, Spinner } from '../../../../components/util'
+import Header from '../../util/Header'
+
 
 
 export default class Groups extends Component {
@@ -21,24 +23,7 @@ export default class Groups extends Component {
       const { navigate } = this.props.navigation
       return (
         <View>
-            <Button
-            title="Go to Welcome"
-            onPress={() =>
-                navigate('Welcome')
-            }
-            />
-            <Button
-            title="Go to Home"
-            onPress={() =>
-            navigate('Home')
-            }
-            />
-            <Button
-            title="Go to Top 5"
-            onPress={() =>
-                navigate('Top5')
-            }
-            />
+            <Header navigate={navigate}/>
             <Card>
                 <CardSection>
                     <Input 
