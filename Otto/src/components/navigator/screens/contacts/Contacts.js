@@ -5,8 +5,7 @@ import { Card, CardSection, Input, Spinner } from '../../../../components/util'
 import Header from '../../util/Header'
 
 
-
-export default class Groups extends Component {
+export default class Contacts extends Component {
 
     state = {
         email: '',
@@ -16,23 +15,25 @@ export default class Groups extends Component {
     }
 
     static navigationOptions = {
-      title: 'Groups',
+      title: 'Contacts',
     }
 
     render() {
       const { navigate } = this.props.navigation
       return (
         <View>
-            <Header navigate={navigate}/>
+            <Header />
             <Card>
                 <CardSection>
                     <Input 
-                        placeholder="Enter a name..."
+                        placeholder="Enter a name bitch..."
                         label='Name'
                         value={this.state.email}
                         onChangeText={email => this.setState({ email })}
                     />
                 </CardSection>
+            </Card>
+            <Card>
                 <CardSection>
                     {/* <Input 
                         secureTextEntry
