@@ -36,28 +36,14 @@ class Groups extends React.Component {
       return (
         <View>
             <Header navigate={navigate}/>
-            <Card>
-                <CardSection>
-                    <Input 
-                        placeholder="Enter a name..."
-                        label='Name'
-                        value={this.state.email}
-                        onChangeText={email => this.setState({ email })}
-                    />
-                </CardSection>
-                <CardSection>
-                    {/* <Input 
-                        secureTextEntry
-                        placeholder=" minimum six chars"
-                        label="Password"
-                        value={this.state.password}
-                        onChangeText={password => this.setState({ password })}
-                    /> */}
-                </CardSection>
-                <Text style={styles.errorTextStyle}>
-                    {this.state.error}
-                </Text>
-            </Card>
+             <NoStyleCard style={styles.noStyling}>
+                <View>
+                    {this.state.contacts ? <GroupList contacts={this.state.contacts}/>:null}
+                </View>
+               </NoStyleCard>
+               <NoStyleCard style={styles.noStyling}>
+                   <LottiePlayer />
+                </NoStyleCard>
         </View>
       )
     }
