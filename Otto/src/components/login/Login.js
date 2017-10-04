@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, TextInput, Image, KeyboardAvoidingView } from 'react-native'
+import { func } from 'prop-types'
 
 import mainlogo from '../../static/images/mainlogo.png'
 import LoginForm from './LoginForm'
@@ -7,11 +8,12 @@ import LoginForm from './LoginForm'
 
 export default class Login extends Component {
 
-  state = {
-    timePassed: false
+  static propTypes = {
+    handleUserSubmit: func.isRequired
   }
 
   render() {
+    const { handleUserSubmit } = this.props
     return (
       <KeyboardAvoidingView behavior='padding' style={styles.container}>
 
@@ -27,7 +29,7 @@ export default class Login extends Component {
         </View>
 
         <View style={styles.formContainer}>
-          <LoginForm />
+          <LoginForm handleUserSubmit={handleUserSubmit} />
         </View>
 
       </KeyboardAvoidingView>

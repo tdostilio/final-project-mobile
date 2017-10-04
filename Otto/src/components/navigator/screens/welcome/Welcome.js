@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Button, View, Image, Text } from 'react-native'
 
 import logo from '../../../../static/images/mainlogo.png'
+import Header from '../../util/Header'
 
 
 export default class Welcome extends Component {
@@ -11,40 +12,11 @@ export default class Welcome extends Component {
         last_name: 'Hong'
     }
 
-    static navigationOptions = ({ navigation, screenProps }) => ({
-        
-    })
-
     render() {
       const { navigate } = this.props.navigation
       return (
         <View>
-            <View style={styles.navBarContainer}>
-                <Button
-                title="Home"
-                onPress={() =>
-                    navigate('Home')
-                }
-                />
-                <Button
-                title="Top 5"
-                onPress={() =>
-                navigate('Top5')
-                }
-                />
-                <Button
-                title="Contacts"
-                onPress={() =>
-                    navigate('Groups')
-                }
-                />
-                <Button
-                title="Groups"
-                onPress={() =>
-                    navigate('Groups')
-                }
-                />
-            </View>
+            <Header navigate={navigate}/>
             <Image
             source={logo}
             style={styles.logoStyle}
@@ -55,13 +27,7 @@ export default class Welcome extends Component {
   }
 
 const styles = {
-    navBarContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-
     buttonStyle: {
-
     },
 
     logoStyle: {

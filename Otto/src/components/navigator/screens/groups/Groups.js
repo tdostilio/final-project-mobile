@@ -4,6 +4,8 @@ import { Card, CardSection, Input, Spinner, NoStyleCard } from '../../../util/';
 import { ContactManager } from 'NativeModules';
 import GroupList from './GroupList';
 import LottiePlayer from '../../../util/LottiePlayer';
+import { Card, CardSection, Input, Spinner } from '../../../../components/util'
+import Header from '../../util/Header'
 
 
 class Groups extends React.Component {
@@ -33,44 +35,31 @@ class Groups extends React.Component {
       const { navigate } = this.props.navigation;
       return (
         <View>
-        <Button
-        title="Go to Welcome"
-        onPress={() =>
-            navigate('Welcome')
-        }
-        />
-        <Button
-        title="Go to Home"
-        onPress={() =>
-        navigate('Home')
-        }
-        />
-        <Button
-        title="Go to Top 5"
-        onPress={() =>
-            navigate('Top5')
-        }
-        />
-        {/* <Card>
-            <CardSection>
-                <Input 
-                    placeholder="Kevin..."
-                    label='Name'
-                    value={this.state.email}
-                    onChangeText={email => this.setState({ email })}
-                />
-            </CardSection>
-        </Card> */}
-        <NoStyleCard style={styles.noStyling}>
-            <View>
-                {this.state.contacts ? <GroupList contacts={this.state.contacts}/>:null}
-            </View>
-        </NoStyleCard>
-        <NoStyleCard style={styles.noStyling}>
-            <LottiePlayer />
-        </NoStyleCard>
-      </View>
-      );
+            <Header navigate={navigate}/>
+            <Card>
+                <CardSection>
+                    <Input 
+                        placeholder="Enter a name..."
+                        label='Name'
+                        value={this.state.email}
+                        onChangeText={email => this.setState({ email })}
+                    />
+                </CardSection>
+                <CardSection>
+                    {/* <Input 
+                        secureTextEntry
+                        placeholder=" minimum six chars"
+                        label="Password"
+                        value={this.state.password}
+                        onChangeText={password => this.setState({ password })}
+                    /> */}
+                </CardSection>
+                <Text style={styles.errorTextStyle}>
+                    {this.state.error}
+                </Text>
+            </Card>
+        </View>
+      )
     }
   }
 
