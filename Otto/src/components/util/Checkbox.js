@@ -1,7 +1,8 @@
 import React from 'react';
-import { Checkbox } from 'react-native-elements';
+import { CheckBox } from 'react-native-elements';
+import prettyFormat from 'pretty-format';
 
-class Checkbox extends Component {
+class GlobalCheckbox extends React.Component {
     state = { 
         checked: false 
     };
@@ -19,4 +20,4 @@ class Checkbox extends Component {
     }
 }
 
-export default  { Checkbox }
+export default GlobalCheckbox;

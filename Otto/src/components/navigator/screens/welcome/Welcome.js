@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Button, View, Image, Text, ScrollView } from 'react-native';
-import { CheckBox } from 'react-native-elements';
-import prettyFormat from 'pretty-format';
+import CheckBox from '../../../util/Checkbox';
 
 import logo from '../../../../static/images/mainlogo.png';
 import Header from '../../util/Header';
@@ -9,16 +8,14 @@ import Header from '../../util/Header';
 
 export default class Welcome extends Component {
 
-    state = {
-        checked: false,
-    }
-
     static defaultProps = {
         first_name: 'James',
         last_name: 'Hong'
     }
 
     render() {
+      console.log(CheckBox);
+
       const { navigate } = this.props.navigation
       return (
         <ScrollView>
@@ -29,49 +26,29 @@ export default class Welcome extends Component {
             />
             <View>
                 <View style={styles.optionButtonStyle}>
-                    <CheckBox
-                        title='Click Here'
-                        checked={this.state.checked}
-                        onPress={() => this.setState({
-                            checked: !this.state.checked
-                        })}
-                    />
+                     <CheckBox
+                    /> 
                     <Button
                         title={"Reminder"}
                     />
                 </View>
                 <View style={styles.optionButtonStyle}>
-                    <CheckBox
-                        title='Click Here'
-                        checked={this.state.checked}
-                        onPress={() => this.setState({
-                            checked: !this.state.checked
-                        })}
-                    />
+                     <CheckBox
+                    /> 
                     <Button
                         title={"Text"}
                     />
                 </View>
                 <View style={styles.optionButtonStyle}>
-                    <CheckBox
-                        title='Click Here'
-                        checked={this.state.checked}
-                        onPress={() => this.setState({
-                            checked: !this.state.checked
-                        })}
-                    />
+                     <CheckBox
+                    /> 
                     <Button
                         title={"Phone"}
                     />
                 </View>
                 <View style={styles.optionButtonStyle}>
-                    <CheckBox
-                        title='Click Here'
-                        checked={this.state.checked}
-                        onPress={() => this.setState({
-                            checked: !this.state.checked
-                        })}
-                    />
+                     <CheckBox
+                    /> 
                     <Button
                         title={"Venmo"}
                     />
