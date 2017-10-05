@@ -14,8 +14,6 @@ class Contacts extends React.Component {
       title: 'Contacts',
     };
 
-
-
     componentWillMount() {
         return (
             ContactManager.getContacts( (err, result) => {
@@ -33,10 +31,9 @@ class Contacts extends React.Component {
 
     render() {
       console.log(this.state.contacts);
-      console.log('Durr hellO!');
       const { navigate } = this.props.navigation;
       return (
-        <View>
+        <View style={{ flex: 1 }}>
             <Header navigate={navigate}/>
              <View>
                 <View>
@@ -60,7 +57,6 @@ const styles = {
         color: 'red'
     },
     contactStyles: {
-        alignItems: 'center'
     },
     lottieStyle: {
         marginTop: 100

@@ -1,11 +1,13 @@
 import { CardSection } from '../../../util/';
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, TouchableOpacity } from 'react-native';
 
 class GroupList extends Component {
     renderContacts = (contacts) => {
         return contacts.map( (item, key) => {
-            return <CardSection contact={item} key={key}/>
+            return <TouchableOpacity>
+                        <CardSection contact={item} key={key} style={{justifyContent: 'center'}}/>
+                    </TouchableOpacity> 
         })
     }
     render() {
