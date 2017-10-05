@@ -3,10 +3,10 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 const ContactCard = (props) => {
     wrapText = (info) => {
-        return <Text>{info}</Text>
+        return <Text style={styles.textStyle}>{info}</Text>
     }
     return (
-        <TouchableOpacity onPress={() => {console.log('hello')}}>
+        <TouchableOpacity onPress={() => {console.log(props.contact)}}>
             <View style={styles.containerStyle}>
             {
                 props.contact ? 
@@ -26,7 +26,9 @@ const styles = {
         justifyContent: 'center',
         flexDirection: 'row',
         borderColor: '#ddd',
-        
+    },
+    textStyle: {
+        fontSize: 20
     }
 };
 
