@@ -4,14 +4,14 @@ import { Button, View, Text, AsyncStorage } from 'react-native';
 import { ContactManager } from 'NativeModules';
 import ContactList from './ContactList';
 import LottiePlayer from '../../../util/LottiePlayer';
-import { Card, CardSection, Input, Spinner, NoStyleCard } from '../../../../components/util'
-import Header from '../../util/Header'
+import { Card, CardSection, Input, Spinner } from '../../../../components/util';
+import Header from '../../util/Header';
 
 
 class Contacts extends React.Component {
-    state = { email: '', password: '', error: '', loading: false, contacts: [] };
+    state = { email: '', password: '', error: '', loading: false, contacts: null };
     static navigationOptions = {
-      title: 'Groups',
+      title: 'Contacts',
     };
 
 
@@ -32,20 +32,22 @@ class Contacts extends React.Component {
     }
 
     render() {
+      console.log(this.state.contacts);
+      console.log('Durr hellO!');
       const { navigate } = this.props.navigation;
       return (
         <View>
             <Header navigate={navigate}/>
-             <NoStyleCard style={styles.noStyling}>
-                <View style={styles.noStyling}>
-                    {this.state.contacts 
+             <View>
+                <View>
+                    {this.state.contacts
                     ? <ContactList contacts={this.state.contacts}/>
-                    :   <NoStyleCard style={styles.noStyling}>
+                    :   <View>
                             <LottiePlayer />
-                        </NoStyleCard>
+                        </View>
                     }
                 </View>
-            </NoStyleCard>
+            </View>
         </View>
       )
     }
@@ -58,7 +60,7 @@ const styles = {
         color: 'red'
     },
     noStyling: {
-        paddingTop: 200
+        // paddingTop: 200
     }
 };
   

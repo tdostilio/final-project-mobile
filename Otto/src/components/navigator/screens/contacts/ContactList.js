@@ -19,7 +19,8 @@ class ContactList extends Component {
 
 styles = {
     ContactStyle: {
-        justifyContent: 'center'
+        justifyContent: 'center',
+        flex: 1
     }
 }
 
