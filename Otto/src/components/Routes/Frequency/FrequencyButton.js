@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { TouchableOpacity, Text } from 'react-native';
 
 const FrequencyButton = ({ onPress, children }) => {
     const { buttonStyle, textStyle } = styles;
@@ -32,7 +33,5 @@ const styles = {
 
     }
 };
-
-
 
 export default FrequencyButton;
