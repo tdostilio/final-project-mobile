@@ -1,11 +1,11 @@
-import { CardSection } from '../../../components/util';
+import { ContactCard } from './ContactCard';
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 
 class ContactList extends Component {
     renderContacts = (contacts) => {
         return contacts.map( (item, key) => {
-            return <CardSection style={styles.ContactStyle} contact={item} key={key}/>
+            return <ContactCard style={styles.ContactStyle} contact={item} key={key}/>
         })
     }
     render() {
@@ -17,10 +17,7 @@ class ContactList extends Component {
     }
 }
 
-styles = {
-    scrollContainer: {
-        backgroundColor: `#C5E4DB`
-    },
+const styles = {
     ContactStyle: {
         alignSelf: 'center',
         borderWidth: 1,
