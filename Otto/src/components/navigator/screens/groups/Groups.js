@@ -37,9 +37,9 @@ class Groups extends React.Component {
         <View>
             <Header navigate={navigate}/>
              <NoStyleCard style={styles.noStyling}>
-                <View>
-                    {this.state.contacts ? <GroupList contacts={this.state.contacts}/>:null}
-                </View>
+            <View>
+                {this.state.contacts ? <GroupList contacts={this.state.contacts}/>:null}
+            </View>
                </NoStyleCard>
                <NoStyleCard style={styles.noStyling}>
                    <LottiePlayer />
