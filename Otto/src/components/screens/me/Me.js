@@ -30,7 +30,7 @@ export default class Me extends Component {
 
         <View style={styles.headerContainer}>
           <Text
-            style={{fontSize: 24, color: '#156497'}}>
+            style={styles.headerText}>
             Welcome Pill Murray!
           </Text>
         </View>
@@ -88,8 +88,8 @@ export default class Me extends Component {
 
       </View>
     )
-  }
-}
+  } // Render
+} // Me Component
 
 
 const styles = {
@@ -102,6 +102,10 @@ const styles = {
   },
   headerContainer: {
     marginBottom: 15
+  },
+  headerText: {
+    fontSize: 24,
+    color: '#156497'
   },
 
   profilePhotoContainer: {
