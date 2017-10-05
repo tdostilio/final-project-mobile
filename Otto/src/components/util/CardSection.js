@@ -7,11 +7,7 @@ const CardSection = (props) => {
     }
     return (
         <View style={styles.containerStyle}>
-            {
-                props.contact ? 
-                wrapText(props.contact.givenName.toString()+ " " +props.contact.familyName.toString())
-                :wrapText('No Contacts Found')
-            }
+            {props.children}  
         </View>
     );
 };

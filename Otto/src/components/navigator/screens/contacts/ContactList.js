@@ -1,11 +1,11 @@
-import { CardSection } from '../../../util/';
+import { ContactCard } from './ContactCard';
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 
 class ContactList extends Component {
     renderContacts = (contacts) => {
         return contacts.map( (item, key) => {
-            return <CardSection style={styles.ContactStyle} contact={item} key={key}/>
+            return <ContactCard style={styles.ContactStyle} contact={item} key={key}/>
         })
     }
     render() {
