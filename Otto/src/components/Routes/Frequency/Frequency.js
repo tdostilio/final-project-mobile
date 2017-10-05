@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { FrequencyButton } from './FrequencyButton';
+import FrequencyButton from './FrequencyButton';
 
 export default class Frequency extends Component {
     render() {
