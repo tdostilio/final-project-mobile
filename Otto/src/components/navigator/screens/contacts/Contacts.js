@@ -41,8 +41,8 @@ class Contacts extends React.Component {
              <View>
                 <View>
                     {this.state.contacts
-                    ? <ContactList contacts={this.state.contacts}/>
-                    :   <View>
+                    ? <ContactList contacts={this.state.contacts} style={styles.contactStyles}/>
+                    :   <View style={styles.lottieStyle}>
                             <LottiePlayer />
                         </View>
                     }
@@ -59,8 +59,11 @@ const styles = {
         alignSelf: 'center',
         color: 'red'
     },
-    noStyling: {
-        // paddingTop: 200
+    contactStyles: {
+        alignItems: 'center'
+    },
+    lottieStyle: {
+        marginTop: 100
     }
 };
   

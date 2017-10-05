@@ -19,7 +19,9 @@ class ContactList extends Component {
 
 styles = {
     ContactStyle: {
-        justifyContent: 'center',
+        alignSelf: 'center',
+        borderWidth: 1,
+        borderColor: 'red',
         flex: 1
     }
 }
