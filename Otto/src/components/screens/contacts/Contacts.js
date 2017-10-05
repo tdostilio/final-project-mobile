@@ -72,4 +72,3 @@ const styles = {
     }
 };
   
-Add Comment
