@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button, View, Text, AsyncStorage } from 'react-native';
-// import { Card, CardSection, Input, Spinner, NoStyleCard } from '../../../util/';
+// import { Card, CardSection, Input, Spinner, View } from '../../../util/';
 import { ContactManager } from 'NativeModules';
 import GroupList from './GroupList';
 import LottiePlayer from '../../../util/LottiePlayer';
-import { Card, CardSection, Input, Spinner, NoStyleCard } from '../../../../components/util'
+import { Card, CardSection, Input, Spinner } from '../../../../components/util'
 import Header from '../../util/Header'
 
 
@@ -36,14 +36,14 @@ class Groups extends React.Component {
       return (
         <View>
             <Header navigate={navigate}/>
-             <NoStyleCard style={styles.noStyling}>
-                <View>
-                    {this.state.contacts ? <GroupList contacts={this.state.contacts}/>:null}
-                </View>
-               </NoStyleCard>
-               <NoStyleCard style={styles.noStyling}>
+             <View style={styles.noStyling}>
+            <View>
+                {this.state.contacts ? <GroupList contacts={this.state.contacts}/>:null}
+            </View>
+               </View>
+               <View style={styles.noStyling}>
                    <LottiePlayer />
-                </NoStyleCard>
+                </View>
         </View>
       )
     }
@@ -56,7 +56,7 @@ const styles = {
         color: 'red'
     },
     noStyling: {
-        marginTop: 200
+        // marginTop: 200
     }
 };
   

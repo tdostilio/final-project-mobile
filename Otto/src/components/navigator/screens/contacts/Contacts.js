@@ -1,61 +1,72 @@
-import React, { Component } from 'react'
-import { Button, View, Text } from 'react-native'
+import React from 'react';
+import { Button, View, Text, AsyncStorage } from 'react-native';
+// import { Card, CardSection, Input, Spinner, NoStyleCard } from '../../../util/';
+import { ContactManager } from 'NativeModules';
+import ContactList from './ContactList';
+import LottiePlayer from '../../../util/LottiePlayer';
+import { Card, CardSection, Input, Spinner } from '../../../../components/util';
+import Header from '../../util/Header';
 
-import { Card, CardSection, Input, Spinner } from '../../../../components/util'
-import Header from '../../util/Header'
 
-
-export default class Contacts extends Component {
-
-    state = {
-        email: '',
-        password: '',
-        error: '',
-        loading: false
-    }
-
+class Contacts extends React.Component {
+    state = { email: '', password: '', error: '', loading: false, contacts: null };
     static navigationOptions = {
       title: 'Contacts',
+    };
+
+
+
+    componentWillMount() {
+        return (
+            ContactManager.getContacts( (err, result) => {
+                this.setState({contacts: result}, () => {
+                    // AsyncStorage.setItem(result, 'Legend').then(console.log('did it'));
+                    console.log('State set');
+                });
+            },
+            (err) => {
+                console.log(err);
+            }
+            )
+        );
     }
 
     render() {
-      const { navigate } = this.props.navigation
+      console.log(this.state.contacts);
+      console.log('Durr hellO!');
+      const { navigate } = this.props.navigation;
       return (
         <View>
-            <Header />
-            <Card>
-                <CardSection>
-                    <Input 
-                        placeholder="Enter a name bitch..."
-                        label='Name'
-                        value={this.state.email}
-                        onChangeText={email => this.setState({ email })}
-                    />
-                </CardSection>
-            </Card>
-            <Card>
-                <CardSection>
-                    {/* <Input 
-                        secureTextEntry
-                        placeholder=" minimum six chars"
-                        label="Password"
-                        value={this.state.password}
-                        onChangeText={password => this.setState({ password })}
-                    /> */}
-                </CardSection>
-                <Text style={styles.errorTextStyle}>
-                    {this.state.error}
-                </Text>
-            </Card>
+            <Header navigate={navigate}/>
+             <View>
+                <View>
+                    {this.state.contacts
+                    ? <ContactList contacts={this.state.contacts} style={styles.contactStyles}/>
+                    :   <View style={styles.lottieStyle}>
+                            <LottiePlayer />
+                        </View>
+                    }
+                </View>
+            </View>
         </View>
       )
     }
-}
+  }
 
 const styles = {
     errorTextStyle: {
         fontSize: 20,
         alignSelf: 'center',
         color: 'red'
+    },
+    contactStyles: {
+        alignItems: 'center'
+    },
+    lottieStyle: {
+        marginTop: 100
     }
-}
+};
+  
+  export default Contacts;
+  
+  

@@ -21,7 +21,7 @@ const Header = (props) => {
       <Button
       title="Contacts"
       onPress={() =>
-          props.navigate('Groups')
+          props.navigate('Contacts')
       }
       />
       <Button
