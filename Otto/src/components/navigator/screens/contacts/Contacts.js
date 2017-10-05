@@ -37,13 +37,15 @@ class Contacts extends React.Component {
         <View>
             <Header navigate={navigate}/>
              <NoStyleCard style={styles.noStyling}>
-            <View>
-                {this.state.contacts ? <ContactList contacts={this.state.contacts}/>:null}
-            </View>
-               </NoStyleCard>
-               <NoStyleCard style={styles.noStyling}>
-                   <LottiePlayer />
-                </NoStyleCard>
+                <View style={styles.noStyling}>
+                    {this.state.contacts 
+                    ? <ContactList contacts={this.state.contacts}/>
+                    :   <NoStyleCard style={styles.noStyling}>
+                            <LottiePlayer />
+                        </NoStyleCard>
+                    }
+                </View>
+            </NoStyleCard>
         </View>
       )
     }
@@ -56,7 +58,7 @@ const styles = {
         color: 'red'
     },
     noStyling: {
-        marginTop: 200
+        paddingTop: 200
     }
 };
   

@@ -5,7 +5,7 @@ import { ScrollView } from 'react-native';
 class ContactList extends Component {
     renderContacts = (contacts) => {
         return contacts.map( (item, key) => {
-            return <CardSection contact={item} key={key}/>
+            return <CardSection style={styles.ContactStyle} contact={item} key={key}/>
         })
     }
     render() {
@@ -14,6 +14,12 @@ class ContactList extends Component {
                 {this.renderContacts(this.props.contacts)}
             </ScrollView>
         );
+    }
+}
+
+styles = {
+    ContactStyle: {
+        justifyContent: 'center'
     }
 }
 
