@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, View, Image, Text } from 'react-native';
+import { Button, View, Image, Text, ScrollView } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import prettyFormat from 'pretty-format';
 
@@ -10,7 +10,7 @@ import Header from '../../util/Header';
 export default class Welcome extends Component {
 
     state = {
-        checked: true,
+        checked: false,
     }
 
     static defaultProps = {
@@ -21,42 +21,61 @@ export default class Welcome extends Component {
     render() {
       const { navigate } = this.props.navigation
       return (
-        <View>
+        <ScrollView>
             <Header navigate={navigate}/>
             <Image
             source={logo}
             style={styles.logoStyle}
             />
             <View>
-                <CheckBox
-                    title='Click Here'
-                    checked={this.state.checked}
-                />
-                <Button
-                    title={"Reminder"}
-                />
-                 <CheckBox
-                    title='Click Here'
-                    checked={this.state.checked}
-                />
-                <Button
-                    title={"Text"}
-                />
-                 <CheckBox
-                    title='Click Here'
-                    checked={this.state.checked}
-                />
-                <Button
-                    title={"Phone"}
-                />
-                 <CheckBox
-                    title='Click Here'
-                    checked={this.state.checked}
-                />
-                <Button
-                    title={"Venmo"}
-                />
-
+                <View style={styles.optionButtonStyle}>
+                    <CheckBox
+                        title='Click Here'
+                        checked={this.state.checked}
+                        onPress={() => this.setState({
+                            checked: !this.state.checked
+                        })}
+                    />
+                    <Button
+                        title={"Reminder"}
+                    />
+                </View>
+                <View style={styles.optionButtonStyle}>
+                    <CheckBox
+                        title='Click Here'
+                        checked={this.state.checked}
+                        onPress={() => this.setState({
+                            checked: !this.state.checked
+                        })}
+                    />
+                    <Button
+                        title={"Text"}
+                    />
+                </View>
+                <View style={styles.optionButtonStyle}>
+                    <CheckBox
+                        title='Click Here'
+                        checked={this.state.checked}
+                        onPress={() => this.setState({
+                            checked: !this.state.checked
+                        })}
+                    />
+                    <Button
+                        title={"Phone"}
+                    />
+                </View>
+                <View style={styles.optionButtonStyle}>
+                    <CheckBox
+                        title='Click Here'
+                        checked={this.state.checked}
+                        onPress={() => this.setState({
+                            checked: !this.state.checked
+                        })}
+                    />
+                    <Button
+                        title={"Venmo"}
+                    />
+                </View>
             </View>
             <View style={styles.optionButtonStyle}>
                 <Button 
@@ -66,7 +85,7 @@ export default class Welcome extends Component {
                     title={"Recurring"}
                 />
             </View>
-        </View>
+        </ScrollView>
       )
     }
   }
