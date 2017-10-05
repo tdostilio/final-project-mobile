@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import { TouchableOpacity, ActivityIndicator, ListView, Button, Text, View, Image } from 'react-native'
+import {
+  TouchableOpacity, ActivityIndicator,
+  ListView, Button, Text, View, Image
+} from 'react-native'
 
 
 export default class Me extends Component {
