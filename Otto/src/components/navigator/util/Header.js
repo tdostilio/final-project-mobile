@@ -30,6 +30,12 @@ const Header = (props) => {
           props.navigate('Groups')
       }
       />
+      <Button
+      title="Frequency"
+      onPress={() =>
+          props.navigate('Frequency')
+      }
+      />
     </View>
   )
 }

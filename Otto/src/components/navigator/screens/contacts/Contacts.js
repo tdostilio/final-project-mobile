@@ -17,6 +17,21 @@ class Contacts extends React.Component {
     componentWillMount() {
         return (
             ContactManager.getContacts( (err, result) => {
+                result.sort( (a, b) => {
+                    if (a.familyName > b.familyName) {
+                        return 1
+                    }
+                    else if (a.familyName < b.familyName) {
+                        return -1
+                    }
+                    if (a.givenName > b.givenName) {
+                        return 1
+                    }
+                    else if (a.givenName < b.givenName) {
+                        return -1
+                    }
+                    return 0
+                })
                 this.setState({contacts: result}, () => {
                     // AsyncStorage.setItem(result, 'Legend').then(console.log('did it'));
                     console.log('State set');
