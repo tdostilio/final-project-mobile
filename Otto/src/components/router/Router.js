@@ -21,11 +21,7 @@ const Router = TabNavigator(
       screen: Me,
       navigationOptions: {
         tabBarLabel: 'Me',
-      },
-      tabBarIcon: ({ tintColor }) => <Image
-      source={require('../../static/images/Mobile_Icon.png')}
-      style={[styles.meLogo, {tintColor: tintColor}]}
-    />
+      }
 
     },
     Contacts: {

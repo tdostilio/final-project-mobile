@@ -32,12 +32,16 @@ export default class Contacts extends React.Component {
       console.log(this.state.contacts);
       const { navigate } = this.props.navigation;
       return (
+<<<<<<< HEAD
 <<<<<<< HEAD:Otto/src/components/navigator/screens/contacts/Contacts.js
         <View style={{ flex: 1 }}>
             <Header navigate={navigate}/>
 =======
         <View style={styles.container}>
 >>>>>>> feature1-james:Otto/src/components/screens/contacts/Contacts.js
+=======
+        <View style={styles.container}>
+>>>>>>> 7c39998e040e4fe97ba7e27536e872194b0d4ca8
              <View>
                 <View style={styles.contactContainer}>
                     {this.state.contacts
@@ -68,11 +72,16 @@ const styles = {
         backgroundColor: `#C5E4DB`
     },
     contactStyles: {
+<<<<<<< HEAD
 <<<<<<< HEAD:Otto/src/components/navigator/screens/contacts/Contacts.js
 =======
         alignItems: 'center',
         backgroundColor: `#C5E4DB`
 >>>>>>> feature1-james:Otto/src/components/screens/contacts/Contacts.js
+=======
+        alignItems: 'center',
+        backgroundColor: `#C5E4DB`
+>>>>>>> 7c39998e040e4fe97ba7e27536e872194b0d4ca8
     },
     lottieStyle: {
         marginTop: 100,
