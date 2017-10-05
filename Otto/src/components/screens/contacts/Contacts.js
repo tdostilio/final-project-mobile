@@ -3,12 +3,11 @@ import { Button, View, Text, AsyncStorage } from 'react-native';
 // import { Card, CardSection, Input, Spinner, NoStyleCard } from '../../../util/';
 import { ContactManager } from 'NativeModules';
 import ContactList from './ContactList';
-import LottiePlayer from '../../../util/LottiePlayer';
-import { Card, CardSection, Input, Spinner } from '../../../../components/util';
-import Header from '../../util/Header';
+import LottiePlayer from '../../util/LottiePlayer';
+import { Card, CardSection, Input, Spinner } from '../../../components/util';
 
 
-class Contacts extends React.Component {
+export default class Contacts extends React.Component {
     state = { email: '', password: '', error: '', loading: false, contacts: null };
     static navigationOptions = {
       title: 'Contacts',
@@ -33,10 +32,14 @@ class Contacts extends React.Component {
       console.log(this.state.contacts);
       const { navigate } = this.props.navigation;
       return (
+<<<<<<< HEAD:Otto/src/components/navigator/screens/contacts/Contacts.js
         <View style={{ flex: 1 }}>
             <Header navigate={navigate}/>
+=======
+        <View style={styles.container}>
+>>>>>>> feature1-james:Otto/src/components/screens/contacts/Contacts.js
              <View>
-                <View>
+                <View style={styles.contactContainer}>
                     {this.state.contacts
                     ? <ContactList contacts={this.state.contacts} style={styles.contactStyles}/>
                     :   <View style={styles.lottieStyle}>
@@ -51,18 +54,29 @@ class Contacts extends React.Component {
   }
 
 const styles = {
+    container: {
+        flex: 1,
+        backgroundColor: `#C5E4DB`
+    },
+    contactContainer: {
+        backgroundColor: `#C5E4DB`
+    },
     errorTextStyle: {
         fontSize: 20,
         alignSelf: 'center',
-        color: 'red'
+        color: 'red',
+        backgroundColor: `#C5E4DB`
     },
     contactStyles: {
+<<<<<<< HEAD:Otto/src/components/navigator/screens/contacts/Contacts.js
+=======
+        alignItems: 'center',
+        backgroundColor: `#C5E4DB`
+>>>>>>> feature1-james:Otto/src/components/screens/contacts/Contacts.js
     },
     lottieStyle: {
-        marginTop: 100
+        marginTop: 100,
+        backgroundColor: `#C5E4DB`
     }
 };
-  
-  export default Contacts;
-  
   

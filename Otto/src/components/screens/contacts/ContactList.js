@@ -10,20 +10,24 @@ class ContactList extends Component {
     }
     render() {
         return (
-            <ScrollView>
+            <ScrollView style={styles.scrollContainer}>
                 {this.renderContacts(this.props.contacts)}
             </ScrollView>
         );
     }
 }
 
+<<<<<<< HEAD:Otto/src/components/navigator/screens/contacts/ContactList.js
 styles = {
 
+=======
+const styles = {
+>>>>>>> feature1-james:Otto/src/components/screens/contacts/ContactList.js
     ContactStyle: {
         alignSelf: 'center',
         borderWidth: 1,
         borderColor: 'red',
-        flex: 1
+        backgroundColor: `#C5E4DB`
     }
 }
 
