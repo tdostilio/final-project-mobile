@@ -21,7 +21,7 @@ const ContactCard = (props) => {
 const styles = {
     containerStyle: {
         borderBottomWidth: 1,
-        padding: 5,
+        padding: 10,
         backgroundColor: '#fff',
         justifyContent: 'center',
         flexDirection: 'row',

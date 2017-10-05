@@ -18,6 +18,7 @@ class ContactList extends Component {
 }
 
 styles = {
+
     ContactStyle: {
         alignSelf: 'center',
         borderWidth: 1,

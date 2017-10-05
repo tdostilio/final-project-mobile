@@ -14,8 +14,6 @@ class Contacts extends React.Component {
       title: 'Contacts',
     };
 
-
-
     componentWillMount() {
         return (
             ContactManager.getContacts( (err, result) => {
