@@ -1,11 +1,17 @@
-import React, { Component } from 'react'
-import { Button, View, Image, Text } from 'react-native'
+import React, { Component } from 'react';
+import { Button, View, Image, Text } from 'react-native';
+import { CheckBox } from 'react-native-elements';
+import prettyFormat from 'pretty-format';
 
-import logo from '../../../../static/images/mainlogo.png'
-import Header from '../../util/Header'
+import logo from '../../../../static/images/mainlogo.png';
+import Header from '../../util/Header';
 
 
 export default class Welcome extends Component {
+
+    state = {
+        checked: true,
+    }
 
     static defaultProps = {
         first_name: 'James',
@@ -22,14 +28,30 @@ export default class Welcome extends Component {
             style={styles.logoStyle}
             />
             <View>
+                <CheckBox
+                    title='Click Here'
+                    checked={this.state.checked}
+                />
                 <Button
                     title={"Reminder"}
+                />
+                 <CheckBox
+                    title='Click Here'
+                    checked={this.state.checked}
                 />
                 <Button
                     title={"Text"}
                 />
+                 <CheckBox
+                    title='Click Here'
+                    checked={this.state.checked}
+                />
                 <Button
                     title={"Phone"}
+                />
+                 <CheckBox
+                    title='Click Here'
+                    checked={this.state.checked}
                 />
                 <Button
                     title={"Venmo"}
