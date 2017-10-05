@@ -30,7 +30,6 @@ export default class Contacts extends React.Component {
 
     render() {
       console.log(this.state.contacts);
-      console.log('Durr hellO!');
       const { navigate } = this.props.navigation;
       return (
         <View style={styles.container}>
