@@ -1,18 +1,20 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 const ContactCard = (props) => {
     wrapText = (info) => {
         return <Text>{info}</Text>
     }
     return (
-        <View style={styles.containerStyle}>
+        <TouchableOpacity onPress={() => {console.log('hello')}}>
+            <View style={styles.containerStyle}>
             {
                 props.contact ? 
                 wrapText(props.contact.givenName.toString()+ " " +props.contact.familyName.toString())
                 :wrapText('No Contacts Found')
             }
-        </View>
+            </View>
+        </TouchableOpacity>
     );
 };
 
