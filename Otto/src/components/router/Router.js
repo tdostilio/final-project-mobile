@@ -1,6 +1,5 @@
 import React from 'react'
 import { TabNavigator } from 'react-navigation'
-import { Icon } from 'react-native-elements'
 
 import Me from '../screens/me/Me'
 import Contacts from '../screens/contacts/Contacts'
