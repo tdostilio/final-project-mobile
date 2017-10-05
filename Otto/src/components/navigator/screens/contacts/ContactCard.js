@@ -28,7 +28,8 @@ const styles = {
         borderColor: '#ddd',
     },
     textStyle: {
-        fontSize: 20
+        fontSize: 20,
+        color: '#6495ed'
     }
 };
 

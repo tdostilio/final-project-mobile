@@ -35,7 +35,7 @@ class Contacts extends React.Component {
       console.log(this.state.contacts);
       const { navigate } = this.props.navigation;
       return (
-        <View>
+        <View style={{ flex: 1 }}>
             <Header navigate={navigate}/>
              <View>
                 <View>
