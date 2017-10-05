@@ -33,7 +33,6 @@ class Contacts extends React.Component {
 
     render() {
       console.log(this.state.contacts);
-      console.log('Durr hellO!');
       const { navigate } = this.props.navigation;
       return (
         <View>
@@ -60,7 +59,6 @@ const styles = {
         color: 'red'
     },
     contactStyles: {
-        alignItems: 'center'
     },
     lottieStyle: {
         marginTop: 100
