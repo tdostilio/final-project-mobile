@@ -21,6 +21,29 @@ export default class Welcome extends Component {
             source={logo}
             style={styles.logoStyle}
             />
+            <View>
+                <Button
+                    title={"Reminder"}
+                />
+                <Button
+                    title={"Text"}
+                />
+                <Button
+                    title={"Phone"}
+                />
+                <Button
+                    title={"Venmo"}
+                />
+
+            </View>
+            <View style={styles.optionButtonStyle}>
+                <Button 
+                    title={"One Time"}
+                />
+                <Button 
+                    title={"Recurring"}
+                />
+            </View>
         </View>
       )
     }
@@ -29,7 +52,10 @@ export default class Welcome extends Component {
 const styles = {
     buttonStyle: {
     },
-
+    optionButtonStyle: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
     logoStyle: {
     height: 200, 
     width: 200, 
