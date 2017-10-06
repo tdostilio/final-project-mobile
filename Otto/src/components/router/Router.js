@@ -1,7 +1,7 @@
 import React from 'react'
 import { Image } from 'react-native'
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'
-
+import Welcome from '../screens/welcome/Welcome';
 import Me from '../screens/me/Me'
 import Contacts from '../screens/contacts/Contacts'
 import Groups from '../screens/groups/Groups'
@@ -112,7 +112,17 @@ const Router = TabNavigator(
       )
         
       }
-    }
+    },
+    Welcome: {
+      screen: Welcome,
+      navigationOptions: {
+        tabBarLabel: 'Welcome',
+        tabBarIcon: ({ tintColor }) => (
+          <Image
+            source={require('../../static/images/settings.png')}
+            style={{width: 35, height: 35, tintColor: 'white'}}>
+          </Image>
+      )}}
   },
   // ui for entire tab bar
   {

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Button, View, Image, Text, ScrollView } from 'react-native';
-import CheckBox from '../../../util/Checkbox';
-
-import logo from '../../../../static/images/mainlogo.png';
-import Header from '../../util/Header';
+import logo from '../../../static/images/mainlogo.png';
+import CheckBox from '../../util/Checkbox';
 
 
 export default class Welcome extends Component {
@@ -19,7 +17,7 @@ export default class Welcome extends Component {
       const { navigate } = this.props.navigation
       return (
         <ScrollView>
-            <Header navigate={navigate}/>
+            {/* <Header navigate={navigate}/> */}
             <Image
             source={logo}
             style={styles.logoStyle}
