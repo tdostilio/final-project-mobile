@@ -31,7 +31,7 @@ export default class Me extends Component {
         <View style={styles.headerContainer}>
           <Text
             style={styles.headerText}>
-            Welcome Pill Murray!
+            Welcome Fill Murray!
           </Text>
         </View>
 
