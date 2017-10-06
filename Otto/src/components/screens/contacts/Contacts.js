@@ -1,22 +1,32 @@
 import React from 'react';
-import { Button, View, Text, AsyncStorage } from 'react-native';
+import { View } from 'react-native';
 import { ContactManager } from 'NativeModules';
-
 import ContactList from './ContactList';
 import LottiePlayer from '../../util/LottiePlayer';
-import { Card, CardSection, Input, Spinner } from '../../../components/util';
 
 
-export default class Contacts extends React.Component {
-    state = { email: '', password: '', error: '', loading: false, contacts: null };
+class Contacts extends React.Component {
     static navigationOptions = {
       title: 'Contacts',
     };
+    state = { email: '', password: '', error: '', loading: false, contacts: null };
 
     componentWillMount() {
         return (
-            ContactManager.getContacts( (err, result) => {
-                this.setState({contacts: result}, () => {
+            ContactManager.getContacts((err, result) => {
+                result.sort((a, b) => {
+                    if (a.familyName > b.familyName) {
+                        return 1;
+                    } else if (a.familyName < b.familyName) {
+                        return -1;
+                    } if (a.givenName > b.givenName) {
+                        return 1;
+                    } else if (a.givenName < b.givenName) {
+                        return -1;
+                    }
+                    return 0;
+                });
+                this.setState({ contacts: result }, () => {
                     // AsyncStorage.setItem(result, 'Legend').then(console.log('did it'));
                     console.log('State set');
                 });
@@ -32,12 +42,12 @@ export default class Contacts extends React.Component {
       console.log(this.state.contacts);
       const { navigate } = this.props.navigation;
       return (
-        <View style={styles.container}>
+        <View style={{ flex: 1 }}>
              <View>
-                <View style={styles.contactContainer}>
+                <View>
                     {this.state.contacts
                     ? <ContactList contacts={this.state.contacts} style={styles.contactStyles}/>
-                    :   <View style={styles.lottieStyle}>
+                    :<View style={styles.lottieStyle}>
                             <LottiePlayer />
                         </View>
                     }
@@ -49,26 +59,18 @@ export default class Contacts extends React.Component {
   }
 
 const styles = {
-    container: {
-        flex: 1,
-        backgroundColor: `#C5E4DB`
-    },
-    contactContainer: {
-        backgroundColor: `#C5E4DB`
-    },
     errorTextStyle: {
         fontSize: 20,
         alignSelf: 'center',
-        color: 'red',
-        backgroundColor: `#C5E4DB`
+        color: 'red'
     },
     contactStyles: {
-        alignItems: 'center',
-        backgroundColor: `#C5E4DB`
     },
     lottieStyle: {
-        marginTop: 100,
-        backgroundColor: `#C5E4DB`
+        marginTop: 100
     }
 };
+  
+  export default Contacts;
+  
   

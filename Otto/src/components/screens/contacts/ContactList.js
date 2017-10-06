@@ -1,5 +1,5 @@
-import { ContactCard } from './ContactCard';
 import React, { Component } from 'react';
+import { ContactCard } from './ContactCard';
 import { ScrollView } from 'react-native';
 
 class ContactList extends Component {
