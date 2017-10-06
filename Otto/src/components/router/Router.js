@@ -1,17 +1,11 @@
 import React from 'react'
+import { Image } from 'react-native'
 import { TabNavigator } from 'react-navigation'
 
 import Me from '../screens/me/Me'
 import Contacts from '../screens/contacts/Contacts'
 import Groups from '../screens/groups/Groups'
 import Settings from '../screens/settings/Settings'
-
-const styles = {
-  meLogo: {
-      width: 26,
-      height: 26
-  }
-}
 
 
 const Router = TabNavigator(
@@ -20,6 +14,12 @@ const Router = TabNavigator(
       screen: Me,
       navigationOptions: {
         tabBarLabel: 'Me',
+        tabBarIcon: ({ tintColor }) => (
+            <Image
+              source={require('../../static/images/me.png')}
+              style={{width: 25, height: 25, tintColor: 'white'}}>
+            </Image>
+        )
       }
 
     },
@@ -27,6 +27,12 @@ const Router = TabNavigator(
       screen: Contacts,
       navigationOptions: {
         tabBarLabel: 'Contacts',
+        tabBarIcon: ({ tintColor }) => (
+          <Image
+            source={require('../../static/images/contacts.png')}
+            style={{width: 25, height: 25, tintColor: 'white'}}>
+          </Image>
+      )
         
       }
     },
@@ -34,6 +40,12 @@ const Router = TabNavigator(
       screen: Groups,
       navigationOptions: {
         tabBarLabel: 'Groups',
+        tabBarIcon: ({ tintColor }) => (
+          <Image
+            source={require('../../static/images/group.png')}
+            style={{width: 40, height: 40, tintColor: 'white'}}>
+          </Image>
+      )
         
       }
     },
@@ -41,12 +53,18 @@ const Router = TabNavigator(
       screen: Settings,
       navigationOptions: {
         tabBarLabel: 'Settings',
+        tabBarIcon: ({ tintColor }) => (
+          <Image
+            source={require('../../static/images/settings.png')}
+            style={{width: 35, height: 35, tintColor: 'white'}}>
+          </Image>
+      )
         
       }
     }
   },
   {
-    tabBarPosition: 'top',
+    tabBarPosition: 'bottom',
     animationEnabled: true,
     swipeEnabled: true,
     animationEnabled: true,
@@ -57,12 +75,14 @@ const Router = TabNavigator(
       indicatorStyle: {
         borderBottomColor: 'green'
       },
+      activeBackgroundColor: '#2980b9',
       upperCaseLabel: true,
       activeTintColor: '#C5E4DB',
       inactiveTintColor: '#fff',
       pressColor: 'red',
       labelStyle: {
         fontSize: 14,
+        padding: 0
       },
       indicatorStyle: {
         color: 'red'
