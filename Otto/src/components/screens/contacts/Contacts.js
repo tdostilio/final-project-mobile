@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { ContactManager } from 'NativeModules';
 import ContactList from './ContactList';
 import LottiePlayer from '../../util/LottiePlayer';
-import SearchBar from 'react-native-elements';
+import { SearchBar } from 'react-native-elements';
 
 
 class Contacts extends React.Component {
@@ -15,6 +15,14 @@ class Contacts extends React.Component {
         contacts: null,
         search: '' 
     };
+
+    handleSearch = (text) => {
+        this.setState({search: text})
+    }
+    
+    handleSubmit = (text) => {
+        console.log('hi')
+    }
 
     componentWillMount() {
         return (
@@ -32,7 +40,6 @@ class Contacts extends React.Component {
                     return 0;
                 });
                 this.setState({ contacts: result }, () => {
-                    // AsyncStorage.setItem(result, 'Legend').then(console.log('did it'));
                     console.log('State set');
                 });
             },
@@ -44,27 +51,27 @@ class Contacts extends React.Component {
     }
 
     render() {
-      console.log(this.state.contacts);
       const { navigate } = this.props.navigation;
+      const { loading, search } = this.state;
+
       return (
-        <View>
+        <View style={{ flex: 1 }}>
             <View>
                 <SearchBar
-                round
-                onChangeText={this.handleSearch}
-                value={search}
-                placeholder='Search ...' />
+                    round
+                    onChangeText={this.handleSearch}
+                    value={search}
+                    placeholder='Search ...' 
+                />
             </View>
-            <View style={{ flex: 1 }}>
+            <View>
                 <View>
-                    <View>
-                        {this.state.contacts
-                        ? <ContactList contacts={this.state.contacts} style={styles.contactStyles}/>
-                        :<View style={styles.lottieStyle}>
-                                <LottiePlayer />
-                            </View>
-                        }
-                    </View>
+                    {this.state.contacts
+                    ? <ContactList contacts={this.state.contacts} style={styles.contactStyles}/>
+                    :<View style={styles.lottieStyle}>
+                            <LottiePlayer />
+                        </View>
+                    }
                 </View>
             </View>
         </View>
