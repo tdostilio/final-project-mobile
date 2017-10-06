@@ -10,6 +10,7 @@ class Contacts extends React.Component {
     static navigationOptions = {
       title: 'Contacts',
     };
+
     state = {   
         loading: false, 
         contacts: null,
@@ -18,6 +19,10 @@ class Contacts extends React.Component {
 
     handleSearch = (text) => {
         this.setState({search: text})
+        if (this.state.search !== '') {
+            console.log('we have text');
+        }
+        
     }
     
     handleSubmit = (text) => {
