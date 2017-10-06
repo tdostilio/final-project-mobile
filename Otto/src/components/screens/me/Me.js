@@ -51,11 +51,13 @@ export default class Me extends Component {
           <TouchableOpacity
             onPress={this.handlePhonePress}
             style={styles.buttonContainer}>
+            <View>
             <Text
               onPress={this.handlePhonePress}
               style={styles.buttonText}>
               Phone Call History
             </Text>
+            </View>
           </TouchableOpacity>
 
           <TouchableOpacity
