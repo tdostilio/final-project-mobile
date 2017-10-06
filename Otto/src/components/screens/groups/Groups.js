@@ -12,11 +12,6 @@ export default class Groups extends Component {
     search: ''
   }
 
-  componentDidMount() {
-    // make ajax call to hydrate this state.. do it here or from `Me Component` and pass down as props
-    // change loading to false once state hydrated.. for development-- leave it true
-  }
-
   static defaultProps = {
     template: [
       {
@@ -44,6 +39,11 @@ export default class Groups extends Component {
         value: 40
       }
     ]
+  }
+
+  componentDidMount() {
+    // make ajax call to hydrate this state.. do it here or from `Me Component` and pass down as props
+    // change loading to false once state hydrated.. for development-- leave it true
   }
 
   handleSearch = (text) => {
