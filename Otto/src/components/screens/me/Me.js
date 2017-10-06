@@ -31,14 +31,18 @@ export default class Me extends Component {
         <View style={styles.headerContainer}>
           <Text
             style={styles.headerText}>
-            Welcome Fill Murray!
+            Welcome Stephen Grider!
+          </Text>
+          <Text
+            style={{marginLeft: 100, marginRight: 100, color: 'royalblue'}}>
+            "Hot Dog!"
           </Text>
         </View>
 
         <View style={styles.profilePhotoContainer}>
           <Image
             style={styles.profilePhoto}
-            source={require('./../../../static/images/pill_murray.png')}
+            source={require('./../../../static/images/theGrider.jpeg')}
           />
         </View>
 
