@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import Communications from 'react-native-communications';
 
 const ContactCard = (props) => {
     wrapText = (info) => {
         return <Text style={styles.textStyle}>{info}</Text>
     }
     return (
-        <TouchableOpacity onPress={() => {console.log(props.contact)}}>
+        <TouchableOpacity onPress={() => Communications.phonecall(props.contact.phoneNumbers[0]['number'], true)}>
             <View style={styles.containerStyle}>
             {
                 props.contact ? 
