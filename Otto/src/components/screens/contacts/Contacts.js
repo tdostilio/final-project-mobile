@@ -3,18 +3,15 @@ import { Button, View, Text, AsyncStorage } from 'react-native';
 // import { Card, CardSection, Input, Spinner, NoStyleCard } from '../../../util/';
 import { ContactManager } from 'NativeModules';
 import ContactList from './ContactList';
-import LottiePlayer from '../../../util/LottiePlayer';
-import { Card, CardSection, Input, Spinner } from '../../../../components/util';
-import Header from '../../util/Header';
+import LottiePlayer from '../../util/LottiePlayer';
+import { Card, CardSection, Input, Spinner } from '../../../components/util';
 
 
-class Contacts extends React.Component {
+export default class Contacts extends React.Component {
     state = { email: '', password: '', error: '', loading: false, contacts: null };
     static navigationOptions = {
       title: 'Contacts',
     };
-
-
 
     componentWillMount() {
         return (
@@ -33,13 +30,11 @@ class Contacts extends React.Component {
 
     render() {
       console.log(this.state.contacts);
-      console.log('Durr hellO!');
       const { navigate } = this.props.navigation;
       return (
-        <View>
-            <Header navigate={navigate}/>
+        <View style={styles.container}>
              <View>
-                <View>
+                <View style={styles.contactContainer}>
                     {this.state.contacts
                     ? <ContactList contacts={this.state.contacts} style={styles.contactStyles}/>
                     :   <View style={styles.lottieStyle}>
@@ -54,19 +49,26 @@ class Contacts extends React.Component {
   }
 
 const styles = {
+    container: {
+        flex: 1,
+        backgroundColor: `#C5E4DB`
+    },
+    contactContainer: {
+        backgroundColor: `#C5E4DB`
+    },
     errorTextStyle: {
         fontSize: 20,
         alignSelf: 'center',
-        color: 'red'
+        color: 'red',
+        backgroundColor: `#C5E4DB`
     },
     contactStyles: {
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: `#C5E4DB`
     },
     lottieStyle: {
-        marginTop: 100
+        marginTop: 100,
+        backgroundColor: `#C5E4DB`
     }
 };
-  
-  export default Contacts;
-  
   
