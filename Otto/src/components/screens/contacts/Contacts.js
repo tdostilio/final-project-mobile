@@ -19,10 +19,7 @@ class Contacts extends React.Component {
 
     handleSearch = (text) => {
         this.setState({search: text})
-        if (this.state.search !== '') {
-            console.log('we have text');
-        }
-        
+        console.log(this.state.search);
     }
     
     handleSubmit = (text) => {
