@@ -17,17 +17,15 @@ class Contacts extends React.Component {
         search: '' 
     };
 
-    handleSearch = (text) => {
-        this.setState({search: text})
-        this.setState({contacts: this.state.contacts.filter( (i) => {
-            console.log(this.state.contacts)
-            return i.familyName[0] === this.state.search[0]
-        }})
+    sortArray = (array, text) => {
+        return array.filter( (person) => {
+            return person.givenName.search(text) !== -1;
+        });
     }
 
-        // var longWords = words.filter(function(word){
-        //     return word.length > 6;
-        //   });
+    handleSearch = (text) => {
+        this.setState({search: text})
+        this.setState({contacts: this.sortArray(this.state.contacts, text)})
     }
     
     handleSubmit = (text) => {
