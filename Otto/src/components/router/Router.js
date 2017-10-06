@@ -114,6 +114,7 @@ const Router = TabNavigator(
       }
     }
   },
+  // ui for entire tab bar
   {
     tabBarPosition: 'bottom',
     tabBarComponent: TabBarBottom,
@@ -134,7 +135,7 @@ const Router = TabNavigator(
       pressColor: 'red',
       labelStyle: {
         fontSize: 14,
-        padding: 0
+        padding: 0,
       },
       indicatorStyle: {
         color: 'red'
