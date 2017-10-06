@@ -10,20 +10,19 @@ class ContactList extends Component {
     }
     render() {
         return (
-            <ScrollView>
+            <ScrollView style={styles.scrollContainer}>
                 {this.renderContacts(this.props.contacts)}
             </ScrollView>
         );
     }
 }
 
-styles = {
-
+const styles = {
     ContactStyle: {
         alignSelf: 'center',
         borderWidth: 1,
         borderColor: 'red',
-        flex: 1
+        backgroundColor: `#C5E4DB`
     }
 }
 

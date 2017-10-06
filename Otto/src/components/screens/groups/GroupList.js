@@ -1,4 +1,4 @@
-import { CardSection } from '../../../util/';
+import { CardSection } from '../../../components/util';
 import React, { Component } from 'react';
 import { ScrollView, TouchableOpacity } from 'react-native';
 
