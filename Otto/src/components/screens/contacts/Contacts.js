@@ -3,13 +3,18 @@ import { View } from 'react-native';
 import { ContactManager } from 'NativeModules';
 import ContactList from './ContactList';
 import LottiePlayer from '../../util/LottiePlayer';
+import SearchBar from 'react-native-elements';
 
 
 class Contacts extends React.Component {
     static navigationOptions = {
       title: 'Contacts',
     };
-    state = { email: '', password: '', error: '', loading: false, contacts: null };
+    state = {   
+        loading: false, 
+        contacts: null,
+        search: '' 
+    };
 
     componentWillMount() {
         return (
@@ -42,15 +47,24 @@ class Contacts extends React.Component {
       console.log(this.state.contacts);
       const { navigate } = this.props.navigation;
       return (
-        <View style={{ flex: 1 }}>
-             <View>
+        <View>
+            <View>
+                <SearchBar
+                round
+                onChangeText={this.handleSearch}
+                value={search}
+                placeholder='Search ...' />
+            </View>
+            <View style={{ flex: 1 }}>
                 <View>
-                    {this.state.contacts
-                    ? <ContactList contacts={this.state.contacts} style={styles.contactStyles}/>
-                    :<View style={styles.lottieStyle}>
-                            <LottiePlayer />
-                        </View>
-                    }
+                    <View>
+                        {this.state.contacts
+                        ? <ContactList contacts={this.state.contacts} style={styles.contactStyles}/>
+                        :<View style={styles.lottieStyle}>
+                                <LottiePlayer />
+                            </View>
+                        }
+                    </View>
                 </View>
             </View>
         </View>
@@ -59,11 +73,6 @@ class Contacts extends React.Component {
   }
 
 const styles = {
-    errorTextStyle: {
-        fontSize: 20,
-        alignSelf: 'center',
-        color: 'red'
-    },
     contactStyles: {
     },
     lottieStyle: {
