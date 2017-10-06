@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import { ActivityIndicator, ListView, Button, Text, View, Image } from 'react-native'
+import {
+  TouchableOpacity, ActivityIndicator,
+  ListView, Button, Text, View, Image
+} from 'react-native'
 
 
 export default class Me extends Component {
@@ -16,7 +19,7 @@ export default class Me extends Component {
     console.log(e)
   }
 
-  handleEventPress = (e) => {
+  handleReminderPress = (e) => {
     console.log(e)
   }
 
@@ -27,29 +30,70 @@ export default class Me extends Component {
 
         <View style={styles.headerContainer}>
           <Text
-            style={{fontSize: 24, color: '#156497'}}>
-            Welcome Pill Murray!
+            style={styles.headerText}>
+            Welcome Stephen Grider!
+          </Text>
+          <Text
+            style={{marginLeft: 100, marginRight: 100, color: 'royalblue'}}>
+            "Hot Dog!"
           </Text>
         </View>
 
         <View style={styles.profilePhotoContainer}>
           <Image
             style={styles.profilePhoto}
-            source={require('./../../../static/images/pill_murray.png')}
+            source={require('./../../../static/images/theGrider.jpeg')}
           />
         </View>
 
         <View style={styles.contentContainer}>
-          <Button onPress={this.handleTextPress} style={styles.button} title="Recent Text Message"></Button>
-          <Button onPress={this.handleEmailPress} style={styles.button} title="Recent Email"></Button>
-          <Button onPress={this.handlePhonePress} style={styles.button} title="Recent Phone Call"></Button>
-          <Button onPress={this.handleEventPress} style={styles.button} title="Recent Event"></Button>
+
+          <TouchableOpacity
+            onPress={this.handlePhonePress}
+            style={styles.buttonContainer}>
+            <Text
+              onPress={this.handlePhonePress}
+              style={styles.buttonText}>
+              Phone Call History
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={this.handleTextPress}>
+            <Text
+              onPress={this.handleTextPress}
+              style={styles.buttonText}>
+              Text Message History
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={this.handleEmailPress}>
+            <Text
+              onPress={this.handleEmailPress}
+              style={styles.buttonText}>
+              Email History
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={this.handleEmailPress}>
+            <Text
+              onPress={this.handleReminderPress}
+              style={styles.buttonText}>
+              Reminders
+            </Text>
+          </TouchableOpacity>
+
         </View>
 
       </View>
     )
-  }
-}
+  } // Render
+} // Me Component
 
 
 const styles = {
@@ -63,6 +107,10 @@ const styles = {
   headerContainer: {
     marginBottom: 15
   },
+  headerText: {
+    fontSize: 24,
+    color: '#156497'
+  },
 
   profilePhotoContainer: {
     marginBottom: 15
@@ -73,10 +121,16 @@ const styles = {
     borderRadius: 100,
     padding: 10
   },
-
-  button: {
-    backgroundColor: '#fff',
-    borderWidth: 1,
-    borderColor: 'blue'
+  buttonContainer: {
+    backgroundColor: '#2980b9',
+    paddingVertical: 15,
+    width: 200,
+    borderRadius: 5,
+    marginBottom: 5
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: '#fff',
+    fontWeight: '700'
   }
 }

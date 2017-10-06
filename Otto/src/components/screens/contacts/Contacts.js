@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, View, Text, AsyncStorage } from 'react-native';
-// import { Card, CardSection, Input, Spinner, NoStyleCard } from '../../../util/';
 import { ContactManager } from 'NativeModules';
+
 import ContactList from './ContactList';
 import LottiePlayer from '../../util/LottiePlayer';
 import { Card, CardSection, Input, Spinner } from '../../../components/util';
