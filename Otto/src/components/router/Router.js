@@ -1,6 +1,6 @@
 import React from 'react'
 import { Image } from 'react-native'
-import { TabNavigator } from 'react-navigation'
+import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'
 
 import Me from '../screens/me/Me'
 import Contacts from '../screens/contacts/Contacts'
@@ -8,10 +8,57 @@ import Groups from '../screens/groups/Groups'
 import Settings from '../screens/settings/Settings'
 
 
-const Router = TabNavigator(
+// Stack
+const MeStack = StackNavigator(
   {
     Me: {
       screen: Me,
+      navigationOptions: {
+        title: 'Me',
+      }
+    }
+  }
+)
+
+const ContactsStack = StackNavigator(
+  {
+    Contacts: {
+      screen: Contacts,
+      navigationOptions: {
+        title: 'Contacts',
+      }
+    }
+  }
+)
+
+const GroupsStack = StackNavigator(
+  {
+    Groups: {
+      screen: Groups,
+      navigationOptions: {
+        title: 'Groups',
+      }
+    }
+  }
+)
+
+const SettingsStack = StackNavigator(
+  {
+    Settings: {
+      screen: Settings,
+      navigationOptions: {
+        title: 'Settings',
+      }
+    }
+  }
+)
+
+
+// Tabs
+const Router = TabNavigator(
+  {
+    Me: {
+      screen: MeStack,
       navigationOptions: {
         tabBarLabel: 'Me',
         tabBarIcon: ({ tintColor }) => (
@@ -24,8 +71,12 @@ const Router = TabNavigator(
 
     },
     Contacts: {
-      screen: Contacts,
+      screen: ContactsStack,
       navigationOptions: {
+        tabBarOnPress: (scene, jumpToIndex) => {
+          console.log('onPress:', scene.route);
+          jumpToIndex(scene.index)
+        },
         tabBarLabel: 'Contacts',
         tabBarIcon: ({ tintColor }) => (
           <Image
@@ -37,7 +88,7 @@ const Router = TabNavigator(
       }
     },
     Groups: {
-      screen: Groups,
+      screen: GroupsStack,
       navigationOptions: {
         tabBarLabel: 'Groups',
         tabBarIcon: ({ tintColor }) => (
@@ -50,7 +101,7 @@ const Router = TabNavigator(
       }
     },
     Settings: {
-      screen: Settings,
+      screen: SettingsStack,
       navigationOptions: {
         tabBarLabel: 'Settings',
         tabBarIcon: ({ tintColor }) => (
@@ -65,6 +116,7 @@ const Router = TabNavigator(
   },
   {
     tabBarPosition: 'bottom',
+    tabBarComponent: TabBarBottom,
     animationEnabled: true,
     swipeEnabled: true,
     animationEnabled: true,
@@ -95,6 +147,6 @@ const Router = TabNavigator(
       },
     }
   }
-)
+);
 
 export default Router
