@@ -19,7 +19,15 @@ class Contacts extends React.Component {
 
     handleSearch = (text) => {
         this.setState({search: text})
-        console.log(this.state.search);
+        this.setState({contacts: this.state.contacts.filter( (i) => {
+            console.log(this.state.contacts)
+            return i.familyName[0] === this.state.search[0]
+        }})
+    }
+
+        // var longWords = words.filter(function(word){
+        //     return word.length > 6;
+        //   });
     }
     
     handleSubmit = (text) => {
