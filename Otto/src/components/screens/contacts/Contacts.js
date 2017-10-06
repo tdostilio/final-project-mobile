@@ -14,6 +14,7 @@ class Contacts extends React.Component {
     state = {   
         loading: false, 
         contacts: null,
+        searching: null,
         search: '' 
     };
 
@@ -25,7 +26,7 @@ class Contacts extends React.Component {
 
     handleSearch = (text) => {
         this.setState({search: text})
-        this.setState({contacts: this.sortArray(this.state.contacts, text)})
+        this.setState({searching: this.sortArray(this.state.contacts, this.state.search)})
     }
     
     handleSubmit = (text) => {
@@ -75,7 +76,10 @@ class Contacts extends React.Component {
             <View>
                 <View>
                     {this.state.contacts
-                    ? <ContactList contacts={this.state.contacts} style={styles.contactStyles}/>
+                    ? <ContactList contacts={this.state.searching 
+                                            ? this.state.searching
+                                            : this.state.contacts} 
+                                    style={styles.contactStyles}/>
                     :<View style={styles.lottieStyle}>
                             <LottiePlayer />
                         </View>
