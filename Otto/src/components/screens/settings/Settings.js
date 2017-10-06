@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button, View, Text, ScrollView } from 'react-native'
 import { List, ListItem } from 'react-native-elements'
 
-import LottiePlayer from '../../util/LottiePlayer';
+import LottiePlayer from '../../util/LottiePlayer'
 
 
 export default class Settings extends Component {
@@ -50,126 +50,132 @@ export default class Settings extends Component {
     const { loading, contactSync, smsSync, callSync, pushNotifications } = this.state
 
     if (!loading) {
-      console.log('false')
       return (
         <LottiePlayer />
       )
     }
 
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView>
+        <View style={styles.container}>
 
-        <View>
-          <View style={styles.headerContainer}>
-            <Text style={styles.headerTitle}>Syncing</Text>
-          </View>
-          <List>
-            <ListItem
-              title="Contact Sync"
-              onSwitch={val => {this.setState(prevState => ({contactSync: !(prevState.contactSync)}),this.handleContactPress)}}
-              switched={contactSync}
-              hideChevron
-              switchButton
-              switchThumbTintColor='#156497'
-              switchOnTintColor='#2980b9'
-            />
-            <ListItem
-              title="SMS Sync"
-              onSwitch={val => {this.setState(prevState => ({smsSync: !(prevState.smsSync)}),this.handleSMSPress)}}
-              switched={smsSync}
-              hideChevron
-              switchButton
-              switchThumbTintColor='#156497'
-              switchOnTintColor='#2980b9'
-            />
-            <ListItem
-              title="Call Sync"
-              onSwitch={val => {this.setState(prevState => ({callSync: !(prevState.callSync)}),this.handleCallPress)}}
-              switched={callSync}
-              hideChevron
-              switchButton
-              switchThumbTintColor='#156497'
-              switchOnTintColor='#2980b9'
-            />
-          </List>
-        </View>
-
-        <View>
-          <View style={styles.headerContainer}>
-            <Text style={styles.headerTitle}>Device</Text>
-          </View>
-          <List>
-            <ListItem
-              title="Push Notifications"
-              onSwitch={val => {this.setState(prevState => ({pushNotifications: !(prevState.pushNotifications)}),this.handlePushPress)}}
-              switched={pushNotifications}
-              hideChevron
-              switchButton
-              switchThumbTintColor='#156497'
-              switchOnTintColor='#2980b9'
-            />
-          </List>
-        </View>
-
-        <View>
-          <View style={styles.headerContainer}>
-            <Text style={styles.headerTitle}>Edit</Text>
-          </View>
-          <List>
-            <ListItem
-              title="Profile"
-              chevronColor='#2980b9'
-            />
-            <ListItem
-              title="Password"
-              chevronColor='#2980b9'
-            />
-          </List>
-        </View>
-
-        <View>
-          <View style={styles.headerContainer}>
-            <Text style={styles.headerTitle}>Feedback</Text>
-          </View>
-          <List>
-            <ListItem
-              title="Give us Feedback"
-              hideChevron
-            />
-            <ListItem
-              title="Report a Bug"
-              hideChevron
-            />
-          </List>
-        </View>
-
-        <View>
-          <View style={styles.headerContainer}>
-            <Text style={styles.headerTitle}>Legal</Text>
-          </View>
-          <List>
-            <ListItem
-              title="Private Policy"
-              hideChevron
-            />
-            <ListItem
-              title="Terms of Service"
-              hideChevron
-            />
-          </List>
-        </View>
-
-        <View>
-          <View style={styles.headerContainer}>
-              <Text style={styles.headerTitle}>Sign Out</Text>
-          </View>
-            <List>
+          <View>
+            <View style={styles.headerContainer}>
+              <Text style={styles.headerTitle}>Syncing</Text>
+            </View>
+            <List style={styles.container}>
               <ListItem
-                title="Sign Out"
-                rightIcon={{ name: 'cancel', color: '#2980b9' }}
-                onPress={this.handleSignOut}
+                title="Contact Sync"
+                onSwitch={val => {this.setState(prevState => ({contactSync: !(prevState.contactSync)}),this.handleContactPress)}}
+                switched={contactSync}
+                hideChevron
+                switchButton
+                switchThumbTintColor='#156497'
+                switchOnTintColor='#2980b9'
+                switchTintColor='#156497'
+              />
+              <ListItem
+                title="SMS Sync"
+                onSwitch={val => {this.setState(prevState => ({smsSync: !(prevState.smsSync)}),this.handleSMSPress)}}
+                switched={smsSync}
+                hideChevron
+                switchButton
+                switchThumbTintColor='#156497'
+                switchOnTintColor='#2980b9'
+                switchTintColor='#156497'
+              />
+              <ListItem
+                title="Call Sync"
+                onSwitch={val => {this.setState(prevState => ({callSync: !(prevState.callSync)}),this.handleCallPress)}}
+                switched={callSync}
+                hideChevron
+                switchButton
+                switchThumbTintColor='#156497'
+                switchOnTintColor='#2980b9'
+                switchTintColor='#156497'
               />
             </List>
+          </View>
+
+          <View>
+            <View style={styles.headerContainer}>
+              <Text style={styles.headerTitle}>Device</Text>
+            </View>
+            <List style={styles.container}>
+              <ListItem
+                title="Push Notifications"
+                onSwitch={val => {this.setState(prevState => ({pushNotifications: !(prevState.pushNotifications)}),this.handlePushPress)}}
+                switched={pushNotifications}
+                hideChevron
+                switchButton
+                switchThumbTintColor='#156497'
+                switchOnTintColor='#2980b9'
+                switchTintColor='#156497'
+              />
+            </List>
+          </View>
+
+          <View>
+            <View style={styles.headerContainer}>
+              <Text style={styles.headerTitle}>Edit</Text>
+            </View>
+            <List style={styles.container}>
+              <ListItem
+                title="Profile"
+                chevronColor='#2980b9'
+              />
+              <ListItem
+                title="Password"
+                chevronColor='#2980b9'
+              />
+            </List>
+          </View>
+
+          <View>
+            <View style={styles.headerContainer}>
+              <Text style={styles.headerTitle}>Feedback</Text>
+            </View>
+            <List style={styles.container}>
+              <ListItem
+                title="Give us Feedback"
+                hideChevron
+              />
+              <ListItem
+                title="Report a Bug"
+                hideChevron
+              />
+            </List>
+          </View>
+
+          <View>
+            <View style={styles.headerContainer}>
+              <Text style={styles.headerTitle}>Legal</Text>
+            </View>
+            <List style={styles.container}>
+              <ListItem
+                title="Private Policy"
+                hideChevron
+              />
+              <ListItem
+                title="Terms of Service"
+                hideChevron
+              />
+            </List>
+          </View>
+
+          <View>
+            <View style={styles.headerContainer}>
+                <Text style={styles.headerTitle}>Sign Out</Text>
+            </View>
+              <List style={styles.container}>
+                <ListItem
+                  title="Sign Out"
+                  rightIcon={{ name: 'cancel', color: '#2980b9' }}
+                  onPress={this.handleSignOut}
+                />
+              </List>
+          </View>
+
         </View>
       </ScrollView>
     )
