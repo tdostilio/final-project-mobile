@@ -25,8 +25,13 @@ class Contacts extends React.Component {
     }
 
     handleSearch = (text) => {
-        this.setState({search: text})
-        this.setState({searching: this.sortArray(this.state.contacts, this.state.search)})
+        this.setState({search: text}, () => {
+            if (this.state.search.length === 0) {
+                this.setState({searching: null})
+            }
+            console.log(this.state.search)
+            this.setState({searching: this.sortArray(this.state.contacts, this.state.search)})
+        })
     }
     
     handleSubmit = (text) => {
@@ -69,7 +74,7 @@ class Contacts extends React.Component {
                 <SearchBar
                     round
                     onChangeText={this.handleSearch}
-                    value={search}
+                    value={this.state.search}
                     placeholder='Search ...' 
                 />
             </View>
