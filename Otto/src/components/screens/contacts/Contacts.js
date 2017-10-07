@@ -3,13 +3,39 @@ import { View } from 'react-native';
 import { ContactManager } from 'NativeModules';
 import ContactList from './ContactList';
 import LottiePlayer from '../../util/LottiePlayer';
+import { SearchBar } from 'react-native-elements';
 
 
 class Contacts extends React.Component {
     static navigationOptions = {
       title: 'Contacts',
     };
-    state = { email: '', password: '', error: '', loading: false, contacts: null };
+
+    state = {   
+        loading: false, 
+        contacts: null,
+        searching: null,
+        search: '' 
+    };
+
+    sortArray = (array, text) => {
+        return array.filter( (person) => {
+            return person.givenName.search(text) !== -1;
+        });
+    }
+
+    handleSearch = (text) => {
+        this.setState({search: text}, () => {
+            if (this.state.search.length === 0) {
+                this.setState({searching: null})
+            }
+            this.setState({searching: this.sortArray(this.state.contacts, this.state.search)})
+        })
+    }
+    
+    handleSubmit = (text) => {
+        console.log('hi')
+    }
 
     componentWillMount() {
         return (
@@ -27,7 +53,6 @@ class Contacts extends React.Component {
                     return 0;
                 });
                 this.setState({ contacts: result }, () => {
-                    // AsyncStorage.setItem(result, 'Legend').then(console.log('did it'));
                     console.log('State set');
                 });
             },
@@ -39,14 +64,26 @@ class Contacts extends React.Component {
     }
 
     render() {
-      console.log(this.state.contacts);
       const { navigate } = this.props.navigation;
+      const { loading, search } = this.state;
+
       return (
         <View style={{ flex: 1 }}>
-             <View>
+            <View>
+                <SearchBar
+                    round
+                    onChangeText={this.handleSearch}
+                    value={this.state.search}
+                    placeholder='Search ...' 
+                />
+            </View>
+            <View>
                 <View>
                     {this.state.contacts
-                    ? <ContactList contacts={this.state.contacts} style={styles.contactStyles}/>
+                    ? <ContactList contacts={this.state.searching 
+                                            ? this.state.searching
+                                            : this.state.contacts} 
+                                    style={styles.contactStyles}/>
                     :<View style={styles.lottieStyle}>
                             <LottiePlayer />
                         </View>
@@ -59,11 +96,6 @@ class Contacts extends React.Component {
   }
 
 const styles = {
-    errorTextStyle: {
-        fontSize: 20,
-        alignSelf: 'center',
-        color: 'red'
-    },
     contactStyles: {
     },
     lottieStyle: {
