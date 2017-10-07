@@ -29,7 +29,6 @@ class Contacts extends React.Component {
             if (this.state.search.length === 0) {
                 this.setState({searching: null})
             }
-            console.log(this.state.search)
             this.setState({searching: this.sortArray(this.state.contacts, this.state.search)})
         })
     }
