@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, ScrollView, Text } from 'react-native';
 import { List, ListItem } from 'react-native-elements';
 
+import { onSignOut } from "../../auth/Auth";
+
 export default class Settings extends Component {
   state = {
     loading: true,
@@ -39,10 +41,10 @@ export default class Settings extends Component {
   handleSignOut = () => {
     // native call to signout
     console.log('sign out')
+    onSignOut().then(() => this.props.navigation.navigate("SignedOut"))
   }
   
   render() {
-    const { navigate } = this.props.navigation
     const { loading, contactSync, smsSync, callSync, pushNotifications } = this.state
     return (
       <ScrollView style={styles.container}>

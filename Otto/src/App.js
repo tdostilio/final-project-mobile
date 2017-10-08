@@ -1,18 +1,24 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-import { isSignedIn } from "./components/auth/Auth"
-import { Root, Tabs } from './components/router/router'
+import { isSignedIn } from "./components/auth/Auth";
+import { createRootNavigator } from './components/router/Router'
+
 
 
 export default class App extends Component {
 
   state = {
-    userAuthenticated: true,
-    userReceived: false,
-    checkUserAuthentication: false,
-    firstTimeUser: false
+    signedIn: false,
+    checkedSignIn: false
   }
+
+  componentWillMount() {
+    isSignedIn()
+      .then(res => this.setState({ signedIn: res, checkedSignIn: true }))
+      .catch(err => alert("An error occurred"));
+  }
+
 
   handleUserSubmit = (user) => {
     this.setState({userReceived: true})
@@ -23,18 +29,10 @@ export default class App extends Component {
   }
 
   render() {
-    const { userAuthenticated, userReceived } = this.state
+    console.ignoredYellowBox = ['Remote debugger']; // removes debugger yellow warning
+    const { checkedSignIn, signedIn } = this.state;
 
-    if (!userReceived && !userAuthenticated) {
-      return (
-        <Login
-        handleUserSubmit={this.handleUserSubmit}
-        />
-      )
-    }
-
-    return (
-          <Root />
-    )
+    const Layout = createRootNavigator(signedIn);
+    return <Layout />;
   }
 }

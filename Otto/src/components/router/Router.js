@@ -2,6 +2,10 @@ import React from 'react'
 import { TabNavigator, StackNavigator, TabBarBottom } from 'react-navigation'
 import { Icon } from 'react-native-elements'
 
+// Login Screen
+import Login from '../login/Login'
+import CreateAccount from '../login/CreateAccount'
+
 // Me Screen
 import Me from '../screens/me/Me'
 import RecentCall from '../screens/me/RecentCall'
@@ -129,19 +133,19 @@ export const Tabs = TabNavigator({
       tabBarIcon: ({ tintColor }) => <Icon name="list" size={30} color={tintColor} />
     },
   },
-  Contacts: {
-    screen: ContactsStack,
-    navigationOptions: {
-      tabBarLabel: 'Contacts',
-      tabBarIcon: ({ tintColor }) => <Icon name="import-contacts" size={34} color={tintColor} />
-    }
-  },
   Contacts2: {
     screen: Contacts2Stack,
     navigationOptions: {
       tabBarLabel: 'Contact2',
       tabBarIcon: ({ tintColor }) => <Icon name="import-contacts" size={34} color={tintColor} />
     },
+  },
+  Contacts: {
+    screen: ContactsStack,
+    navigationOptions: {
+      tabBarLabel: 'Contacts',
+      tabBarIcon: ({ tintColor }) => <Icon name="import-contacts" size={34} color={tintColor} />
+    }
   },
   Groups: {
     screen: GroupsStack,
@@ -244,9 +248,37 @@ export const AddReminderStack = StackNavigator({
   }
 })
 
-export const Root = StackNavigator({
-  Tabs: {
+export const LoginStack = StackNavigator({
+  Login: {
+    screen: Login,
+    navigationOptions: {
+      title: 'Sign in',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    }
+  },
+  CreateAccount: {
+    screen: CreateAccount,
+    navigationOptions: {
+      title: 'Create Account',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    }
+  }
+})
+
+export const createRootNavigator = (signedIn = false) => {
+  return StackNavigator(
+  {
+  SignedIn: {
     screen: Tabs,
+  },
+  SignedOut: {
+    screen: LoginStack
   },
   RecentCall: {
     screen: RecentCallStack,
@@ -259,8 +291,10 @@ export const Root = StackNavigator({
   },
   AddReminder: {
     screen: AddReminderStack,
-  },
+  }
 }, {
   mode: 'modal',
   headerMode: 'none',
+  initialRouteName: signedIn ? "SignedIn" : "SignedOut"
 })
+}
