@@ -23,7 +23,6 @@ export default class Me extends Component {
   }
 
   render() {
-    console.ignoredYellowBox = ['Remote debugger']; // removes debugger yellow warning
     return (
       <ScrollView style={styles.container}>
 
@@ -37,31 +36,34 @@ export default class Me extends Component {
         <View style={styles.contentContainer}>
          <Card
             containerStyle={
-              {borderRadius: 15, borderColor: `#5D8DAD`, padding: 10, alignSelf: 'stretch',
-              marginTop: 15, backgroundColor: `#5D8DAD`}}>
+              {borderRadius: 15, borderColor: `#1EBF9E`, padding: 10, alignSelf: 'stretch',
+              marginTop: 15, backgroundColor: `#1EBF9E`}}>
               <Button
                 borderRadius={50}
                 raised
                 large
                 buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-                icon={{name: 'smartphone', type: 'material'}}
+                icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
                 title='Recent Calls'
+                color='#b6ccda'
                 onPress={this.handleCallPress} />
               <Button
                 borderRadius={50}
                 raised
                 large
                 buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-                icon={{name: 'comment', type: 'font-awesome'}}
+                icon={{name: 'comment', type: 'font-awesome', color: '#b6ccda'}}
                 onPress={this.handleTextPress}
+                color='#b6ccda'
                 title='Recent Texts' />
               <Button
                 borderRadius={50}
                 raised
                 large
                 buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-                icon={{name: 'email', type: 'material'}}
+                icon={{name: 'email', type: 'material', color: '#b6ccda'}}
                 onPress={this.handleEmailPress}
+                color='#b6ccda'
                 title='Recent Emails' />
          </Card>
         </View>
