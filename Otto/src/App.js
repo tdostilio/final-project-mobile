@@ -16,22 +16,19 @@ export default class App extends Component {
   componentWillMount() {
     isSignedIn()
       .then(res => this.setState({ signedIn: res, checkedSignIn: true }))
-      .catch(err => alert("An error occurred"));
-  }
-
-
-  handleUserSubmit = (user) => {
-    this.setState({userReceived: true})
-  }
-
-  handleUserCreate = (user) => {
-
+      .catch(err => alert("Authorization failure"));
   }
 
   render() {
     console.ignoredYellowBox = ['Remote debugger']; // removes debugger yellow warning
     const { checkedSignIn, signedIn } = this.state;
 
+    // If we haven't checked AsyncStorage yet, render a loading spinner (Lottie goes here)
+    if (!checkedSignIn) {
+      return null;
+    }
+
+    // After promise/authorization gets resolved.. Layout will render. No token = Login. Token = Tabs
     const Layout = createRootNavigator(signedIn);
     return <Layout />;
   }
