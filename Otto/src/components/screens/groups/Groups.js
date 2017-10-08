@@ -60,7 +60,7 @@ export default class Groups extends Component {
             title={item.title}
             titleStyle={{color: '#eee'}}
             subtitle={item.subtitle}
-            chevronColor='#1EBF9E'
+            chevronColor='#5D8DAD'
             badge={{ value: 1, containerStyle: { backgroundColor: '#1EBF9E'}, textStyle: { color: '#fff' }, containerStyle: {marginRight: -10} }}
           />
       )
@@ -76,9 +76,12 @@ export default class Groups extends Component {
         <View onSubmit={this.handleSubmit}>
           <SearchBar
             round
+            inputStyle={{color: '#1EBF9E', backgroundColor: 'black'}}
+            containerStyle={{backgroundColor: 'black'}}
             onChangeText={this.handleSearch}
-            value={search}
-            placeholder='Find a group...' />
+            value={this.state.search}
+            placeholder='Find a group...'
+           />
         </View>
         <View><Text>TestSearch: {search}</Text></View>
         <ScrollView>
