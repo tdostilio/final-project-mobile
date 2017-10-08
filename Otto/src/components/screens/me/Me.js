@@ -23,6 +23,7 @@ export default class Me extends Component {
   }
 
   render() {
+    console.ignoredYellowBox = ['Remote debugger']; // removes debugger yellow warning
     return (
       <ScrollView style={styles.container}>
 
