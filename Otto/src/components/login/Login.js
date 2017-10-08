@@ -60,7 +60,7 @@ export default class Login extends Component {
             barStyle='light-content'
           />
           <TextInput
-            placeholder='Username or Email'
+            placeholder='Email'
             style={styles.inputField}
             returnKeyType='next'
             keyboardType='email-address'
