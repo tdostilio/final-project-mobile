@@ -7,8 +7,8 @@ import Me from '../screens/me/Me'
 import Settings from '../screens/me/Settings'
 
 // Feed Screen
-import Feed from '../screens/Feed'
-import UserDetail from '../screens/UserDetail'
+import Feed from '../screens/feed/Feed'
+import UserDetail from '../screens/feed/UserDetail'
 
 // Contact Screen
 import Contacts from '../screens/contacts/Contacts'
