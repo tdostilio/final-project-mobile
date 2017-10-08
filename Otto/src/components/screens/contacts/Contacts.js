@@ -68,7 +68,7 @@ class Contacts extends React.Component {
       const { loading, search } = this.state;
 
       return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor: '#222A43' }}>
             <View>
                 <SearchBar
                     round
