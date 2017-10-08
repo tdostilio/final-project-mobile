@@ -1,163 +1,136 @@
 import React from 'react'
-import { Image } from 'react-native'
-import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'
-import Welcome from '../screens/welcome/Welcome';
+import { TabNavigator, StackNavigator, TabBarBottom } from 'react-navigation'
+import { Icon } from 'react-native-elements'
+
+// Me Screen
 import Me from '../screens/me/Me'
+import Settings from '../screens/me/Settings'
+
+// Feed Screen
+import Feed from '../screens/Feed'
+import UserDetail from '../screens/UserDetail'
+
+// Contact Screen
 import Contacts from '../screens/contacts/Contacts'
+
+// Groups Screen
 import Groups from '../screens/groups/Groups'
-import Settings from '../screens/settings/Settings'
 
 
-// Stack
-const MeStack = StackNavigator(
-  {
-    Me: {
-      screen: Me,
-      navigationOptions: {
-        title: 'Me',
-      }
-    }
-  }
-)
-
-const ContactsStack = StackNavigator(
-  {
-    Contacts: {
-      screen: Contacts,
-      navigationOptions: {
-        title: 'Contacts',
-      }
-    }
-  }
-)
-
-const GroupsStack = StackNavigator(
-  {
-    Groups: {
-      screen: Groups,
-      navigationOptions: {
-        title: 'Groups',
-      }
-    }
-  }
-)
-
-const SettingsStack = StackNavigator(
-  {
-    Settings: {
-      screen: Settings,
-      navigationOptions: {
-        title: 'Settings',
-      }
-    }
-  }
-)
-
-
-// Tabs
-const Router = TabNavigator(
-  {
-    Me: {
-      screen: MeStack,
-      navigationOptions: {
-        tabBarLabel: 'Me',
-        tabBarIcon: ({ tintColor }) => (
-            <Image
-              source={require('../../static/images/me.png')}
-              style={{width: 25, height: 25, tintColor: 'white'}}>
-            </Image>
-        )
-      }
-
+export const FeedStack = StackNavigator({
+  Feed: {
+    screen: Feed,
+    navigationOptions: {
+      title: 'Feed',
     },
-    Contacts: {
-      screen: ContactsStack,
-      navigationOptions: {
-        tabBarOnPress: (scene, jumpToIndex) => {
-          console.log('onPress:', scene.route);
-          jumpToIndex(scene.index)
-        },
-        tabBarLabel: 'Contacts',
-        tabBarIcon: ({ tintColor }) => (
-          <Image
-            source={require('../../static/images/contacts.png')}
-            style={{width: 25, height: 25, tintColor: 'white'}}>
-          </Image>
-      )
-        
-      }
+  },
+  Details: {
+    screen: UserDetail,
+    navigationOptions: ({ navigation }) => ({
+      title: `${navigation.state.params.name.first.toUpperCase()} ${navigation.state.params.name.last.toUpperCase()}`,
+    }),
+  },
+})
+
+export const ContactsStack = StackNavigator({
+  Contacts: {
+    screen: Contacts,
+    navigationOptions: {
+      title: 'Contacts',
     },
-    Groups: {
-      screen: GroupsStack,
+  }
+})
+
+export const GroupsStack = StackNavigator({
+  Groups: {
+    screen: Groups,
+    navigationOptions: {
+      title: 'Groups',
+    },
+  }
+})
+
+export const SettingsStack = StackNavigator({
+  Settings: {
+    screen: Settings,
+    navigationOptions: {
+      title: 'Settings',
+    },
+  },
+})
+
+export const Tabs = TabNavigator({
+  Me: {
+    screen: Me,
+    navigationOptions: {
+      tabBarLabel: 'Me',
+      tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
+    },
+  },
+  Feed: {
+    screen: FeedStack,
+    navigationOptions: {
+      tabBarLabel: 'Feed',
+      tabBarIcon: ({ tintColor }) => <Icon name="list" size={35} color={tintColor} />
+    },
+  },
+  Contacts: {
+    screen: ContactsStack,
+    navigationOptions: {
+      tabBarLabel: 'Contacts',
+      tabBarIcon: ({ tintColor }) => <Icon name="import-contacts" size={34} color={tintColor} />
+    }
+  },
+  Groups: {
+    screen: GroupsStack,
       navigationOptions: {
         tabBarLabel: 'Groups',
-        tabBarIcon: ({ tintColor }) => (
-          <Image
-            source={require('../../static/images/group.png')}
-            style={{width: 40, height: 40, tintColor: 'white'}}>
-          </Image>
-      )
-        
+        tabBarIcon: ({ tintColor }) => <Icon name="group-work" size={30} color={tintColor} />
       }
-    },
-    Settings: {
-      screen: SettingsStack,
-      navigationOptions: {
-        tabBarLabel: 'Settings',
-        tabBarIcon: ({ tintColor }) => (
-          <Image
-            source={require('../../static/images/settings.png')}
-            style={{width: 35, height: 35, tintColor: 'white'}}>
-          </Image>
-      )
-        
-      }
-    },
-    Welcome: {
-      screen: Welcome,
-      navigationOptions: {
-        tabBarLabel: 'Welcome',
-        tabBarIcon: ({ tintColor }) => (
-          <Image
-            source={require('../../static/images/settings.png')}
-            style={{width: 35, height: 35, tintColor: 'white'}}>
-          </Image>
-      )}}
-  },
-  // ui for entire tab bar
-  {
-    tabBarPosition: 'bottom',
-    tabBarComponent: TabBarBottom,
-    animationEnabled: true,
-    swipeEnabled: true,
-    animationEnabled: true,
-    lazy: true,
-
-    tabBarOptions: {
-      showIcon: true,
-      indicatorStyle: {
-        borderBottomColor: 'green'
-      },
-      activeBackgroundColor: '#2980b9',
-      upperCaseLabel: true,
-      activeTintColor: '#C5E4DB',
-      inactiveTintColor: '#fff',
-      pressColor: 'red',
-      labelStyle: {
-        fontSize: 14,
-        padding: 0,
-      },
-      indicatorStyle: {
-        color: 'red'
-      },
-      tabStyle: {
-        width: 200,    
-      },
-      style: {
-        backgroundColor: '#156497',
-      },
-    }
   }
-);
+},
+{
+  tabBarPosition: 'bottom',
+  tabBarComponent: TabBarBottom,
+  animationEnabled: true,
+  swipeEnabled: true,
+  animationEnabled: true,
+  lazy: true,
 
-export default Router
+  tabBarOptions: {
+    showIcon: true,
+    indicatorStyle: {
+      borderBottomColor: 'green'
+    },
+    activeBackgroundColor: '#1EBF9E',
+    upperCaseLabel: true,
+    activeTintColor: '#fff',
+    inactiveTintColor: '#fff',
+    pressColor: 'red',
+    labelStyle: {
+      fontSize: 14,
+      padding: 0,
+    },
+    indicatorStyle: {
+      color: 'red'
+    },
+    tabStyle: {
+      width: 200,    
+    },
+    style: {
+      backgroundColor: '#0E131A',
+    },
+  }
+})
+
+export const Root = StackNavigator({
+  Tabs: {
+    screen: Tabs,
+  },
+  Settings: {
+    screen: SettingsStack,
+  },
+}, {
+  mode: 'modal',
+  headerMode: 'none',
+})
