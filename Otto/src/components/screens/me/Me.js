@@ -1,139 +1,120 @@
 import React, { Component } from 'react'
-import {
-  TouchableOpacity, ActivityIndicator,
-  ListView, Button, Text, View, Image
-} from 'react-native'
+import { ScrollView, View, Text, TouchableOpacity } from 'react-native'
+import { Tile, List, ListItem, Button } from 'react-native-elements'
 
+import { me } from '../../router/data'
 
 export default class Me extends Component {
 
-  handleTextPress = (e) => {
-    console.log(e)
+  static defaultProps = {
+    ...me
   }
 
-  handleEmailPress = (e) => {
-    console.log(e)
+  handleTextPress = () => {
+
   }
 
-  handlePhonePress = (e) => {
-    console.log(e)
+  handleEmailPress = () => {
+
   }
 
-  handleReminderPress = (e) => {
-    console.log(e)
+  handlerReminders = () => {
+
+  }
+
+  handlePhonePress = () => {
+
+  }
+
+  handleSettingsPress = () => {
+    this.props.navigation.navigate('Settings')
   }
 
   render() {
-    const { navigate } = this.props.navigation
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
+        <Tile
+          imageSrc={{ uri: this.props.picture.large}}
+          featured
+          title={`\n\n\n\n\n\n\n\nWelcome \n ${this.props.name.first.toUpperCase()} ${this.props.name.last.toUpperCase()}`}
+        />
 
-        <View style={styles.headerContainer}>
-          <Text
-            style={styles.headerText}>
-            Welcome Stephen Grider!
-          </Text>
-          <Text
-            style={{marginLeft: 100, marginRight: 100, color: 'royalblue'}}>
-            "Hot Dog!"
-          </Text>
-        </View>
-
-        <View style={styles.profilePhotoContainer}>
-          <Image
-            style={styles.profilePhoto}
-            source={require('./../../../static/images/theGrider.jpeg')}
-          />
-        </View>
+        
 
         <View style={styles.contentContainer}>
+        
+          <Button
+          title="Phone Calls"
+          buttonStyle={{ marginTop: 20 }}
+          onPress={this.handlePhonePress}
+          large
+          raised
+          borderRadius={5}
+          backgroundColor={`#3C5474`}
+          icon={{name: 'smartphone', type: 'material'}}
+          containerViewStyle={{alignSelf: 'stretch'}}
+         />
+        
+          <Button
+          title="Text Messages"
+          buttonStyle={{ marginTop: 20 }}
+          onPress={this.handlePhonePress}
+          large
+          raised
+          borderRadius={5}
+          backgroundColor={`#3C5474`}
+          icon={{name: 'comment', type: 'font-awesome'}}
+          containerViewStyle={{alignSelf: 'stretch'}}
+         />
+        
+          <Button
+          title="Emails"
+          buttonStyle={{ marginTop: 20 }}
+          onPress={this.handlePhonePress}
+          large
+          raised
+          borderRadius={5}
+          backgroundColor={`#3C5474`}
+          icon={{name: 'email', type: 'material'}}
+          containerViewStyle={{alignSelf: 'stretch'}}
+         />
 
-          <TouchableOpacity
-            onPress={this.handlePhonePress}
-            style={styles.buttonContainer}>
-            <View style={styles.buttonStyle}>
-              <Text
-                onPress={this.handlePhonePress}
-                style={styles.buttonText}>
-                Phone Call History
-              </Text>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.buttonContainer}
-            onPress={this.handleTextPress}>
-            <Text
-              onPress={this.handleTextPress}
-              style={styles.buttonText}>
-              Text Message History
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.buttonContainer}
-            onPress={this.handleEmailPress}>
-            <Text
-              onPress={this.handleEmailPress}
-              style={styles.buttonText}>
-              Email History
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.buttonContainer}
-            onPress={this.handleEmailPress}>
-            <Text
-              onPress={this.handleReminderPress}
-              style={styles.buttonText}>
-              Reminders
-            </Text>
-          </TouchableOpacity>
-
+         <Button
+         title="Reminders"
+         buttonStyle={{ marginTop: 20, marginBottom: 20 }}
+         onPress={this.handlePhonePress}
+         large
+         raised
+         borderRadius={5}
+         backgroundColor={`#3C5474`}
+         icon={{name: 'envira', type: 'font-awesome'}}
+         containerViewStyle={{alignSelf: 'stretch'}}
+        />
+        
         </View>
 
-      </View>
-    )
-  } // Render
-} // Me Component
+        <Button
+          title="Settings"
+          buttonStyle={{ marginTop: 20 }}
+          onPress={this.handleSettingsPress}
+          raised
+          borderRadius={5}
+          backgroundColor={`#3C5474`}
+        />
 
+      </ScrollView>
+    )
+  }
+}
 
 const styles = {
   container: {
+    backgroundColor: `#222A43`
+  },
+  contentContainer: {
     flex: 1,
     flexDirection: `column`,
     justifyContent: `center`,
     alignItems: `center`,
-    backgroundColor: `#C5E4DB`
   },
-  headerContainer: {
-    marginBottom: 15
-  },
-  headerText: {
-    fontSize: 24,
-    color: '#156497'
-  },
-
-  profilePhotoContainer: {
-    marginBottom: 15
-  },
-  profilePhoto: {
-    width: 200,
-    height: 200,
-    borderRadius: 100,
-    padding: 10
-  },
-  buttonContainer: {
-    backgroundColor: '#2980b9',
-    paddingVertical: 15,
-    width: 200,
-    borderRadius: 5,
-    marginBottom: 5
-  },
-  
-  buttonText: {
-    textAlign: 'center',
-    color: '#fff',
-    fontWeight: '700'
-  }
 }
