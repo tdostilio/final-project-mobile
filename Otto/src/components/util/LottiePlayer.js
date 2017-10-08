@@ -13,7 +13,7 @@ export default class LottiePlayer extends Component {
     return (
     //   <View style={styles.container}>
         <View style={styles.container}>
-            <Text style={styles.container}>Importing Contacts...</Text>
+            <Text style={styles.textStyle}>Importing Contacts...</Text>
             <View style={styles.container}>
                 <Animation
                 ref={animation => {
@@ -36,12 +36,14 @@ export default class LottiePlayer extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    color: '#5D8DAD',
     backgroundColor: '#222A43',
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 0,
     shadowRadius: 0,
     shadowOffset: {width:0, height: 0}
+  },
+  textStyle: {
+    color: '#5D8DAD'
   }
 });
