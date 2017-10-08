@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
+import { isSignedIn } from "./components/auth/Auth"
 import { Root, Tabs } from './components/router/router'
 
 
 export default class App extends Component {
 
   state = {
-
     userAuthenticated: true,
     userReceived: false,
     checkUserAuthentication: false,
