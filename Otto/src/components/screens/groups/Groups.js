@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { Button, View, Text, ScrollView } from 'react-native'
 import { List, ListItem, SearchBar } from 'react-native-elements'
 
-import LottiePlayer from '../../util/LottiePlayer'
-
 
 export default class Groups extends Component {
 
@@ -60,9 +58,10 @@ export default class Groups extends Component {
           <ListItem
             key={index}
             title={item.title}
+            titleStyle={{color: '#eee'}}
             subtitle={item.subtitle}
-            chevronColor='#2980b9'
-            badge={{ value: 1, textStyle: { color: '#fff' }, containerStyle: {marginRight: -10} }}
+            chevronColor='#5D8DAD'
+            badge={{ value: 1, containerStyle: { backgroundColor: '#1EBF9E'}, textStyle: { color: '#fff' }, containerStyle: {marginRight: -10} }}
           />
       )
     })
@@ -72,20 +71,17 @@ export default class Groups extends Component {
     const { navigate } = this.props.navigation
     const { loading, search } = this.state
 
-    if (!loading) {
-      return (
-        <LottiePlayer />
-      )
-    }
-
     return (
       <View style={styles.container}>
         <View onSubmit={this.handleSubmit}>
           <SearchBar
             round
+            inputStyle={{color: '#1EBF9E', backgroundColor: 'black'}}
+            containerStyle={{backgroundColor: 'black'}}
             onChangeText={this.handleSearch}
-            value={search}
-            placeholder='Find a group...' />
+            value={this.state.search}
+            placeholder='Find a group...'
+           />
         </View>
         <View><Text>TestSearch: {search}</Text></View>
         <ScrollView>
@@ -102,6 +98,6 @@ export default class Groups extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: `#C5E4DB`
+    backgroundColor: `#222A43`
   }
 }

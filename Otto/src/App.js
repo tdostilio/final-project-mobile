@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-import { Logo, Button, CardSection, Spinner } from './components/util/'
-import Router from './components/router/Router'
-import Login from './components/login/Login'
-
-import './components/util/LottiePlayer'
+import { isSignedIn } from "./components/auth/Auth"
+import { Root, Tabs } from './components/router/router'
 
 
 export default class App extends Component {
 
   state = {
-
     userAuthenticated: true,
     userReceived: false,
     checkUserAuthentication: false,
@@ -38,7 +34,7 @@ export default class App extends Component {
     }
 
     return (
-          <Router />
+          <Root />
     )
   }
 }

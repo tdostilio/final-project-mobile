@@ -1,6 +1,7 @@
-import { CardSection } from '../../../components/util';
 import React, { Component } from 'react';
 import { ScrollView, TouchableOpacity } from 'react-native';
+import { CardSection } from '../../../src/components/util/';
+
 
 class GroupList extends Component {
     renderContacts = (contacts) => {

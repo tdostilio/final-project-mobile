@@ -36,6 +36,8 @@ export default class LottiePlayer extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    color: '#5D8DAD',
+    backgroundColor: '#222A43',
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 0,

@@ -1,163 +1,266 @@
 import React from 'react'
-import { Image } from 'react-native'
-import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'
-import Welcome from '../screens/welcome/Welcome';
+import { TabNavigator, StackNavigator, TabBarBottom } from 'react-navigation'
+import { Icon } from 'react-native-elements'
+
+// Me Screen
 import Me from '../screens/me/Me'
+import RecentCall from '../screens/me/RecentCall'
+import RecentText from '../screens/me/RecentText'
+import RecentEmail from '../screens/me/RecentEmail'
+
+// Feed Screen
+import Feed from '../screens/feed/Feed'
+import AddReminder from '../screens/feed/AddReminder'
+
+// Contacts2 Screen
+import Contacts2 from '../screens/contacts2/Contacts2'
+import Contacts2Detail from '../screens/contacts2/Contacts2Detail'
+
+// Contact Screen
 import Contacts from '../screens/contacts/Contacts'
+
+// Groups Screen
 import Groups from '../screens/groups/Groups'
+
+// Settings Screen
 import Settings from '../screens/settings/Settings'
 
 
-// Stack
-const MeStack = StackNavigator(
-  {
-    Me: {
-      screen: Me,
-      navigationOptions: {
-        title: 'Me',
-      }
-    }
-  }
-)
-
-const ContactsStack = StackNavigator(
-  {
-    Contacts: {
-      screen: Contacts,
-      navigationOptions: {
-        title: 'Contacts',
-      }
-    }
-  }
-)
-
-const GroupsStack = StackNavigator(
-  {
-    Groups: {
-      screen: Groups,
-      navigationOptions: {
-        title: 'Groups',
-      }
-    }
-  }
-)
-
-const SettingsStack = StackNavigator(
-  {
-    Settings: {
-      screen: Settings,
-      navigationOptions: {
-        title: 'Settings',
-      }
-    }
-  }
-)
-
-
-// Tabs
-const Router = TabNavigator(
-  {
-    Me: {
-      screen: MeStack,
-      navigationOptions: {
-        tabBarLabel: 'Me',
-        tabBarIcon: ({ tintColor }) => (
-            <Image
-              source={require('../../static/images/me.png')}
-              style={{width: 25, height: 25, tintColor: 'white'}}>
-            </Image>
-        )
-      }
-
+export const MeStack = StackNavigator({
+  Me: {
+    screen: Me,
+    navigationOptions: {
+      title: 'Welcome',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#eee'
     },
-    Contacts: {
-      screen: ContactsStack,
-      navigationOptions: {
-        tabBarOnPress: (scene, jumpToIndex) => {
-          console.log('onPress:', scene.route);
-          jumpToIndex(scene.index)
-        },
-        tabBarLabel: 'Contacts',
-        tabBarIcon: ({ tintColor }) => (
-          <Image
-            source={require('../../static/images/contacts.png')}
-            style={{width: 25, height: 25, tintColor: 'white'}}>
-          </Image>
-      )
-        
-      }
+  }
+})
+
+export const FeedStack = StackNavigator({
+  Feed: {
+    screen: Feed,
+    navigationOptions: {
+      title: 'Feed',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#eee'
     },
-    Groups: {
-      screen: GroupsStack,
+  }
+})
+
+export const Contacts2Stack = StackNavigator({
+  Contacts2: {
+    screen: Contacts2,
+    navigationOptions: {
+      title: 'Contacts2',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    },
+  },
+  Contacts2Detail: {
+    screen: Contacts2Detail,
+    navigationOptions: ({ navigation }) => ({
+      title: `${navigation.state.params.name.first.toUpperCase()} ${navigation.state.params.name.last.toUpperCase()}`,
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    }),
+  },
+})
+
+export const ContactsStack = StackNavigator({
+  Contacts: {
+    screen: Contacts,
+    navigationOptions: {
+      title: 'Contacts',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    },
+  }
+})
+
+export const GroupsStack = StackNavigator({
+  Groups: {
+    screen: Groups,
+    navigationOptions: {
+      title: 'Groups',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    },
+  }
+})
+
+export const SettingsStack = StackNavigator({
+  Settings: {
+    screen: Settings,
+    navigationOptions: {
+      title: 'Settings',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    },
+  },
+})
+
+export const Tabs = TabNavigator({
+  Me: {
+    screen: MeStack,
+    navigationOptions: {
+      tabBarLabel: 'Me',
+      tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
+    },
+  },
+  Feed: {
+    screen: FeedStack,
+    navigationOptions: {
+      tabBarLabel: 'Feed',
+      tabBarIcon: ({ tintColor }) => <Icon name="list" size={30} color={tintColor} />
+    },
+  },
+  Contacts: {
+    screen: ContactsStack,
+    navigationOptions: {
+      tabBarLabel: 'Contacts',
+      tabBarIcon: ({ tintColor }) => <Icon name="import-contacts" size={34} color={tintColor} />
+    }
+  },
+  Contacts2: {
+    screen: Contacts2Stack,
+    navigationOptions: {
+      tabBarLabel: 'Contact2',
+      tabBarIcon: ({ tintColor }) => <Icon name="import-contacts" size={34} color={tintColor} />
+    },
+  },
+  Groups: {
+    screen: GroupsStack,
       navigationOptions: {
         tabBarLabel: 'Groups',
-        tabBarIcon: ({ tintColor }) => (
-          <Image
-            source={require('../../static/images/group.png')}
-            style={{width: 40, height: 40, tintColor: 'white'}}>
-          </Image>
-      )
-        
+        tabBarIcon: ({ tintColor }) => <Icon name="group-work" size={30} color={tintColor} />
       }
-    },
-    Settings: {
-      screen: SettingsStack,
-      navigationOptions: {
-        tabBarLabel: 'Settings',
-        tabBarIcon: ({ tintColor }) => (
-          <Image
-            source={require('../../static/images/settings.png')}
-            style={{width: 35, height: 35, tintColor: 'white'}}>
-          </Image>
-      )
-        
-      }
-    },
-    Welcome: {
-      screen: Welcome,
-      navigationOptions: {
-        tabBarLabel: 'Welcome',
-        tabBarIcon: ({ tintColor }) => (
-          <Image
-            source={require('../../static/images/settings.png')}
-            style={{width: 35, height: 35, tintColor: 'white'}}>
-          </Image>
-      )}}
   },
-  // ui for entire tab bar
-  {
-    tabBarPosition: 'bottom',
-    tabBarComponent: TabBarBottom,
-    animationEnabled: true,
-    swipeEnabled: true,
-    animationEnabled: true,
-    lazy: true,
-
-    tabBarOptions: {
-      showIcon: true,
-      indicatorStyle: {
-        borderBottomColor: 'green'
-      },
-      activeBackgroundColor: '#2980b9',
-      upperCaseLabel: true,
-      activeTintColor: '#C5E4DB',
-      inactiveTintColor: '#fff',
-      pressColor: 'red',
-      labelStyle: {
-        fontSize: 14,
-        padding: 0,
-      },
-      indicatorStyle: {
-        color: 'red'
-      },
-      tabStyle: {
-        width: 200,    
-      },
-      style: {
-        backgroundColor: '#156497',
-      },
+  Settings: {
+    screen: SettingsStack,
+    navigationOptions: {
+      tabBarLabel: 'Settings',
+      tabBarIcon: ({ tintColor }) => <Icon name="settings" size={30} color={tintColor} />
     }
   }
-);
+},{
+  tabBarPosition: 'bottom',
+  tabBarComponent: TabBarBottom,
+  animationEnabled: true,
+  swipeEnabled: true,
+  animationEnabled: true,
+  lazy: true,
 
-export default Router
+  tabBarOptions: {
+    showIcon: true,
+    indicatorStyle: {
+      borderBottomColor: 'green'
+    },
+    activeBackgroundColor: '#5D8DAD',
+    upperCaseLabel: true,
+    activeTintColor: '#fff',
+    inactiveTintColor: '#fff',
+    pressColor: 'red',
+    labelStyle: {
+      fontSize: 14,
+      padding: 0,
+    },
+    indicatorStyle: {
+      color: 'red'
+    },
+    tabStyle: {
+      width: 200,    
+    },
+    style: {
+      backgroundColor: '#0E131A',
+    },
+  }
+})
+
+// isolated stacks / rely on its own redirect to go back
+export const RecentCallStack = StackNavigator({
+  RecentCall: {
+    screen: RecentCall,
+    navigationOptions: {
+      title: 'Recent Calls',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    }
+  }
+})
+
+export const RecentTextStack = StackNavigator({
+  RecentText: {
+    screen: RecentText,
+    navigationOptions: {
+      title: 'Recent Texts',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    }
+  }
+})
+
+export const RecentEmailStack = StackNavigator({
+  RecentEmail: {
+    screen: RecentEmail,
+    navigationOptions: {
+      title: 'Recent Email',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    }
+  }
+})
+
+export const AddReminderStack = StackNavigator({
+  AddReminder: {
+    screen: AddReminder,
+    navigationOptions: {
+      title: 'Add A Reminder',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    }
+  }
+})
+
+export const Root = StackNavigator({
+  Tabs: {
+    screen: Tabs,
+  },
+  RecentCall: {
+    screen: RecentCallStack,
+  },
+  RecentText: {
+    screen: RecentTextStack,
+  },
+  RecentEmail: {
+    screen: RecentEmailStack,
+  },
+  AddReminder: {
+    screen: AddReminderStack,
+  },
+}, {
+  mode: 'modal',
+  headerMode: 'none',
+})

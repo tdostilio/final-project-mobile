@@ -7,9 +7,6 @@ import { SearchBar } from 'react-native-elements';
 
 
 class Contacts extends React.Component {
-    static navigationOptions = {
-      title: 'Contacts',
-    };
 
     state = {   
         loading: false, 
@@ -31,10 +28,6 @@ class Contacts extends React.Component {
             }
             this.setState({searching: this.sortArray(this.state.contacts, this.state.search)})
         })
-    }
-    
-    handleSubmit = (text) => {
-        console.log('hi')
     }
 
     componentWillMount() {
@@ -68,14 +61,16 @@ class Contacts extends React.Component {
       const { loading, search } = this.state;
 
       return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor: '#222A43' }}>
             <View>
                 <SearchBar
                     round
+                    inputStyle={{color: '#1EBF9E', backgroundColor: 'black'}}
+                    containerStyle={{backgroundColor: 'black'}}
                     onChangeText={this.handleSearch}
                     value={this.state.search}
-                    placeholder='Search ...' 
-                />
+                    placeholder='Search ...'
+                 />
             </View>
             <View>
                 <View>

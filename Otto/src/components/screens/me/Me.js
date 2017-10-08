@@ -1,139 +1,86 @@
 import React, { Component } from 'react'
-import {
-  TouchableOpacity, ActivityIndicator,
-  ListView, Button, Text, View, Image
-} from 'react-native'
+import { ScrollView, View, Text, TouchableOpacity } from 'react-native'
+import { Card, Header, Tile, List, ListItem, Button } from 'react-native-elements'
 
+import { me } from '../../router/data'
 
 export default class Me extends Component {
 
-  handleTextPress = (e) => {
-    console.log(e)
+  static defaultProps = {
+    ...me
   }
 
-  handleEmailPress = (e) => {
-    console.log(e)
+  handleCallPress = () => {
+    this.props.navigation.navigate('RecentCall')
   }
 
-  handlePhonePress = (e) => {
-    console.log(e)
+  handleTextPress = () => {
+    this.props.navigation.navigate('RecentText')
   }
 
-  handleReminderPress = (e) => {
-    console.log(e)
+  handleEmailPress = () => {
+    this.props.navigation.navigate('RecentEmail')
   }
 
   render() {
-    const { navigate } = this.props.navigation
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
 
-        <View style={styles.headerContainer}>
-          <Text
-            style={styles.headerText}>
-            Welcome Stephen Grider!
-          </Text>
-          <Text
-            style={{marginLeft: 100, marginRight: 100, color: 'royalblue'}}>
-            "Hot Dog!"
-          </Text>
-        </View>
-
-        <View style={styles.profilePhotoContainer}>
-          <Image
-            style={styles.profilePhoto}
-            source={require('./../../../static/images/theGrider.jpeg')}
+        <View style={styles.avatarContainer}>
+          <Tile
+            imageSrc={{ uri: this.props.picture.large}}
+            featured
           />
         </View>
 
         <View style={styles.contentContainer}>
-
-          <TouchableOpacity
-            onPress={this.handlePhonePress}
-            style={styles.buttonContainer}>
-            <View style={styles.buttonStyle}>
-              <Text
-                onPress={this.handlePhonePress}
-                style={styles.buttonText}>
-                Phone Call History
-              </Text>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.buttonContainer}
-            onPress={this.handleTextPress}>
-            <Text
-              onPress={this.handleTextPress}
-              style={styles.buttonText}>
-              Text Message History
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.buttonContainer}
-            onPress={this.handleEmailPress}>
-            <Text
-              onPress={this.handleEmailPress}
-              style={styles.buttonText}>
-              Email History
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.buttonContainer}
-            onPress={this.handleEmailPress}>
-            <Text
-              onPress={this.handleReminderPress}
-              style={styles.buttonText}>
-              Reminders
-            </Text>
-          </TouchableOpacity>
-
+         <Card
+            containerStyle={
+              {borderRadius: 15, borderColor: `#5D8DAD`, padding: 10, alignSelf: 'stretch',
+              marginTop: 15, backgroundColor: `#5D8DAD`}}>
+              <Button
+                borderRadius={50}
+                raised
+                large
+                buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
+                icon={{name: 'smartphone', type: 'material'}}
+                title='Recent Calls'
+                onPress={this.handleCallPress} />
+              <Button
+                borderRadius={50}
+                raised
+                large
+                buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
+                icon={{name: 'comment', type: 'font-awesome'}}
+                onPress={this.handleTextPress}
+                title='Recent Texts' />
+              <Button
+                borderRadius={50}
+                raised
+                large
+                buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
+                icon={{name: 'email', type: 'material'}}
+                onPress={this.handleEmailPress}
+                title='Recent Emails' />
+         </Card>
         </View>
 
-      </View>
+      </ScrollView>
     )
-  } // Render
-} // Me Component
-
+  }
+}
 
 const styles = {
   container: {
+    backgroundColor: `#222A43`
+  },
+  avatarContainer: {
     flex: 1,
+  },
+  contentContainer: {
+    flex: 3,
     flexDirection: `column`,
     justifyContent: `center`,
     alignItems: `center`,
-    backgroundColor: `#C5E4DB`
   },
-  headerContainer: {
-    marginBottom: 15
-  },
-  headerText: {
-    fontSize: 24,
-    color: '#156497'
-  },
-
-  profilePhotoContainer: {
-    marginBottom: 15
-  },
-  profilePhoto: {
-    width: 200,
-    height: 200,
-    borderRadius: 100,
-    padding: 10
-  },
-  buttonContainer: {
-    backgroundColor: '#2980b9',
-    paddingVertical: 15,
-    width: 200,
-    borderRadius: 5,
-    marginBottom: 5
-  },
-  
-  buttonText: {
-    textAlign: 'center',
-    color: '#fff',
-    fontWeight: '700'
-  }
 }

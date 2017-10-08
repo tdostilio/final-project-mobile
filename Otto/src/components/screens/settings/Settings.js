@@ -1,12 +1,8 @@
-import React, { Component } from 'react'
-import { Button, View, Text, ScrollView } from 'react-native'
-import { List, ListItem } from 'react-native-elements'
-
-import LottiePlayer from '../../util/LottiePlayer'
-
+import React, { Component } from 'react';
+import { View, ScrollView, Text } from 'react-native';
+import { List, ListItem } from 'react-native-elements';
 
 export default class Settings extends Component {
-  
   state = {
     loading: true,
     contactSync: false,
@@ -44,20 +40,13 @@ export default class Settings extends Component {
     // native call to signout
     console.log('sign out')
   }
-
+  
   render() {
     const { navigate } = this.props.navigation
     const { loading, contactSync, smsSync, callSync, pushNotifications } = this.state
-
-    if (!loading) {
-      return (
-        <LottiePlayer />
-      )
-    }
-
     return (
-      <ScrollView>
-        <View style={styles.container}>
+      <ScrollView style={styles.container}>
+        <View>
 
           <View>
             <View style={styles.headerContainer}>
@@ -66,33 +55,36 @@ export default class Settings extends Component {
             <List style={styles.container}>
               <ListItem
                 title="Contact Sync"
+                titleStyle={{color: '#eee'}}
                 onSwitch={val => {this.setState(prevState => ({contactSync: !(prevState.contactSync)}),this.handleContactPress)}}
                 switched={contactSync}
                 hideChevron
                 switchButton
-                switchThumbTintColor='#156497'
+                switchThumbTintColor='#5D8DAD'
                 switchOnTintColor='#2980b9'
-                switchTintColor='#156497'
+                switchTintColor='#5D8DAD'
               />
               <ListItem
                 title="SMS Sync"
+                titleStyle={{color: '#eee'}}
                 onSwitch={val => {this.setState(prevState => ({smsSync: !(prevState.smsSync)}),this.handleSMSPress)}}
                 switched={smsSync}
                 hideChevron
                 switchButton
-                switchThumbTintColor='#156497'
+                switchThumbTintColor='#5D8DAD'
                 switchOnTintColor='#2980b9'
-                switchTintColor='#156497'
+                switchTintColor='#5D8DAD'
               />
               <ListItem
                 title="Call Sync"
+                titleStyle={{color: '#eee'}}
                 onSwitch={val => {this.setState(prevState => ({callSync: !(prevState.callSync)}),this.handleCallPress)}}
                 switched={callSync}
                 hideChevron
                 switchButton
-                switchThumbTintColor='#156497'
+                switchThumbTintColor='#5D8DAD'
                 switchOnTintColor='#2980b9'
-                switchTintColor='#156497'
+                switchTintColor='#5D8DAD'
               />
             </List>
           </View>
@@ -104,13 +96,14 @@ export default class Settings extends Component {
             <List style={styles.container}>
               <ListItem
                 title="Push Notifications"
+                titleStyle={{color: '#eee'}}
                 onSwitch={val => {this.setState(prevState => ({pushNotifications: !(prevState.pushNotifications)}),this.handlePushPress)}}
                 switched={pushNotifications}
                 hideChevron
                 switchButton
-                switchThumbTintColor='#156497'
+                switchThumbTintColor='#5D8DAD'
                 switchOnTintColor='#2980b9'
-                switchTintColor='#156497'
+                switchTintColor='#5D8DAD'
               />
             </List>
           </View>
@@ -122,10 +115,12 @@ export default class Settings extends Component {
             <List style={styles.container}>
               <ListItem
                 title="Profile"
+                titleStyle={{color: '#eee'}}
                 chevronColor='#2980b9'
               />
               <ListItem
                 title="Password"
+                titleStyle={{color: '#eee'}}
                 chevronColor='#2980b9'
               />
             </List>
@@ -138,10 +133,12 @@ export default class Settings extends Component {
             <List style={styles.container}>
               <ListItem
                 title="Give us Feedback"
+                titleStyle={{color: '#eee'}}
                 hideChevron
               />
               <ListItem
                 title="Report a Bug"
+                titleStyle={{color: '#eee'}}
                 hideChevron
               />
             </List>
@@ -154,10 +151,12 @@ export default class Settings extends Component {
             <List style={styles.container}>
               <ListItem
                 title="Private Policy"
+                titleStyle={{color: '#eee'}}
                 hideChevron
               />
               <ListItem
                 title="Terms of Service"
+                titleStyle={{color: '#eee'}}
                 hideChevron
               />
             </List>
@@ -170,6 +169,7 @@ export default class Settings extends Component {
               <List style={styles.container}>
                 <ListItem
                   title="Sign Out"
+                  titleStyle={{color: '#eee'}}
                   rightIcon={{ name: 'cancel', color: '#2980b9' }}
                   onPress={this.handleSignOut}
                 />
@@ -186,7 +186,7 @@ export default class Settings extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: `#C5E4DB`
+    backgroundColor: `#222A43`
   },
   headerContainer: {
     justifyContent: 'center',
@@ -197,6 +197,6 @@ const styles = {
     padding: 0,
     fontSize: 15,
     fontWeight: 'bold',
-    color: '#156497'
+    color: '#1EBF9E'
   }
 }
