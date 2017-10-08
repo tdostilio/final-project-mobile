@@ -23,14 +23,14 @@ const styles = {
     containerStyle: {
         borderBottomWidth: 1,
         padding: 10,
-        backgroundColor: '#fff',
+        backgroundColor: '#222A43',
         justifyContent: 'center',
         flexDirection: 'row',
         borderColor: '#ddd',
     },
     textStyle: {
         fontSize: 20,
-        color: '#6495ed'
+        color: '#1EBF9E'
     }
 };
 
