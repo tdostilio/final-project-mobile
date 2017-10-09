@@ -1,21 +1,26 @@
 import { AsyncStorage } from "react-native";
 
-export const USER_KEY = "auth-demo-key";
+import config from '../util/api/config'
 
-export const onSignIn = () => AsyncStorage.setItem(USER_KEY, "true");
+export const onSignIn = () => AsyncStorage.setItem(config.USER_KEY, "true");
 
-export const onSignOut = () => AsyncStorage.removeItem(USER_KEY);
+export const onSignOut = () => AsyncStorage.removeItem(config.USER_KEY);
 
 export const isSignedIn = () => {
+  
   return new Promise((resolve, reject) => {
-    AsyncStorage.getItem(USER_KEY)
+    AsyncStorage.getItem(config.USER_KEY)
       .then(res => {
+        console.log(res)
         if (res !== null) {
+          console.log('res is true')
           resolve(true);
         } else {
           resolve(false);
         }
       })
-      .catch(err => reject(err));
+      .catch(err => {
+        console.log(err)
+        reject(err)});
   });
 };
