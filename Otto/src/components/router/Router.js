@@ -147,7 +147,8 @@ export const Tabs = TabNavigator({
       tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
     },
   },
-},{
+},
+{
   tabBarPosition: 'bottom',
   tabBarComponent: TabBarBottom,
   animationEnabled: true,
