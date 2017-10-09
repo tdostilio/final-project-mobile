@@ -126,13 +126,6 @@ export const Tabs = TabNavigator({
       tabBarIcon: ({ tintColor }) => <Icon name="list" size={30} color={tintColor} />
     },
   },
-  Me: {
-    screen: MeStack,
-    navigationOptions: {
-      tabBarLabel: 'Me',
-      tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
-    },
-  },
   Contacts: {
     screen: ContactsStack,
     navigationOptions: {
@@ -147,13 +140,13 @@ export const Tabs = TabNavigator({
         tabBarIcon: ({ tintColor }) => <Icon name="group-work" size={30} color={tintColor} />
       }
   },
-  Settings: {
-    screen: SettingsStack,
+  Me: {
+    screen: MeStack,
     navigationOptions: {
-      tabBarLabel: 'Settings',
-      tabBarIcon: ({ tintColor }) => <Icon name="settings" size={30} color={tintColor} />
-    }
-  }
+      tabBarLabel: 'Me',
+      tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
+    },
+  },
 },{
   tabBarPosition: 'bottom',
   tabBarComponent: TabBarBottom,
