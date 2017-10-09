@@ -20,7 +20,7 @@ export default class Login extends Component {
     onSignIn().then(() => this.props.navigation.navigate("SignedIn"));
   }
 
-  handleCreate = () => {
+  handleCreatePress = () => {
     this.props.navigation.navigate('CreateAccount')
   }
 
@@ -60,7 +60,7 @@ export default class Login extends Component {
             barStyle='light-content'
           />
           <TextInput
-            placeholder='Username or Email'
+            placeholder='Email'
             style={styles.inputField}
             returnKeyType='next'
             keyboardType='email-address'
@@ -86,7 +86,7 @@ export default class Login extends Component {
               Login
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={this.handleCreate} style={styles.buttonContainer}>
+          <TouchableOpacity onPress={this.handleCreatePress} style={styles.buttonContainer}>
             <Text style={styles.buttonText}>Create</Text>
           </TouchableOpacity>
         </View>
