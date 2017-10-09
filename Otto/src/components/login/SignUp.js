@@ -98,7 +98,8 @@ export default class SignUpForm extends Component {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
-        password: user.password
+        password: user.password,
+        rememberMe: user.rememberMe
       })
     })
     .then(response => response.json())
@@ -111,7 +112,7 @@ export default class SignUpForm extends Component {
         
         // uncomment when ready to save to AsyncStorage
         // this.saveItem('id_token', responseData.id_token)
-        return true;
+        this.props.navigation.navigate('SignedIn')
       }
     })
     .done();
@@ -124,10 +125,6 @@ export default class SignUpForm extends Component {
 
     if (this.checkPassword(user)) {
      let tokenSuccess =  this.userSignup(user)
-      if (!(tokenSuccess)) {
-        return;
-      }
-      this.props.navigation.navigate('SignedIn', )
     } else {
       this.setState({passwordError: true})
     }
