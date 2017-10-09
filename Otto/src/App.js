@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-import { isSignedIn } from "./components/auth/Auth";
+import { isSignedIn, onSignOut } from "./components/auth/Auth";
 import { createRootNavigator } from './components/router/Router'
 
 
@@ -14,9 +14,15 @@ export default class App extends Component {
   }
 
   componentWillMount() {
+    this.doSignIn()
+  }
+
+  doSignIn = () => {
     isSignedIn()
-      .then(res => this.setState({ signedIn: res, checkedSignIn: true }))
-      .catch(err => alert("Authorization failure"));
+    .then(res => {
+      console.log(res)
+      this.setState({ signedIn: res, checkedSignIn: true })})
+    .catch(err => {console.log(err); alert(err)});
   }
 
   render() {
