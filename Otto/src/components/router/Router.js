@@ -119,25 +119,11 @@ export const SettingsStack = StackNavigator({
 })
 
 export const Tabs = TabNavigator({
-  Me: {
-    screen: MeStack,
-    navigationOptions: {
-      tabBarLabel: 'Me',
-      tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
-    },
-  },
   Feed: {
     screen: FeedStack,
     navigationOptions: {
       tabBarLabel: 'Feed',
       tabBarIcon: ({ tintColor }) => <Icon name="list" size={30} color={tintColor} />
-    },
-  },
-  Contacts2: {
-    screen: Contacts2Stack,
-    navigationOptions: {
-      tabBarLabel: 'Contact2',
-      tabBarIcon: ({ tintColor }) => <Icon name="import-contacts" size={34} color={tintColor} />
     },
   },
   Contacts: {
@@ -154,14 +140,15 @@ export const Tabs = TabNavigator({
         tabBarIcon: ({ tintColor }) => <Icon name="group-work" size={30} color={tintColor} />
       }
   },
-  Settings: {
-    screen: SettingsStack,
+  Me: {
+    screen: MeStack,
     navigationOptions: {
-      tabBarLabel: 'Settings',
-      tabBarIcon: ({ tintColor }) => <Icon name="settings" size={30} color={tintColor} />
-    }
-  }
-},{
+      tabBarLabel: 'Me',
+      tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
+    },
+  },
+},
+{
   tabBarPosition: 'bottom',
   tabBarComponent: TabBarBottom,
   animationEnabled: true,
