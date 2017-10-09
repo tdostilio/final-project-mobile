@@ -20,8 +20,17 @@ export default class Login extends Component {
     onSignIn().then(() => this.props.navigation.navigate("SignedIn"));
   }
 
-  handleCreate = () => {
-    this.props.navigation.navigate('CreateAccount')
+  saveToken = async (val) => {
+    console.log(val)
+    // try {
+    //   await AsyncStorage.setItem(item, selectedValue);
+    // } catch (error) {
+    //   console.error('AsyncStorage error: ' + error.message);
+    // }
+  }
+
+  handleCreatePress = () => {
+    this.props.navigation.navigate('CreateAccount', {saveToken: this.saveToken})
   }
 
   handleUserChange = (user) => {
@@ -60,7 +69,7 @@ export default class Login extends Component {
             barStyle='light-content'
           />
           <TextInput
-            placeholder='Email'
+            placeholder='Username or Email'
             style={styles.inputField}
             returnKeyType='next'
             keyboardType='email-address'
@@ -86,7 +95,7 @@ export default class Login extends Component {
               Login
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={this.handleCreate} style={styles.buttonContainer}>
+          <TouchableOpacity onPress={this.handleCreatePress} style={styles.buttonContainer}>
             <Text style={styles.buttonText}>Create</Text>
           </TouchableOpacity>
         </View>
