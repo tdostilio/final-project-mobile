@@ -133,13 +133,6 @@ export const Tabs = TabNavigator({
       tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
     },
   },
-  Contacts2: {
-    screen: Contacts2Stack,
-    navigationOptions: {
-      tabBarLabel: 'Contact2',
-      tabBarIcon: ({ tintColor }) => <Icon name="import-contacts" size={34} color={tintColor} />
-    },
-  },
   Contacts: {
     screen: ContactsStack,
     navigationOptions: {
