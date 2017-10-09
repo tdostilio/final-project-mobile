@@ -119,18 +119,18 @@ export const SettingsStack = StackNavigator({
 })
 
 export const Tabs = TabNavigator({
-  Me: {
-    screen: MeStack,
-    navigationOptions: {
-      tabBarLabel: 'Me',
-      tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
-    },
-  },
   Feed: {
     screen: FeedStack,
     navigationOptions: {
       tabBarLabel: 'Feed',
       tabBarIcon: ({ tintColor }) => <Icon name="list" size={30} color={tintColor} />
+    },
+  },
+  Me: {
+    screen: MeStack,
+    navigationOptions: {
+      tabBarLabel: 'Me',
+      tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
     },
   },
   Contacts2: {
