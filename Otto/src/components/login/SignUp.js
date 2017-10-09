@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {AsyncStorage, StyleSheet, Text, View, Button } from 'react-native'
 import t from 'tcomb-form-native'
 
-import url from '../util/api/config'
+import config from '../util/api/config'
 
 
 const Form = t.form.Form
@@ -91,7 +91,7 @@ export default class SignUpForm extends Component {
   }
 
   userSignup = (user) => {
-    fetch(url.CREATE_ACCOUNT, {
+    fetch(config.CREATE_ACCOUNT, {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -111,8 +111,8 @@ export default class SignUpForm extends Component {
         console.log(responseData)
         
         // uncomment when ready to save to AsyncStorage
-        // this.saveItem('id_token', responseData.id_token)
-        this.props.navigation.navigate('SignedIn')
+        this.saveItem(config.USER_KEY, responseData.token)
+        this.props.navigation.navigate('SignedIn', responseData)
       }
     })
     .done();

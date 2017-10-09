@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
-import { ScrollView, View, Text, TouchableOpacity } from 'react-native'
+import { AsyncStorage, ScrollView, View, Text, TouchableOpacity } from 'react-native'
 import { Card, Header, Tile, List, ListItem, Button } from 'react-native-elements'
 
+import config from '../../util/api/config'
 import { me } from '../../router/data'
+
 
 export default class Me extends Component {
 
+  state = {
+  }
+
   static defaultProps = {
     ...me
+  }
+
+  componentWillMount() {
   }
 
   handleCallPress = () => {
