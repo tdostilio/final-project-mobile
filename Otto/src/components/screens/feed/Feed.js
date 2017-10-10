@@ -23,6 +23,7 @@ export default class Feed extends Component {
 
       <View style={styles.container}>
       
+
         <ScrollView>
           <View style={styles.optionsContainer}>
             <Text style={{ color: "white" }}>Have you talked to [Contact] recently?</Text>

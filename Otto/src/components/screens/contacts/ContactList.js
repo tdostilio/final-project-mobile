@@ -5,7 +5,7 @@ import { ScrollView } from 'react-native';
 class ContactList extends Component {
     renderContacts = (contacts) => {
         return contacts.map( (item, key) => {
-            return <ContactCard style={styles.ContactStyle} contact={item} key={key}/>
+            return <ContactCard navigation={this.props.navigation} style={styles.ContactStyle} contact={item} key={key}/>
         })
     }
     render() {

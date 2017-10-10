@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { ContactManager } from 'NativeModules';
 import ContactList from './ContactList';
 import LottiePlayer from '../../util/LottiePlayer';
-import { SearchBar } from 'react-native-elements';
+import { List, ListItem, SearchBar } from 'react-native-elements';
 
 
 class Contacts extends React.Component {
@@ -78,7 +78,9 @@ class Contacts extends React.Component {
                     ? <ContactList contacts={this.state.searching 
                                             ? this.state.searching
                                             : this.state.contacts} 
-                                    style={styles.contactStyles}/>
+                                    style={styles.contactStyles}
+                                    navigation={this.props.navigation}
+                                    />
                     :<View style={styles.lottieStyle}>
                             <LottiePlayer />
                         </View>
