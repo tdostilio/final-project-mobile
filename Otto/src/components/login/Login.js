@@ -1,23 +1,63 @@
 import React, { Component } from 'react'
-import { AsyncStorage, StatusBar, TouchableHighlight,TouchableOpacity, AlertIOS, StyleSheet, Text, View, TextInput, Image, KeyboardAvoidingView } from 'react-native'
+import { AsyncStorage, StatusBar, TouchableHighlight, TouchableOpacity, AlertIOS, StyleSheet, Text, View, TextInput, Image, KeyboardAvoidingView, Form } from 'react-native'
 import { func } from 'prop-types'
 import t from 'tcomb-form-native'
 
+import config from '../util/api/config'
 import mainlogo from '../../static/images/mainlogo.png'
 import { onSignIn } from "../auth/Auth";
 
 
 export default class Login extends Component {
   state = {
-    userName: '',
-    password: ''
+    email: '',
+    password: '',
+    error: ''
+  }
+  
+  saveItem = async (item, selectedValue) => {
+    try {
+      await AsyncStorage.setItem(item, selectedValue);
+    } catch (error) {
+      console.error('AsyncStorage error: ' + error.message);
+    }
   }
 
-  handleLogin = () => {
-    let userName = this.state.userName
-    let password = this.state.password
+  handleLogin = async () => {
+    // onSignIn().then(() => this.props.navigation.navigate("SignedIn"));
+    const { email, password } = this.state
 
-    onSignIn().then(() => this.props.navigation.navigate("SignedIn"));
+    let tokenSuccess = await this.userSignin({email, password})
+    if (tokenSucess.error) {
+      this.setState({email: '', password: '', error: true})
+    }
+  }
+  
+  userSignin = (user) => {
+    fetch(config.LOGIN_ACCOUNT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: user.email,
+        password: user.password,
+      })
+    })
+    .then(response => response.json())
+    .then(responseData => {
+      if (responseData.error) {
+        this.setState({email: '', password: '', error: true})
+        return;
+      } else {
+        console.log(responseData)
+        
+        // uncomment when ready to save to AsyncStorage
+        this.saveItem(config.USER_TOKEN, responseData.token)
+
+        // send token payload to route state params
+        this.props.navigation.navigate('SignedIn', responseData)
+      }
+    })
+    .done();
   }
 
   handleCreatePress = () => {
@@ -26,7 +66,7 @@ export default class Login extends Component {
 
   handleUserChange = (user) => {
     this.setState({
-      userName: user
+      email: user
     })
   }
 
@@ -36,9 +76,10 @@ export default class Login extends Component {
     })
   }
 
+
   render() {
     const { handleUserSubmit } = this.props
-    const { userName, password } = this.state
+    const { email, password, error } = this.state
 
     return (
       <KeyboardAvoidingView behavior='padding' style={styles.container}>
@@ -55,31 +96,31 @@ export default class Login extends Component {
         </View>
 
         <View style={styles.formContainer}>
-          <View style={styles.formStyle}>
-          <StatusBar
-            barStyle='light-content'
-          />
-          <TextInput
-            placeholder='Email'
-            style={styles.inputField}
-            returnKeyType='next'
-            keyboardType='email-address'
-            autoCapitalize='none'
-            autoCorrect={false}
-            onSubmitEditing={() => this.passwordInput.focus()}
-            onChangeText={this.handleUserChange}
-            value={userName}
-          />
-          <TextInput
-            secureTextEntry
-            placeholder='Password'
-            style={styles.inputField}
-            returnKeyType='go'
-            ref={input => this.passwordInput = input}
-            onChangeText={this.handlePasswordChange}
-            value={password}
-          />
-
+        <View style={styles.formStyle}>
+        <StatusBar
+          barStyle='light-content'
+        />
+        <TextInput
+          placeholder='Email'
+          style={styles.inputField}
+          returnKeyType='next'
+          keyboardType='email-address'
+          autoCapitalize='none'
+          autoCorrect={false}
+          onSubmitEditing={() => this.passwordInput.focus()}
+          onChangeText={this.handleUserChange}
+          value={email}
+        />
+        <TextInput
+          secureTextEntry
+          placeholder='Password'
+          style={styles.inputField}
+          returnKeyType='go'
+          ref={input => this.passwordInput = input}
+          onChangeText={this.handlePasswordChange}
+          value={password}
+        />
+        { error ? <Text style={{color: 'red'}}> {error} </Text> : null }
           <TouchableOpacity onPress={this.handleLogin} style={styles.buttonContainer}>
             <Text
               style={styles.buttonText}>

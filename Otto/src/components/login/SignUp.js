@@ -54,7 +54,8 @@ const options = {
     email: {
       keyboardType: 'email-address',
       autoCorrect: false,
-      error: 'Enter an email'
+      error: 'Enter an email',
+      autoCapitalize: 'none'
     },
     password: {
       password: true,
@@ -93,7 +94,10 @@ export default class SignUpForm extends Component {
   userSignup = (user) => {
     fetch(config.CREATE_ACCOUNT, {
       method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         firstName: user.firstName,
         lastName: user.lastName,
@@ -101,6 +105,9 @@ export default class SignUpForm extends Component {
         password: user.password,
         rememberMe: user.rememberMe
       })
+    })
+    .catch(error => {
+      console.log(error)
     })
     .then(response => response.json())
     .then(responseData => {
@@ -111,7 +118,9 @@ export default class SignUpForm extends Component {
         console.log(responseData)
         
         // uncomment when ready to save to AsyncStorage
-        this.saveItem(config.USER_KEY, responseData.token)
+        this.saveItem(config.USER_TOKEN, responseData.token)
+        
+        // send token payload to route state params
         this.props.navigation.navigate('SignedIn', responseData)
       }
     })
