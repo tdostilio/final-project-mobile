@@ -24,7 +24,9 @@ export default class Feed extends Component {
       <View style={styles.container}>
       
         <ScrollView>
-          <Text>Have you talked to [Contact] recently?</Text>
+          <View style={styles.optionsContainer}>
+            <Text>Have you talked to [Contact] recently?</Text>
+          </View>
             <View style={styles.optionsContainer}>
               <Button
               borderRadius={50}
@@ -99,6 +101,10 @@ const styles = {
     margin: 20
   },
   optionsContainer: {
-    flexDirection: 'row'
-  }
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  // contentContainerStyle: {
+  //   justifyContent: 'center'
+  // }
 }
