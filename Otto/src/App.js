@@ -36,6 +36,9 @@ export default class App extends Component {
 
     // After promise/authorization gets resolved.. Layout will render. No token = Login. Token = Tabs
     const Layout = createRootNavigator(signedIn);
-    return <Layout />;
+
+    return (
+      <Layout />
+    )
   }
 }
