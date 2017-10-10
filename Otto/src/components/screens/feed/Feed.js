@@ -24,7 +24,7 @@ export default class Feed extends Component {
       <View style={styles.container}>
       
         <ScrollView style={styles.optionsContainer}>
-          <Text>Have you talked to [Needle Dick] recently?</Text>
+          <Text>Have you talked to [Contact] recently?</Text>
             <Button
             borderRadius={50}
             raised
