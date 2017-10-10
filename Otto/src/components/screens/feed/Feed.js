@@ -23,48 +23,50 @@ export default class Feed extends Component {
 
       <View style={styles.container}>
       
-        <ScrollView style={styles.optionsContainer}>
+        <ScrollView>
           <Text>Have you talked to [Contact] recently?</Text>
-            <Button
-            borderRadius={50}
-            raised
-            large
-            buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-            icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
-            title='Yes'
-            color='#b6ccda'
-            onPress={this.handleCallPress} 
-            />
-            <Button
-            borderRadius={50}
-            raised
-            large
-            buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-            icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
-            title='No'
-            color='#b6ccda'
-            onPress={this.handleCallPress} 
-            />
-            <Button
-            borderRadius={50}
-            raised
-            large
-            buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-            icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
-            title='Call'
-            color='#b6ccda'
-            onPress={this.handleCallPress} 
-            />
-            <Button
-            borderRadius={50}
-            raised
-            large
-            buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-            icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
-            title='Text'
-            color='#b6ccda'
-            onPress={this.handleCallPress} 
-            />
+            <View style={styles.optionsContainer}>
+              <Button
+              borderRadius={50}
+              raised
+              large
+              buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
+              icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
+              title='Yes'
+              color='#b6ccda'
+              onPress={this.handleCallPress} 
+              />
+              <Button
+              borderRadius={50}
+              raised
+              large
+              buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
+              icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
+              title='No'
+              color='#b6ccda'
+              onPress={this.handleCallPress} 
+              />
+              <Button
+              borderRadius={50}
+              raised
+              large
+              buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
+              icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
+              title='Call'
+              color='#b6ccda'
+              onPress={this.handleCallPress} 
+              />
+              <Button
+              borderRadius={50}
+              raised
+              large
+              buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
+              icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
+              title='Text'
+              color='#b6ccda'
+              onPress={this.handleCallPress} 
+              />
+            </View>
         </ScrollView>
       
         <View style={styles.buttonContainer}>
@@ -89,7 +91,8 @@ export default class Feed extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: `#222A43`
+    backgroundColor: `#222A43`,
+    flexDirection: 'column'
   },
   buttonContainer: {
     flexDirection: 'row-reverse',
