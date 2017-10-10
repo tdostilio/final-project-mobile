@@ -1,17 +1,17 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import Communications from 'react-native-communications';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { Button } from 'react-native-elements';
 
 
 const ContactCard = (props) => {
+    console.log('these are the props: ' + props)
     wrapText = (info) => {
         return <Text style={styles.textStyle}>{info}</Text>
     }
     return (
         <TouchableOpacity 
-            onPress={() => Communications.phonecall(props.contact.phoneNumbers[0]['number'], true)}
-            
+            onPress={() => props.navigation.navigate('ContactOptions', props.contact )}
         >
             <View style={styles.containerStyle}>
             {
@@ -48,6 +48,6 @@ const styles = {
 
 
 // Communications code for calling:
-// onPress={() => Communications.phonecall(props.contact.phoneNumbers[0]['number'], true)}
+
 
 export { ContactCard };

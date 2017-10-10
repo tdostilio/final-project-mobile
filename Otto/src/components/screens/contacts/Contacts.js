@@ -78,7 +78,9 @@ class Contacts extends React.Component {
                     ? <ContactList contacts={this.state.searching 
                                             ? this.state.searching
                                             : this.state.contacts} 
-                                    style={styles.contactStyles}/>
+                                    style={styles.contactStyles}
+                                    navigation={this.props.navigation}
+                                    />
                     :<View style={styles.lottieStyle}>
                             <LottiePlayer />
                         </View>
