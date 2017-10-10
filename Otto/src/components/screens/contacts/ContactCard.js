@@ -11,7 +11,7 @@ const ContactCard = (props) => {
     return (
         <TouchableOpacity 
             onPress={() => Communications.phonecall(props.contact.phoneNumbers[0]['number'], true)}
-
+            
         >
             <View style={styles.containerStyle}>
             {
@@ -19,22 +19,18 @@ const ContactCard = (props) => {
                 wrapText(props.contact.givenName.toString()+ " " +props.contact.familyName.toString())
                 :wrapText('No Contacts Found')
             }
-            <Icon name="angle-right" style={styles.chevronStyle} />
+            <Icon name="angle-right" size={24} style={styles.chevronStyle} />
             </View>
         </TouchableOpacity>
     );
 };
 
 const styles = {
-    testStyle: {
-        alignItems: 'space-between'
-    },
     containerStyle: {
-        alignItems: 'flex-end',
         borderBottomWidth: 1,
         padding: 10,
         backgroundColor: '#222A43',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         flexDirection: 'row',
         borderColor: '#ddd',
     },
@@ -44,8 +40,6 @@ const styles = {
     },
     chevronStyle: {
         justifyContent: 'center',
-        marginLeft: 200,
-        size: 24,
         color: "#C8C7CC" 
     }
 

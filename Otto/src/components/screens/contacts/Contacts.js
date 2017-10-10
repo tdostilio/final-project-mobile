@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { ContactManager } from 'NativeModules';
 import ContactList from './ContactList';
 import LottiePlayer from '../../util/LottiePlayer';
-import { SearchBar } from 'react-native-elements';
+import { List, ListItem, SearchBar } from 'react-native-elements';
 
 
 class Contacts extends React.Component {
