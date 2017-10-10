@@ -24,7 +24,7 @@ export default class Feed extends Component {
       <View style={styles.container}>
       
         <ScrollView style={styles.optionsContainer}>
-          <Text style={styles.message}>Have you talked to [Contact] recently?</Text>
+          <Text>Have you talked to Mom recently?</Text>
             <Button
             borderRadius={50}
             raised
@@ -96,6 +96,6 @@ const styles = {
     margin: 20
   },
   optionsContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   }
 }
