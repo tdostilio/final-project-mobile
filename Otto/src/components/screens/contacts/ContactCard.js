@@ -30,7 +30,7 @@ const styles = {
         alignItems: 'space-between'
     },
     containerStyle: {
-        alignItems: 'space-between',
+        alignItems: 'flex-end',
         borderBottomWidth: 1,
         padding: 10,
         backgroundColor: '#222A43',
