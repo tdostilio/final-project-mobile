@@ -13,29 +13,25 @@ export default class Groups extends Component {
   static defaultProps = {
     template: [
       {
-        title: "Custom",
-        subTitle: "Add a custom group..."
-      },
-      {
         title: "Family",
-        subTitle: "Keep in touch...",
+        subTitle: "Reminders scheduled every 5 to 7 days...",
         value: 80
       },
       {
-        title: "Friends",
-        subTitle: "Keep in touch",
+        title: "Close Friends",
+        subTitle: "Reminders scheduled every 10 to 14 days...",
         value: 123
       },
       {
-        title: "Co-Workers",
-        subTitle: "Strengthen allied relationships",
+        title: "Friends",
+        subTitle: "Reminders scheduled every 10 to 14 days...",
         value: 50
       },
-      {
-        title: "Clients",
-        subTitle: "Stay top-of-mind with current clients",
-        value: 40
-      }
+      // {
+      //   title: "Clients",
+      //   subTitle: "Stay top-of-mind with current clients",
+      //   value: 40
+      // }
     ]
   }
 
@@ -59,7 +55,11 @@ export default class Groups extends Component {
             key={index}
             title={item.title}
             titleStyle={{color: '#eee'}}
-            subtitle={item.subtitle}
+            subtitle={
+              <View>
+                <Text style={styles.subtitle}>{item.subTitle}</Text>
+              </View>
+              }
             chevronColor='#5D8DAD'
             badge={{ value: 1, containerStyle: { backgroundColor: '#1EBF9E'}, textStyle: { color: '#fff' }, containerStyle: {marginRight: -10} }}
           />
@@ -76,14 +76,14 @@ export default class Groups extends Component {
         <View onSubmit={this.handleSubmit}>
           <SearchBar
             round
-            inputStyle={{color: '#1EBF9E', backgroundColor: 'black'}}
+            inputStyle={{color: '#1EBF9E', backgroundColor: 'white'}}
             containerStyle={{backgroundColor: 'black'}}
             onChangeText={this.handleSearch}
             value={this.state.search}
             placeholder='Find a group...'
            />
         </View>
-        <View><Text>TestSearch: {search}</Text></View>
+        {/* <View><Text>TestSearch: {search}</Text></View> */}
         <ScrollView>
           <View>
             {this.renderTemplates()}
@@ -99,5 +99,8 @@ const styles = {
   container: {
     flex: 1,
     backgroundColor: `#222A43`
+  },
+  subtitle: {
+    color: 'white'
   }
 }
