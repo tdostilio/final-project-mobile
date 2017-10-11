@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ContactCard } from './ContactCard';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 
 class ContactList extends Component {
     renderContacts = (contacts) => {
@@ -10,9 +10,11 @@ class ContactList extends Component {
     }
     render() {
         return (
-            <ScrollView style={styles.scrollContainer}>
-                {this.renderContacts(this.props.contacts)}
-            </ScrollView>
+            <View style={{ flex: 1}}>
+                <ScrollView style={styles.scrollContainer}>
+                    {this.renderContacts(this.props.contacts)}
+                </ScrollView>
+            </View>
         );
     }
 }

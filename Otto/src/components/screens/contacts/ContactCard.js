@@ -19,7 +19,7 @@ const ContactCard = (props) => {
                 wrapText(props.contact.givenName.toString()+ " " +props.contact.familyName.toString())
                 :wrapText('No Contacts Found')
             }
-            <Icon name="angle-right" size={24} style={styles.chevronStyle} />
+            <Icon name="plus" size={26} style={styles.chevronStyle} />
             </View>
         </TouchableOpacity>
     );
@@ -27,21 +27,24 @@ const ContactCard = (props) => {
 
 const styles = {
     containerStyle: {
-        borderTopWidth: 0.5,
-        borderBottomWidth: 0.5,
+        // borderTopWidth: 0.5,
+        borderBottomWidth: 0.1,
         padding: 10,
         backgroundColor: '#222A43',
         justifyContent: 'space-between',
         flexDirection: 'row',
-        borderColor: '#ddd',
+        alignItems: 'center',
+        borderColor: '#5D8DAD',
+        height: 60
     },
     textStyle: {
-        fontSize: 20,
-        color: '#5D8DAD'
+        fontSize: 25,
+        color: '#5D8DAD',
+        fontWeight: 'bold'
     },
     chevronStyle: {
         justifyContent: 'center',
-        color: "#C8C7CC" 
+        color: "#5D8DAD" 
     }
 
 };

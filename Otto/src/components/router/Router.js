@@ -148,13 +148,14 @@ export const Tabs = TabNavigator({
       tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
     },
   },
-  // Settings: {
-  //   screen: SettingsStack,
-  //   navigationOptions: {
-  //     tabBarLabel: 'Settings',
-  //     tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
-  //   },
-  // },
+
+  Settings: {
+    screen: SettingsStack,
+    navigationOptions: {
+      tabBarLabel: 'Settings',
+      tabBarIcon: ({ tintColor }) => <Icon name="settings" size={30} color={tintColor} />
+    },
+  },
 },
 {
   tabBarPosition: 'bottom',
@@ -306,6 +307,7 @@ export const createRootNavigator = (signedIn = false) => {
 }, {
   mode: 'modal',
   headerMode: 'none',
-  initialRouteName: signedIn ? "SignedIn" : "SignedOut"
+  initialRouteName: signedIn ? "SignedIn" : "SignedOut",
+  tabStyle: {flex: 1}
 })
 }
