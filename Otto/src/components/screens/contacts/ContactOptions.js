@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import { Button } from 'react-native-elements';
 import Communications from 'react-native-communications';
+import mainlogo from '../../../static/images/mainlogo.png';
 
 class ContactOptions extends Component {
     state = {information: ''}
@@ -28,8 +29,14 @@ class ContactOptions extends Component {
         debugger
         return (
             <View>
+                <View style={styles.centerLogo}>
+                    <Image
+                    style={styles.logo}
+                    source={mainlogo}
+                    />
+                </View>
                 <View>
-                    <Text>What would you like to do?</Text>
+                    <Text style={styles.textStyle}>What would you like to do?</Text>
                 </View>
                 <View style={styles.buttonContainer}>
                 <Button
@@ -83,8 +90,23 @@ class ContactOptions extends Component {
 const styles = {
     container: {
       flex: 1,
-      backgroundColor: `#222A43`
-    }
+      backgroundColor: `#222A43`,
+    },
+    centerLogo: {
+        alignItems: 'center',
+        marginTop: 20
+    },
+    textStyle: {
+        textAlign: 'center',
+        marginTop: 15,
+        fontSize: 22,
+        fontWeight: `500`,
+        color: `#222A43`
+    },
+    logo: {
+        width: 100,
+        height: 100,
+    },
   }
   
 

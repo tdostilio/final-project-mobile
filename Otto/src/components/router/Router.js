@@ -148,6 +148,7 @@ export const Tabs = TabNavigator({
       tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
     },
   },
+
   Settings: {
     screen: SettingsStack,
     navigationOptions: {
