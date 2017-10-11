@@ -120,19 +120,19 @@ export const GroupsStack = StackNavigator({
 // })
 
 export const Tabs = TabNavigator({
-  Feed: {
-    screen: FeedStack,
-    navigationOptions: {
-      tabBarLabel: 'Feed',
-      tabBarIcon: ({ tintColor }) => <Icon name="list" size={30} color={tintColor} />
-    },
-  },
   Contacts: {
     screen: ContactsStack,
     navigationOptions: {
       tabBarLabel: 'Contacts',
       tabBarIcon: ({ tintColor }) => <Icon name="import-contacts" size={34} color={tintColor} />
     }
+  },
+  Feed: {
+    screen: FeedStack,
+    navigationOptions: {
+      tabBarLabel: 'Feed',
+      tabBarIcon: ({ tintColor }) => <Icon name="list" size={30} color={tintColor} />
+    },
   },
   Groups: {
     screen: GroupsStack,
