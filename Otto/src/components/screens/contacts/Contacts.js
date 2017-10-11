@@ -7,6 +7,7 @@ import { List, ListItem, SearchBar } from 'react-native-elements';
 
 
 class Contacts extends React.Component {
+    
 
     state = {   
         loading: false, 
@@ -68,7 +69,6 @@ class Contacts extends React.Component {
     render() {
       const { navigate } = this.props.navigation;
       const { loading, search } = this.state;
-      const hasActivity = this.state.search !== '';
 
       return (
         <View style={{ flex: 1, backgroundColor: '#222A43' }}>
