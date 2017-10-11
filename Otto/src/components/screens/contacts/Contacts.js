@@ -30,6 +30,8 @@ class Contacts extends React.Component {
         })
     }
 
+    a
+
     componentWillMount() {
         return (
             ContactManager.getContacts((err, result) => {
@@ -63,24 +65,27 @@ class Contacts extends React.Component {
       return (
         <View style={{ flex: 1, backgroundColor: '#222A43' }}>
             <View>
-                <SearchBar
-                    round
-                    inputStyle={{color: '#1EBF9E', backgroundColor: 'white', height: 50, justifyContent: 'center'}}
-                    containerStyle={{backgroundColor: '#222A43'}}
-                    onChangeText={this.handleSearch}
-                    value={this.state.search}
-                    placeholder='Search ...'
-                 />
-            </View>
-            <View>
                 <View>
                     {this.state.contacts
-                    ? <ContactList contacts={this.state.searching 
+                    ? 
+                    <View>
+                        <SearchBar
+                            round
+                            inputStyle={{color: '#1EBF9E', backgroundColor: 'white', height: 50, justifyContent: 'center', fontSize: 20}}
+                            containerStyle={{backgroundColor: '#222A43'}}
+                            icon={style={size: 40}}
+                            showLoadingIcon={true}
+                            onChangeText={this.handleSearch}
+                            value={this.state.search}
+                            placeholder='Search ...'
+                        />
+                    <ContactList contacts={this.state.searching 
                                             ? this.state.searching
                                             : this.state.contacts} 
                                     style={styles.contactStyles}
                                     navigation={this.props.navigation}
                                     />
+                    </View>    
                     :<View style={styles.lottieStyle}>
                             <LottiePlayer />
                         </View>
