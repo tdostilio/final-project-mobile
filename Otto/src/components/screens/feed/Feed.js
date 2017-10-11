@@ -15,6 +15,19 @@ export default class Feed extends Component {
   handleAddReminderPress = () => {
     this.props.navigation.navigate('AddReminder')
   }
+
+  handleYesPress = () => {
+    this.props.navigation.navigate('')
+  }
+  handleNoPress = () => {
+    this.props.navigation.navigate('')
+  }
+  handleCallPress = () => {
+    this.props.navigation.navigate('')
+  }
+  handleTextPress = () => {
+    this.props.navigation.navigate('')
+  }
   
   render() {
     const { navigate } = this.props.navigation
@@ -36,7 +49,7 @@ export default class Feed extends Component {
               icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
               title='Yes'
               color='#b6ccda'
-              onPress={this.handleCallPress} 
+              onPress={this.handleYesPress} 
               />
               <Button
               borderRadius={50}
@@ -46,7 +59,7 @@ export default class Feed extends Component {
               icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
               title='No'
               color='#b6ccda'
-              onPress={this.handleCallPress} 
+              onPress={this.handleNoPress} 
               />
               <Button
               borderRadius={50}
@@ -66,7 +79,7 @@ export default class Feed extends Component {
               icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
               title='Text'
               color='#b6ccda'
-              onPress={this.handleCallPress} 
+              onPress={this.handleTextPress} 
               />
             </View>
         </ScrollView>
@@ -104,7 +117,4 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'center'
   },
-  // contentContainerStyle: {
-  //   justifyContent: 'center'
-  // }
 }
