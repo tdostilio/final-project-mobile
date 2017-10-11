@@ -82,7 +82,7 @@ export default class AddReminder extends Component {
                   backgroundColor={`#5D8DAD`}
                   raised
                   onPress={this._showDateTimePicker}
-                  icon={{name: 'envira', type: 'font-awesome'}}
+                  icon={{name: 'calendar', type: 'font-awesome'}}
                   title='Choose a date...' />
                 <DateTimePicker
                   mode={'datetime'}
