@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Text, Button } from 'react-native';
-import { List, ListItem, Icon } from 'react-native-elements';
+import { View, ScrollView, Text } from 'react-native';
+import { List, ListItem, Icon, Button} from 'react-native-elements';
+import ReminderOptions from './ReminderOptions';
 
 export default class Feed extends Component {
   state = {
@@ -25,51 +26,9 @@ export default class Feed extends Component {
       
 
         <ScrollView>
-          <View style={styles.optionsContainer}>
-            <Text style={{ color: "white", fontSize: 20 }}>Have you talked to [Contact] recently?</Text>
-          </View>
-            <View style={styles.optionsContainer}>
-              <Button
-              borderRadius={50}
-              raised
-              large
-              buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-              icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
-              title='Yes'
-              color='#b6ccda'
-              onPress={this.handleCallPress} 
-              />
-              <Button
-              borderRadius={50}
-              raised
-              large
-              buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-              icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
-              title='No'
-              color='#b6ccda'
-              onPress={this.handleCallPress} 
-              />
-              <Button
-              borderRadius={50}
-              raised
-              large
-              buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-              icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
-              title='Call'
-              color='#b6ccda'
-              onPress={this.handleCallPress} 
-              />
-              <Button
-              borderRadius={50}
-              raised
-              large
-              buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-              icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
-              title='Text'
-              color='#b6ccda'
-              onPress={this.handleCallPress} 
-              />
-            </View>
+          <ReminderOptions/>
+          <ReminderOptions/>
+          <ReminderOptions/>
         </ScrollView>
       
         <View style={styles.buttonContainer}>
@@ -101,11 +60,4 @@ const styles = {
     flexDirection: 'row-reverse',
     margin: 20
   },
-  optionsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center'
-  },
-  // contentContainerStyle: {
-  //   justifyContent: 'center'
-  // }
 }
