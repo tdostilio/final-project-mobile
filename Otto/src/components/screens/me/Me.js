@@ -84,7 +84,7 @@ export default class Me extends Component {
         </View>
         <View>
             <View style={styles.headerContainer}>
-                <Text style={styles.headerTitle}>Sign Out</Text>
+                <Text style={styles.headerTitle}></Text>
             </View>
               <List style={styles.container}>
                 <ListItem
