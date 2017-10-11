@@ -39,12 +39,12 @@ const styles = {
     },
     textStyle: {
         fontSize: 25,
-        color: '#5D8DAD',
+        color: '#87CEFA',
         fontWeight: 'bold'
     },
     chevronStyle: {
         justifyContent: 'center',
-        color: "#5D8DAD" 
+        color: "#87CEFA" 
     }
 
 };

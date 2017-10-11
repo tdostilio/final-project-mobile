@@ -51,8 +51,8 @@ export default class Me extends Component {
         <View style={styles.contentContainer}>
          <Card
             containerStyle={
-              {borderRadius: 15, borderColor: `#1EBF9E`, padding: 10, alignSelf: 'stretch',
-              marginTop: 15, backgroundColor: `#1EBF9E`}}>
+              {borderRadius: 15, borderColor: `#1E90FF`, padding: 10, alignSelf: 'stretch',
+              marginTop: 15, backgroundColor: `#1E90FF`}}>
               <Button
                 borderRadius={50}
                 raised

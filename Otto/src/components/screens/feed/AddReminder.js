@@ -79,7 +79,7 @@ export default class AddReminder extends Component {
               <View>
                 <Button
                   borderRadius={10}
-                  backgroundColor={`#5D8DAD`}
+                  backgroundColor={`#1E90FF`}
                   raised
                   onPress={this._showDateTimePicker}
                   icon={{name: 'calendar', type: 'font-awesome'}}
@@ -118,7 +118,7 @@ export default class AddReminder extends Component {
             buttonStyle={{ marginTop: 20, marginBottom: 20 }}
             borderRadius={5}
             raised
-            backgroundColor={`#5D8DAD`}
+            backgroundColor={`#1E90FF`}
             icon={{name: 'check', type: 'material'}}
             onPress={this.addReminder}
             title='Remind Me' />
@@ -127,7 +127,7 @@ export default class AddReminder extends Component {
             buttonStyle={{ marginTop: 20, marginBottom: 20 }}
             borderRadius={5}
             raised
-            backgroundColor={`#5D8DAD`}
+            backgroundColor={`#1E90FF`}
             icon={{name: 'backspace', type: 'material'}}
             onPress={this.backToHome}
             title='Back to Feed' />

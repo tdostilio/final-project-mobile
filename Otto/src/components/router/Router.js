@@ -169,7 +169,7 @@ export const Tabs = TabNavigator({
     indicatorStyle: {
       borderBottomColor: 'green'
     },
-    activeBackgroundColor: '#5D8DAD',
+    activeBackgroundColor: '#1E90FF',
     upperCaseLabel: true,
     activeTintColor: '#fff',
     inactiveTintColor: '#fff',

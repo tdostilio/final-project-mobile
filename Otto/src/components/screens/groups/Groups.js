@@ -61,7 +61,7 @@ export default class Groups extends Component {
           buttonStyle={{ marginTop: 20, marginBottom: 20 }}
           borderRadius={5}
           raised
-          backgroundColor={`#5D8DAD`}
+          backgroundColor={`#1E90FF`}
           icon={item.icon}
           onPress={this.callContact}
           title={item.title}

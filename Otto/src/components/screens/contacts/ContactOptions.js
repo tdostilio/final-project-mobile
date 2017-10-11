@@ -44,7 +44,7 @@ class ContactOptions extends Component {
                     buttonStyle={{ marginTop: 20, marginBottom: 20 }}
                     borderRadius={5}
                     raised
-                    backgroundColor={`#5D8DAD`}
+                    backgroundColor={`#CD5C5C`}
                     icon={{name: 'group', type: 'material'}}
                     onPress={this.backToContacts}
                     title='Add to Group' />
@@ -55,7 +55,7 @@ class ContactOptions extends Component {
                     buttonStyle={{ marginTop: 20, marginBottom: 20 }}
                     borderRadius={5}
                     raised
-                    backgroundColor={`#5D8DAD`}
+                    backgroundColor={`green`}
                     icon={{name: 'phone', type: 'material'}}
                     onPress={this.callContact}
                     title='Call' />
@@ -66,7 +66,7 @@ class ContactOptions extends Component {
                     buttonStyle={{ marginTop: 20, marginBottom: 20 }}
                     borderRadius={5}
                     raised
-                    backgroundColor={`#5D8DAD`}
+                    backgroundColor={`#1E90FF`}
                     icon={{name: 'message', type: 'material'}}
                     onPress={this.textContact}
                     title='Text' />
@@ -77,7 +77,7 @@ class ContactOptions extends Component {
                     buttonStyle={{ marginTop: 20, marginBottom: 20 }}
                     borderRadius={5}
                     raised
-                    backgroundColor={`#5D8DAD`}
+                    backgroundColor={`#222A43`}
                     icon={{name: 'backspace', type: 'material'}}
                     onPress={this.backToContacts}
                     title='Back to Contacts' />
