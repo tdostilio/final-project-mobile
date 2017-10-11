@@ -45,37 +45,39 @@ export default class Feed extends Component {
                 <Button
                 borderRadius={75}
                 raised
-                large
-                buttonStyle={{marginBottom: 5, backgroundColor: `#5D8DAD`}}
+                medium
+                buttonStyle={{marginBottom: 5, backgroundColor: `green`}}
                 title='Yes'
-                color='#b6ccda'
+                color='white'
                 onPress={this.handleYesPress} 
                 />
                 <Button
                 borderRadius={75}
                 raised
-                large
-                buttonStyle={{marginBottom: 5, backgroundColor: `#5D8DAD`}}
+                medium
+                buttonStyle={{marginBottom: 5, backgroundColor: `red`}}
                 title='No'
-                color='#b6ccda'
+                color='white'
                 onPress={this.handleNoPress} 
                 />
                 <Button
                 borderRadius={75}
                 raised
-                large
+                medium
                 buttonStyle={{marginBottom: 5, backgroundColor: `#5D8DAD`}}
+                icon={{name: 'phone', type: 'material', color: '#b6ccda'}}
                 title='Call'
-                color='#b6ccda'
+                color='white'
                 onPress={this.handleCallPress} 
                 />
                 <Button
                 borderRadius={75}
                 raised
-                large
+                medium
                 buttonStyle={{marginBottom: 5, backgroundColor: `#5D8DAD`}}
+                icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
                 title='Text'
-                color='#b6ccda'
+                color='white'
                 onPress={this.handleTextPress} 
                 />
               </View>
@@ -111,12 +113,6 @@ const styles = {
     flexDirection: 'row-reverse',
     margin: 20
   },
-  optionButtonStyle: {
-    marginBottom: 5, 
-    backgroundColor: `#222A43`, 
-    borderWidth: 1, 
-    borderColor: 'red'
-  },
   optionsContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -125,11 +121,18 @@ const styles = {
   optionsButtonContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 5
+    marginTop: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    elevation: 2,
   },
   optionsGroupContainer: {
     borderWidth: 1,
     borderColor: '#5D8DAD',
-    
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    elevation: 2
   }
 }
