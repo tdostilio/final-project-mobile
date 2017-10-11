@@ -24,11 +24,11 @@ export default class Feed extends Component {
 
       <View style={styles.container}>
       
+
         <ScrollView>
           <ReminderOptions/>
           <ReminderOptions/>
           <ReminderOptions/>
-
         </ScrollView>
       
         <View style={styles.buttonContainer}>

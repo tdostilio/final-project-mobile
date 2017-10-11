@@ -22,6 +22,7 @@ import Contacts2Detail from '../screens/contacts2/Contacts2Detail'
 
 // Contact Screen
 import Contacts from '../screens/contacts/Contacts'
+import ContactOptions from '../screens/contacts/ContactOptions'
 
 // Groups Screen
 import Groups from '../screens/groups/Groups'
@@ -242,6 +243,19 @@ export const AddReminderStack = StackNavigator({
   }
 })
 
+export const ContactOptionsStack = StackNavigator({
+  ContactOptions: {
+    screen: ContactOptions,
+    navigationOptions: {
+      title: 'Contact Options',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    }
+  }
+})
+
 export const LoginStack = StackNavigator({
   Login: {
     screen: Login,
@@ -285,6 +299,9 @@ export const createRootNavigator = (signedIn = false) => {
   },
   AddReminder: {
     screen: AddReminderStack,
+  },
+  ContactOptions: {
+    screen: ContactOptionsStack,
   }
 }, {
   mode: 'modal',

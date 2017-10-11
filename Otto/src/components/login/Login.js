@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { AsyncStorage, StatusBar, TouchableHighlight, TouchableOpacity, AlertIOS, StyleSheet, Text, View, TextInput, Image, KeyboardAvoidingView, Form } from 'react-native'
 import { func } from 'prop-types'
-import t from 'tcomb-form-native'
+
 
 import config from '../util/api/config'
 import mainlogo from '../../static/images/mainlogo.png'
@@ -27,8 +27,9 @@ export default class Login extends Component {
     // onSignIn().then(() => this.props.navigation.navigate("SignedIn"));
     const { email, password } = this.state
 
+    // if user login fail, reset input fields and set error to true
     let tokenSuccess = await this.userSignin({email, password})
-    if (tokenSucess.error) {
+    if (!tokenSuccess) {
       this.setState({email: '', password: '', error: true})
     }
   }
@@ -44,10 +45,6 @@ export default class Login extends Component {
     })
     .then(response => response.json())
     .then(responseData => {
-      if (responseData.error) {
-        this.setState({email: '', password: '', error: true})
-        return;
-      } else {
         console.log(responseData)
         
         // uncomment when ready to save to AsyncStorage
@@ -55,7 +52,11 @@ export default class Login extends Component {
 
         // send token payload to route state params
         this.props.navigation.navigate('SignedIn', responseData)
-      }
+    })
+    .catch((e) => {
+      this.setState({
+        error: true
+      })
     })
     .done();
   }
@@ -120,7 +121,11 @@ export default class Login extends Component {
           onChangeText={this.handlePasswordChange}
           value={password}
         />
-        { error ? <Text style={{color: 'red'}}> {error} </Text> : null }
+        { error ?
+          <View>
+            <Text style={styles.error}> Invalid Login. Try again. </Text>
+          </View>  
+          : null }
           <TouchableOpacity onPress={this.handleLogin} style={styles.buttonContainer}>
             <Text
               style={styles.buttonText}>
@@ -177,5 +182,9 @@ const styles = {
     textAlign: 'center',
     color: '#E2F7FA',
     fontWeight: '700'
+  },
+  error: {
+    color: '#eee',
+    marginBottom: 1
   }
 }
