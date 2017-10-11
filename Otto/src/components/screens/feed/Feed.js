@@ -65,7 +65,7 @@ export default class Feed extends Component {
                 raised
                 medium
                 buttonStyle={{marginBottom: 5, backgroundColor: `#5D8DAD`}}
-                icon={{name: 'phone', type: 'material', color: '#b6ccda'}}
+                icon={{name: 'phone', type: 'material', color: 'white'}}
                 title='Call'
                 color='white'
                 onPress={this.handleCallPress} 
@@ -75,7 +75,7 @@ export default class Feed extends Component {
                 raised
                 medium
                 buttonStyle={{marginBottom: 5, backgroundColor: `#5D8DAD`}}
-                icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
+                icon={{name: 'smartphone', type: 'material', color: 'white'}}
                 title='Text'
                 color='white'
                 onPress={this.handleTextPress} 
