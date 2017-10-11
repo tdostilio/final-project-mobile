@@ -23,7 +23,7 @@ export default class Groups extends Component {
         title: "Close Friends",
         subTitle: "Reminders scheduled every 10 to 14 days...",
         value: 123,
-        icon: {name: 'home', type: 'material'}
+        icon: {name: 'group', type: 'material'}
       },
       {
         title: "Friends",
@@ -59,7 +59,7 @@ export default class Groups extends Component {
             key={index}
             title={item.title}
             titleStyle={{color: '#eee'}}
-            leftIcon={{name: 'home', type: 'material'}}
+            leftIcon={item.icon}
             subtitle={
               <View>
                 <Text style={styles.subtitle}>{item.subTitle}</Text>
