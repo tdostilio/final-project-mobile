@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Text, Button } from 'react-native';
-import { List, ListItem, Icon } from 'react-native-elements';
+import { View, ScrollView, Text } from 'react-native';
+import { List, ListItem, Icon, Button} from 'react-native-elements';
 
 export default class Feed extends Component {
   state = {
@@ -37,50 +37,48 @@ export default class Feed extends Component {
       <View style={styles.container}>
       
         <ScrollView>
-          <View style={styles.optionsContainer}>
-            <Text style={{ color: "white" }}>Have you talked to [Contact] recently?</Text>
-          </View>
+          <View style={styles.optionsGroupContainer}>
             <View style={styles.optionsContainer}>
-              <Button
-              borderRadius={50}
-              raised
-              large
-              buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-              icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
-              title='Yes'
-              color='#b6ccda'
-              onPress={this.handleYesPress} 
-              />
-              <Button
-              borderRadius={50}
-              raised
-              large
-              buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-              icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
-              title='No'
-              color='#b6ccda'
-              onPress={this.handleNoPress} 
-              />
-              <Button
-              borderRadius={50}
-              raised
-              large
-              buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-              icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
-              title='Call'
-              color='#b6ccda'
-              onPress={this.handleCallPress} 
-              />
-              <Button
-              borderRadius={50}
-              raised
-              large
-              buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-              icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
-              title='Text'
-              color='#b6ccda'
-              onPress={this.handleTextPress} 
-              />
+              <Text style={{ color: "white" }}>Have you talked to [Contact] recently?</Text>
+            </View>
+              <View style={styles.optionsButtonContainer}>
+                <Button
+                borderRadius={75}
+                raised
+                large
+                buttonStyle={{marginBottom: 5, backgroundColor: `#5D8DAD`}}
+                title='Yes'
+                color='#b6ccda'
+                onPress={this.handleYesPress} 
+                />
+                <Button
+                borderRadius={75}
+                raised
+                large
+                buttonStyle={{marginBottom: 5, backgroundColor: `#5D8DAD`}}
+                title='No'
+                color='#b6ccda'
+                onPress={this.handleNoPress} 
+                />
+                <Button
+                borderRadius={75}
+                raised
+                large
+                buttonStyle={{marginBottom: 5, backgroundColor: `#5D8DAD`}}
+                title='Call'
+                color='#b6ccda'
+                onPress={this.handleCallPress} 
+                />
+                <Button
+                borderRadius={75}
+                raised
+                large
+                buttonStyle={{marginBottom: 5, backgroundColor: `#5D8DAD`}}
+                title='Text'
+                color='#b6ccda'
+                onPress={this.handleTextPress} 
+                />
+              </View>
             </View>
         </ScrollView>
       
@@ -113,8 +111,25 @@ const styles = {
     flexDirection: 'row-reverse',
     margin: 20
   },
+  optionButtonStyle: {
+    marginBottom: 5, 
+    backgroundColor: `#222A43`, 
+    borderWidth: 1, 
+    borderColor: 'red'
+  },
   optionsContainer: {
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginTop: 5
   },
+  optionsButtonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 5
+  },
+  optionsGroupContainer: {
+    borderWidth: 1,
+    borderColor: '#5D8DAD',
+    
+  }
 }
