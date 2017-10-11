@@ -5,6 +5,7 @@ import { Card, Header, Tile, List, ListItem, Button } from 'react-native-element
 import config from '../../util/api/config'
 import { me } from '../../router/data'
 
+import { onSignOut } from "../../auth/Auth";
 
 export default class Me extends Component {
 
@@ -28,6 +29,12 @@ export default class Me extends Component {
 
   handleEmailPress = () => {
     this.props.navigation.navigate('RecentEmail')
+  }
+///////////////
+  handleSignOut = () => {
+    // native call to signout
+    console.log('sign out')
+    onSignOut().then(() => this.props.navigation.navigate("SignedOut"))
   }
 
   render() {
@@ -75,6 +82,19 @@ export default class Me extends Component {
                 title='Recent Emails' />
          </Card>
         </View>
+        <View>
+            <View style={styles.headerContainer}>
+                <Text style={styles.headerTitle}>Sign Out</Text>
+            </View>
+              <List style={styles.container}>
+                <ListItem
+                  title="Sign Out"
+                  titleStyle={{color: '#eee'}}
+                  rightIcon={{ name: 'cancel', color: '#2980b9' }}
+                  onPress={this.handleSignOut}
+                />
+              </List>
+          </View>
 
       </ScrollView>
     )
