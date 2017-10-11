@@ -28,7 +28,7 @@ import ContactOptions from '../screens/contacts/ContactOptions'
 import Groups from '../screens/groups/Groups'
 
 // Settings Screen
-import Settings from '../screens/settings/Settings'
+// import Settings from '../screens/settings/Settings'
 
 
 export const MeStack = StackNavigator({
@@ -106,18 +106,18 @@ export const GroupsStack = StackNavigator({
   }
 })
 
-export const SettingsStack = StackNavigator({
-  Settings: {
-    screen: Settings,
-    navigationOptions: {
-      title: 'Settings',
-      headerStyle: {
-        backgroundColor: `#222A43`
-      },
-      headerTintColor: '#fff'
-    },
-  },
-})
+// export const SettingsStack = StackNavigator({
+//   Settings: {
+//     screen: Settings,
+//     navigationOptions: {
+//       title: 'Settings',
+//       headerStyle: {
+//         backgroundColor: `#222A43`
+//       },
+//       headerTintColor: '#fff'
+//     },
+//   },
+// })
 
 export const Tabs = TabNavigator({
   Feed: {
@@ -148,13 +148,13 @@ export const Tabs = TabNavigator({
       tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
     },
   },
-  Settings: {
-    screen: SettingsStack,
-    navigationOptions: {
-      tabBarLabel: 'Settings',
-      tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
-    },
-  },
+  // Settings: {
+  //   screen: SettingsStack,
+  //   navigationOptions: {
+  //     tabBarLabel: 'Settings',
+  //     tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
+  //   },
+  // },
 },
 {
   tabBarPosition: 'bottom',
