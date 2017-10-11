@@ -152,7 +152,7 @@ export const Tabs = TabNavigator({
     screen: SettingsStack,
     navigationOptions: {
       tabBarLabel: 'Settings',
-      tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
+      tabBarIcon: ({ tintColor }) => <Icon name="settings" size={30} color={tintColor} />
     },
   },
 },
