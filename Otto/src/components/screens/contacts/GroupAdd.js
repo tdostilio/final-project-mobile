@@ -68,7 +68,7 @@ export default class GroupAdd extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.titleContainer}>
-            <Text style={styles.title}>What group would you like [contact] to add to?</Text>
+            <Text style={styles.title}>What group would you like to add [contact] to?</Text>
         </View>
         <ScrollView>
           <View style={styles.buttonContainer}>
