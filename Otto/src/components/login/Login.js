@@ -27,11 +27,7 @@ export default class Login extends Component {
     // onSignIn().then(() => this.props.navigation.navigate("SignedIn"));
     const { email, password } = this.state
 
-    // if user login fail, reset input fields and set error to true
-    let tokenSuccess = await this.userSignin({email, password})
-    if (!tokenSuccess) {
-      this.setState({email: '', password: '', error: true})
-    }
+    await this.userSignin({email, password})
   }
   
   userSignin = (user) => {
@@ -45,16 +41,18 @@ export default class Login extends Component {
     })
     .then(response => response.json())
     .then(responseData => {
-        console.log(responseData)
         
         // uncomment when ready to save to AsyncStorage
         this.saveItem(config.USER_TOKEN, responseData.token)
 
         // send token payload to route state params
         this.props.navigation.navigate('SignedIn', responseData)
+        return true;
     })
     .catch((e) => {
       this.setState({
+        email: '',
+        password: '',
         error: true
       })
     })
