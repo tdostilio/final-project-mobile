@@ -65,8 +65,8 @@ class Contacts extends React.Component {
             <View>
                 <SearchBar
                     round
-                    inputStyle={{color: '#1EBF9E', backgroundColor: 'black'}}
-                    containerStyle={{backgroundColor: 'black'}}
+                    inputStyle={{color: '#1EBF9E', backgroundColor: 'white', height: 50, justifyContent: 'center'}}
+                    containerStyle={{backgroundColor: '#222A43'}}
                     onChangeText={this.handleSearch}
                     value={this.state.search}
                     placeholder='Search ...'

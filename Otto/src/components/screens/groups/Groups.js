@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Button, View, Text, ScrollView } from 'react-native';
-import { List, ListItem, SearchBar } from 'react-native-elements';
+import { View, Text, ScrollView } from 'react-native';
+import { List, ListItem, SearchBar, Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
@@ -17,7 +17,7 @@ export default class Groups extends Component {
         title: "Family",
         subTitle: "Reminders scheduled every 5 to 7 days...",
         value: 80,
-        icon: {name: 'home', type: 'material'}
+        icon: {name: 'favorite', type: 'material'}
       },
       {
         title: "Close Friends",
@@ -29,7 +29,7 @@ export default class Groups extends Component {
         title: "Friends",
         subTitle: "Reminders scheduled every 10 to 14 days...",
         value: 50,
-        icon: {name: 'home', type: 'material'}
+        icon: {name: 'group', type: 'material'}
       },
       // {
       //   title: "Clients",
@@ -55,19 +55,32 @@ export default class Groups extends Component {
   renderTemplates = () => (
     this.props.template.map((item, index) => {
       return (
-          <ListItem
-            key={index}
-            title={item.title}
-            titleStyle={{color: '#eee'}}
-            leftIcon={item.icon}
-            subtitle={
-              <View>
-                <Text style={styles.subtitle}>{item.subTitle}</Text>
-              </View>
-              }
-            chevronColor='#5D8DAD'
-            badge={{ value: 1, containerStyle: { backgroundColor: '#1EBF9E'}, textStyle: { color: '#fff' }, containerStyle: {marginRight: -10} }}
+          <Button
+          key={index}
+          large
+          buttonStyle={{ marginTop: 20, marginBottom: 20 }}
+          borderRadius={5}
+          raised
+          backgroundColor={`#5D8DAD`}
+          icon={item.icon}
+          onPress={this.callContact}
+          title={item.title}
           />
+
+
+          // <ListItem
+          //   key={index}
+          //   title={item.title}
+          //   titleStyle={{color: '#eee'}}
+          //   leftIcon={item.icon}
+          //   subtitle={
+          //     <View>
+          //       <Text style={styles.subtitle}>{item.subTitle}</Text>
+          //     </View>
+          //     }
+          //   chevronColor='#5D8DAD'
+          //   badge={{ value: 1, containerStyle: { backgroundColor: '#1EBF9E'}, textStyle: { color: '#fff' }, containerStyle: {marginRight: -10} }}
+          // />
       )
     })
   )
@@ -78,7 +91,7 @@ export default class Groups extends Component {
 
     return (
       <View style={styles.container}>
-        <View onSubmit={this.handleSubmit}>
+        {/* <View onSubmit={this.handleSubmit}>
           <SearchBar
             round
             inputStyle={{color: '#1EBF9E', backgroundColor: 'white'}}
@@ -87,10 +100,10 @@ export default class Groups extends Component {
             value={this.state.search}
             placeholder='Find a group...'
            />
-        </View>
+        </View> */}
         {/* <View><Text>TestSearch: {search}</Text></View> */}
         <ScrollView>
-          <View>
+          <View style={styles.buttonContainer}>
             {this.renderTemplates()}
           </View>
         </ScrollView>
@@ -103,9 +116,16 @@ export default class Groups extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: `#222A43`
+    backgroundColor: `#222A43`,
+    justifyContent: 'center',
   },
   subtitle: {
     color: 'white'
-  }
+  },
+  buttonContainer: {
+    flex: 1,
+    marginTop: 100,
+    backgroundColor: `#222A43`,
+    justifyContent: 'center',
+  },
 }
