@@ -57,19 +57,34 @@ export default class GroupAdd extends Component {
     })
   )
 
+  backToPrevious = () => {
+    this.props.navigation.goBack(null)
+    }
+
   render() {
     const { navigate } = this.props.navigation
     const { loading, search } = this.state
 
     return (
       <View style={styles.container}>
-        <View>
-            <Text>What group would you like [contact] to add to?</Text>
+        <View style={styles.titleContainer}>
+            <Text style={styles.title}>What group would you like [contact] to add to?</Text>
         </View>
         <ScrollView>
           <View style={styles.buttonContainer}>
             {this.renderTemplates()}
           </View>
+          <View style={styles.buttonContainer}>
+                <Button
+                    large
+                    buttonStyle={{ marginTop: 20, marginBottom: 20 }}
+                    borderRadius={5}
+                    raised
+                    backgroundColor={`red`}
+                    icon={{name: 'backspace', type: 'material'}}
+                    onPress={this.backToPrevious}
+                    title='Back' />
+                </View>
         </ScrollView>
       </View>
     )
@@ -86,10 +101,20 @@ const styles = {
   subtitle: {
     color: 'white'
   },
+  title: {
+      fontWeight: 'bold',
+      fontSize: 30,
+      color: 'white'
+  },
+  titleContainer: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   buttonContainer: {
     flex: 1,
-    marginTop: 100,
+    marginTop: 50,
     backgroundColor: `#222A43`,
     justifyContent: 'center',
+    marginBottom: 10
   },
 }

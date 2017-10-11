@@ -81,7 +81,7 @@ class ContactOptions extends Component {
                     buttonStyle={{ marginTop: 20, marginBottom: 20 }}
                     borderRadius={5}
                     raised
-                    backgroundColor={`#5D8DAD`}
+                    backgroundColor={`red`}
                     icon={{name: 'backspace', type: 'material'}}
                     onPress={this.backToContacts}
                     title='Back to Contacts' />
