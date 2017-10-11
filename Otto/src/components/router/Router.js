@@ -26,6 +26,9 @@ import ContactOptions from '../screens/contacts/ContactOptions'
 
 // Groups Screen
 import Groups from '../screens/groups/Groups'
+import Family from '../screens/groups/Family'
+import CloseFriends from '../screens/groups/CloseFriends'
+import Friends from '../screens/groups/Friends'
 
 // Settings Screen
 // import Settings from '../screens/settings/Settings'
@@ -103,6 +106,36 @@ export const GroupsStack = StackNavigator({
       },
       headerTintColor: '#fff'
     },
+  },
+  Family: {
+    screen: Family,
+    navigationOptions: {
+      title: 'Family List',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    },
+  },
+  CloseFriends: {
+    screen: CloseFriends,
+    navigationOptions: {
+      title: 'Close Friends List',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    },
+  },
+  Friends: {
+    screen: Friends,
+    navigationOptions: {
+      title: 'Friends List',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    },
   }
 })
 
@@ -166,9 +199,6 @@ export const Tabs = TabNavigator({
 
   tabBarOptions: {
     showIcon: true,
-    indicatorStyle: {
-      borderBottomColor: 'green'
-    },
     activeBackgroundColor: '#5D8DAD',
     upperCaseLabel: true,
     activeTintColor: '#fff',
@@ -177,9 +207,6 @@ export const Tabs = TabNavigator({
     labelStyle: {
       fontSize: 14,
       padding: 0,
-    },
-    indicatorStyle: {
-      color: 'red'
     },
     tabStyle: {
       width: 200,    
