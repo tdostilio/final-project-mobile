@@ -200,7 +200,12 @@ export const Tabs = TabNavigator({
 
   tabBarOptions: {
     showIcon: true,
-    activeBackgroundColor: '#5D8DAD',
+
+    indicatorStyle: {
+      borderBottomColor: 'green'
+    },
+    activeBackgroundColor: '#1E90FF',
+
     upperCaseLabel: true,
     activeTintColor: '#fff',
     inactiveTintColor: '#fff',
