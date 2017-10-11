@@ -9,7 +9,7 @@ export const me = {
   "phone":"882-462-7520",
   "cell":"430-428-0407",
   "id":{"name":"","value":null},
-  "picture":{"large":"https://i.pinimg.com/originals/5f/51/59/5f5159304396dbcd63c055e209666c93.jpg","medium":"https://randomuser.me/api/portraits/med/women/75.jpg",
+  "picture":{"large":"https://media.giphy.com/media/G2YYl02LrF5Vm/giphy.gif","medium":"https://randomuser.me/api/portraits/med/women/75.jpg",
   "thumbnail":"https://randomuser.me/api/portraits/thumb/women/75.jpg"},
   "nat":"CA"
 }
