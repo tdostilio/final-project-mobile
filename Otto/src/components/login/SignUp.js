@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import {AsyncStorage, StyleSheet, Text, View, Button } from 'react-native'
+import {AsyncStorage, StyleSheet, Text,
+  View, Button, KeyboardAvoidingView } from 'react-native'
 import t from 'tcomb-form-native'
 
 import config from '../util/api/config'
@@ -149,7 +150,8 @@ export default class SignUpForm extends Component {
   
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView behavior='position' style={styles.container}>
+        <View>
         <Form 
           ref={c => this._form = c}
           type={User} 
@@ -161,7 +163,8 @@ export default class SignUpForm extends Component {
           title="Sign Up!"
           onPress={this.handleSubmit}
         />
-      </View>
+        </View>
+        </KeyboardAvoidingView>
     )
   }
 }
@@ -171,6 +174,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
     backgroundColor: '#ffffff',
+    flexGrow: 1
   },
   warning: {
     color: 'red'
