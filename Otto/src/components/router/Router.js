@@ -149,13 +149,13 @@ export const Tabs = TabNavigator({
     },
   },
 
-  Settings: {
-    screen: SettingsStack,
-    navigationOptions: {
-      tabBarLabel: 'Settings',
-      tabBarIcon: ({ tintColor }) => <Icon name="settings" size={30} color={tintColor} />
-    },
-  },
+//   Settings: {
+//     screen: SettingsStack,
+//     navigationOptions: {
+//       tabBarLabel: 'Settings',
+//       tabBarIcon: ({ tintColor }) => <Icon name="settings" size={30} color={tintColor} />
+//     },
+//   },
 },
 {
   tabBarPosition: 'bottom',
