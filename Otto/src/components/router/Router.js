@@ -23,6 +23,7 @@ import Contacts2Detail from '../screens/contacts2/Contacts2Detail'
 // Contact Screen
 import Contacts from '../screens/contacts/Contacts'
 import ContactOptions from '../screens/contacts/ContactOptions'
+import GroupAdd from '../screens/contacts/GroupAdd'
 
 // Groups Screen
 import Groups from '../screens/groups/Groups'
@@ -256,6 +257,19 @@ export const ContactOptionsStack = StackNavigator({
   }
 })
 
+export const GroupAddStack = StackNavigator({
+  GroupAdd: {
+    screen: GroupAdd,
+    navigationOptions: {
+      title: 'Add to Group',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    }
+  }
+})
+
 export const LoginStack = StackNavigator({
   Login: {
     screen: Login,
@@ -302,6 +316,9 @@ export const createRootNavigator = (signedIn = false) => {
   },
   ContactOptions: {
     screen: ContactOptionsStack,
+  },
+  GroupAdd: {
+    screen: GroupAddStack,
   }
 }, {
   mode: 'modal',

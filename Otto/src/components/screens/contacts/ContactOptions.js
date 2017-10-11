@@ -23,6 +23,10 @@ class ContactOptions extends Component {
         this.props.navigation.goBack(null)
     }
 
+    addtoGroups = () => {
+        this.props.navigation.navigate('GroupAdd');
+    }
+
     render() {
         const { navigate } = this.props.navigation
         console.log(this.props.navigation)
@@ -46,7 +50,7 @@ class ContactOptions extends Component {
                     raised
                     backgroundColor={`#5D8DAD`}
                     icon={{name: 'group', type: 'material'}}
-                    onPress={this.backToContacts}
+                    onPress={this.addtoGroups}
                     title='Add to Group' />
                 </View>
                 <View style={styles.buttonContainer}>
@@ -77,7 +81,7 @@ class ContactOptions extends Component {
                     buttonStyle={{ marginTop: 20, marginBottom: 20 }}
                     borderRadius={5}
                     raised
-                    backgroundColor={`#5D8DAD`}
+                    backgroundColor={`red`}
                     icon={{name: 'backspace', type: 'material'}}
                     onPress={this.backToContacts}
                     title='Back to Contacts' />
