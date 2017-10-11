@@ -23,7 +23,7 @@ export default class Groups extends Component {
         title: "Close Friends",
         subTitle: "Reminders scheduled every 10 to 14 days...",
         value: 123,
-        icon: {name: 'group', type: 'material'}
+        icon: {name: 'face', type: 'material'}
       },
       {
         title: "Friends",
