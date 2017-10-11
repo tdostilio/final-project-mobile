@@ -306,6 +306,7 @@ export const createRootNavigator = (signedIn = false) => {
 }, {
   mode: 'modal',
   headerMode: 'none',
-  initialRouteName: signedIn ? "SignedIn" : "SignedOut"
+  initialRouteName: signedIn ? "SignedIn" : "SignedOut",
+  tabStyle: {flex: 1}
 })
 }
