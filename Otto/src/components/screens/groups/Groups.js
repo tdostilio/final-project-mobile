@@ -23,7 +23,7 @@ export default class Groups extends Component {
       },
       {
         title: "Friends",
-        subTitle: "Keep in touch",
+        subTitle: "Keep on touch",
         value: 123
       },
       {
