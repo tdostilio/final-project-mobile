@@ -80,21 +80,17 @@ export default class Me extends Component {
                 onPress={this.handleEmailPress}
                 color='#b6ccda'
                 title='Recent Emails' />
+                <Button
+                borderRadius={50}
+                raised
+                large
+                buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
+                icon={{name: 'exit-to-app', type: 'material', color: '#b6ccda'}}
+                onPress={this.handleSignOut}
+                color='#b6ccda'
+                title='Sign Out' />
          </Card>
         </View>
-        <View>
-            <View style={styles.headerContainer}>
-                <Text style={styles.headerTitle}></Text>
-            </View>
-              <List style={styles.container}>
-                <ListItem
-                  title="Sign Out"
-                  titleStyle={{color: '#eee'}}
-                  rightIcon={{ name: 'cancel', color: '#2980b9' }}
-                  onPress={this.handleSignOut}
-                />
-              </List>
-          </View>
 
       </ScrollView>
     )
