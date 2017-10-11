@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { AsyncStorage, StatusBar, TouchableHighlight, TouchableOpacity, AlertIOS, StyleSheet, Text, View, TextInput, Image, KeyboardAvoidingView, Form } from 'react-native'
+import { AsyncStorage, StatusBar, TouchableHighlight,
+TouchableOpacity, AlertIOS, StyleSheet, Text, View,
+TextInput, Image, KeyboardAvoidingView, Form } from 'react-native'
 import { func } from 'prop-types'
 
 
@@ -78,7 +80,7 @@ export default class Login extends Component {
     const { email, password, error } = this.state
 
     return (
-      <KeyboardAvoidingView behavior='padding' style={styles.container}>
+      <KeyboardAvoidingView behavior='position' style={styles.container}>
 
         <View style={styles.logoContainer}>
           <Image
@@ -151,7 +153,8 @@ const styles = {
   },
   logo: {
     width: 150,
-    height: 150
+    height: 150,
+    marginTop: 50
   },
   title: {
     color: '#eee',
