@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import { Button, View, Text, ScrollView } from 'react-native'
-import { List, ListItem, SearchBar } from 'react-native-elements'
+import React, { Component } from 'react';
+import { Button, View, Text, ScrollView } from 'react-native';
+import { List, ListItem, SearchBar } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 export default class Groups extends Component {
@@ -15,17 +16,20 @@ export default class Groups extends Component {
       {
         title: "Family",
         subTitle: "Reminders scheduled every 5 to 7 days...",
-        value: 80
+        value: 80,
+        icon: {name: 'home', type: 'material'}
       },
       {
         title: "Close Friends",
         subTitle: "Reminders scheduled every 10 to 14 days...",
-        value: 123
+        value: 123,
+        icon: {name: 'home', type: 'material'}
       },
       {
         title: "Friends",
         subTitle: "Reminders scheduled every 10 to 14 days...",
-        value: 50
+        value: 50,
+        icon: {name: 'home', type: 'material'}
       },
       // {
       //   title: "Clients",
@@ -55,6 +59,7 @@ export default class Groups extends Component {
             key={index}
             title={item.title}
             titleStyle={{color: '#eee'}}
+            leftIcon={{name: 'home', type: 'material'}}
             subtitle={
               <View>
                 <Text style={styles.subtitle}>{item.subTitle}</Text>
