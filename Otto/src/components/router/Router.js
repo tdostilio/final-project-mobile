@@ -23,9 +23,13 @@ import Contacts2Detail from '../screens/contacts2/Contacts2Detail'
 // Contact Screen
 import Contacts from '../screens/contacts/Contacts'
 import ContactOptions from '../screens/contacts/ContactOptions'
+import GroupAdd from '../screens/contacts/GroupAdd'
 
 // Groups Screen
 import Groups from '../screens/groups/Groups'
+import Family from '../screens/groups/Family'
+import CloseFriends from '../screens/groups/CloseFriends'
+import Friends from '../screens/groups/Friends'
 
 // Settings Screen
 // import Settings from '../screens/settings/Settings'
@@ -103,6 +107,36 @@ export const GroupsStack = StackNavigator({
       },
       headerTintColor: '#fff'
     },
+  },
+  Family: {
+    screen: Family,
+    navigationOptions: {
+      title: 'Family List',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    },
+  },
+  CloseFriends: {
+    screen: CloseFriends,
+    navigationOptions: {
+      title: 'Close Friends List',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    },
+  },
+  Friends: {
+    screen: Friends,
+    navigationOptions: {
+      title: 'Friends List',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    },
   }
 })
 
@@ -166,10 +200,12 @@ export const Tabs = TabNavigator({
 
   tabBarOptions: {
     showIcon: true,
+
     indicatorStyle: {
       borderBottomColor: 'green'
     },
     activeBackgroundColor: '#1E90FF',
+
     upperCaseLabel: true,
     activeTintColor: '#fff',
     inactiveTintColor: '#fff',
@@ -177,9 +213,6 @@ export const Tabs = TabNavigator({
     labelStyle: {
       fontSize: 14,
       padding: 0,
-    },
-    indicatorStyle: {
-      color: 'red'
     },
     tabStyle: {
       width: 200,    
@@ -256,6 +289,19 @@ export const ContactOptionsStack = StackNavigator({
   }
 })
 
+export const GroupAddStack = StackNavigator({
+  GroupAdd: {
+    screen: GroupAdd,
+    navigationOptions: {
+      title: 'Add to Group',
+      headerStyle: {
+        backgroundColor: `#222A43`
+      },
+      headerTintColor: '#fff'
+    }
+  }
+})
+
 export const LoginStack = StackNavigator({
   Login: {
     screen: Login,
@@ -302,6 +348,9 @@ export const createRootNavigator = (signedIn = false) => {
   },
   ContactOptions: {
     screen: ContactOptionsStack,
+  },
+  GroupAdd: {
+    screen: GroupAddStack,
   }
 }, {
   mode: 'modal',

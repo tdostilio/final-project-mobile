@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 
-export default class Groups extends Component {
+export default class GroupAdd extends Component {
 
   state = {
     loading: true,
@@ -16,22 +17,19 @@ export default class Groups extends Component {
         title: "Family",
         subTitle: "Reminders scheduled every 5 to 7 days...",
         value: 80,
-        icon: {name: 'favorite', type: 'material'},
-        route: 'Family'
+        icon: {name: 'favorite', type: 'material'}
       },
       {
         title: "Close Friends",
         subTitle: "Reminders scheduled every 10 to 14 days...",
         value: 123,
-        icon: {name: 'face', type: 'material'},
-        route: 'CloseFriends'
+        icon: {name: 'face', type: 'material'}
       },
       {
         title: "Friends",
         subTitle: "Reminders scheduled every 10 to 14 days...",
         value: 50,
-        icon: {name: 'group', type: 'material'},
-        route: 'Friends'
+        icon: {name: 'group', type: 'material'}
       }
     ]
   }
@@ -39,21 +37,6 @@ export default class Groups extends Component {
   componentDidMount() {
     // make ajax call to hydrate this state.. do it here or from `Me Component` and pass down as props
     // change loading to false once state hydrated.. for development-- leave it true
-  }
-
-  handleSearch = (text) => {
-    this.setState({
-      search: text
-    })
-  }
-
-  handleSubmit = (text) => {
-    console.log('hi')
-  }
-
-  handlePress = (item) => {
-    
-    this.props.navigation.navigate(item.route)
   }
 
   renderTemplates = () => (
@@ -65,24 +48,43 @@ export default class Groups extends Component {
           buttonStyle={{ marginTop: 20, marginBottom: 20 }}
           borderRadius={5}
           raised
-          backgroundColor={`#1E90FF`}
+          backgroundColor={`#5D8DAD`}
           icon={item.icon}
-          onPress={() => {this.handlePress(item)}}
+          onPress={this.callContact}
           title={item.title}
           />
       )
     })
   )
 
+  backToPrevious = () => {
+    this.props.navigation.goBack(null)
+    }
+
   render() {
+    const { navigate } = this.props.navigation
     const { loading, search } = this.state
 
     return (
       <View style={styles.container}>
+        <View style={styles.titleContainer}>
+            <Text style={styles.title}>What group would you like to add [contact] to?</Text>
+        </View>
         <ScrollView>
           <View style={styles.buttonContainer}>
             {this.renderTemplates()}
           </View>
+          <View style={styles.buttonContainer}>
+                <Button
+                    large
+                    buttonStyle={{ marginTop: 20, marginBottom: 20 }}
+                    borderRadius={5}
+                    raised
+                    backgroundColor={`red`}
+                    icon={{name: 'backspace', type: 'material'}}
+                    onPress={this.backToPrevious}
+                    title='Back' />
+                </View>
         </ScrollView>
       </View>
     )
@@ -96,10 +98,23 @@ const styles = {
     backgroundColor: `#222A43`,
     justifyContent: 'center',
   },
+  subtitle: {
+    color: 'white'
+  },
+  title: {
+      fontWeight: 'bold',
+      fontSize: 30,
+      color: 'white'
+  },
+  titleContainer: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   buttonContainer: {
     flex: 1,
-    marginTop: 100,
+    marginTop: 50,
     backgroundColor: `#222A43`,
     justifyContent: 'center',
+    marginBottom: 10
   },
 }
