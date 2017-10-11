@@ -101,7 +101,7 @@ export default class AddReminder extends Component {
                     <Picker.Item label="Family" value="family" />
                     <Picker.Item label="Close Friends" value="close_friends" />
                     <Picker.Item label="Friends" value="friends" />
-                    <Picker.Item label="Co-Workers" value="co_workers" />
+                    {/* <Picker.Item label="Co-Workers" value="co_workers" /> */}
                     {/* <Picker.Item label="Clients" value="clients" /> */}
             </Picker>
 
