@@ -24,9 +24,7 @@ export default class Login extends Component {
   }
 
   handleLogin = async () => {
-    // onSignIn().then(() => this.props.navigation.navigate("SignedIn"));
     const { email, password } = this.state
-
     await this.userSignin({email, password})
   }
   
@@ -41,7 +39,6 @@ export default class Login extends Component {
     })
     .then(response => response.json())
     .then(responseData => {
-        
         // uncomment when ready to save to AsyncStorage
         this.saveItem(config.USER_TOKEN, responseData.token)
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, ScrollView, Text } from 'react-native';
-import { List, ListItem, Icon } from 'react-native-elements';
+import { List, ListItem, Icon, Button} from 'react-native-elements';
+import ReminderOptions from './ReminderOptions';
 
 export default class Feed extends Component {
   state = {
@@ -23,8 +24,11 @@ export default class Feed extends Component {
 
       <View style={styles.container}>
       
+
         <ScrollView>
-          <Text>Main Body</Text>
+          <ReminderOptions/>
+          <ReminderOptions/>
+          <ReminderOptions/>
         </ScrollView>
       
         <View style={styles.buttonContainer}>
@@ -49,10 +53,11 @@ export default class Feed extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: `#222A43`
+    backgroundColor: `#222A43`,
+    flexDirection: 'column'
   },
   buttonContainer: {
     flexDirection: 'row-reverse',
     margin: 20
-  }
+  },
 }
