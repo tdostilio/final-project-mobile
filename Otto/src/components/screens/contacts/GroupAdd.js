@@ -106,7 +106,7 @@ const styles = {
       fontSize: 25,
       color: 'white',
       textAlign: 'center',
-      marginTop: 80
+      marginTop: 40
   },
   titleContainer: {
     alignItems: 'center',
@@ -117,6 +117,6 @@ const styles = {
     marginTop: 50,
     backgroundColor: `#222A43`,
     justifyContent: 'center',
-    marginBottom: 10
+    marginBottom: 5
   },
 }
