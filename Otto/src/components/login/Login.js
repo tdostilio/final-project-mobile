@@ -46,7 +46,7 @@ export default class Login extends Component {
         // verify userInfo has been saved
         AsyncStorage.getItem(config.USER_INFO)
         .then(res => {
-          console.log(res)
+          console.log(`USER HAS RETURNED ${res}`)
         })
         .catch(err => {
           console.log(err)

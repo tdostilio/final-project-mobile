@@ -123,7 +123,7 @@ export default class SignUpForm extends Component {
         // verify userInfo has been saved
         AsyncStorage.getItem(config.USER_INFO)
         .then(res => {
-          console.log(res)
+          console.log(`USER HAS BEEN CREATED ${res}`)
         })
         .catch(err => {
           console.log(err)

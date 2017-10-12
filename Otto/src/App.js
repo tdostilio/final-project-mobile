@@ -20,7 +20,6 @@ export default class App extends Component {
   doSignIn = () => {
     isSignedIn()
     .then(res => {
-      console.log(res)
       this.setState({ signedIn: res, checkedSignIn: true })})
     .catch(err => {console.log(err); alert(err)});
   }
