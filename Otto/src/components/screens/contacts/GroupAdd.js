@@ -104,7 +104,7 @@ export default class GroupAdd extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.titleContainer}>
-            <Text style={styles.title}>What group would you like to add {this.state.information.givenName + ' ' + this.state.information.familyName} to?</Text>
+            <Text style={styles.title}>What group would you like to add <Text style={{color: '#1FFFDA'}}>{this.state.information.givenName + ' ' + this.state.information.familyName}</Text> to?</Text>
         </View>
         <ScrollView>
           <View style={styles.buttonContainer}>
