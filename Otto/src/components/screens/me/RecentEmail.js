@@ -23,7 +23,7 @@ export default class RecentEmail extends Component {
       <View style={styles.container}>
 
         <ScrollView>
-        <Text stlye={styles.headerStyle}>Email History</Text>
+        <Text style={styles.headerStyle}>Email History</Text>
         </ScrollView>
 
         <View style={styles.buttonContainer}>

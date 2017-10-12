@@ -17,21 +17,21 @@ export default class Groups extends Component {
         title: "Family",
         subTitle: "Reminders scheduled every 5 to 7 days...",
         value: 80,
-        icon: {name: 'favorite', type: 'material'},
+        icon: {name: 'favorite', type: 'material', color: 'lightcoral'},
         route: 'Family'
       },
       {
         title: "Close Friends",
         subTitle: "Reminders scheduled every 10 to 14 days...",
         value: 123,
-        icon: {name: 'mood', type: 'material'},
+        icon: {name: 'mood', type: 'material', color: '#FFFF66'},
         route: 'CloseFriends'
       },
       {
         title: "Friends",
         subTitle: "Reminders scheduled every 10 to 14 days...",
         value: 50,
-        icon: {name: 'group', type: 'material'},
+        icon: {name: 'group', type: 'material', color: 'lightskyblue'},
         route: 'Friends'
       }
     ]
