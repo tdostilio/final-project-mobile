@@ -5,7 +5,6 @@ import { Button } from 'react-native-elements';
 
 
 const ContactCard = (props) => {
-    console.log('these are the props: ' + props)
     wrapText = (info) => {
         return <Text style={styles.textStyle}>{info}</Text>
     }

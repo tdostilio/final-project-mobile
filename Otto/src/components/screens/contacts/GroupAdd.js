@@ -21,7 +21,7 @@ export default class GroupAdd extends Component {
         icon: {name: 'favorite', type: 'material'}
       },
       {
-        title: "Close_Friends",
+        title: "Close Friends",
         subTitle: "Reminders scheduled every 10 to 14 days...",
         value: 123,
         icon: {name: 'mood', type: 'material'}
@@ -56,14 +56,14 @@ export default class GroupAdd extends Component {
   }
 
   sendRequest = (endpoint) => {
+    let path = endpoint.replace(/\s/g, "");
     let id = this.state.id
     let person = this.state.information;
-    axios.post(config.CREATE_GROUP(endpoint, id), {
+    axios.post(config.CREATE_GROUP(path, id), {
       userId: id,
       firstName: person.givenName,
       lastName: person.familyName,
       phoneNumber: this.findMobileNumber('mobile', person.phoneNumbers),
-      timeSinceLastContact: 0
     })
       .then(function (response) {
         console.log(response);
