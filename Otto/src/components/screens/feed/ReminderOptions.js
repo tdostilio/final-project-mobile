@@ -97,7 +97,6 @@ const styles = {
     borderWidth: 1,
     borderColor: '#1E90FF',
     elevation: 2,
-
     margin: 5
   }
 }
