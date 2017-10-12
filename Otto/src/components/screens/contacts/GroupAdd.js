@@ -114,9 +114,9 @@ const styles = {
   },
   buttonContainer: {
     flex: 1,
-    marginTop: 50,
+    marginTop: 40,
     backgroundColor: `#222A43`,
     justifyContent: 'center',
-    marginBottom: 5
+    marginBottom: 10
   },
 }
