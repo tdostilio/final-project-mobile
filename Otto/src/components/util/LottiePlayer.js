@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   container: {
 
     backgroundColor: '#001a33',
-
+    
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 0,
@@ -47,5 +47,6 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: '#5D8DAD'
+    fontSize: 40
   }
 });
