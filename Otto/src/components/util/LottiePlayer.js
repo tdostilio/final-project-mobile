@@ -47,6 +47,6 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: '#5D8DAD',
-    fontSize: 40
+    fontSize: 30
   }
 });
