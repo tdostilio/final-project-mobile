@@ -36,17 +36,17 @@ export default class GroupAdd extends Component {
 
   componentWillMount() {
     let information = this.props.navigation.state.params
-    this.setState({information}, () => {
-      console.log(this.state)
-      console.log('hey component will mount!!!!!!!!')
-    })
+    this.setState({information})
   }
 
   sendRequest = () => {
     console.log('this.props.navigation.state.params = ' + this.props.navigation.state.params)
-    console.log(this.state.information)
-    // axios.post('/create', {
-    // })
+    let person = this.state.information
+    console.log(person)
+
+    axios.post('/create', {
+      firstName: this.state.information
+    })
   }
 
   renderTemplates = () => (
