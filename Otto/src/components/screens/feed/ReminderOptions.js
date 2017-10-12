@@ -93,7 +93,7 @@ const styles = {
     marginTop: 5,
   },
   optionsGroupContainer: {
-    borderWidth: 1,
+    borderWidth: 0.5,
     borderColor: '#1FFFDA',
     elevation: 2,
     margin: 5
