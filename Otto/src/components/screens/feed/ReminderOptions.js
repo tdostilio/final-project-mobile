@@ -91,7 +91,6 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'center',
     marginTop: 5,
-
   },
   optionsGroupContainer: {
     borderWidth: 1,
