@@ -55,6 +55,7 @@ export default class GroupAdd extends Component {
       return phoneNumberArray[0].number
   }
 
+  // adds contact to group
   sendRequest = (endpoint) => {
     let id = this.state.id
     let person = this.state.information;
