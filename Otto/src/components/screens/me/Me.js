@@ -41,53 +41,61 @@ export default class Me extends Component {
     return (
       <ScrollView style={styles.container}>
 
-        <View style={styles.avatarContainer}>
-          <Tile
-            imageSrc={{ uri: this.props.picture.large}}
-            featured
-          />
-        </View>
+          <View style={styles.avatarContainer}>
+            <Tile
+              imageSrc={{ uri: this.props.picture.large}}
+              imageContainerStyle={{ 
+                width: 300,
+                height: 300,
+                borderRadius: 300/2, 
+                marginTop: 15,
+                marginLeft: 'auto',
+                marginRight: 'auto'
+                }}
+              featured
+            />
+          </View>
 
         <View style={styles.contentContainer}>
          <Card
             containerStyle={
-              {borderRadius: 15, borderColor: `#1FFFDA`, padding: 10, alignSelf: 'stretch',
-              marginTop: 15, backgroundColor: `#1FFFDA`}}>
+              {borderRadius: 15, borderColor: `#1FFFDA`, width: 275, padding: 10, alignSelf: 'stretch',
+              marginTop: 30, backgroundColor: `#1FFFDA`}}>
               <Button
                 borderRadius={50}
                 raised
                 large
-                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
+                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`, width: 200, marginLeft: 'auto', marginRight: 'auto'}}
                 icon={{name: 'phone', type: 'material', color: 'green'}}
                 title='Recent Calls'
                 color='white'
                 
                 onPress={this.handleCallPress} />
               <Button
-                borderRadius={50}
+                borderRadius={100}
                 raised
                 large
-                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
+                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`, width: 200, marginLeft: 'auto', marginRight: 'auto'}}
                 icon={{name: 'forum', type: 'material', color: 'lightskyblue'}}
                 onPress={this.handleTextPress}
                 color='white'
                 
                 title='Recent Texts' />
               <Button
-                borderRadius={50}
+                borderRadius={100}
                 raised
                 large
-                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
+                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`, width: 200, marginLeft: 'auto', marginRight: 'auto'}}
                 icon={{name: 'email', type: 'material', color: 'white'}}
                 onPress={this.handleEmailPress}
                 color='white'
                 
                 title='Recent Emails' />
                 <Button
-                borderRadius={50}
+                borderRadius={100}
                 raised
                 large
-                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
+                buttonStyle={{backgroundColor: `#001a33`, width: 200, marginLeft: 'auto', marginRight: 'auto'}}
                 icon={{name: 'exit-to-app', type: 'material', color: 'firebrick'}}
                 onPress={this.handleSignOut}
                 color='white'
@@ -103,14 +111,14 @@ export default class Me extends Component {
 
 const styles = {
   container: {
-    backgroundColor: `#001a33`
+    backgroundColor: `#001a33`,
   },
   avatarContainer: {
     flex: 1,
   },
   contentContainer: {
     flex: 3,
-    flexDirection: `column`,
+    flexDirection: `row`,
     justifyContent: `center`,
     alignItems: `center`,
   },
