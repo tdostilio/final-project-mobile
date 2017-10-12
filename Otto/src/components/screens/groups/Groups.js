@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, Image } from 'react-native';
 import { Button } from 'react-native-elements';
+import mainlogo from '../../../static/images/mainlogo.png';
 
 
 export default class Groups extends Component {
@@ -79,6 +80,13 @@ export default class Groups extends Component {
 
     return (
       <View style={styles.container}>
+        <View style={styles.centerLogo}>
+          <Image
+          style={styles.logo}
+          source={mainlogo}
+          />
+        </View>
+        <Text style={styles.textStyle}>Stay in touch!</Text>
         <ScrollView>
           <View style={styles.buttonContainer}>
             {this.renderTemplates()}
@@ -98,8 +106,23 @@ const styles = {
   },
   buttonContainer: {
     flex: 1,
-    marginTop: 100,
+    marginTop: 20,
     backgroundColor: `#222A43`,
     justifyContent: 'center',
   },
+  centerLogo: {
+      alignItems: 'center',
+      marginTop: 20
+  },
+  logo: {
+      width: 100,
+      height: 100,
+  },
+  textStyle: {
+    textAlign: 'center',
+    color: 'white',
+    marginTop: 30,
+    fontSize: 20,
+    fontWeight: '600'
+  }
 }
