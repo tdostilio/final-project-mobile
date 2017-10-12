@@ -105,8 +105,8 @@ const styles = {
       fontWeight: 'bold',
       fontSize: 25,
       color: 'white',
-      alignItems: 'center',
-      justifyContent: 'center'
+      textAlign: 'center',
+      marginTop: 5
   },
   titleContainer: {
     alignItems: 'center',
