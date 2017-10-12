@@ -86,7 +86,7 @@ export default class Groups extends Component {
           source={mainlogo}
           />
         </View>
-        <Text style={styles.textStyle}>Keep in touch!</Text>
+        <Text style={styles.textStyle}>Your Groups</Text>
         <ScrollView>
           <View style={styles.buttonContainer}>
             {this.renderTemplates()}

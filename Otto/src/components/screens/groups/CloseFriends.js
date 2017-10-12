@@ -21,7 +21,7 @@ export default class CloseFriends extends Component {
       <View style={styles.container}>
 
         <ScrollView>
-        <Text>Close Friends Main Body</Text>
+        <Text style={styles.headerStyle}>Best Friends</Text>
         </ScrollView>
 
       </View>
@@ -34,5 +34,12 @@ const styles = {
   container: {
     flex: 1,
     backgroundColor: `#222A43`
+  },
+  headerStyle: {
+    textAlign: 'center',
+    color: 'white',
+    marginTop: 30,
+    fontSize: 20,
+    fontWeight: '600'
   }
 }

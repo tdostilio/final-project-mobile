@@ -23,7 +23,7 @@ export default class RecentEmail extends Component {
       <View style={styles.container}>
 
         <ScrollView>
-        <Text>Main Body</Text>
+        <Text stlye={styles.headerStyle}>Email History</Text>
         </ScrollView>
 
         <View style={styles.buttonContainer}>
@@ -32,7 +32,7 @@ export default class RecentEmail extends Component {
             buttonStyle={{ marginTop: 20, marginBottom: 20 }}
             borderRadius={5}
             raised
-            backgroundColor={`#5D8DAD`}
+            backgroundColor={`#1E90FF`}
             icon={{name: 'backspace', type: 'material'}}
             onPress={this.backToHome}
             title='Back to home' />
@@ -48,5 +48,12 @@ const styles = {
   container: {
     flex: 1,
     backgroundColor: `#222A43`
+  },
+  headerStyle: {
+    textAlign: 'center',
+    color: 'white',
+    marginTop: 30,
+    fontSize: 20,
+    fontWeight: '600'
   }
 }

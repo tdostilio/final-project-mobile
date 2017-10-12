@@ -58,7 +58,7 @@ export default class Me extends Component {
                 raised
                 large
                 buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-                icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
+                icon={{name: 'phone', type: 'material', color: 'green'}}
                 title='Recent Calls'
                 color='#b6ccda'
                 onPress={this.handleCallPress} />
@@ -67,7 +67,7 @@ export default class Me extends Component {
                 raised
                 large
                 buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-                icon={{name: 'comment', type: 'font-awesome', color: '#b6ccda'}}
+                icon={{name: 'forum', type: 'material', color: 'lightskyblue'}}
                 onPress={this.handleTextPress}
                 color='#b6ccda'
                 title='Recent Texts' />
@@ -76,7 +76,7 @@ export default class Me extends Component {
                 raised
                 large
                 buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-                icon={{name: 'email', type: 'material', color: '#b6ccda'}}
+                icon={{name: 'email', type: 'material', color: 'white'}}
                 onPress={this.handleEmailPress}
                 color='#b6ccda'
                 title='Recent Emails' />
@@ -85,7 +85,7 @@ export default class Me extends Component {
                 raised
                 large
                 buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-                icon={{name: 'exit-to-app', type: 'material', color: '#b6ccda'}}
+                icon={{name: 'exit-to-app', type: 'material', color: 'firebrick'}}
                 onPress={this.handleSignOut}
                 color='#b6ccda'
                 title='Sign Out' />
