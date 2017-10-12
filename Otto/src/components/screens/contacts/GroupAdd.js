@@ -39,13 +39,24 @@ export default class GroupAdd extends Component {
     this.setState({information})
   }
 
-  sendRequest = () => {
-    console.log('this.props.navigation.state.params = ' + this.props.navigation.state.params)
-    let person = this.state.information
-    console.log(person)
+  findMobileNumber(keyName, phoneNumberArray) {
+      for (var i=0; i < phoneNumberArray.length; i++) {
+          if (phoneNumberArray[i].name === keyName) {
+              return phoneNumberArray[i].number;
+          }
+          else {
+            return phoneNumberArray[0].number
+          }
+      }
+    }
+  }
 
+  sendRequest = () => {
+    let person = this.state.information
     axios.post('/create', {
-      firstName: this.state.information
+      firstName: person.givenName,
+      lastName: person.familyName,
+      phoneNumber: findMobileNumber('mobile', person.phoneNumbers)
     })
   }
 
