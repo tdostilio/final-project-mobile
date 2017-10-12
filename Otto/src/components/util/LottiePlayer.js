@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     shadowOffset: {width:0, height: 0}
   },
   textStyle: {
-    color: '#5D8DAD'
+    color: '#5D8DAD',
     fontSize: 40
   }
 });
