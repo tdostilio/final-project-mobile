@@ -19,7 +19,7 @@ export default class Login extends Component {
   
   saveItem = async (item, selectedValue) => {
     try {
-      await AsyncStorage.setItem(item, selectedValue);
+      await AsyncStorage.setItem(item, JSON.stringify(selectedValue));
     } catch (error) {
       console.error('AsyncStorage error: ' + error.message);
     }
@@ -42,7 +42,15 @@ export default class Login extends Component {
     .then(response => response.json())
     .then(responseData => {
         // uncomment when ready to save to AsyncStorage
-        this.saveItem(config.USER_TOKEN, responseData.token)
+        this.saveItem(config.USER_INFO, responseData)
+        // verify userInfo has been saved
+        AsyncStorage.getItem(config.USER_INFO)
+        .then(res => {
+          console.log(res)
+        })
+        .catch(err => {
+          console.log(err)
+          reject(err)});
 
         // send token payload to route state params
         this.props.navigation.navigate('SignedIn', responseData)
