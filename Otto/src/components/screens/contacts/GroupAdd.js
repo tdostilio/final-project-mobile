@@ -65,6 +65,12 @@ export default class GroupAdd extends Component {
       phoneNumber: this.findMobileNumber('mobile', person.phoneNumbers),
       timeSinceLastContact: 0
     })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
   }
 
   renderTemplates = () => (
