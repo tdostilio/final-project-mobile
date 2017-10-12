@@ -32,7 +32,7 @@ export default class ReminderOptions extends Component {
 
         <View style={styles.optionsGroupContainer}>
             <View style={styles.optionsContainer}>
-              <Text style={{ color: "white", fontSize: 20 }}>Have you talked to <Text style={{color: '#1FFFDA'}}>Mom</Text> recently?</Text>
+              <Text style={{ color: "white", fontSize: 20 }}>Have you talked to [Contact] recently?</Text>
             </View>
               <View style={styles.optionsButtonContainer}>
                 <Button
