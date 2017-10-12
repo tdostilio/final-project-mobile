@@ -103,8 +103,10 @@ const styles = {
   },
   title: {
       fontWeight: 'bold',
-      fontSize: 30,
-      color: 'white'
+      fontSize: 25,
+      color: 'white',
+      alignItems: 'center',
+      justifyContent: 'center'
   },
   titleContainer: {
     alignItems: 'center',
