@@ -49,11 +49,11 @@ export default class GroupAdd extends Component {
           }
       }
     }
-  }
 
   sendRequest = () => {
     let person = this.state.information
-    axios.post('/create', {
+    // axios.post('/create', {
+      console.log({
       firstName: person.givenName,
       lastName: person.familyName,
       phoneNumber: findMobileNumber('mobile', person.phoneNumbers)
