@@ -84,7 +84,7 @@ export default class GroupAdd extends Component {
           raised
           backgroundColor={`#1E90FF`}
           icon={item.icon}
-          onPress={this.sendRequest(item.title)}
+          onPress={() => {this.sendRequest(item.title)}}
           title={item.title}
           />
       )
