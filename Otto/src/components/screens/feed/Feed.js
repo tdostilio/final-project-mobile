@@ -36,7 +36,7 @@ export default class Feed extends Component {
           raised={true}
           name='add-circle'
           onPress={this.handleReminderPress}
-          underlayColor='#222A43'
+          underlayColor='#001a33'
           type='material'
           color='#1E90FF'
           reverse={true}
@@ -53,7 +53,7 @@ export default class Feed extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: `#222A43`,
+    backgroundColor: `#001a33`,
     flexDirection: 'column'
   },
   buttonContainer: {

@@ -34,7 +34,7 @@ export default class Contacts2 extends Component {
 
   render() {
     return (
-      <ScrollView style={{backgroundColor: `#222A43`}}>
+      <ScrollView style={{backgroundColor: `#001a33`}}>
                   <View>
                 <SearchBar
                     round
@@ -56,7 +56,7 @@ export default class Contacts2 extends Component {
               subtitleStyle={{color: '#1EBF9E'}}
               onPress={() => this.onLearnMore(user)}
               titleStyle={{color: '#eee'}}
-              containerStyle={{backgroundColor: `#222A43`}}
+              containerStyle={{backgroundColor: `#001a33`}}
               chevronColor={'#5D8DAD'}
             />
           ))}

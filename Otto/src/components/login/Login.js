@@ -152,7 +152,7 @@ export default class Login extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: '#222A43'
+    backgroundColor: '#001a33'
   },
   logoContainer: {
     alignItems: 'center',
@@ -177,7 +177,7 @@ const styles = {
     height: 50,
     backgroundColor: '#E2F7FA',
     marginBottom: 20,
-    color: '#222A43'
+    color: '#001a33'
   },
   buttonContainer: {
     backgroundColor: '#1EBF9E',

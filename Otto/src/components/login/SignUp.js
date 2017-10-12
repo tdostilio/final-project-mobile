@@ -26,7 +26,7 @@ const formStyles = {
   },
   controlLabel: {
     normal: {
-      color: '#222A43',
+      color: '#001a33',
       fontSize: 18,
       marginBottom: 7,
       fontWeight: '600'

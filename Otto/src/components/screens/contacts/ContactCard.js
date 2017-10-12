@@ -30,7 +30,7 @@ const styles = {
         // borderTopWidth: 0.5,
         borderBottomWidth: 0.1,
         padding: 10,
-        backgroundColor: '#222A43',
+        backgroundColor: '#001a33',
         justifyContent: 'space-between',
         flexDirection: 'row',
         alignItems: 'center',
@@ -39,12 +39,12 @@ const styles = {
     },
     textStyle: {
         fontSize: 25,
-        color: '#87CEFA',
+        color: '#00BFFF',
         fontWeight: 'bold'
     },
     chevronStyle: {
         justifyContent: 'center',
-        color: "#87CEFA" 
+        color: "#1FFFDA" 
     }
 
 };

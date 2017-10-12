@@ -71,7 +71,7 @@ class Contacts extends React.Component {
       const { loading, search } = this.state;
 
       return (
-        <View style={{ flex: 1, backgroundColor: '#222A43' }}>
+        <View style={{ flex: 1, backgroundColor: '#001a33' }}>
             <View style={{ flex: 1 }}>
                 <View style={{ flex: 1 }}>
                     {this.state.contacts
@@ -80,7 +80,7 @@ class Contacts extends React.Component {
                         <SearchBar
                             round
                             inputStyle={{color: '#1EBF9E', backgroundColor: 'white', height: 50, justifyContent: 'center', fontSize: 20}}
-                            containerStyle={{backgroundColor: '#222A43'}}
+                            containerStyle={{backgroundColor: '#001a33'}}
                             noIcon
                             onChangeText={this.handleSearch}
                             value={this.state.search}

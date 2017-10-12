@@ -67,6 +67,7 @@ export default class Groups extends Component {
           borderRadius={5}
           raised
           backgroundColor={`#1E90FF`}
+          fontWeight='500'
           icon={item.icon}
           onPress={() => {this.handlePress(item)}}
           title={item.title}
@@ -101,13 +102,13 @@ export default class Groups extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: `#222A43`,
+    backgroundColor: `#001a33`,
     justifyContent: 'center',
   },
   buttonContainer: {
     flex: 1,
     marginTop: 20,
-    backgroundColor: `#222A43`,
+    backgroundColor: `#001a33`,
     justifyContent: 'center',
   },
   centerLogo: {

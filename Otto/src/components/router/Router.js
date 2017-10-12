@@ -41,7 +41,7 @@ export const MeStack = StackNavigator({
     navigationOptions: {
       title: 'Welcome',
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#eee'
     },
@@ -54,7 +54,7 @@ export const FeedStack = StackNavigator({
     navigationOptions: {
       title: 'Feed',
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#eee'
     },
@@ -67,7 +67,7 @@ export const Contacts2Stack = StackNavigator({
     navigationOptions: {
       title: 'Contacts2',
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#fff'
     },
@@ -77,7 +77,7 @@ export const Contacts2Stack = StackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: `${navigation.state.params.name.first.toUpperCase()} ${navigation.state.params.name.last.toUpperCase()}`,
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#fff'
     }),
@@ -90,7 +90,7 @@ export const ContactsStack = StackNavigator({
     navigationOptions: {
       title: 'Contacts',
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#fff'
     },
@@ -103,7 +103,7 @@ export const GroupsStack = StackNavigator({
     navigationOptions: {
       title: 'Groups',
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#fff'
     },
@@ -113,7 +113,7 @@ export const GroupsStack = StackNavigator({
     navigationOptions: {
       title: 'Family List',
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#fff'
     },
@@ -123,7 +123,7 @@ export const GroupsStack = StackNavigator({
     navigationOptions: {
       title: 'Close Friends List',
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#fff'
     },
@@ -133,7 +133,7 @@ export const GroupsStack = StackNavigator({
     navigationOptions: {
       title: 'Friends List',
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#fff'
     },
@@ -230,7 +230,7 @@ export const RecentCallStack = StackNavigator({
     navigationOptions: {
       title: 'Recent Calls',
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#fff'
     }
@@ -243,7 +243,7 @@ export const RecentTextStack = StackNavigator({
     navigationOptions: {
       title: 'Recent Texts',
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#fff'
     }
@@ -256,7 +256,7 @@ export const RecentEmailStack = StackNavigator({
     navigationOptions: {
       title: 'Recent Email',
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#fff'
     }
@@ -269,7 +269,7 @@ export const AddReminderStack = StackNavigator({
     navigationOptions: {
       title: 'Add A Reminder',
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#fff'
     }
@@ -282,7 +282,7 @@ export const ContactOptionsStack = StackNavigator({
     navigationOptions: {
       title: 'Contact Options',
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#fff'
     }
@@ -295,7 +295,7 @@ export const GroupAddStack = StackNavigator({
     navigationOptions: {
       title: 'Add to Group',
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#fff'
     }
@@ -308,7 +308,7 @@ export const LoginStack = StackNavigator({
     navigationOptions: {
       title: 'Sign in',
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#fff'
     }
@@ -318,7 +318,7 @@ export const LoginStack = StackNavigator({
     navigationOptions: {
       title: 'Create Account',
       headerStyle: {
-        backgroundColor: `#222A43`
+        backgroundColor: `#001a33`
       },
       headerTintColor: '#fff'
     }
