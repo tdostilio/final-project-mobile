@@ -106,7 +106,7 @@ const styles = {
       fontSize: 25,
       color: 'white',
       textAlign: 'center',
-      marginTop: 5
+      marginTop: 20
   },
   titleContainer: {
     alignItems: 'center',
