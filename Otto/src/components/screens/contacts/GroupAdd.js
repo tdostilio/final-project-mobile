@@ -48,7 +48,7 @@ export default class GroupAdd extends Component {
           buttonStyle={{ marginTop: 20, marginBottom: 20 }}
           borderRadius={5}
           raised
-          backgroundColor={`#5D8DAD`}
+          backgroundColor={`#1E90FF`}
           icon={item.icon}
           onPress={this.callContact}
           title={item.title}
@@ -68,7 +68,7 @@ export default class GroupAdd extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.titleContainer}>
-            <Text style={styles.title}>What group would you like to add [contact] to?</Text>
+            <Text style={styles.title}>What group would you like to add Mom to?</Text>
         </View>
         <ScrollView>
           <View style={styles.buttonContainer}>
@@ -115,7 +115,7 @@ const styles = {
   buttonContainer: {
     flex: 1,
     marginTop: 40,
-    backgroundColor: `#222A43`,
+    backgroundColor: `#222A43`, 
     justifyContent: 'center',
     marginBottom: 10
   },
