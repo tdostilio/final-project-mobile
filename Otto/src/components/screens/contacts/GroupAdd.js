@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, AsyncStorage } from 'react-native';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import axios from 'axios';
+import config from '../../util/api/config';
 
 export default class GroupAdd extends Component {
 
   state = {
-    loading: true,
-    search: ''
+    information: '',
+    id: ''
   }
 
   static defaultProps = {
@@ -20,7 +21,7 @@ export default class GroupAdd extends Component {
         icon: {name: 'favorite', type: 'material'}
       },
       {
-        title: "Close Friends",
+        title: "Close_Friends",
         subTitle: "Reminders scheduled every 10 to 14 days...",
         value: 123,
         icon: {name: 'face', type: 'material'}
@@ -34,9 +35,36 @@ export default class GroupAdd extends Component {
     ]
   }
 
-  componentDidMount() {
-    // make ajax call to hydrate this state.. do it here or from `Me Component` and pass down as props
-    // change loading to false once state hydrated.. for development-- leave it true
+  componentWillMount() {
+    let information = this.props.navigation.state.params
+    this.setState({information})
+    AsyncStorage.getItem(config.USER_INFO)
+      .then(res => {
+        let userInfo = JSON.parse(res)
+        this.setState({id: userInfo.id})
+        console.log(`USER HAS RETURNED ${userInfo.id}`)
+      })
+  }
+
+  findMobileNumber(keyName, phoneNumberArray) {
+      for (var i=0; i < phoneNumberArray.length; i++) {
+          if (phoneNumberArray[i].label === keyName) {
+              return phoneNumberArray[i].number;
+          }
+        }
+      return phoneNumberArray[0].number
+  }
+
+  sendRequest = (endpoint) => {
+    let id = this.state.id
+    let person = this.state.information;
+    axios.post(config.CREATE_GROUP(endpoint, id), {
+      userId: id,
+      firstName: person.givenName,
+      lastName: person.familyName,
+      phoneNumber: this.findMobileNumber('mobile', person.phoneNumbers),
+      timeSinceLastContact: 0
+    })
   }
 
   renderTemplates = () => (
@@ -50,7 +78,7 @@ export default class GroupAdd extends Component {
           raised
           backgroundColor={`#5D8DAD`}
           icon={item.icon}
-          onPress={this.callContact}
+          onPress={this.sendRequest(item.title)}
           title={item.title}
           />
       )
@@ -60,6 +88,7 @@ export default class GroupAdd extends Component {
   backToPrevious = () => {
     this.props.navigation.goBack(null)
     }
+
 
   render() {
     const { navigate } = this.props.navigation
