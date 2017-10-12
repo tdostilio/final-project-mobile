@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import axios from 'axios';
 
 
 export default class GroupAdd extends Component {
 
   state = {
-    loading: true,
-    search: ''
+    information: ''
   }
 
   static defaultProps = {
@@ -34,9 +34,19 @@ export default class GroupAdd extends Component {
     ]
   }
 
-  componentDidMount() {
-    // make ajax call to hydrate this state.. do it here or from `Me Component` and pass down as props
-    // change loading to false once state hydrated.. for development-- leave it true
+  componentWillMount() {
+    let information = this.props.navigation.state.params
+    this.setState({information}, () => {
+      console.log(this.state)
+      console.log('hey component will mount!!!!!!!!')
+    })
+  }
+
+  sendRequest = () => {
+    console.log('this.props.navigation.state.params = ' + this.props.navigation.state.params)
+    console.log(this.state.information)
+    // axios.post('/create', {
+    // })
   }
 
   renderTemplates = () => (
@@ -50,7 +60,7 @@ export default class GroupAdd extends Component {
           raised
           backgroundColor={`#5D8DAD`}
           icon={item.icon}
-          onPress={this.callContact}
+          onPress={this.sendRequest}
           title={item.title}
           />
       )
@@ -60,6 +70,7 @@ export default class GroupAdd extends Component {
   backToPrevious = () => {
     this.props.navigation.goBack(null)
     }
+
 
   render() {
     const { navigate } = this.props.navigation
