@@ -102,7 +102,7 @@ export default class Groups extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: `#001a33`,
+    backgroundColor: `#001a33`, 
     justifyContent: 'center',
   },
   buttonContainer: {

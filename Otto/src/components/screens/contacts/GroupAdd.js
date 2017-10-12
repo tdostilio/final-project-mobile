@@ -130,7 +130,7 @@ export default class GroupAdd extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: `#222A43`,
+    backgroundColor: `#001a33`,
     justifyContent: 'center',
   },
   subtitle: {
