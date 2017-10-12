@@ -69,7 +69,7 @@ export default class Contacts2Detail extends Component {
               raised={true}
               name='call'
               onPress={this.handlePhonePress}
-              underlayColor='#222A43'
+              underlayColor='#001a33'
               type='material'
               color='#5D8DAD'
               reverse={true}
@@ -79,7 +79,7 @@ export default class Contacts2Detail extends Component {
               raised={true}
               name='textsms'
               onPress={this.handleTextPress}
-              underlayColor='#222A43'
+              underlayColor='#001a33'
               type='material'
               color='#5D8DAD'
               reverse={true}
@@ -89,7 +89,7 @@ export default class Contacts2Detail extends Component {
               raised={true}
               name='email'
               onPress={this.handleEmailPress}
-              underlayColor='#222A43'
+              underlayColor='#001a33'
               type='material'
               color='#5D8DAD'
               reverse={true}
@@ -99,7 +99,7 @@ export default class Contacts2Detail extends Component {
               raised={true}
               name='envira'
               onPress={this.handleEmailPress}
-              underlayColor='#222A43'
+              underlayColor='#001a33'
               type='font-awesome'
               color='#5D8DAD'
               reverse={true}
@@ -109,7 +109,7 @@ export default class Contacts2Detail extends Component {
             raised={true}
             name='payment'
             onPress={this.handlePayPress}
-            underlayColor='#222A43'
+            underlayColor='#001a33'
             type='material'
             color='#5D8DAD'
             reverse={true}

@@ -21,7 +21,7 @@ export default class Friends extends Component {
       <View style={styles.container}>
 
         <ScrollView>
-        <Text>Friends Main Body</Text>
+        <Text style={styles.headerStyle}>Keep in touch</Text>
         </ScrollView>
 
       </View>
@@ -33,6 +33,13 @@ export default class Friends extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: `#222A43`
+    backgroundColor: `#001a33`
+  },
+  headerStyle: {
+    textAlign: 'center',
+    color: 'white',
+    marginTop: 30,
+    fontSize: 20,
+    fontWeight: '600'
   }
 }

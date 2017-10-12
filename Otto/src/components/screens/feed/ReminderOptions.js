@@ -94,7 +94,7 @@ const styles = {
   },
   optionsGroupContainer: {
     borderWidth: 1,
-    borderColor: '#1E90FF',
+    borderColor: '#1FFFDA',
     elevation: 2,
     margin: 5
   }

@@ -17,21 +17,21 @@ export default class Groups extends Component {
         title: "Family",
         subTitle: "Reminders scheduled every 5 to 7 days...",
         value: 80,
-        icon: {name: 'favorite', type: 'material'},
+        icon: {name: 'favorite', type: 'material', color: 'lightcoral'},
         route: 'Family'
       },
       {
         title: "Close Friends",
         subTitle: "Reminders scheduled every 10 to 14 days...",
         value: 123,
-        icon: {name: 'face', type: 'material'},
+        icon: {name: 'mood', type: 'material', color: '#FFFF66'},
         route: 'CloseFriends'
       },
       {
         title: "Friends",
         subTitle: "Reminders scheduled every 10 to 14 days...",
         value: 50,
-        icon: {name: 'group', type: 'material'},
+        icon: {name: 'group', type: 'material', color: 'lightskyblue'},
         route: 'Friends'
       }
     ]
@@ -67,6 +67,7 @@ export default class Groups extends Component {
           borderRadius={5}
           raised
           backgroundColor={`#1E90FF`}
+          fontWeight='500'
           icon={item.icon}
           onPress={() => {this.handlePress(item)}}
           title={item.title}
@@ -86,7 +87,7 @@ export default class Groups extends Component {
           source={mainlogo}
           />
         </View>
-        <Text style={styles.textStyle}>Keep in touch!</Text>
+        <Text style={styles.textStyle}>Your Groups</Text>
         <ScrollView>
           <View style={styles.buttonContainer}>
             {this.renderTemplates()}
@@ -101,13 +102,13 @@ export default class Groups extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: `#222A43`,
+    backgroundColor: `#001a33`,
     justifyContent: 'center',
   },
   buttonContainer: {
     flex: 1,
     marginTop: 20,
-    backgroundColor: `#222A43`,
+    backgroundColor: `#001a33`,
     justifyContent: 'center',
   },
   centerLogo: {

@@ -51,43 +51,47 @@ export default class Me extends Component {
         <View style={styles.contentContainer}>
          <Card
             containerStyle={
-              {borderRadius: 15, borderColor: `#1E90FF`, padding: 10, alignSelf: 'stretch',
-              marginTop: 15, backgroundColor: `#1E90FF`}}>
+              {borderRadius: 15, borderColor: `#1FFFDA`, padding: 10, alignSelf: 'stretch',
+              marginTop: 15, backgroundColor: `#1FFFDA`}}>
               <Button
                 borderRadius={50}
                 raised
                 large
-                buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-                icon={{name: 'smartphone', type: 'material', color: '#b6ccda'}}
+                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
+                icon={{name: 'phone', type: 'material', color: 'green'}}
                 title='Recent Calls'
-                color='#b6ccda'
+                color='white'
+                
                 onPress={this.handleCallPress} />
               <Button
                 borderRadius={50}
                 raised
                 large
-                buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-                icon={{name: 'comment', type: 'font-awesome', color: '#b6ccda'}}
+                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
+                icon={{name: 'forum', type: 'material', color: 'lightskyblue'}}
                 onPress={this.handleTextPress}
-                color='#b6ccda'
+                color='white'
+                
                 title='Recent Texts' />
               <Button
                 borderRadius={50}
                 raised
                 large
-                buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-                icon={{name: 'email', type: 'material', color: '#b6ccda'}}
+                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
+                icon={{name: 'email', type: 'material', color: 'white'}}
                 onPress={this.handleEmailPress}
-                color='#b6ccda'
+                color='white'
+                
                 title='Recent Emails' />
                 <Button
                 borderRadius={50}
                 raised
                 large
-                buttonStyle={{marginBottom: 5, backgroundColor: `#222A43`}}
-                icon={{name: 'exit-to-app', type: 'material', color: '#b6ccda'}}
+                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
+                icon={{name: 'exit-to-app', type: 'material', color: 'firebrick'}}
                 onPress={this.handleSignOut}
-                color='#b6ccda'
+                color='white'
+                fontWeight='500'
                 title='Sign Out' />
          </Card>
         </View>
@@ -99,7 +103,7 @@ export default class Me extends Component {
 
 const styles = {
   container: {
-    backgroundColor: `#222A43`
+    backgroundColor: `#001a33`
   },
   avatarContainer: {
     flex: 1,

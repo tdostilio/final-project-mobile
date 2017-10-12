@@ -23,7 +23,7 @@ export default class RecentText extends Component {
       <View style={styles.container}>
 
         <ScrollView>
-        <Text>Main Body</Text>
+        <Text style={styles.headerStyle}>Text History</Text>
         </ScrollView>
 
         <View style={styles.buttonContainer}>
@@ -32,7 +32,7 @@ export default class RecentText extends Component {
             buttonStyle={{ marginTop: 20, marginBottom: 20 }}
             borderRadius={5}
             raised
-            backgroundColor={`#5D8DAD`}
+            backgroundColor={`#1E90FF`}
             icon={{name: 'backspace', type: 'material'}}
             onPress={this.backToHome}
             title='Back to home' />
@@ -47,6 +47,13 @@ export default class RecentText extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: `#222A43`
+    backgroundColor: `#001a33`
+  },
+  headerStyle: {
+    textAlign: 'center',
+    color: 'white',
+    marginTop: 30,
+    fontSize: 20,
+    fontWeight: '600'
   }
 }

@@ -3,6 +3,7 @@ import { View, ScrollView, Text } from 'react-native';
 import { List, ListItem, Button, Icon } from 'react-native-elements';
 
 
+
 export default class Family extends Component {
   state = {
 
@@ -21,8 +22,10 @@ export default class Family extends Component {
       <View style={styles.container}>
 
         <ScrollView>
-        <Text>Family Main Body</Text>
+        <Text style={styles.headerStyle}>Those Who Matter Most</Text>
         </ScrollView>
+
+        
 
       </View>
     )
@@ -33,6 +36,13 @@ export default class Family extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: `#222A43`
+    backgroundColor: `#001a33`
+  },
+  headerStyle: {
+    textAlign: 'center',
+    color: 'white',
+    marginTop: 30,
+    fontSize: 20,
+    fontWeight: '600'
   }
 }
