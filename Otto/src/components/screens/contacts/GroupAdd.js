@@ -41,22 +41,19 @@ export default class GroupAdd extends Component {
 
   findMobileNumber(keyName, phoneNumberArray) {
       for (var i=0; i < phoneNumberArray.length; i++) {
-          if (phoneNumberArray[i].name === keyName) {
+          if (phoneNumberArray[i].label === keyName) {
               return phoneNumberArray[i].number;
           }
-          else {
-            return phoneNumberArray[0].number
-          }
-      }
-    }
+        }
+      return phoneNumberArray[0].number
+  }
 
   sendRequest = () => {
     let person = this.state.information
-    // axios.post('/create', {
-      console.log({
+    axios.post('/create', {
       firstName: person.givenName,
       lastName: person.familyName,
-      phoneNumber: findMobileNumber('mobile', person.phoneNumbers)
+      phoneNumber: this.findMobileNumber('mobile', person.phoneNumbers)
     })
   }
 
