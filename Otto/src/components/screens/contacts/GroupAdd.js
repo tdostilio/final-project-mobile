@@ -9,8 +9,7 @@ export default class GroupAdd extends Component {
 
   state = {
     information: '',
-    id: '',
-    credentials: null
+    credentials: null,
   }
 
   static defaultProps = {
@@ -38,7 +37,7 @@ export default class GroupAdd extends Component {
 
   componentWillMount() {
     let information = this.props.navigation.state.params.information
-    let credentials = this.props.navigation.state.params.credentials
+    let credentials = JSON.parse(this.props.navigation.state.params.credentials._55)
     this.setState({information, credentials})
 
     //Don't believe async storage is needed for this page since token is in state
@@ -62,8 +61,9 @@ export default class GroupAdd extends Component {
   // adds contact to group
   sendRequest = (endpoint) => {
     let path = endpoint.replace(/\s/g, "");
-    let id = this.state.id
+    let id = this.state.credentials.id
     let person = this.state.information;
+    let token = this.state.credentials.token
     axios.post(config.CREATE_GROUP(path, id), {
       userId: id,
       firstName: person.givenName,
@@ -90,8 +90,8 @@ export default class GroupAdd extends Component {
           backgroundColor={`#1E90FF`}
           icon={item.icon}
           onPress={() => {
-            console.log(this.state.credentials._55)
-            console.log(JSON.parse(this.state.credentials._55).token)
+            console.log('the userId is ' + this.state.credentials.id)
+            console.log('the users token is ' + this.state.credentials.token)
             //this.sendRequest(item.title)
             }}
           title={item.title}
