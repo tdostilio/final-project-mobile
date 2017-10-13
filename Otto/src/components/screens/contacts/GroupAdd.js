@@ -64,12 +64,14 @@ export default class GroupAdd extends Component {
     let id = this.state.credentials.id
     let person = this.state.information;
     let token = this.state.credentials.token
+    let primaryPhoneNumber = this.findMobileNumber('mobile', person.phoneNumbers)
+    console.log(primaryPhoneNumber);
     axios.post(config.CREATE_GROUP(path, id), {
       userId: id,
-      token: token,
+      header: token,
       firstName: person.givenName,
       lastName: person.familyName,
-      phoneNumber: this.findMobileNumber('mobile', person.phoneNumbers),
+      phoneNumber: primaryPhoneNumber
     })
       .then(function (response) {
         console.log(response);

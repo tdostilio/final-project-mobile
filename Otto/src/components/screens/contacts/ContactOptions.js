@@ -32,6 +32,15 @@ class ContactOptions extends Component {
         this.props.navigation.navigate('GroupAdd', {information: this.state.information, credentials: this.state.credentials});
     }
 
+    findMobileNumber(keyName, phoneNumberArray) {
+        for (var i=0; i < phoneNumberArray.length; i++) {
+            if (phoneNumberArray[i].label === keyName) {
+                return phoneNumberArray[i].number;
+            }
+          }
+        return phoneNumberArray[0].number
+    }
+
     render() {
         const { navigate } = this.props.navigation
         return (
@@ -84,9 +93,7 @@ class ContactOptions extends Component {
                     buttonStyle={{ marginTop: 20, marginBottom: 20 }}
                     borderRadius={5}
                     raised
-
                     backgroundColor={`#222A43`}
-
                     icon={{name: 'backspace', type: 'material'}}
                     onPress={this.backToContacts}
                     title='Back to Contacts' />
