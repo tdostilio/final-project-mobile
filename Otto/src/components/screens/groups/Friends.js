@@ -29,6 +29,7 @@ export default class Friends extends Component {
                 backgroundColor={'#1E90FF'}
                 title={'Friend [name]'}
                 color={'#1FFFDA'} 
+                fontWeight={'700'} 
               />
             </View>
 
@@ -38,6 +39,7 @@ export default class Friends extends Component {
                 backgroundColor={'#1E90FF'}
                 title={'Friend [name]'}
                 color={'#1FFFDA'} 
+                fontWeight={'700'} 
               />
             </View>
 
@@ -47,6 +49,7 @@ export default class Friends extends Component {
                 backgroundColor={'#1E90FF'}
                 title={'Friend [name]'}
                 color={'#1FFFDA'} 
+                fontWeight={'700'} 
 
               />
             </View>

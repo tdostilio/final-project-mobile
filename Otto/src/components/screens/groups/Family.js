@@ -23,6 +23,41 @@ export default class Family extends Component {
 
         <ScrollView>
         <Text style={styles.headerStyle}>Those Who Matter Most</Text>
+        <View style={styles.buttonContainer}>
+            <View style={styles.buttonStyle}>
+              <Button
+                borderRadius={50}
+                backgroundColor={'#1E90FF'}
+                title={'Family Member [name]'}
+                color={'#1FFFDA'}
+                fontWeight={'700'} 
+
+              />
+            </View>
+
+            <View style={styles.buttonStyle}>
+              <Button
+                borderRadius={50}
+                backgroundColor={'#1E90FF'}
+                title={'Family Member [name]'}
+                color={'#1FFFDA'}
+                fontWeight={'700'} 
+              />
+            </View>
+
+            <View style={styles.buttonStyle}>
+              <Button
+                borderRadius={50}
+                backgroundColor={'#1E90FF'}
+                title={'Family Member [name]'}
+                color={'#1FFFDA'}
+                fontWeight={'700'} 
+
+              />
+            </View>
+
+              
+          </View>
         </ScrollView>
 
         
@@ -44,5 +79,11 @@ const styles = {
     marginTop: 30,
     fontSize: 20,
     fontWeight: '600'
+  },
+  buttonStyle: {
+    marginTop: 10, 
+  },
+  buttonContainer: {
+    marginTop: 15
   }
 }

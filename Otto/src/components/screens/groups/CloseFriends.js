@@ -28,7 +28,8 @@ export default class CloseFriends extends Component {
                 borderRadius={50}
                 backgroundColor={'#1E90FF'}
                 title={'Best Friend [name]'}
-                color={'#1FFFDA'} 
+                color={'#1FFFDA'}
+                fontWeight={'700'}  
               />
             </View>
 
@@ -37,7 +38,8 @@ export default class CloseFriends extends Component {
                 borderRadius={50}
                 backgroundColor={'#1E90FF'}
                 title={'Best Friend [name]'}
-                color={'#1FFFDA'} 
+                color={'#1FFFDA'}
+                fontWeight={'700'}  
               />
             </View>
 
@@ -46,7 +48,8 @@ export default class CloseFriends extends Component {
                 borderRadius={50}
                 backgroundColor={'#1E90FF'}
                 title={'Best Friend [name]'}
-                color={'#1FFFDA'} 
+                color={'#1FFFDA'}
+                fontWeight={'700'}  
 
               />
             </View>
