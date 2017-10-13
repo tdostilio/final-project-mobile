@@ -22,6 +22,37 @@ export default class CloseFriends extends Component {
 
         <ScrollView>
         <Text style={styles.headerStyle}>Best Friends</Text>
+        <View style={styles.buttonContainer}>
+            <View style={styles.buttonStyle}>
+              <Button
+                borderRadius={50}
+                backgroundColor={'#1E90FF'}
+                title={'Best Friend [name]'}
+                color={'#1FFFDA'} 
+              />
+            </View>
+
+            <View style={styles.buttonStyle}>
+              <Button
+                borderRadius={50}
+                backgroundColor={'#1E90FF'}
+                title={'Best Friend [name]'}
+                color={'#1FFFDA'} 
+              />
+            </View>
+
+            <View style={styles.buttonStyle}>
+              <Button
+                borderRadius={50}
+                backgroundColor={'#1E90FF'}
+                title={'Best Friend [name]'}
+                color={'#1FFFDA'} 
+
+              />
+            </View>
+
+              
+          </View>
         </ScrollView>
 
       </View>
@@ -41,5 +72,11 @@ const styles = {
     marginTop: 30,
     fontSize: 20,
     fontWeight: '600'
+  },
+  buttonStyle: {
+    marginTop: 10, 
+  },
+  buttonContainer: {
+    marginTop: 15
   }
 }
