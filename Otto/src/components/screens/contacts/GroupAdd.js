@@ -65,14 +65,12 @@ export default class GroupAdd extends Component {
     let person = this.state.information;
     let token = this.state.credentials.token
     let primaryPhoneNumber = this.findMobileNumber('mobile', person.phoneNumbers)
-    console.log(primaryPhoneNumber);
     axios.post(config.CREATE_GROUP(path, id), {
       userId: id,
-      header: token,
       firstName: person.givenName,
       lastName: person.familyName,
       phoneNumber: primaryPhoneNumber
-    })
+    },{headers: {"Authorization": "jwt " + token}})
       .then(function (response) {
         console.log(response);
       })
@@ -98,7 +96,7 @@ export default class GroupAdd extends Component {
             console.log('the userId is: ' + this.state.credentials.id)
             console.log('the users token is: ' + this.state.credentials.token)
             // Uncomment below when ready to send to API
-            //this.sendRequest(item.title)
+            this.sendRequest(item.title)
             }}
           title={item.title}
           />
