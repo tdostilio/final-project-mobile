@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import { View, ScrollView, Text, Image } from 'react-native';
 import { List, ListItem, Button, Icon } from 'react-native-elements';
+import bestFriend from '../../../static/images/bestfriend.png';
 
 
 export default class CloseFriends extends Component {
@@ -21,6 +22,12 @@ export default class CloseFriends extends Component {
       <View style={styles.container}>
 
         <ScrollView>
+          <View style={styles.centerLogo}>
+            <Image
+              style={styles.logo}
+              source={bestFriend}
+            />
+          </View>
         <Text style={styles.headerStyle}>Best Friends</Text>
         <View style={styles.buttonContainer}>
             <View style={styles.buttonStyle}>
@@ -74,12 +81,21 @@ const styles = {
     color: 'white',
     marginTop: 30,
     fontSize: 20,
-    fontWeight: '600'
+    fontWeight: '600',
+    fontFamily: 'Geeza Pro'
   },
   buttonStyle: {
     marginTop: 10, 
   },
   buttonContainer: {
     marginTop: 15
+  },
+  logo: {
+      width: 100,
+      height: 100,
+  },
+  centerLogo: {
+    alignItems: 'center',
+    marginTop: 20
   }
 }

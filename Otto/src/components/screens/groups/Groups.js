@@ -124,6 +124,7 @@ const styles = {
     color: 'white',
     marginTop: 30,
     fontSize: 20,
-    fontWeight: '600'
+    fontWeight: '600',
+    fontFamily: 'Geeza Pro'
   }
 }

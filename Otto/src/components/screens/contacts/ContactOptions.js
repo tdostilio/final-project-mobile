@@ -39,7 +39,7 @@ class ContactOptions extends Component {
                     />
                 </View>
                 <View>
-                    <Text style={styles.textStyle}>What would you like to do?</Text>
+                    <Text style={styles.textStyle}>How may I help?</Text>
                 </View>
                 <View style={styles.buttonContainer}>
                 <Button
@@ -106,7 +106,8 @@ const styles = {
         marginTop: 15,
         fontSize: 22,
         fontWeight: `500`,
-        color: `#222A43`
+        color: `#222A43`,
+        fontFamily: 'Geeza Pro'
     },
     logo: {
         width: 100,
