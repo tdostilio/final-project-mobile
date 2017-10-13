@@ -5,11 +5,16 @@ import Communications from 'react-native-communications';
 import mainlogo from '../../../static/images/mainlogo.png';
 
 class ContactOptions extends Component {
-    state = {information: ''}
+    state = {
+        information: '',
+        credentials: null,         
+    }
     
     componentWillMount() {
-        let information = this.props.navigation.state.params
-        this.setState({information})
+        let information = this.props.navigation.state.params.contact
+        let credentials = this.props.navigation.state.params.credentials
+        this.setState({information, credentials})
+        
     }
     callContact = () => {
         Communications.phonecall(this.state.information.phoneNumbers[0]['number'], true)
@@ -24,12 +29,20 @@ class ContactOptions extends Component {
     }
 
     addtoGroups = () => {
-        this.props.navigation.navigate('GroupAdd', this.state.information);
+        this.props.navigation.navigate('GroupAdd', {information: this.state.information, credentials: this.state.credentials});
+    }
+
+    findMobileNumber(keyName, phoneNumberArray) {
+        for (var i=0; i < phoneNumberArray.length; i++) {
+            if (phoneNumberArray[i].label === keyName) {
+                return phoneNumberArray[i].number;
+            }
+          }
+        return phoneNumberArray[0].number
     }
 
     render() {
         const { navigate } = this.props.navigation
-        debugger
         return (
             <View>
                 <View style={styles.centerLogo}>
@@ -80,9 +93,7 @@ class ContactOptions extends Component {
                     buttonStyle={{ marginTop: 20, marginBottom: 20 }}
                     borderRadius={5}
                     raised
-
                     backgroundColor={`#222A43`}
-
                     icon={{name: 'backspace', type: 'material'}}
                     onPress={this.backToContacts}
                     title='Back to Contacts' />

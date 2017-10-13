@@ -9,7 +9,7 @@ export default class GroupAdd extends Component {
 
   state = {
     information: '',
-    id: ''
+    credentials: null,
   }
 
   static defaultProps = {
@@ -36,14 +36,17 @@ export default class GroupAdd extends Component {
   }
 
   componentWillMount() {
-    let information = this.props.navigation.state.params
-    this.setState({information})
-    AsyncStorage.getItem(config.USER_INFO)
-      .then(res => {
-        let userInfo = JSON.parse(res)
-        this.setState({id: userInfo.id})
-        console.log(`USER HAS RETURNED ${userInfo.id}`)
-      })
+    let information = this.props.navigation.state.params.information
+    let credentials = JSON.parse(this.props.navigation.state.params.credentials._55)
+    this.setState({information, credentials})
+
+    //Don't believe async storage is needed for this page since token is in state
+    // AsyncStorage.getItem(config.USER_INFO)
+    //   .then(res => {
+    //     let userInfo = JSON.parse(res)
+    //     this.setState({id: userInfo.id})
+    //     console.log(`USER HAS RETURNED ${userInfo.id}`)
+    //   })
   }
 
   findMobileNumber(keyName, phoneNumberArray) {
@@ -58,13 +61,17 @@ export default class GroupAdd extends Component {
   // adds contact to group
   sendRequest = (endpoint) => {
     let path = endpoint.replace(/\s/g, "");
-    let id = this.state.id
+    let id = this.state.credentials.id
     let person = this.state.information;
+    let token = this.state.credentials.token
+    let primaryPhoneNumber = this.findMobileNumber('mobile', person.phoneNumbers)
+    console.log(primaryPhoneNumber);
     axios.post(config.CREATE_GROUP(path, id), {
       userId: id,
+      header: token,
       firstName: person.givenName,
       lastName: person.familyName,
-      phoneNumber: this.findMobileNumber('mobile', person.phoneNumbers),
+      phoneNumber: primaryPhoneNumber
     })
       .then(function (response) {
         console.log(response);
@@ -85,7 +92,14 @@ export default class GroupAdd extends Component {
           raised
           backgroundColor={`#1E90FF`}
           icon={item.icon}
-          onPress={() => {this.sendRequest(item.title)}}
+          onPress={() => {
+            //Console logs just for debugging:
+            console.log('the contact we are adding is: ' + this.state.information.givenName + ' ' + this.state.information.familyName + ' to group: '+ item.title)
+            console.log('the userId is: ' + this.state.credentials.id)
+            console.log('the users token is: ' + this.state.credentials.token)
+            // Uncomment below when ready to send to API
+            //this.sendRequest(item.title)
+            }}
           title={item.title}
           />
       )
@@ -104,7 +118,13 @@ export default class GroupAdd extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.titleContainer}>
-            <Text style={styles.title}>What group would you like to add <Text style={{color: '#1FFFDA'}}>{this.state.information.givenName + ' ' + this.state.information.familyName}</Text> to?</Text>
+            <Text style={styles.title}>
+              What group would you like to add  
+                <Text style={{color: '#1FFFDA'}}>
+                  {' '+ this.state.information.givenName + ' ' + this.state.information.familyName + ' '}
+                </Text> 
+              to?
+            </Text>
         </View>
         <ScrollView>
           <View style={styles.buttonContainer}>
