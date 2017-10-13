@@ -90,8 +90,11 @@ export default class GroupAdd extends Component {
           backgroundColor={`#1E90FF`}
           icon={item.icon}
           onPress={() => {
+            //Console logs just for debugging:
+            console.log('the contact we are adding is ' + this.state.information.givenName + ' ' + this.state.information.familyName + ' to group: '+ item.title)
             console.log('the userId is ' + this.state.credentials.id)
             console.log('the users token is ' + this.state.credentials.token)
+            // Uncomment below when ready to send to API
             //this.sendRequest(item.title)
             }}
           title={item.title}
@@ -112,7 +115,13 @@ export default class GroupAdd extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.titleContainer}>
-            <Text style={styles.title}>What group would you like to add <Text style={{color: '#1FFFDA'}}>{this.state.information.givenName + ' ' + this.state.information.familyName}</Text> to?</Text>
+            <Text style={styles.title}>
+              What group would you like to add  
+                <Text style={{color: '#1FFFDA'}}>
+                  {' '+ this.state.information.givenName + ' ' + this.state.information.familyName + ' '}
+                </Text> 
+              to?
+            </Text>
         </View>
         <ScrollView>
           <View style={styles.buttonContainer}>
