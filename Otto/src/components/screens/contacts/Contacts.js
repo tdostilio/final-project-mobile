@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, AsyncStorage } from 'react-native';
 import { ContactManager } from 'NativeModules';
 import ContactList from './ContactList';
 import LottiePlayer from '../../util/LottiePlayer';
 import { List, ListItem, SearchBar } from 'react-native-elements';
+import config from '../../util/api/config';
 
 
 class Contacts extends React.Component {
@@ -41,6 +42,17 @@ class Contacts extends React.Component {
     }
 
     componentWillMount() {
+        try {
+            const value = AsyncStorage.getItem(config.USER_INFO);
+            if (value !== null){
+                console.log('We have data! ' + value);
+              }
+            } catch (error) {
+                console.log(error);
+
+              }
+        }
+        
         return (
             ContactManager.getContacts((err, result) => {
                 result.sort((a, b) => {
