@@ -40,12 +40,14 @@ export default class GroupAdd extends Component {
     let information = this.props.navigation.state.params.information
     let credentials = this.props.navigation.state.params.credentials
     this.setState({information, credentials})
-    AsyncStorage.getItem(config.USER_INFO)
-      .then(res => {
-        let userInfo = JSON.parse(res)
-        this.setState({id: userInfo.id})
-        console.log(`USER HAS RETURNED ${userInfo.id}`)
-      })
+
+    //Don't believe async storage is needed for this page since token is in state
+    // AsyncStorage.getItem(config.USER_INFO)
+    //   .then(res => {
+    //     let userInfo = JSON.parse(res)
+    //     this.setState({id: userInfo.id})
+    //     console.log(`USER HAS RETURNED ${userInfo.id}`)
+    //   })
   }
 
   findMobileNumber(keyName, phoneNumberArray) {
@@ -90,7 +92,6 @@ export default class GroupAdd extends Component {
           onPress={() => {
             console.log(this.state.credentials._55)
             console.log(JSON.parse(this.state.credentials._55).token)
-            debugger
             //this.sendRequest(item.title)
             }}
           title={item.title}
