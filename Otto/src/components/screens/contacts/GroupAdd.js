@@ -21,13 +21,13 @@ export default class GroupAdd extends Component {
         icon: {name: 'favorite', type: 'material'}
       },
       {
-        title: "Close Friends",
+        title: "Close Friend",
         subTitle: "Reminders scheduled every 10 to 14 days...",
         value: 123,
         icon: {name: 'mood', type: 'material'}
       },
       {
-        title: "Friends",
+        title: "Friend",
         subTitle: "Reminders scheduled every 10 to 14 days...",
         value: 50,
         icon: {name: 'group', type: 'material'}
@@ -72,7 +72,7 @@ export default class GroupAdd extends Component {
       phoneNumber: primaryPhoneNumber
     },{headers: {"Authorization": "jwt " + token}})
       .then(function (response) {
-        console.log(response);
+        console.log(response.data);
       })
       .catch(function (error) {
         console.log(error);
