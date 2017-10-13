@@ -29,7 +29,7 @@ class ContactOptions extends Component {
     }
 
     addtoGroups = () => {
-        this.props.navigation.navigate('GroupAdd', this.state.information, this.state.credentials);
+        this.props.navigation.navigate('GroupAdd', {information: this.state.information, credentials: this.state.credentials});
     }
 
     render() {

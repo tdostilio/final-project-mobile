@@ -9,7 +9,8 @@ export default class GroupAdd extends Component {
 
   state = {
     information: '',
-    id: ''
+    id: '',
+    credentials: null
   }
 
   static defaultProps = {
@@ -36,8 +37,9 @@ export default class GroupAdd extends Component {
   }
 
   componentWillMount() {
-    let information = this.props.navigation.state.params
-    this.setState({information})
+    let information = this.props.navigation.state.params.information
+    let credentials = this.props.navigation.state.params.credentials
+    this.setState({information, credentials})
     AsyncStorage.getItem(config.USER_INFO)
       .then(res => {
         let userInfo = JSON.parse(res)
