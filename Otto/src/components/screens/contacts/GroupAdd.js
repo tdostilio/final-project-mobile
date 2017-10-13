@@ -66,6 +66,7 @@ export default class GroupAdd extends Component {
     let token = this.state.credentials.token
     axios.post(config.CREATE_GROUP(path, id), {
       userId: id,
+      token: token,
       firstName: person.givenName,
       lastName: person.familyName,
       phoneNumber: this.findMobileNumber('mobile', person.phoneNumbers),
@@ -91,9 +92,9 @@ export default class GroupAdd extends Component {
           icon={item.icon}
           onPress={() => {
             //Console logs just for debugging:
-            console.log('the contact we are adding is ' + this.state.information.givenName + ' ' + this.state.information.familyName + ' to group: '+ item.title)
-            console.log('the userId is ' + this.state.credentials.id)
-            console.log('the users token is ' + this.state.credentials.token)
+            console.log('the contact we are adding is: ' + this.state.information.givenName + ' ' + this.state.information.familyName + ' to group: '+ item.title)
+            console.log('the userId is: ' + this.state.credentials.id)
+            console.log('the users token is: ' + this.state.credentials.token)
             // Uncomment below when ready to send to API
             //this.sendRequest(item.title)
             }}
