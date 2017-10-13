@@ -69,6 +69,7 @@ export default class Me extends Component {
                 icon={{name: 'phone', type: 'material', color: 'green'}}
                 title='Recent Calls'
                 color='white'
+                fontWeight='500'
                 
                 onPress={this.handleCallPress} />
               <Button
@@ -79,6 +80,7 @@ export default class Me extends Component {
                 icon={{name: 'forum', type: 'material', color: 'lightskyblue'}}
                 onPress={this.handleTextPress}
                 color='white'
+                fontWeight='500'
                 
                 title='Recent Texts' />
               <Button
@@ -89,6 +91,7 @@ export default class Me extends Component {
                 icon={{name: 'email', type: 'material', color: 'white'}}
                 onPress={this.handleEmailPress}
                 color='white'
+                fontWeight='500'
                 
                 title='Recent Emails' />
                 <Button
