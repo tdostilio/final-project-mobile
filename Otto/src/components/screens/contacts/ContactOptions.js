@@ -34,7 +34,6 @@ class ContactOptions extends Component {
 
     render() {
         const { navigate } = this.props.navigation
-        debugger
         return (
             <View>
                 <View style={styles.centerLogo}>
