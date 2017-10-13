@@ -10,7 +10,7 @@ const ContactCard = (props) => {
     }
     return (
         <TouchableOpacity 
-            onPress={() => props.navigation.navigate('ContactOptions', props.contact )}
+            onPress={() => props.navigation.navigate('ContactOptions', {contact: props.contact, credentials: props.credentials})}
             
         >
             <View style={styles.containerStyle}>

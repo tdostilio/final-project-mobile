@@ -5,18 +5,24 @@ import Communications from 'react-native-communications';
 import mainlogo from '../../../static/images/mainlogo.png';
 
 class ContactOptions extends Component {
-    state = {information: ''}
+    state = {
+        information: '',
+        credentials: null,         
+    }
     
     componentWillMount() {
-        let information = this.props.navigation.state.params
+        let information = this.props.navigation.state.params.contact
+        let credentials = this.props.navigation.state.params.credentials
         this.setState({information})
+        this.setState({credentials})
     }
     callContact = () => {
         Communications.phonecall(this.state.information.phoneNumbers[0]['number'], true)
     }
 
     textContact = () => {
-        Communications.text(this.state.information.phoneNumbers[0]['number'], 'Hey! How have you been?')
+        console.log(this.state.credentials)
+        // Communications.text(this.state.information.phoneNumbers[0]['number'], 'Hey! How have you been?')
     }
 
     backToContacts = () => {
@@ -24,7 +30,7 @@ class ContactOptions extends Component {
     }
 
     addtoGroups = () => {
-        this.props.navigation.navigate('GroupAdd', this.state.information);
+        this.props.navigation.navigate('GroupAdd', this.state.information, this.props.credentials);
     }
 
     render() {
