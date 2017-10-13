@@ -67,7 +67,7 @@ export default class Groups extends Component {
           borderRadius={5}
           raised
           backgroundColor={`#1E90FF`}
-          fontWeight='500'
+          fontWeight='600'
           icon={item.icon}
           onPress={() => {this.handlePress(item)}}
           title={item.title}
@@ -124,6 +124,7 @@ const styles = {
     color: 'white',
     marginTop: 30,
     fontSize: 20,
-    fontWeight: '600'
+    fontWeight: '600',
+    fontFamily: 'Geeza Pro'
   }
 }

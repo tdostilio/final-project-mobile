@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import { View, ScrollView, Text, Image } from 'react-native';
 import { List, ListItem, Button, Icon } from 'react-native-elements';
+import bestFriend from '../../../static/images/bestfriend.png';
 
 
 export default class CloseFriends extends Component {
@@ -21,7 +22,47 @@ export default class CloseFriends extends Component {
       <View style={styles.container}>
 
         <ScrollView>
+          <View style={styles.centerLogo}>
+            <Image
+              style={styles.logo}
+              source={bestFriend}
+            />
+          </View>
         <Text style={styles.headerStyle}>Best Friends</Text>
+        <View style={styles.buttonContainer}>
+            <View style={styles.buttonStyle}>
+              <Button
+                borderRadius={50}
+                backgroundColor={'#1E90FF'}
+                title={'Best Friend [name]'}
+                color={'#1FFFDA'}
+                fontWeight={'700'}  
+              />
+            </View>
+
+            <View style={styles.buttonStyle}>
+              <Button
+                borderRadius={50}
+                backgroundColor={'#1E90FF'}
+                title={'Best Friend [name]'}
+                color={'#1FFFDA'}
+                fontWeight={'700'}  
+              />
+            </View>
+
+            <View style={styles.buttonStyle}>
+              <Button
+                borderRadius={50}
+                backgroundColor={'#1E90FF'}
+                title={'Best Friend [name]'}
+                color={'#1FFFDA'}
+                fontWeight={'700'}  
+
+              />
+            </View>
+
+              
+          </View>
         </ScrollView>
 
       </View>
@@ -40,6 +81,21 @@ const styles = {
     color: 'white',
     marginTop: 30,
     fontSize: 20,
-    fontWeight: '600'
+    fontWeight: '600',
+    fontFamily: 'Geeza Pro'
+  },
+  buttonStyle: {
+    marginTop: 10, 
+  },
+  buttonContainer: {
+    marginTop: 15
+  },
+  logo: {
+    width: 130,
+    height: 130,
+  },
+  centerLogo: {
+    alignItems: 'center',
+    marginTop: 20
   }
 }
