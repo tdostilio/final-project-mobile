@@ -3,9 +3,15 @@ import { ContactCard } from './ContactCard';
 import { ScrollView, View } from 'react-native';
 
 class ContactList extends Component {
-    renderContacts = (contacts) => {
+    renderContacts = (contacts, credentials) => {
         return contacts.map( (item, key) => {
-            return <ContactCard navigation={this.props.navigation} style={styles.ContactStyle} contact={item} key={key}/>
+            return <ContactCard 
+                        navigation={this.props.navigation} 
+                        style={styles.ContactStyle} 
+                        credentials={this.props.credentials} 
+                        contact={item} 
+                        key={key}
+                    />
         })
     }
     render() {
