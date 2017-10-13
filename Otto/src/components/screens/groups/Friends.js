@@ -21,7 +21,38 @@ export default class Friends extends Component {
       <View style={styles.container}>
 
         <ScrollView>
-        <Text style={styles.headerStyle}>Keep in touch</Text>
+          <Text style={styles.headerStyle}>Keep in touch</Text>
+          <View style={styles.buttonContainer}>
+            <View style={styles.buttonStyle}>
+              <Button
+                borderRadius={50}
+                backgroundColor={'#1E90FF'}
+                title={'Friend [name]'}
+                color={'#1FFFDA'} 
+              />
+            </View>
+
+            <View style={styles.buttonStyle}>
+              <Button
+                borderRadius={50}
+                backgroundColor={'#1E90FF'}
+                title={'Friend [name]'}
+                color={'#1FFFDA'} 
+              />
+            </View>
+
+            <View style={styles.buttonStyle}>
+              <Button
+                borderRadius={50}
+                backgroundColor={'#1E90FF'}
+                title={'Friend [name]'}
+                color={'#1FFFDA'} 
+
+              />
+            </View>
+
+              
+          </View>
         </ScrollView>
 
       </View>
@@ -41,5 +72,11 @@ const styles = {
     marginTop: 30,
     fontSize: 20,
     fontWeight: '600'
+  },
+  buttonStyle: {
+    marginTop: 10, 
+  },
+  buttonContainer: {
+    marginTop: 15
   }
 }
