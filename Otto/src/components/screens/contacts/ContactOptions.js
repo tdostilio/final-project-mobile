@@ -13,16 +13,15 @@ class ContactOptions extends Component {
     componentWillMount() {
         let information = this.props.navigation.state.params.contact
         let credentials = this.props.navigation.state.params.credentials
-        this.setState({information})
-        this.setState({credentials})
+        this.setState({information, credentials})
+        
     }
     callContact = () => {
         Communications.phonecall(this.state.information.phoneNumbers[0]['number'], true)
     }
 
     textContact = () => {
-        console.log(this.state.credentials)
-        // Communications.text(this.state.information.phoneNumbers[0]['number'], 'Hey! How have you been?')
+        Communications.text(this.state.information.phoneNumbers[0]['number'], 'Hey! How have you been?')
     }
 
     backToContacts = () => {
@@ -30,7 +29,7 @@ class ContactOptions extends Component {
     }
 
     addtoGroups = () => {
-        this.props.navigation.navigate('GroupAdd', this.state.information, this.props.credentials);
+        this.props.navigation.navigate('GroupAdd', this.state.information, this.state.credentials);
     }
 
     render() {
