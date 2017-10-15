@@ -30,7 +30,7 @@ export default class Me extends Component {
   handleEmailPress = () => {
     this.props.navigation.navigate('RecentEmail')
   }
-///////////////
+
   handleSignOut = () => {
     // native call to signout
     console.log(`USER SIGNED OUT`)
