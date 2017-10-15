@@ -87,8 +87,6 @@ export default class Groups extends Component {
   )
 
   render() {
-    const { loading, search } = this.state
-
     return (
       <View style={styles.container}>
         <View style={styles.centerLogo}>
