@@ -10,7 +10,7 @@ export default class CloseFriends extends Component {
   }
 
   async componentWillMount() {
-    
+
     try {
       const { credentials, route } = this.props.navigation.state.params
       await this.setState({credentials, route})
@@ -29,54 +29,46 @@ export default class CloseFriends extends Component {
       }
   }
 
-  
+  renderContacts = (payload) => {
+    return payload.map((x, idx) => {
+      return (
+        <View key={idx} style={styles.buttonStyle}>
+          <Button
+            borderRadius={50}
+            backgroundColor={'#1E90FF'}
+            title={`${x.first_name} ${x.last_name}`}
+            color={'#1FFFDA'}
+            fontWeight={'700'} 
+          />
+        </View>
+      )
+    })
+  }
+
   render() {
     const { navigate } = this.props.navigation
+    const { payload, payloadStatus } = this.state
+
+    if (!payloadStatus) return <LottiePlayer />
 
     return (
+      
       <View style={styles.container}>
 
         <ScrollView>
           <View style={styles.centerLogo}>
             <Image
               style={styles.logo}
-              source={bestFriend}
+              source={heart}
             />
           </View>
-        <Text style={styles.headerStyle}>Best Friends</Text>
-        <View style={styles.buttonContainer}>
-            <View style={styles.buttonStyle}>
-              <Button
-                borderRadius={50}
-                backgroundColor={'#1E90FF'}
-                title={'Best Friend [name]'}
-                color={'#1FFFDA'}
-                fontWeight={'700'}  
-              />
-            </View>
-
-            <View style={styles.buttonStyle}>
-              <Button
-                borderRadius={50}
-                backgroundColor={'#1E90FF'}
-                title={'Best Friend [name]'}
-                color={'#1FFFDA'}
-                fontWeight={'700'}  
-              />
-            </View>
-
-            <View style={styles.buttonStyle}>
-              <Button
-                borderRadius={50}
-                backgroundColor={'#1E90FF'}
-                title={'Best Friend [name]'}
-                color={'#1FFFDA'}
-                fontWeight={'700'}  
-
-              />
-            </View>
-
-              
+          <Text
+            style={styles.headerStyle}>
+            Those Who Matter Most
+          </Text>
+        
+          <View style={styles.buttonContainer}>
+            {this.renderContacts(payload)}
           </View>
         </ScrollView>
 

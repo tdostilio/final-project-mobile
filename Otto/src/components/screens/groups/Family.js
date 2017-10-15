@@ -40,7 +40,7 @@ export default class Family extends Component {
   renderContacts = (payload) => {
     return payload.map((x, idx) => {
       return (
-        <View style={styles.buttonStyle}>
+        <View key={idx} style={styles.buttonStyle}>
           <Button
             borderRadius={50}
             backgroundColor={'#1E90FF'}
