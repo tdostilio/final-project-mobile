@@ -58,7 +58,7 @@ export default class ReminderOptions extends Component {
                 borderRadius={75}
                 raised
                 medium
-                buttonStyle={{marginBottom: 5, backgroundColor: `#1E90FF`}}
+                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
                 icon={{name: 'phone', type: 'material', color: 'white'}}
                 title='Call'
                 color='white'
@@ -68,7 +68,7 @@ export default class ReminderOptions extends Component {
                 borderRadius={75}
                 raised
                 medium
-                buttonStyle={{marginBottom: 5, backgroundColor: `#1E90FF`}}
+                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
                 icon={{name: 'smartphone', type: 'material', color: 'white'}}
                 title='Text'
                 color='white'
@@ -94,7 +94,9 @@ const styles = {
     marginTop: 5,
   },
   optionsGroupContainer: {
+    backgroundColor: 'dodgerblue',
     borderWidth: 0.5,
+    borderRadius: 8,
     borderColor: '#1FFFDA',
     elevation: 2,
     margin: 5
