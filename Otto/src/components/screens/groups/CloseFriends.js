@@ -9,9 +9,24 @@ export default class CloseFriends extends Component {
 
   }
 
-  componentDidMount() {
-    // make ajax call to hydrate this state.. do it here or from `Me Component` and pass down as props
-    // change loading to false once state hydrated.. for development-- leave it true
+  async componentWillMount() {
+    
+    try {
+      const { credentials, route } = this.props.navigation.state.params
+      await this.setState({credentials, route})
+  
+      const path = route.replace(/\s/g, "");
+      const id = credentials.id
+      const token = credentials.token
+      await this.setState({token, groupInfo: this.props.navigation.state.params})
+
+      const result = await axios.get(config.GET_GROUP(path, id),
+      {headers: {"Authorization": "jwt " + token}})
+      console.log(result.data.result)
+
+      } catch (error) {
+        console.log(error);
+      }
   }
 
   
