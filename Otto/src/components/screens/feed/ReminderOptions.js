@@ -10,7 +10,10 @@ import DefaultMsg from './DefaultMsg'
 export default class ReminderOptions extends Component {
 
   static propTypes = {
-    handleSpokenToRecentlyPress: PropTypes.func.isRequired,
+    handleYesClick: PropTypes.func.isRequired,
+    handleNoClick: PropTypes.func.isRequired,
+    handleCallPress: PropTypes.func.isRequired,
+    handleTextPress: PropTypes.func.isRequired,
     onRefresh: PropTypes.func.isRequired,
     refreshing: PropTypes.bool.isRequired
     // payload: will be boolean (false) or array of objs
@@ -19,18 +22,17 @@ export default class ReminderOptions extends Component {
   removeNullValues = (payload) => payload.filter(x => x != null)
   
   render() {
-    const { payload, onRefresh, refreshing, handleSpokenToRecentlyPress} = this.props
+    const { payload, handleYesClick, handleNoClick,
+    onRefresh, refreshing, handleCallPress, handleTextPress
+    } = this.props
 
     // if user doesn't have any contacts added to any group
     if (payload === false) {
       return (
-        <ScrollView
-          style={styles.defaultMsgContainer}>
           <DefaultMsg
             refreshing={refreshing}
             onRefresh={onRefresh}
           />
-        </ScrollView>
       )
     }
 
@@ -66,7 +68,7 @@ export default class ReminderOptions extends Component {
                 buttonStyle={{marginBottom: 5, backgroundColor: `green`}}
                 title='Yes'
                 color='white'
-                onPress={this.handleYesPress} 
+                onPress={handleYesClick} 
                 />
                 <Button
                 borderRadius={75}
@@ -75,7 +77,7 @@ export default class ReminderOptions extends Component {
                 buttonStyle={{marginBottom: 5, backgroundColor: `red`}}
                 title='No'
                 color='white'
-                onPress={this.handleNoPress} 
+                onPress={handleNoClick} 
                 />
                 <Button
                 borderRadius={75}
@@ -85,7 +87,7 @@ export default class ReminderOptions extends Component {
                 icon={{name: 'phone', type: 'material', color: 'white'}}
                 title='Call'
                 color='white'
-                onPress={this.handleCallPress} 
+                onPress={handleCallPress} 
                 />
                 <Button
                 borderRadius={75}
@@ -95,7 +97,7 @@ export default class ReminderOptions extends Component {
                 icon={{name: 'smartphone', type: 'material', color: 'white'}}
                 title='Text'
                 color='white'
-                onPress={this.handleTextPress} 
+                onPress={handleTextPress} 
                 />
               </View>
             </Card>
