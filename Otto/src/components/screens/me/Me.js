@@ -29,7 +29,6 @@ export default class Me extends Component {
   }
 
   handleSignOut = () => {
-    // native call to signout
     console.log(`USER SIGNED OUT`)
     onSignOut().then(() => this.props.navigation.navigate("SignedOut"))
   }
