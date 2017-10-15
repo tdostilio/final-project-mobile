@@ -1,73 +1,84 @@
 import React, { Component } from 'react';
 import { View, ScrollView, Text, Image } from 'react-native';
 import { List, ListItem, Button, Icon } from 'react-native-elements';
-import heart from '../../../static/images/heart.png';
+import axios from 'axios'
 
+import LottiePlayer from '../../util/LottiePlayer'
+import heart from '../../../static/images/heart.png';
+import config from '../../util/api/config'
 
 
 export default class Family extends Component {
   state = {
-
+    credentials: {},
+    route: '',
+    payload: [],
+    payloadStatus: false
   }
 
-  componentDidMount() {
-    // make ajax call to hydrate this state.. do it here or from `Me Component` and pass down as props
-    // change loading to false once state hydrated.. for development-- leave it true
-  }
-
+  async componentWillMount() {
+    
+    try {
+      const { credentials, route } = this.props.navigation.state.params
+      await this.setState({credentials, route})
   
+      const path = route.replace(/\s/g, "");
+      const id = credentials.id
+      const token = credentials.token
+      await this.setState({token, groupInfo: this.props.navigation.state.params})
+
+      const result = await axios.get(config.GET_GROUP(path, id),
+      {headers: {"Authorization": "jwt " + token}})
+      console.log('received payload', result.data.result)
+      await this.setState({payload: result.data.result, payloadStatus: true})
+
+      } catch (error) {
+        console.log(error);
+      }
+  }
+
+  renderContacts = (payload) => {
+    return payload.map((x, idx) => {
+      return (
+        <View style={styles.buttonStyle}>
+          <Button
+            borderRadius={50}
+            backgroundColor={'#1E90FF'}
+            title={`${x.first_name} ${x.last_name}`}
+            color={'#1FFFDA'}
+            fontWeight={'700'} 
+          />
+        </View>
+      )
+    })
+  }
+
   render() {
     const { navigate } = this.props.navigation
+    const { payload, payloadStatus } = this.state
+
+    if (!payloadStatus) return <LottiePlayer />
 
     return (
+      
       <View style={styles.container}>
 
         <ScrollView>
-        <View style={styles.centerLogo}>
-          <Image
-            style={styles.logo}
-            source={heart}
-          />
-        </View>
-        <Text style={styles.headerStyle}>Those Who Matter Most</Text>
-        <View style={styles.buttonContainer}>
-            <View style={styles.buttonStyle}>
-              <Button
-                borderRadius={50}
-                backgroundColor={'#1E90FF'}
-                title={'Family Member [name]'}
-                color={'#1FFFDA'}
-                fontWeight={'700'} 
-
-              />
-            </View>
-
-            <View style={styles.buttonStyle}>
-              <Button
-                borderRadius={50}
-                backgroundColor={'#1E90FF'}
-                title={'Family Member [name]'}
-                color={'#1FFFDA'}
-                fontWeight={'700'} 
-              />
-            </View>
-
-            <View style={styles.buttonStyle}>
-              <Button
-                borderRadius={50}
-                backgroundColor={'#1E90FF'}
-                title={'Family Member [name]'}
-                color={'#1FFFDA'}
-                fontWeight={'700'} 
-
-              />
-            </View>
-
-              
+          <View style={styles.centerLogo}>
+            <Image
+              style={styles.logo}
+              source={heart}
+            />
+          </View>
+          <Text
+            style={styles.headerStyle}>
+            Those Who Matter Most
+          </Text>
+        
+          <View style={styles.buttonContainer}>
+            {this.renderContacts(payload)}
           </View>
         </ScrollView>
-
-        
 
       </View>
     )
