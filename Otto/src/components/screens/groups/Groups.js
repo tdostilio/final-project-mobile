@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
-import { View, Text, ScrollView, Image } from 'react-native';
-import { Button } from 'react-native-elements';
-import mainlogo from '../../../static/images/mainlogo.png';
+import React, { Component } from 'react'
+import { AsyncStorage, View, Text, ScrollView, Image } from 'react-native'
+import axios from 'axios'
+
+import { Button } from 'react-native-elements'
+import mainlogo from '../../../static/images/mainlogo.png'
+import config from '../../util/api/config'
 
 
 export default class Groups extends Component {
 
   state = {
-    loading: true,
-    search: ''
+    credentials: ''
   }
 
   static defaultProps = {
@@ -37,9 +39,16 @@ export default class Groups extends Component {
     ]
   }
 
-  componentDidMount() {
-    // make ajax call to hydrate this state.. do it here or from `Me Component` and pass down as props
-    // change loading to false once state hydrated.. for development-- leave it true
+  async componentDidMount() {
+    
+    try {
+      const credentials = await AsyncStorage.getItem(config.USER_INFO)
+      console.log(credentials)
+      await this.setState({credentials: JSON.parse(credentials)})
+
+      } catch (error) {
+        console.log(error);
+      }
   }
 
   handleSearch = (text) => {
@@ -53,8 +62,9 @@ export default class Groups extends Component {
   }
 
   handlePress = (item) => {
-    
-    this.props.navigation.navigate(item.route)
+    const { credentials } = this.state
+
+    this.props.navigation.navigate(item.route, Object.assign({}, {credentials}, item))
   }
 
   renderTemplates = () => (

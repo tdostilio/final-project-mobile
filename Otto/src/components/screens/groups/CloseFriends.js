@@ -1,67 +1,93 @@
 import React, { Component } from 'react';
 import { View, ScrollView, Text, Image } from 'react-native';
 import { List, ListItem, Button, Icon } from 'react-native-elements';
-import bestFriend from '../../../static/images/bestfriend.png';
+import axios from 'axios'
+
+import LottieGears from '../../util/LottieGears'
+import heart from '../../../static/images/bestfriend.png';
+import config from '../../util/api/config'
 
 
 export default class CloseFriends extends Component {
+
   state = {
-
+    credentials: {},
+    route: '',
+    payload: [],
+    payloadStatus: false
   }
 
-  componentDidMount() {
-    // make ajax call to hydrate this state.. do it here or from `Me Component` and pass down as props
-    // change loading to false once state hydrated.. for development-- leave it true
-  }
+  async componentWillMount() {
 
+    try {
+      const { credentials, route } = this.props.navigation.state.params
+      await this.setState({credentials, route})
   
+
+      const path = this.singularizeRoute(route)
+      const id = credentials.id
+      const token = credentials.token
+      await this.setState({token, groupInfo: this.props.navigation.state.params})
+
+      const result = await axios.get(config.GET_GROUP(path, id),
+      {headers: {"Authorization": "jwt " + token}})
+      console.log('received payload', result.data.result)
+      await this.setState({payload: result.data.result, payloadStatus: true})
+
+      } catch (error) {
+        console.log(error);
+      }
+  }
+
+  singularizeRoute = (route) => {
+    let length = route.length
+    if (route[length-1] === 's') {
+      return route.slice(0, length-1)
+    } else {
+      return route
+    }
+  }
+
+  renderContacts = (payload) => {
+    return payload.map((x, idx) => {
+      return (
+        <View key={idx} style={styles.buttonStyle}>
+          <Button
+            borderRadius={50}
+            backgroundColor={'#1E90FF'}
+            title={`${x.first_name} ${x.last_name}`}
+            color={'#1FFFDA'}
+            fontWeight={'700'} 
+          />
+        </View>
+      )
+    })
+  }
+
   render() {
     const { navigate } = this.props.navigation
+    const { payload, payloadStatus } = this.state
+
+    if (!payloadStatus) return <View style={styles.container}><LottieGears /></View>
 
     return (
+      
       <View style={styles.container}>
 
         <ScrollView>
           <View style={styles.centerLogo}>
             <Image
               style={styles.logo}
-              source={bestFriend}
+              source={heart}
             />
           </View>
-        <Text style={styles.headerStyle}>Best Friends</Text>
-        <View style={styles.buttonContainer}>
-            <View style={styles.buttonStyle}>
-              <Button
-                borderRadius={50}
-                backgroundColor={'#1E90FF'}
-                title={'Best Friend [name]'}
-                color={'#1FFFDA'}
-                fontWeight={'700'}  
-              />
-            </View>
-
-            <View style={styles.buttonStyle}>
-              <Button
-                borderRadius={50}
-                backgroundColor={'#1E90FF'}
-                title={'Best Friend [name]'}
-                color={'#1FFFDA'}
-                fontWeight={'700'}  
-              />
-            </View>
-
-            <View style={styles.buttonStyle}>
-              <Button
-                borderRadius={50}
-                backgroundColor={'#1E90FF'}
-                title={'Best Friend [name]'}
-                color={'#1FFFDA'}
-                fontWeight={'700'}  
-
-              />
-            </View>
-
-              
+          <Text
+            style={styles.headerStyle}>
+            Those Who Matter Most
+          </Text>
+        
+          <View style={styles.buttonContainer}>
+            {this.renderContacts(payload)}
           </View>
         </ScrollView>
 
@@ -74,7 +100,8 @@ export default class CloseFriends extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: `#001a33`
+    backgroundColor: `#001a33`,
+    justifyContent: 'center'
   },
   headerStyle: {
     textAlign: 'center',
