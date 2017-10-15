@@ -1,113 +1,138 @@
 import React, { Component } from 'react'
-import { View, ScrollView, Text } from 'react-native'
-import { List, ListItem, Icon, Button} from 'react-native-elements'
+import PropTypes from 'prop-types'
+import { View, FlatList, ScrollView, Text, RefreshControl } from 'react-native'
+import { List, Card, Icon, Button} from 'react-native-elements'
+import uuid from 'uuid'
+
+import DefaultMsg from './DefaultMsg'
 
 
 export default class ReminderOptions extends Component {
-  state = {
 
+  static propTypes = {
+    handleSpokenToRecentlyPress: PropTypes.func.isRequired,
+    onRefresh: PropTypes.func.isRequired,
+    refreshing: PropTypes.bool.isRequired
+    // payload: will be boolean (false) or array of objs
   }
 
-  componentDidMount() {
-  
-  }
-
-  renderCard = (payload) => {
-    return payload.map((x, idx) => {
-      return (
-        <View style={styles.container} key={idx}>
-
-          <View style={styles.optionsContainer}>
-            <Text
-              style={{ color: "white", fontSize: 16 }}>
-              Have you spoke to &nbsp;
-              <Text
-                style={{color: '#1FFFDA', fontWeight: 'bold', fontSize: 14}}>
-                 {x.first_name} {x.last_name
-              }</Text> recently?
-            </Text>
-          </View>
-
-          <View style={styles.optionsButtonContainer}>
-            <Button
-            borderRadius={75}
-            raised
-            medium
-            buttonStyle={{marginBottom: 5, backgroundColor: `green`}}
-            title='Yes'
-            color='white'
-            onPress={this.handleYesPress} 
-            />
-            <Button
-            borderRadius={75}
-            raised
-            medium
-            buttonStyle={{marginBottom: 5, backgroundColor: `red`}}
-            title='No'
-            color='white'
-            onPress={this.handleNoPress} 
-            />
-            <Button
-            borderRadius={75}
-            raised
-            medium
-            buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
-            icon={{name: 'phone', type: 'material', color: 'white'}}
-            title='Call'
-            color='white'
-            onPress={this.handleCallPress} 
-            />
-            <Button
-            borderRadius={75}
-            raised
-            medium
-            buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
-            icon={{name: 'smartphone', type: 'material', color: 'white'}}
-            title='Text'
-            color='white'
-            onPress={this.handleTextPress} 
-            />
-          </View>
-
-        </View>
-      )
-    })
-  }
+  removeNullValues = (payload) => payload.filter(x => x != null)
   
   render() {
-    const { payload, credentials } = this.props
+    const { payload, onRefresh, refreshing, handleSpokenToRecentlyPress} = this.props
+
+    // if user doesn't have any contacts added to any group
+    if (payload === false) {
+      return (
+        <ScrollView
+          style={styles.defaultMsgContainer}>
+          <DefaultMsg
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />
+        </ScrollView>
+      )
+    }
+
+    // remove null values
+    const modifiedPayload = this.removeNullValues(payload)
+
     return (
-      <View style={styles.optionsGroupContainer}>
-        {this.renderCard(payload)}
-      </View>
+        <FlatList
+          data={modifiedPayload}
+          refreshing={refreshing}
+          onRefresh={onRefresh}
+          keyExtractor={() => uuid.v4()}
+          renderItem={({item}) => (
+            <Card
+              titleStyle={styles.cardTitle}
+              containerStyle={styles.cardContainer}
+              title={`${item.first_name} ${item.last_name}`}>
+              <View style={styles.cardContent}>
+                <Text
+                  style={{ color: "white", fontSize: 16 }}>
+                  Have you spoke to &nbsp;
+                  <Text
+                    style={{color: '#1FFFDA', fontWeight: 'bold', fontSize: 14}}>
+                    {item.first_name} {item.last_name
+                  }</Text> recently?
+                </Text>
+              </View>
+              <View style={styles.buttonContainer}>
+                <Button
+                borderRadius={75}
+                raised
+                medium
+                buttonStyle={{marginBottom: 5, backgroundColor: `green`}}
+                title='Yes'
+                color='white'
+                onPress={this.handleYesPress} 
+                />
+                <Button
+                borderRadius={75}
+                raised
+                medium
+                buttonStyle={{marginBottom: 5, backgroundColor: `red`}}
+                title='No'
+                color='white'
+                onPress={this.handleNoPress} 
+                />
+                <Button
+                borderRadius={75}
+                raised
+                medium
+                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
+                icon={{name: 'phone', type: 'material', color: 'white'}}
+                title='Call'
+                color='white'
+                onPress={this.handleCallPress} 
+                />
+                <Button
+                borderRadius={75}
+                raised
+                medium
+                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
+                icon={{name: 'smartphone', type: 'material', color: 'white'}}
+                title='Text'
+                color='white'
+                onPress={this.handleTextPress} 
+                />
+              </View>
+            </Card>
+          )}
+        />
     )
   }
 }
 
 
-
 const styles = {
-  container: {
+  cardContainer: {
+    padding: 15,
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 15,
+    justifyContent: 'space-around',
+    marginBottom: 10,
     backgroundColor: 'dodgerblue',
-    borderRadius: 8
+    borderRadius: 8,
+    borderColor: 'dodgerblue',
+    overflow: 'hidden'
   },
-  optionsContainer: {
+  cardTitle: {
+    color: `#fff`
+  },
+  cardContent: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 5,
     marginBottom: 5
   },
-  optionsButtonContainer: {
+  buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: 5,
+    justifyContent: 'space-around',
+    marginTop: 5
   },
-  optionsGroupContainer: {
+  defaultMsgContainer: {
     backgroundColor: `#001a33`,
     elevation: 2,
     margin: 5
