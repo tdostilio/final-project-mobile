@@ -11,7 +11,6 @@ class Contacts extends React.Component {
     
 
     state = {   
-        loading: false, 
         contacts: null,
         searching: null,
         search: '',
@@ -80,7 +79,7 @@ class Contacts extends React.Component {
 
     render() {
       const { navigate } = this.props.navigation;
-      const { loading, search } = this.state;
+      const { search } = this.state;
 
       return (
         <View style={{ flex: 1, backgroundColor: '#001a33' }}>
