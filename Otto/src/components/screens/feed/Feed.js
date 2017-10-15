@@ -62,8 +62,20 @@ export default class Feed extends Component {
     })
   }
 
-  handleSpokenToRecentlyPress = () => {
-    console.log('handleSpokenToRecentlyPress')
+  handleYesClick = () => {
+    console.log('yes clicked')
+  }
+
+  handleNoClick = () => {
+    console.log('no clicked')
+  }
+
+  handleCallPress = () => {
+    console.log('call pressed')
+  }
+
+  handleTextPress = () => {
+    console.log('text pressed')
   }
 
 
@@ -84,7 +96,10 @@ export default class Feed extends Component {
         <ReminderOptions
           refreshing={refreshing}
           onRefresh={this.onRefresh}
-          handleSpokenToRecentlyPress={this.handleSpokenToRecentlyPress}
+          handleYesClick={this.handleYesClick}
+          handleNoClick={this.handleNoClick}
+          handleCallPress={this.handleCallPress}
+          handleTextPress={this.handleTextPress}
           payload={payload}
           credentials={credentials}
         />
