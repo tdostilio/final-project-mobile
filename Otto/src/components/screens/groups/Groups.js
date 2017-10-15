@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import { View, Text, ScrollView, Image } from 'react-native';
-import { Button } from 'react-native-elements';
-import mainlogo from '../../../static/images/mainlogo.png';
+import React, { Component } from 'react'
+import { View, Text, ScrollView, Image } from 'react-native'
+
+import { Button } from 'react-native-elements'
+import mainlogo from '../../../static/images/mainlogo.png'
 
 
 export default class Groups extends Component {
@@ -53,7 +54,7 @@ export default class Groups extends Component {
   }
 
   handlePress = (item) => {
-    
+    console.log(item)
     this.props.navigation.navigate(item.route)
   }
 
