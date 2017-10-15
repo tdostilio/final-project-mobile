@@ -16,6 +16,7 @@ class ContactOptions extends Component {
         this.setState({information, credentials})
         
     }
+
     callContact = () => {
         Communications.phonecall(this.state.information.phoneNumbers[0]['number'], true)
     }
