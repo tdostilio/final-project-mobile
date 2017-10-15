@@ -16,9 +16,6 @@ export default class Me extends Component {
     ...me
   }
 
-  componentWillMount() {
-  }
-
   handleCallPress = () => {
     this.props.navigation.navigate('RecentCall')
   }
