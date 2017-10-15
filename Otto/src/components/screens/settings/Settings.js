@@ -50,7 +50,7 @@ export default class Settings extends Component {
       <ScrollView style={styles.container}>
         <View>
 
-          <View>
+          {/* <View>
             <View style={styles.headerContainer}>
               <Text style={styles.headerTitle}>Syncing</Text>
             </View>
@@ -89,7 +89,7 @@ export default class Settings extends Component {
                 switchTintColor='#5D8DAD'
               />
             </List>
-          </View>
+          </View> */}
 
           <View>
             <View style={styles.headerContainer}>
@@ -97,7 +97,7 @@ export default class Settings extends Component {
             </View>
             <List style={styles.container}>
               <ListItem
-                title="Push Notifications"
+                title={`Push Notifications`}
                 titleStyle={{color: '#eee'}}
                 onSwitch={val => {this.setState(prevState => ({pushNotifications: !(prevState.pushNotifications)}),this.handlePushPress)}}
                 switched={pushNotifications}
@@ -107,10 +107,11 @@ export default class Settings extends Component {
                 switchOnTintColor='#2980b9'
                 switchTintColor='#5D8DAD'
               />
+              {pushNotifications && <Text style={{color: 'red'}}> Sorry this feature is pending </Text>}
             </List>
           </View>
 
-          <View>
+          {/* <View>
             <View style={styles.headerContainer}>
               <Text style={styles.headerTitle}>Edit</Text>
             </View>
@@ -126,9 +127,9 @@ export default class Settings extends Component {
                 chevronColor='#2980b9'
               />
             </List>
-          </View>
+          </View> */}
 
-          <View>
+          {/* <View>
             <View style={styles.headerContainer}>
               <Text style={styles.headerTitle}>Feedback</Text>
             </View>
@@ -144,9 +145,9 @@ export default class Settings extends Component {
                 hideChevron
               />
             </List>
-          </View>
+          </View> */}
 
-          <View>
+          {/* <View>
             <View style={styles.headerContainer}>
               <Text style={styles.headerTitle}>Legal</Text>
             </View>
@@ -162,7 +163,7 @@ export default class Settings extends Component {
                 hideChevron
               />
             </List>
-          </View>
+          </View> */}
 
           <View>
             <View style={styles.headerContainer}>
@@ -188,7 +189,7 @@ export default class Settings extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: `#222A43`
+    backgroundColor: `#001a33`
   },
   headerContainer: {
     justifyContent: 'center',
