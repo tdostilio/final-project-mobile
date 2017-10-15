@@ -279,13 +279,13 @@ export const AddReminderStack = StackNavigator({
 export const ContactOptionsStack = StackNavigator({
   ContactOptions: {
     screen: ContactOptions,
-    navigationOptions: {
-      title: 'Contact Options',
+    navigationOptions: ({navigation}) => ({
+      title: `${navigation.state.params.contact.givenName} ${navigation.state.params.contact.familyName}`,
       headerStyle: {
         backgroundColor: `#001a33`
       },
       headerTintColor: '#fff'
-    }
+    })
   }
 })
 
@@ -293,7 +293,7 @@ export const GroupAddStack = StackNavigator({
   GroupAdd: {
     screen: GroupAdd,
     navigationOptions: {
-      title: 'Add to Group',
+      title: 'Groups',
       headerStyle: {
         backgroundColor: `#001a33`
       },

@@ -3,13 +3,17 @@ import { View, Text, ScrollView, AsyncStorage } from 'react-native';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
+
 import config from '../../util/api/config';
+import Result from './Result'
+
 
 export default class GroupAdd extends Component {
 
   state = {
     information: '',
     credentials: null,
+    userAddedToGroup: {}
   }
 
   static defaultProps = {
@@ -59,24 +63,33 @@ export default class GroupAdd extends Component {
   }
 
   // adds contact to group
-  sendRequest = (endpoint) => {
+  sendRequest = async (endpoint) => {
     let path = endpoint.replace(/\s/g, "");
     let id = this.state.credentials.id
     let person = this.state.information;
     let token = this.state.credentials.token
     let primaryPhoneNumber = this.findMobileNumber('mobile', person.phoneNumbers)
-    axios.post(config.CREATE_GROUP(path, id), {
-      userId: id,
-      firstName: person.givenName,
-      lastName: person.familyName,
-      phoneNumber: primaryPhoneNumber
-    },{headers: {"Authorization": "jwt " + token}})
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
+
+    try {
+      const result = await axios.post(config.CREATE_GROUP(path, id), {
+        userId: id,
+        firstName: person.givenName,
+        lastName: person.familyName,
+        phoneNumber: primaryPhoneNumber
+      },{headers: {"Authorization": "jwt " + token}})
+        .then(function (response) {
+          return response.data
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+        console.log('result', result);
+        this.setState({userAddedToGroup: Object.assign(result, {groupName: endpoint})})
+
+    } catch(e) {
+      console.log(e)
+    }
+
   }
 
   renderTemplates = () => (
@@ -95,9 +108,10 @@ export default class GroupAdd extends Component {
             console.log('the contact we are adding is: ' + this.state.information.givenName + ' ' + this.state.information.familyName + ' to group: '+ item.title)
             console.log('the userId is: ' + this.state.credentials.id)
             console.log('the users token is: ' + this.state.credentials.token)
-            // Uncomment below when ready to send to API
+
+            // user gets succesfully added to db render success component else return validation error msg under button
             this.sendRequest(item.title)
-            }}
+          }}
           title={item.title}
           />
       )
@@ -111,7 +125,15 @@ export default class GroupAdd extends Component {
 
   render() {
     const { navigate } = this.props.navigation
-    const { loading, search } = this.state
+    const { information, loading, search, userAddedToGroup } = this.state
+    console.log(userAddedToGroup)
+
+    if (Object.keys(userAddedToGroup).length > 0) {
+      return <Result
+                person={information}
+                backToPrevious={this.backToPrevious}
+                result={userAddedToGroup} />
+    }
 
     return (
       <View style={styles.container}>
