@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { View, ScrollView, Text } from 'react-native';
-import { List, ListItem, Icon, Button} from 'react-native-elements';
+import React, { Component } from 'react'
+import { View, ScrollView, Text } from 'react-native'
+import { List, ListItem, Icon, Button} from 'react-native-elements'
+
 
 export default class ReminderOptions extends Component {
   state = {
@@ -99,6 +100,3 @@ const styles = {
     margin: 5
   }
 }
-
-
-  
