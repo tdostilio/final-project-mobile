@@ -1,41 +1,66 @@
 import React, { Component } from 'react'
-import { View, ScrollView, Text } from 'react-native'
-import { List, ListItem, Icon, Button} from 'react-native-elements'
+import PropTypes from 'prop-types'
+import { View, FlatList, ScrollView, Text, RefreshControl } from 'react-native'
+import { List, Card, Icon, Button} from 'react-native-elements'
+import uuid from 'uuid'
+
+import DefaultMsg from './DefaultMsg'
 
 
 export default class ReminderOptions extends Component {
-  state = {
 
+  static propTypes = {
+    handleYesClick: PropTypes.func.isRequired,
+    handleNoClick: PropTypes.func.isRequired,
+    handleCallPress: PropTypes.func.isRequired,
+    handleTextPress: PropTypes.func.isRequired,
+    onRefresh: PropTypes.func.isRequired,
+    refreshing: PropTypes.bool.isRequired
+    // payload: will be boolean (false) or array of objs
   }
 
-  componentDidMount() {
-    // make ajax call to hydrate this state.. do it here or from `Me Component` and pass down as props
-    // change loading to false once state hydrated.. for development-- leave it true
-  }
-
-//   handleYesPress = () => {
-//     this.props.navigation.navigate('')
-//   }
-//   handleNoPress = () => {
-//     this.props.navigation.navigate('')
-//   }
-//   handleCallPress = () => {
-//     this.props.navigation.navigate('')
-//   }
-//   handleTextPress = () => {
-//     this.props.navigation.navigate('')
-//   }
+  removeNullValues = (payload) => payload.filter(x => x != null)
   
   render() {
-    // const { navigate } = this.props.navigation
-    // const { loading, contactSync, smsSync, callSync, pushNotifications } = this.state
-    return (
+    const { payload, handleYesClick, handleNoClick,
+    onRefresh, refreshing, handleCallPress, handleTextPress
+    } = this.props
 
-        <View style={styles.optionsGroupContainer}>
-            <View style={styles.optionsContainer}>
-              <Text style={{ color: "white", fontSize: 20 }}>Have you talked to <Text style={{color: '#1FFFDA'}}>[Contacts]</Text> recently?</Text>
-            </View>
-              <View style={styles.optionsButtonContainer}>
+    // if user doesn't have any contacts added to any group
+    if (payload === false) {
+      return (
+          <DefaultMsg
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />
+      )
+    }
+
+    // remove null values
+    const modifiedPayload = this.removeNullValues(payload)
+
+    return (
+        <FlatList
+          data={modifiedPayload}
+          refreshing={refreshing}
+          onRefresh={onRefresh}
+          keyExtractor={() => uuid.v4()}
+          renderItem={({item}) => (
+            <Card
+              titleStyle={styles.cardTitle}
+              containerStyle={styles.cardContainer}
+              title={`${item.first_name} ${item.last_name}`}>
+              <View style={styles.cardContent}>
+                <Text
+                  style={{ color: "white", fontSize: 16 }}>
+                  Have you spoke to &nbsp;
+                  <Text
+                    style={{color: '#1FFFDA', fontWeight: 'bold', fontSize: 14}}>
+                    {item.first_name} {item.last_name
+                  }</Text> recently?
+                </Text>
+              </View>
+              <View style={styles.buttonContainer}>
                 <Button
                 borderRadius={75}
                 raised
@@ -43,7 +68,7 @@ export default class ReminderOptions extends Component {
                 buttonStyle={{marginBottom: 5, backgroundColor: `green`}}
                 title='Yes'
                 color='white'
-                onPress={this.handleYesPress} 
+                onPress={handleYesClick} 
                 />
                 <Button
                 borderRadius={75}
@@ -52,7 +77,7 @@ export default class ReminderOptions extends Component {
                 buttonStyle={{marginBottom: 5, backgroundColor: `red`}}
                 title='No'
                 color='white'
-                onPress={this.handleNoPress} 
+                onPress={handleNoClick} 
                 />
                 <Button
                 borderRadius={75}
@@ -62,7 +87,7 @@ export default class ReminderOptions extends Component {
                 icon={{name: 'phone', type: 'material', color: 'white'}}
                 title='Call'
                 color='white'
-                onPress={this.handleCallPress} 
+                onPress={handleCallPress} 
                 />
                 <Button
                 borderRadius={75}
@@ -72,32 +97,45 @@ export default class ReminderOptions extends Component {
                 icon={{name: 'smartphone', type: 'material', color: 'white'}}
                 title='Text'
                 color='white'
-                onPress={this.handleTextPress} 
+                onPress={handleTextPress} 
                 />
               </View>
-            </View>
+            </Card>
+          )}
+        />
     )
   }
 }
 
 
-
 const styles = {
-  optionsContainer: {
+  cardContainer: {
+    padding: 15,
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    marginBottom: 10,
+    backgroundColor: 'dodgerblue',
+    borderRadius: 8,
+    borderColor: 'dodgerblue',
+    overflow: 'hidden'
+  },
+  cardTitle: {
+    color: `#fff`
+  },
+  cardContent: {
     flexDirection: 'row',
     justifyContent: 'center',
+    marginBottom: 5
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     marginTop: 5
   },
-  optionsButtonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: 5,
-  },
-  optionsGroupContainer: {
-    backgroundColor: 'dodgerblue',
-    borderWidth: 0.5,
-    borderRadius: 8,
-    borderColor: '#1FFFDA',
+  defaultMsgContainer: {
+    backgroundColor: `#001a33`,
     elevation: 2,
     margin: 5
   }
