@@ -43,23 +43,15 @@ export default class GroupAdd extends Component {
     let information = this.props.navigation.state.params.information
     let credentials = JSON.parse(this.props.navigation.state.params.credentials._55)
     this.setState({information, credentials})
-
-    //Don't believe async storage is needed for this page since token is in state
-    // AsyncStorage.getItem(config.USER_INFO)
-    //   .then(res => {
-    //     let userInfo = JSON.parse(res)
-    //     this.setState({id: userInfo.id})
-    //     console.log(`USER HAS RETURNED ${userInfo.id}`)
-    //   })
   }
 
-  findMobileNumber(keyName, phoneNumberArray) {
-      for (var i=0; i < phoneNumberArray.length; i++) {
-          if (phoneNumberArray[i].label === keyName) {
-              return phoneNumberArray[i].number;
-          }
+  findMobileNumber = (keyName, phoneNumberArray) => {
+    for (var i=0; i < phoneNumberArray.length; i++) {
+        if (phoneNumberArray[i].label === keyName) {
+            return phoneNumberArray[i].number;
         }
-      return phoneNumberArray[0].number
+      }
+    return phoneNumberArray[0].number
   }
 
   // adds contact to group
