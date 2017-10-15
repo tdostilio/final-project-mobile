@@ -11,7 +11,7 @@ import config from '../../util/api/config'
 export default class Feed extends Component {
   state = {
     credentials: '',
-    payload: {},
+    payload: [],
     payloadStatus: false
   }
 
@@ -25,8 +25,8 @@ export default class Feed extends Component {
       const token = this.state.credentials.token
       const result = await axios.get(config.GET_GROUP(config.FEED, id),
       {headers: {"Authorization": "jwt " + token}})
-      console.log('received payload', result.data)
-      await this.setState({payload: result.data.result, payloadStatus: true})
+      console.log('received payload', result.data.payload)
+      await this.setState({payload: result.data.payload, payloadStatus: true})
 
       } catch (error) {
         console.log(error)
@@ -49,16 +49,18 @@ export default class Feed extends Component {
   
   render() {
     const { navigate } = this.props.navigation
-    const { credentials, payloadStatus } = this.state
+    const { credentials, payload, payloadStatus } = this.state
     if (!payloadStatus) return <View style={styles.container}><LottieGears /></View>
 
     return (
       <View style={styles.container}>
-      
+
         <ScrollView>
-          <ReminderOptions credentials={credentials}/>
+          <ReminderOptions
+                          payload={payload}
+                          credentials={credentials}/>
         </ScrollView>
-      
+
         <View style={styles.buttonContainer}>
           <Icon
             raised={true}
@@ -85,6 +87,7 @@ const styles = {
     flexDirection: 'column'
   },
   buttonContainer: {
+    backgroundColor:`#001a33`,
     flexDirection: 'row-reverse',
     margin: 20
   },
