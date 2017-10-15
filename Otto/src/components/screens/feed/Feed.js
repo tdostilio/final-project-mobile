@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AsyncStorage, View, ScrollView, Text } from 'react-native'
+import { AsyncStorage, View, ScrollView, Text, RefreshControl } from 'react-native'
 import { List, ListItem, Icon, Button} from 'react-native-elements'
 import axios from 'axios'
 
@@ -12,7 +12,8 @@ export default class Feed extends Component {
   state = {
     credentials: '',
     payload: [],
-    payloadStatus: false
+    payloadStatus: false,
+    refreshing: false
   }
 
   async componentDidMount() {
@@ -20,26 +21,49 @@ export default class Feed extends Component {
       const credentials = await AsyncStorage.getItem(config.USER_INFO)
       console.log(credentials)
       await this.setState({credentials: JSON.parse(credentials)})
+      console.log('state after first paint', this.state)
 
-      const id = this.state.credentials.id
-      const token = this.state.credentials.token
-      const result = await axios.get(config.GET_GROUP(config.FEED, id),
-      {headers: {"Authorization": "jwt " + token}})
-      console.log('received payload', result.data.payload)
-      await this.setState({payload: result.data.payload, payloadStatus: true})
+      this.fetchPayload()
 
       } catch (error) {
         console.log(error)
       }
   }
 
-  singularizeRoute = (route) => {
-    let length = route.length
-    if (route[length-1] === 's') {
-      return route.slice(0, length-2)
-    } else {
-      return route
+  fetchPayload = async () => {
+    try {
+      const id = this.state.credentials.id
+      const token = this.state.credentials.token
+      const result = await axios.get(config.GET_GROUP(config.FEED, id),
+      {headers: {"Authorization": "jwt " + token}})
+      console.log('received payload', result.data.payload)
+
+      // for user with no contacts added to a group
+      if (result.data.payload.length < 1) {
+        await this.setState({payload: false, payloadStatus: true, refreshing: false}, () => {
+          console.log('payload has no contacts')
+        })
+      } else {
+        // for user with contacts in a group
+        await this.setState({payload: result.data.payload, payloadStatus: true, refreshing: false}, () => {
+          console.log('payload has contacts')
+        })
+      }
+    } catch (e) {
+      console.log(e)
     }
+  }
+
+  onRefresh = () => {
+    this.setState({
+      refreshing: true
+    }, () => {
+      this.fetchPayload();
+    })
+  }
+
+  handleSpokenToRecentlyPress = () => {
+    console.log('handleSpokenToRecentlyPress')
   }
 
 
@@ -49,17 +73,21 @@ export default class Feed extends Component {
   
   render() {
     const { navigate } = this.props.navigation
-    const { credentials, payload, payloadStatus } = this.state
+    const { credentials, payload, payloadStatus, refreshing } = this.state
     if (!payloadStatus) return <View style={styles.container}><LottieGears /></View>
+    console.log(this.state)
 
     return (
-      <View style={styles.container}>
+      <List
+        style={styles.container}>
 
-        <ScrollView>
-          <ReminderOptions
-                          payload={payload}
-                          credentials={credentials}/>
-        </ScrollView>
+        <ReminderOptions
+          refreshing={refreshing}
+          onRefresh={this.onRefresh}
+          handleSpokenToRecentlyPress={this.handleSpokenToRecentlyPress}
+          payload={payload}
+          credentials={credentials}
+        />
 
         <View style={styles.buttonContainer}>
           <Icon
@@ -68,13 +96,14 @@ export default class Feed extends Component {
             onPress={this.handleReminderPress}
             underlayColor='#001a33'
             type='material'
-            color='#1E90FF'
+            color='#1FFFDA'
             reverse={true}
-            reverseColor='#fff'
-            onPress={this.handleAddReminderPress} />
+            reverseColor='#001a33'
+            onPress={this.handleAddReminderPress}
+          />
         </View>
-      
-      </View>
+
+      </List>
     )
   }
 }
@@ -84,11 +113,17 @@ const styles = {
   container: {
     flex: 1,
     backgroundColor: `#001a33`,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    justifyContent: 'center'
   },
   buttonContainer: {
-    backgroundColor:`#001a33`,
-    flexDirection: 'row-reverse',
+    backgroundColor:`transparent`,
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    width: null,
+    height: null,
+    borderRadius: 80,
     margin: 20
   },
 }
