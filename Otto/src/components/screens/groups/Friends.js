@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import { View, ScrollView, Text, Image } from 'react-native';
 import { List, ListItem, Button, Icon } from 'react-native-elements';
-import Friend from '../../../static/images/friend.png';
+import axios from 'axios'
+
+import LottieGears from '../../util/LottieGears'
+import heart from '../../../static/images/friend.png';
+import config from '../../util/api/config'
 
 
 export default class Friends extends Component {
-  state = {
 
+  state = {
+    credentials: {},
+    route: '',
+    payload: [],
+    payloadStatus: false
   }
 
   async componentWillMount() {
@@ -15,18 +23,28 @@ export default class Friends extends Component {
       const { credentials, route } = this.props.navigation.state.params
       await this.setState({credentials, route})
   
-      const path = route.replace(/\s/g, "");
+      const path = this.singularizeRoute(route)
       const id = credentials.id
       const token = credentials.token
       await this.setState({token, groupInfo: this.props.navigation.state.params})
 
       const result = await axios.get(config.GET_GROUP(path, id),
       {headers: {"Authorization": "jwt " + token}})
-      console.log(result.data.result)
+      console.log('received payload', result.data.result)
+      await this.setState({payload: result.data.result, payloadStatus: true})
 
       } catch (error) {
         console.log(error);
       }
+  }
+
+  singularizeRoute = (route) => {
+    let length = route.length
+    if (route[length-1] === 's') {
+      return route.slice(0, length-1)
+    } else {
+      return route
+    }
   }
 
   renderContacts = (payload) => {
@@ -49,7 +67,7 @@ export default class Friends extends Component {
     const { navigate } = this.props.navigation
     const { payload, payloadStatus } = this.state
 
-    if (!payloadStatus) return <LottiePlayer />
+    if (!payloadStatus) return <View style={styles.container}><LottieGears /></View>
 
     return (
       
@@ -81,7 +99,8 @@ export default class Friends extends Component {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: `#001a33`
+    backgroundColor: `#001a33`,
+    justifyContent: 'center'
   },
   headerStyle: {
     textAlign: 'center',
