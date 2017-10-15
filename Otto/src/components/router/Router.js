@@ -7,10 +7,10 @@ import Login from '../login/Login'
 import CreateAccount from '../login/CreateAccount'
 
 // Me Screen
-import Me from '../screens/me/Me'
-import RecentCall from '../screens/me/RecentCall'
-import RecentText from '../screens/me/RecentText'
-import RecentEmail from '../screens/me/RecentEmail'
+// import Me from '../screens/me/Me'
+// import RecentCall from '../screens/me/RecentCall'
+// import RecentText from '../screens/me/RecentText'
+// import RecentEmail from '../screens/me/RecentEmail'
 
 // Feed Screen
 import Feed from '../screens/feed/Feed'
@@ -32,21 +32,21 @@ import CloseFriends from '../screens/groups/CloseFriends'
 import Friends from '../screens/groups/Friends'
 
 // Settings Screen
-// import Settings from '../screens/settings/Settings'
+import Settings from '../screens/settings/Settings'
 
 
-export const MeStack = StackNavigator({
-  Me: {
-    screen: Me,
-    navigationOptions: {
-      title: 'Welcome',
-      headerStyle: {
-        backgroundColor: `#001a33`
-      },
-      headerTintColor: '#eee'
-    },
-  }
-})
+// export const MeStack = StackNavigator({
+//   Me: {
+//     screen: Me,
+//     navigationOptions: {
+//       title: 'Welcome',
+//       headerStyle: {
+//         backgroundColor: `#001a33`
+//       },
+//       headerTintColor: '#eee'
+//     },
+//   }
+// })
 
 export const FeedStack = StackNavigator({
   Feed: {
@@ -140,18 +140,18 @@ export const GroupsStack = StackNavigator({
   }
 })
 
-// export const SettingsStack = StackNavigator({
-//   Settings: {
-//     screen: Settings,
-//     navigationOptions: {
-//       title: 'Settings',
-//       headerStyle: {
-//         backgroundColor: `#222A43`
-//       },
-//       headerTintColor: '#fff'
-//     },
-//   },
-// })
+export const SettingsStack = StackNavigator({
+  Settings: {
+    screen: Settings,
+    navigationOptions: {
+      title: 'Settings',
+      headerStyle: {
+        backgroundColor: `#001a33`
+      },
+      headerTintColor: '#fff'
+    },
+  },
+})
 
 export const Tabs = TabNavigator({
   Feed: {
@@ -168,11 +168,18 @@ export const Tabs = TabNavigator({
         tabBarIcon: ({ tintColor }) => <Icon name="group-work" size={30} color={tintColor} />
       }
   },
-  Me: {
-    screen: MeStack,
+  // Me: {
+  //   screen: MeStack,
+  //   navigationOptions: {
+  //     tabBarLabel: 'Me',
+  //     tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
+  //   },
+  // },
+  Settings: {
+    screen: SettingsStack,
     navigationOptions: {
-      tabBarLabel: 'Me',
-      tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
+      tabBarLabel: 'Settings',
+      tabBarIcon: ({ tintColor }) => <Icon name="settings" size={30} color={tintColor} />
     },
   },
   Contacts: {
@@ -182,13 +189,6 @@ export const Tabs = TabNavigator({
       tabBarIcon: ({ tintColor }) => <Icon name="import-contacts" size={34} color={tintColor} />
     }
   }
-  // Settings: {
-  //   screen: SettingsStack,
-  //   navigationOptions: {
-  //     tabBarLabel: 'Settings',
-  //     tabBarIcon: ({ tintColor }) => <Icon name="account-box" size={30} color={tintColor} />
-  //   },
-  // },
 },
 {
   tabBarPosition: 'bottom',
@@ -224,44 +224,44 @@ export const Tabs = TabNavigator({
 })
 
 // isolated stacks / rely on its own redirect to go back
-export const RecentCallStack = StackNavigator({
-  RecentCall: {
-    screen: RecentCall,
-    navigationOptions: {
-      title: 'Recent Calls',
-      headerStyle: {
-        backgroundColor: `#001a33`
-      },
-      headerTintColor: '#fff'
-    }
-  }
-})
+// export const RecentCallStack = StackNavigator({
+//   RecentCall: {
+//     screen: RecentCall,
+//     navigationOptions: {
+//       title: 'Recent Calls',
+//       headerStyle: {
+//         backgroundColor: `#001a33`
+//       },
+//       headerTintColor: '#fff'
+//     }
+//   }
+// })
 
-export const RecentTextStack = StackNavigator({
-  RecentText: {
-    screen: RecentText,
-    navigationOptions: {
-      title: 'Recent Texts',
-      headerStyle: {
-        backgroundColor: `#001a33`
-      },
-      headerTintColor: '#fff'
-    }
-  }
-})
+// export const RecentTextStack = StackNavigator({
+//   RecentText: {
+//     screen: RecentText,
+//     navigationOptions: {
+//       title: 'Recent Texts',
+//       headerStyle: {
+//         backgroundColor: `#001a33`
+//       },
+//       headerTintColor: '#fff'
+//     }
+//   }
+// })
 
-export const RecentEmailStack = StackNavigator({
-  RecentEmail: {
-    screen: RecentEmail,
-    navigationOptions: {
-      title: 'Recent Email',
-      headerStyle: {
-        backgroundColor: `#001a33`
-      },
-      headerTintColor: '#fff'
-    }
-  }
-})
+// export const RecentEmailStack = StackNavigator({
+//   RecentEmail: {
+//     screen: RecentEmail,
+//     navigationOptions: {
+//       title: 'Recent Email',
+//       headerStyle: {
+//         backgroundColor: `#001a33`
+//       },
+//       headerTintColor: '#fff'
+//     }
+//   }
+// })
 
 export const AddReminderStack = StackNavigator({
   AddReminder: {
@@ -334,15 +334,15 @@ export const createRootNavigator = (signedIn = false) => {
   SignedOut: {
     screen: LoginStack
   },
-  RecentCall: {
-    screen: RecentCallStack,
-  },
-  RecentText: {
-    screen: RecentTextStack,
-  },
-  RecentEmail: {
-    screen: RecentEmailStack,
-  },
+  // RecentCall: {
+  //   screen: RecentCallStack,
+  // },
+  // RecentText: {
+  //   screen: RecentTextStack,
+  // },
+  // RecentEmail: {
+  //   screen: RecentEmailStack,
+  // },
   AddReminder: {
     screen: AddReminderStack,
   },
