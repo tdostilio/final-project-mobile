@@ -73,7 +73,7 @@ export default class ReminderOptions extends Component {
                   borderRadius={75}
                   raised
                   medium
-                  buttonStyle={{marginBottom: 5, backgroundColor: `#03BA7F`}}
+                  buttonStyle={{marginBottom: 5, backgroundColor: `#00b300`}}
                   title='Yes'
                   color='white'
                   onPress={() => handleYesClick(item)} 
@@ -92,7 +92,7 @@ export default class ReminderOptions extends Component {
                   raised
                   medium
                   buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
-                  icon={{name: 'phone', type: 'material', color: 'white'}}
+                  icon={{name: 'phone', type: 'material', color: '#00b300'}}
                   title='Call'
                   color='white'
                   onPress={() => handleCallPress(item.phone_number)} 
@@ -102,7 +102,7 @@ export default class ReminderOptions extends Component {
                   raised
                   medium
                   buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
-                  icon={{name: 'smartphone', type: 'material', color: 'white'}}
+                  icon={{name: 'smartphone', type: 'material', color: '#1E90FF'}}
                   title='Text'
                   color='white'
                   onPress={() => handleTextPress(item.phone_number)} 
