@@ -83,7 +83,7 @@ export default class ReminderOptions extends Component {
                   buttonStyle={{marginBottom: 5, backgroundColor: `red`}}
                   title='No'
                   color='white'
-                  onPress={handleNoClick} 
+                  onPress={() => handleNoClick(item)} 
                   />
                   <Button
                   borderRadius={75}

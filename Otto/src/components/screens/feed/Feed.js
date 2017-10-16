@@ -66,18 +66,20 @@ export default class Feed extends Component {
 
   removeNullValues = (payload) => payload.filter(x => x != null)
 
-  handleYesClick = (item) => {
-    let payload = [...this.state.payload]
+  compareAndRemove = (payload,item) => {
     payload = this.removeNullValues(payload)
     payload = payload.filter(x => x.phone_number != item.phone_number)
     this.setState({payload})
   }
 
+  handleYesClick = (item) => {
+    let payload = [...this.state.payload]
+    this.compareAndRemove(payload, item)
+  }
+
   handleNoClick = (item) => {
     let payload = [...this.state.payload]
-    payload = this.removeNullValues(payload)
-    payload = payload.filter(x => x.phone_number != item.phone_number)
-    this.setState({payload})
+    this.compareAndRemove(payload, item)
   }
 
   handleCallPress = (phone) => {
