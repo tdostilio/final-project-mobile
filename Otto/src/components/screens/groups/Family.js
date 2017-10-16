@@ -58,19 +58,33 @@ export default class Family extends Component {
         >
           <Button
             borderRadius={50}
+            style={{marginTop: 10}}
             backgroundColor={`transparent`}
             title={`${x.first_name} ${x.last_name}`}
             color={'#1FFFDA'}
             fontWeight={'700'} 
           />
+
+          <Icon
+            raised={true}
+            name='remove-circle'
+            onPress={this.handleReminderPress}
+            underlayColor='#001a33'
+            type='material'
+            color='tomato'
+            reverse={true}
+            reverseColor='#001a33'
+            onPress={this.handleAddReminderPress}
+          />
+
         </LinearGradient>
       )
     })
   }
 
-  handleRemoveContactPress = () => {
-    this.props...
-  }
+  // handleRemoveContactPress = () => {
+  //   this.props...
+  // }
 
   render() {
     const { navigate } = this.props.navigation
@@ -96,21 +110,6 @@ export default class Family extends Component {
         
           <View style={styles.buttonContainer}>
             {this.renderContacts(payload)}
-          </View>
-
-
-          <View style={styles.removeButtonContainer}>
-            <Icon
-              raised={true}
-              name='remove-circle'
-              onPress={this.handleRemoveContactPress}
-              underlayColor='#001a33'
-              type='material'
-              color='tomato'
-              reverse={true}
-              reverseColor='#001a33'
-              onPress={this.handleRemoveContactPress}
-            />
           </View>
 
         </ScrollView>
@@ -139,7 +138,9 @@ const styles = {
     marginLeft: 20,
     marginRight: 20,
     marginTop: 10,
-    borderRadius: 8
+    borderRadius: 8,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
   },
   buttonContainer: {
     marginTop: 15
@@ -152,10 +153,4 @@ const styles = {
     alignItems: 'center',
     marginTop: 20
   },
-  removeButtonContainer: {
-    bottom: 0,
-    left: 0,
-    marginTop: 200,
-    marginLeft: 15
-  }
 }
