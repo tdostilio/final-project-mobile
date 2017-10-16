@@ -13,7 +13,7 @@ export default class LottieSuccess extends Component {
     const { groupName, person, reason } = this.props
     return (
         <View style={styles.container}>
-          <Text style={styles.textStyle}>{person.givenName} {person.familyName} has already been added to the Group: {groupName}.</Text>
+          <Text style={styles.textStyle}>{person.givenName} {person.familyName} has already been added to {groupName}.</Text>
           <View style={styles.container}>
             <Animation
             ref={animation => {
