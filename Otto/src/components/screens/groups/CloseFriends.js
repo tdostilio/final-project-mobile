@@ -73,6 +73,7 @@ export default class CloseFriends extends Component {
               underlayColor='#001a33'
               type='material'
               color='tomato'
+              marginRight={20}
               reverse={true}
               reverseColor='#001a33'
               onPress={this.handleRemoveContactPress}
@@ -137,7 +138,7 @@ const styles = {
     marginTop: 10,
     borderRadius: 8,
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-between'
   },
   buttonContainer: {
     marginTop: 15
