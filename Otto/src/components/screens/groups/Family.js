@@ -73,7 +73,7 @@ export default class Family extends Component {
           type='material'
           color='tomato'
           marginRight={20}
-          size={20}
+          size={18}
           reverse={true}
           reverseColor='#001a33'
           onPress={this.handleAddReminderPress}
