@@ -71,7 +71,6 @@ export default class Family extends Component {
             onPress={this.handleReminderPress}
             underlayColor='#001a33'
             type='material'
-            width='2'
             color='tomato'
             reverse={true}
             reverseColor='#001a33'

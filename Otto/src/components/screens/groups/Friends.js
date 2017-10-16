@@ -73,6 +73,7 @@ export default class Friends extends Component {
             type='material'
             color='tomato'
             marginRight={20}
+
             reverse={true}
             reverseColor='#001a33'
             onPress={this.handleAddReminderPress}
