@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import { View, ScrollView, Text, Image } from 'react-native';
 import { List, ListItem } from 'react-native-elements';
+import mainlogo from '../../../static/images/mainlogo.png'
 
 import { onSignOut } from "../../auth/Auth";
 
@@ -93,6 +94,12 @@ export default class Settings extends Component {
 
           <View>
             <View style={styles.headerContainer}>
+            <View style={styles.centerLogo}>
+              <Image
+              style={styles.logo}
+              source={mainlogo}
+              />
+          </View>
               <Text style={styles.headerTitle}>Device</Text>
             </View>
             <List style={styles.container}>
