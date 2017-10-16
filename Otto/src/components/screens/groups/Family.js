@@ -67,15 +67,15 @@ export default class Family extends Component {
 
           <Icon
           raised={true}
-          name='cancel'
+          name='clear'
           onPress={this.handleReminderPress}
           underlayColor='#001a33'
           type='material'
-          color='tomato'
+          color='transparent'
           marginRight={20}
-          size={18}
+          size={25}
           reverse={true}
-          reverseColor='#001a33'
+          reverseColor='tomato'
           onPress={this.handleAddReminderPress}
         />
 
