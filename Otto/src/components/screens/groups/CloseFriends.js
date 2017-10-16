@@ -129,7 +129,7 @@ const styles = {
   headerStyle: {
     textAlign: 'center',
     color: 'white',
-    marginTop: 30,
+    marginTop: 15,
     fontSize: 20,
     fontWeight: '600',
     fontFamily: 'Geeza Pro'
@@ -151,7 +151,7 @@ const styles = {
   },
   centerLogo: {
     alignItems: 'center',
-    marginTop: 20
+    marginTop: 4
   },
   removeButtonContainer: {
      bottom: 0,
