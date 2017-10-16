@@ -99,7 +99,7 @@ export default class Settings extends Component {
               style={styles.logo}
               source={mainlogo}
               />
-          </View>
+            </View>
               <Text style={styles.headerTitle}>Device</Text>
             </View>
             <List style={styles.container}>
@@ -208,5 +208,13 @@ const styles = {
     fontSize: 15,
     fontWeight: 'bold',
     color: '#1FFFDA'
-  }
+  },
+  centerLogo: {
+    alignItems: 'center',
+    marginTop: 20
+  },
+  logo: {
+    width: 100,
+    height: 100
+  },
 }
