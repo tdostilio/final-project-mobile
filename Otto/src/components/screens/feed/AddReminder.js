@@ -1,32 +1,75 @@
 import React, { Component } from 'react'
 import { Picker, View, ScrollView, Text, TouchableOpacity } from 'react-native'
-import { List, ListItem, Button, Icon, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
+import { ButtonGroup, List, ListItem, Button, Icon, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
 import LinearGradient from 'react-native-linear-gradient'
 import DateTimePicker from 'react-native-modal-datetime-picker'
+import axios from 'axios'
 
 import LottieCheckSuccess from '../../util/LottieCheckSuccess'
+
 
 export default class AddReminder extends Component {
   state = {
     name: '',
     date: '',
     group: 'family',
+    event: 'Call',
     task: '',
+    eventIndex: 0,
     isDateTimePickerVisible: false,
     datePicked: false,
-    reminderSent: false
+    reminderSent: false,
+    validationError: false
+  }
+
+  static defaultProps = {
+    buttons: [
+      'Call', 'Text'
+    ]
   }
 
   backToHome = () => {
     this.props.navigation.goBack(null)
   }
 
+  validateForm = (reminder) => {
+    if (reminder.name === '') {
+      return false;
+    }
+    else if (reminder.date === '') {
+      return false;
+    }
+    else if (reminder.task === '') {
+      return false;
+    } else {
+      return true;
+    }
+
+  }
+
   addReminder = () => {
     // capture state with all complete values
+    const reminderInfo = this.state
+    const reminderCloned = Object.assign({}, reminderInfo)
 
     // maybe do some validation logic to make sure all fields are filled
+    if (!this.validateForm(reminderCloned)){
+      this.setState({
+        name: '',
+        date: '',
+        group: 'family',
+        event: 'Call',
+        task: '',
+        eventIndex: 0,
+        isDateTimePickerVisible: false,
+        datePicked: false,
+        reminderSent: false,
+        validationError: true
+      })
+    }
 
     // make fetch api call to server
+    console.log('addReminderClicked')
 
     this.setState({reminderSent: true})
   }
@@ -61,12 +104,22 @@ export default class AddReminder extends Component {
     })
 
   };
+
+  updateEventIndex = (eventIndex) => {
+    const event = this.props.buttons[eventIndex]
+    this.setState({
+      eventIndex,
+      event
+    })
+  }
   
   render() {
-    const { navigate } = this.props.navigation
-    const {name, date, group, task, datePicked, reminderSent } = this.state
+    const { buttons } = this.props
+    const { name, date, group, task, datePicked,
+    reminderSent, eventIndex, validationError } = this.state
+    console.log(this.state)
 
-    if (reminderSent) {
+    if (reminderSent && (!validationError)) {
       return (
         <View style={styles.container}>
           <LottieCheckSuccess />
@@ -94,10 +147,19 @@ export default class AddReminder extends Component {
 
         <View style={{flexGrow: 1}}>
           <ScrollView>
+            { validationError
+              ?
+              <View style={styles.validationMsg}>
+                <Text style={{color: 'red'}}>
+                Please fill out rest of the fields.
+                </Text>
+              </View>
+              : null
+            }
 
             <FormLabel>Name</FormLabel>
             <FormInput value={name}
-                      onChangeText={this.handleNameChange}/>
+                       onChangeText={this.handleNameChange}/>
 
             <FormLabel>Date</FormLabel>
             { datePicked ? <FormInput value={date} /> :  
@@ -121,10 +183,10 @@ export default class AddReminder extends Component {
               </LinearGradient>
             }
 
-            <FormLabel>Group</FormLabel>
+            <FormLabel>Event</FormLabel>
             <Picker selectedValue={this.state.group}
                     style={styles.picker}
-                    itemStyle={{color: 'white'}}
+                    itemStyle={{color: 'white', height: 85}}
                     onValueChange={(itemValue, itemIndex) => this.setState({group: itemValue})}>
                     <Picker.Item label="Close Friends" value="close_friends" />
                     <Picker.Item label="Family" value="family" />
@@ -132,6 +194,23 @@ export default class AddReminder extends Component {
                     {/* <Picker.Item label="Co-Workers" value="co_workers" /> */}
                     {/* <Picker.Item label="Clients" value="clients" /> */}
             </Picker>
+
+            <FormLabel>Group</FormLabel>
+              <LinearGradient
+                  colors={['#4c669f', '#3b5998', '#192f6a']}
+                  style={styles.gradientWrapper}
+                >
+              <ButtonGroup
+                      selectedBackgroundColor={`transparent`}
+                      textStyle={{color: '#001a33'}}
+                      innerBorderStyle={{color: '#001a33'}}
+                      selectedTextStyle={{color: '#ffffff'}}
+                      containerStyle={styles.buttonGroup}
+                      onPress={this.updateEventIndex}
+                      selectedIndex={eventIndex}
+                      buttons={buttons} >
+              </ButtonGroup>
+            </LinearGradient>
 
             <FormLabel>Task</FormLabel>
             <FormInput value={task}
@@ -191,5 +270,15 @@ const styles = {
     marginLeft: 50,
     marginRight: 50,
     borderRadius: 8
+  },
+  buttonGroup: {
+    height: 50,
+    borderWidth: 0,
+    backgroundColor: `transparent`
+  },
+  validationMsg: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center'
   }
 }
