@@ -57,7 +57,7 @@ export default class ReminderOptions extends Component {
                 title={`${item.first_name} ${item.last_name}`}>
                 <View style={styles.cardContent}>
                   <Text
-                    style={{ color: "white", fontSize: 14 }}>
+                    style={{ color: "white", fontSize: 13 }}>
                     Have you spoke to &nbsp;
                     <Text
                       style={{color: '#1FFFDA', fontWeight: 'bold', fontSize: 14}}>
@@ -85,7 +85,7 @@ export default class ReminderOptions extends Component {
                   onPress={handleNoClick} 
                   />
                   <Button
-                  borderRadius={75}
+                  borderRadius={50}
                   raised
                   medium
                   buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
@@ -95,7 +95,7 @@ export default class ReminderOptions extends Component {
                   onPress={handleCallPress} 
                   />
                   <Button
-                  borderRadius={75}
+                  borderRadius={50}
                   raised
                   medium
                   buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
@@ -123,11 +123,10 @@ const styles = {
     justifyContent: 'space-around',
     backgroundColor: `transparent`,
     borderWidth: 0
-
   },
   cardTitle: {
     color: `#fff`,
-    fontSize: 14,
+    fontSize: 16,
     margin: 0
   },
   cardContent: {
@@ -152,6 +151,7 @@ const styles = {
     marginBottom: 10,
     marginLeft: 10,
     marginRight: 10,
-    borderRadius: 5
+    borderRadius: 5,
+    overflow: 'hidden'
   }
 }
