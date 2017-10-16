@@ -24,7 +24,7 @@ export default class ReminderOptions extends Component {
   
   render() {
     const { payload, handleYesClick, handleNoClick,
-    onRefresh, refreshing, handleCallPress, handleTextPress
+    onRefresh, refreshing, handleCallPress, handleTextPress, feedContacts
     } = this.props
 
     // if user doesn't have any contacts added to any group
@@ -39,6 +39,7 @@ export default class ReminderOptions extends Component {
 
     // remove null values
     const modifiedPayload = this.removeNullValues(payload)
+    // const modifiedContacts = this.removeNullValues(feedContacts)
 
     return (
         <FlatList
@@ -73,7 +74,7 @@ export default class ReminderOptions extends Component {
                   buttonStyle={{marginBottom: 5, backgroundColor: `green`}}
                   title='Yes'
                   color='white'
-                  onPress={handleYesClick} 
+                  onPress={() => handleYesClick(item)} 
                   />
                   <Button
                   borderRadius={75}
