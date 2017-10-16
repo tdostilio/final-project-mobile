@@ -4,14 +4,17 @@ import { List, ListItem, Button, Icon, FormLabel, FormInput, FormValidationMessa
 import LinearGradient from 'react-native-linear-gradient'
 import DateTimePicker from 'react-native-modal-datetime-picker'
 
+import LottieCheckSuccess from '../../util/LottieCheckSuccess'
+
 export default class AddReminder extends Component {
   state = {
     name: '',
     date: '',
-    group: 'friends',
+    group: 'family',
     task: '',
     isDateTimePickerVisible: false,
-    datePicked: false
+    datePicked: false,
+    reminderSent: false
   }
 
   backToHome = () => {
@@ -24,6 +27,8 @@ export default class AddReminder extends Component {
     // maybe do some validation logic to make sure all fields are filled
 
     // make fetch api call to server
+
+    this.setState({reminderSent: true})
   }
 
   handleNameChange = (text) => {
@@ -59,7 +64,31 @@ export default class AddReminder extends Component {
   
   render() {
     const { navigate } = this.props.navigation
-    const {name, date, group, task, datePicked } = this.state
+    const {name, date, group, task, datePicked, reminderSent } = this.state
+
+    if (reminderSent) {
+      return (
+        <View style={styles.container}>
+          <LottieCheckSuccess />
+          <View style={styles.buttonContainer}>
+          <LinearGradient
+            colors={['#4c669f', '#3b5998', '#192f6a']}
+            style={styles.gradientWrapper}
+          >
+            <Button
+              buttonStyle={{ marginTop: 20, marginBottom: 20 }}
+              borderRadius={5}
+              raised
+              backgroundColor={`transparent`}
+              icon={{name: 'backspace', type: 'material'}}
+              onPress={this.backToHome}
+              title='Back to Feed' />
+          </LinearGradient>
+          </View>
+        </View>
+      )
+    }
+
     return (
       <View style={styles.container}>
 
@@ -97,8 +126,8 @@ export default class AddReminder extends Component {
                     style={styles.picker}
                     itemStyle={{color: 'white'}}
                     onValueChange={(itemValue, itemIndex) => this.setState({group: itemValue})}>
-                    <Picker.Item label="Family" value="family" />
                     <Picker.Item label="Close Friends" value="close_friends" />
+                    <Picker.Item label="Family" value="family" />
                     <Picker.Item label="Friends" value="friends" />
                     {/* <Picker.Item label="Co-Workers" value="co_workers" /> */}
                     {/* <Picker.Item label="Clients" value="clients" /> */}
@@ -113,19 +142,6 @@ export default class AddReminder extends Component {
 
         <View style={styles.buttonContainer}>
           <LinearGradient
-                  colors={['#4c669f', '#3b5998', '#192f6a']}
-                  style={styles.gradientWrapper}
-          >
-            <Button
-              buttonStyle={{ marginTop: 20, marginBottom: 20 }}
-              borderRadius={5}
-              raised
-              backgroundColor={`transparent`}
-              icon={{name: 'check', type: 'material'}}
-              onPress={this.addReminder}
-              title='Remind Me' />
-          </LinearGradient>
-          <LinearGradient
             colors={['#4c669f', '#3b5998', '#192f6a']}
             style={styles.gradientWrapper}
           >
@@ -137,6 +153,19 @@ export default class AddReminder extends Component {
               icon={{name: 'backspace', type: 'material'}}
               onPress={this.backToHome}
               title='Back to Feed' />
+          </LinearGradient>
+          <LinearGradient
+                  colors={['#4c669f', '#3b5998', '#192f6a']}
+                  style={styles.gradientWrapper}
+          >
+            <Button
+              buttonStyle={{ marginTop: 20, marginBottom: 20 }}
+              borderRadius={5}
+              raised
+              backgroundColor={`transparent`}
+              icon={{name: 'check', type: 'material'}}
+              onPress={this.addReminder}
+              title='Remind Me' />
           </LinearGradient>
         </View>
 
