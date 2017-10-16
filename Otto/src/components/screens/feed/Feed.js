@@ -73,8 +73,11 @@ export default class Feed extends Component {
     this.setState({payload})
   }
 
-  handleNoClick = () => {
-    console.log('no clicked')
+  handleNoClick = (item) => {
+    let payload = [...this.state.payload]
+    payload = this.removeNullValues(payload)
+    payload = payload.filter(x => x.phone_number != item.phone_number)
+    this.setState({payload})
   }
 
   handleCallPress = (phone) => {
