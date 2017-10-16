@@ -6,13 +6,14 @@ import LottieGears from '../../util/LottieGears'
 import ReminderOptions from './ReminderOptions'
 import config from '../../util/api/config'
 
-
+import Communications from 'react-native-communications';
 export default class Feed extends Component {
   state = {
     credentials: '',
     payload: [],
     payloadStatus: false,
-    refreshing: false
+    refreshing: false,
+    feedContacts: ''
   }
 
   async componentDidMount() {
@@ -46,6 +47,8 @@ export default class Feed extends Component {
         // for user with contacts in a group
         await this.setState({payload: result.data.payload, payloadStatus: true, refreshing: false}, () => {
           console.log('payload has contacts')
+          let feedContacts = this.state.payload
+          this.setState({feedContacts})
         })
       }
     } catch (e) {
@@ -61,21 +64,32 @@ export default class Feed extends Component {
     })
   }
 
-  handleYesClick = () => {
-    console.log('yes clicked')
+  removeNullValues = (payload) => payload.filter(x => x != null)
+
+  compareAndRemove = (payload,item) => {
+    payload = this.removeNullValues(payload)
+    payload = payload.filter(x => x.phone_number != item.phone_number)
+    this.setState({payload})
   }
 
-  handleNoClick = () => {
-    console.log('no clicked')
+  handleYesClick = (item) => {
+    let payload = [...this.state.payload]
+    this.compareAndRemove(payload, item)
   }
 
-  handleCallPress = () => {
-    // console.log(item.phone_number);
-    // Communications.phonecall(item.phone_number, true)
+  handleNoClick = (item) => {
+    let payload = [...this.state.payload]
+    this.compareAndRemove(payload, item)
   }
 
-  handleTextPress = () => {
-    console.log('text pressed')
+  handleCallPress = (phone) => {
+    console.log(phone);
+    Communications.phonecall(phone, true)
+  }
+
+  handleTextPress = (phone) => {
+    console.log('text pressed ' + phone)
+    Communications.text(phone, 'Hey! How have you been?')
   }
 
 
@@ -85,7 +99,7 @@ export default class Feed extends Component {
   
   render() {
     const { navigate } = this.props.navigation
-    const { credentials, payload, payloadStatus, refreshing } = this.state
+    const { credentials, payload, payloadStatus, refreshing, feedContacts } = this.state
     if (!payloadStatus) return <View style={styles.container}><LottieGears /></View>
     console.log(this.state)
 
@@ -101,6 +115,7 @@ export default class Feed extends Component {
           handleCallPress={this.handleCallPress}
           handleTextPress={this.handleTextPress}
           payload={payload}
+          feedContacts={feedContacts}
           credentials={credentials}
         />
 

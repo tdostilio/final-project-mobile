@@ -67,18 +67,19 @@ export default class CloseFriends extends Component {
           />
 
           <Icon
-          raised={true}
-          name='clear'
-          onPress={this.handleReminderPress}
-          underlayColor='#001a33'
-          type='material'
-          color='transparent'
-          marginRight={20}
-          size={25}
-          reverse={true}
-          reverseColor='tomato'
-          onPress={this.handleAddReminderPress}
-        />
+              raised={true}
+              name='clear'
+              size={25}
+              onPress={this.handleRemoveContactPress}
+              underlayColor='#001a33'
+              type='material'
+              color='transparent'
+              marginRight={20}
+              reverse={true}
+              reverseColor='tomato'
+              onPress={this.handleRemoveContactPress}
+            />
+
 
         </LinearGradient>
       )
@@ -139,7 +140,7 @@ const styles = {
     marginTop: 10,
     borderRadius: 8,
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-between'
   },
   buttonContainer: {
     marginTop: 15
