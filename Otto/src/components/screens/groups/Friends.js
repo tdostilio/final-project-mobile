@@ -67,11 +67,12 @@ export default class Friends extends Component {
 
           <Icon
             raised={true}
-            name='remove-circle'
+            name='cancel'
             onPress={this.handleReminderPress}
             underlayColor='#001a33'
             type='material'
             color='tomato'
+            marginRight={20}
             reverse={true}
             reverseColor='#001a33'
             onPress={this.handleAddReminderPress}
@@ -136,7 +137,7 @@ const styles = {
     marginTop: 10,
     borderRadius: 8,
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-between'
   },
   buttonContainer: {
     marginTop: 15,
