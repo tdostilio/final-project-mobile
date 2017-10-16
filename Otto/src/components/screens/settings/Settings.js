@@ -103,9 +103,9 @@ export default class Settings extends Component {
                 switched={pushNotifications}
                 hideChevron
                 switchButton
-                switchThumbTintColor='#5D8DAD'
+                switchThumbTintColor='dodgerblue'
                 switchOnTintColor='#2980b9'
-                switchTintColor='#5D8DAD'
+                switchTintColor='dodgerblue'
               />
               {pushNotifications && <Text style={{color: 'red'}}> Sorry this feature is pending </Text>}
             </List>
@@ -173,7 +173,7 @@ export default class Settings extends Component {
                 <ListItem
                   title="Sign Out"
                   titleStyle={{color: '#eee'}}
-                  rightIcon={{ name: 'cancel', color: '#2980b9' }}
+                  rightIcon={{ name: 'cancel', color: 'dodgerblue' }}
                   onPress={this.handleSignOut}
                 />
               </List>
@@ -200,6 +200,6 @@ const styles = {
     padding: 0,
     fontSize: 15,
     fontWeight: 'bold',
-    color: '#1EBF9E'
+    color: '#1FFFDA'
   }
 }

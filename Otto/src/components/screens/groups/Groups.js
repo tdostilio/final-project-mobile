@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { AsyncStorage, View, Text, ScrollView, Image } from 'react-native'
+import LinearGradient from 'react-native-linear-gradient'
 import axios from 'axios'
 
 import { Button } from 'react-native-elements'
@@ -70,18 +71,22 @@ export default class Groups extends Component {
   renderTemplates = () => (
     this.props.template.map((item, index) => {
       return (
-          <Button
-          key={index}
-          large
-          buttonStyle={{ marginTop: 20, marginBottom: 20 }}
-          borderRadius={5}
-          raised
-          backgroundColor={`#1E90FF`}
-          fontWeight='600'
-          icon={item.icon}
-          onPress={() => {this.handlePress(item)}}
-          title={item.title}
-          />
+          <LinearGradient
+            key={index}
+            colors={['#4c669f', '#3b5998', '#192f6a']}
+            style={styles.linearGradient}>
+            <Button
+              large
+              buttonStyle={{ marginTop: 20, marginBottom: 20 }}
+              borderRadius={5}
+              raised
+              backgroundColor={`transparent`}
+              fontWeight='600'
+              icon={item.icon}
+              onPress={() => {this.handlePress(item)}}
+              title={item.title}
+            />
+          </LinearGradient>
       )
     })
   )
@@ -134,5 +139,14 @@ const styles = {
     fontSize: 20,
     fontWeight: '600',
     fontFamily: 'Geeza Pro'
+  },
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 10,
+    paddingRight: 10,
+    borderRadius: 5,
+    marginLeft: 35,
+    marginRight: 35,
+    marginBottom: 15
   }
 }
