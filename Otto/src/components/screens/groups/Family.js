@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, ScrollView, Text, Image } from 'react-native';
 import { List, ListItem, Button, Icon } from 'react-native-elements';
+import LinearGradient from 'react-native-linear-gradient'
 import axios from 'axios'
 
 import LottieGears from '../../util/LottieGears'
@@ -50,15 +51,19 @@ export default class Family extends Component {
   renderContacts = (payload) => {
     return payload.map((x, idx) => {
       return (
-        <View key={idx} style={styles.buttonStyle}>
+        <LinearGradient
+          colors={['#4c669f', '#3b5998', '#192f6a']}
+          style={styles.gradientWrapper}
+          key={idx}
+        >
           <Button
             borderRadius={50}
-            backgroundColor={'#1E90FF'}
+            backgroundColor={`transparent`}
             title={`${x.first_name} ${x.last_name}`}
             color={'#1FFFDA'}
             fontWeight={'700'} 
           />
-        </View>
+        </LinearGradient>
       )
     })
   }
@@ -110,8 +115,11 @@ const styles = {
     fontWeight: '600',
     fontFamily: 'Geeza Pro'
   },
-  buttonStyle: {
-    marginTop: 10, 
+  gradientWrapper: {
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10,
+    borderRadius: 8
   },
   buttonContainer: {
     marginTop: 15

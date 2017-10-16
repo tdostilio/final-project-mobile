@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { View, FlatList, ScrollView, Text, RefreshControl } from 'react-native'
+import LinearGradient from 'react-native-linear-gradient'
 import { List, Card, Icon, Button} from 'react-native-elements'
 import uuid from 'uuid'
 
@@ -46,61 +47,66 @@ export default class ReminderOptions extends Component {
           onRefresh={onRefresh}
           keyExtractor={() => uuid.v4()}
           renderItem={({item}) => (
-            <Card
-              titleStyle={styles.cardTitle}
-              containerStyle={styles.cardContainer}
-              title={`${item.first_name} ${item.last_name}`}>
-              <View style={styles.cardContent}>
-                <Text
-                  style={{ color: "white", fontSize: 16 }}>
-                  Have you spoke to &nbsp;
+            <LinearGradient
+              colors={['#4c669f', '#3b5998', '#192f6a']}
+              style={styles.gradientWrapper}
+            >
+              <Card
+                titleStyle={styles.cardTitle}
+                containerStyle={styles.cardContainer}
+                title={`${item.first_name} ${item.last_name}`}>
+                <View style={styles.cardContent}>
                   <Text
-                    style={{color: '#1FFFDA', fontWeight: 'bold', fontSize: 14}}>
-                    {item.first_name} {item.last_name
-                  }</Text> recently?
-                </Text>
-              </View>
-              <View style={styles.buttonContainer}>
-                <Button
-                borderRadius={75}
-                raised
-                medium
-                buttonStyle={{marginBottom: 5, backgroundColor: `green`}}
-                title='Yes'
-                color='white'
-                onPress={handleYesClick} 
-                />
-                <Button
-                borderRadius={75}
-                raised
-                medium
-                buttonStyle={{marginBottom: 5, backgroundColor: `red`}}
-                title='No'
-                color='white'
-                onPress={handleNoClick} 
-                />
-                <Button
-                borderRadius={75}
-                raised
-                medium
-                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
-                icon={{name: 'phone', type: 'material', color: 'white'}}
-                title='Call'
-                color='white'
-                onPress={handleCallPress} 
-                />
-                <Button
-                borderRadius={75}
-                raised
-                medium
-                buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
-                icon={{name: 'smartphone', type: 'material', color: 'white'}}
-                title='Text'
-                color='white'
-                onPress={handleTextPress} 
-                />
-              </View>
-            </Card>
+                    style={{ color: "white", fontSize: 14 }}>
+                    Have you spoke to &nbsp;
+                    <Text
+                      style={{color: '#1FFFDA', fontWeight: 'bold', fontSize: 14}}>
+                      {item.first_name} {item.last_name
+                    }</Text> recently?
+                  </Text>
+                </View>
+                <View style={styles.buttonContainer}>
+                  <Button
+                  borderRadius={75}
+                  raised
+                  medium
+                  buttonStyle={{marginBottom: 5, backgroundColor: `green`}}
+                  title='Yes'
+                  color='white'
+                  onPress={handleYesClick} 
+                  />
+                  <Button
+                  borderRadius={75}
+                  raised
+                  medium
+                  buttonStyle={{marginBottom: 5, backgroundColor: `red`}}
+                  title='No'
+                  color='white'
+                  onPress={handleNoClick} 
+                  />
+                  <Button
+                  borderRadius={75}
+                  raised
+                  medium
+                  buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
+                  icon={{name: 'phone', type: 'material', color: 'white'}}
+                  title='Call'
+                  color='white'
+                  onPress={handleCallPress} 
+                  />
+                  <Button
+                  borderRadius={75}
+                  raised
+                  medium
+                  buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
+                  icon={{name: 'smartphone', type: 'material', color: 'white'}}
+                  title='Text'
+                  color='white'
+                  onPress={handleTextPress} 
+                  />
+                </View>
+              </Card>
+            </LinearGradient>
           )}
         />
     )
@@ -115,19 +121,19 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-around',
-    marginBottom: 10,
-    backgroundColor: 'dodgerblue',
-    borderRadius: 8,
-    borderColor: 'dodgerblue',
-    overflow: 'hidden'
+    backgroundColor: `transparent`,
+    borderWidth: 0
+
   },
   cardTitle: {
-    color: `#fff`
+    color: `#fff`,
+    fontSize: 14,
+    margin: 0
   },
   cardContent: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginBottom: 5
+    marginBottom: 5,
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -138,5 +144,14 @@ const styles = {
     backgroundColor: `#001a33`,
     elevation: 2,
     margin: 5
+  },
+  gradientWrapper: {
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    flexDirection: 'column',
+    marginBottom: 10,
+    marginLeft: 10,
+    marginRight: 10,
+    borderRadius: 5
   }
 }
