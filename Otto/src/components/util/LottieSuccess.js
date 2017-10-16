@@ -44,8 +44,10 @@ const styles = StyleSheet.create({
     shadowOffset: {width:0, height: 0}
   },
   textStyle: {
-    color: '#5D8DAD',
+    fontWeight: 'bold',
     fontSize: 25,
-    textAlign: 'center'
+    color: 'white',
+    textAlign: 'center',
+    marginTop: 40
   }
 })
