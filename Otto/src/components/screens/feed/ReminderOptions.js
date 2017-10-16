@@ -4,6 +4,7 @@ import { View, FlatList, ScrollView, Text, RefreshControl } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import { List, Card, Icon, Button} from 'react-native-elements'
 import uuid from 'uuid'
+import Communications from 'react-native-communications';
 
 import DefaultMsg from './DefaultMsg'
 
@@ -13,11 +14,19 @@ export default class ReminderOptions extends Component {
   static propTypes = {
     handleYesClick: PropTypes.func.isRequired,
     handleNoClick: PropTypes.func.isRequired,
-    handleCallPress: PropTypes.func.isRequired,
-    handleTextPress: PropTypes.func.isRequired,
+    //handleCallPress: PropTypes.func.isRequired,
+    //handleTextPress: PropTypes.func.isRequired,
     onRefresh: PropTypes.func.isRequired,
     refreshing: PropTypes.bool.isRequired
     // payload: will be boolean (false) or array of objs
+  }
+
+  callPerson = (number) => {
+    Communications.phonecall(number, true)
+  }
+
+  textPerson = (number) => {
+    Communications.text(number, 'Hey! How have you been?')
   }
 
   removeNullValues = (payload) => payload.filter(x => x != null)
@@ -92,7 +101,7 @@ export default class ReminderOptions extends Component {
                   icon={{name: 'phone', type: 'material', color: 'white'}}
                   title='Call'
                   color='white'
-                  onPress={handleCallPress} 
+                  onPress={() => this.callPerson(item.phone_number)} 
                   />
                   <Button
                   borderRadius={50}
@@ -102,7 +111,7 @@ export default class ReminderOptions extends Component {
                   icon={{name: 'smartphone', type: 'material', color: 'white'}}
                   title='Text'
                   color='white'
-                  onPress={handleTextPress} 
+                  onPress={() => this.textPerson(item.phone_number)} 
                   />
                 </View>
               </Card>
