@@ -68,16 +68,18 @@ export default class CloseFriends extends Component {
 
           <Icon
               raised={true}
-              name='remove-circle'
+              name='clear'
+              size={25}
               onPress={this.handleRemoveContactPress}
               underlayColor='#001a33'
               type='material'
-              color='tomato'
+              color='transparent'
               marginRight={20}
               reverse={true}
-              reverseColor='#001a33'
+              reverseColor='tomato'
               onPress={this.handleRemoveContactPress}
             />
+
 
         </LinearGradient>
       )
