@@ -69,11 +69,8 @@ export default class Feed extends Component {
   handleYesClick = (item) => {
     let payload = [...this.state.payload]
     payload = this.removeNullValues(payload)
-    console.log('pre filter payload: ' + payload)
     payload = payload.filter(x => x.phone_number != item.phone_number)
-    console.log('post filter payload: ' + payload)
     this.setState({payload})
-    console.log(this.state.payload)
   }
 
   handleNoClick = () => {
