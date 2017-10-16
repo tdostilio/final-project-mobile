@@ -57,12 +57,27 @@ export default class Friends extends Component {
           key={idx}
         >
           <Button
+            style={{marginTop: 10}}
             borderRadius={50}
             backgroundColor={`transparent`}
             title={`${x.first_name} ${x.last_name}`}
             color={'#1FFFDA'}
             fontWeight={'700'} 
           />
+
+          <Icon
+            raised={true}
+            name='cancel'
+            onPress={this.handleReminderPress}
+            underlayColor='#001a33'
+            type='material'
+            color='tomato'
+            marginRight={20}
+            reverse={true}
+            reverseColor='#001a33'
+            onPress={this.handleAddReminderPress}
+          />
+
         </LinearGradient>
       )
     })
@@ -87,12 +102,13 @@ export default class Friends extends Component {
           </View>
           <Text
             style={styles.headerStyle}>
-            Those Who Matter Most
+            Keep In Touch
           </Text>
         
           <View style={styles.buttonContainer}>
             {this.renderContacts(payload)}
           </View>
+
         </ScrollView>
 
       </View>
@@ -119,10 +135,12 @@ const styles = {
     marginLeft: 20,
     marginRight: 20,
     marginTop: 10,
-    borderRadius: 8
+    borderRadius: 8,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   buttonContainer: {
-    marginTop: 15
+    marginTop: 15,
   },
   logo: {
     width: 100,
@@ -131,5 +149,5 @@ const styles = {
   centerLogo: {
     alignItems: 'center',
     marginTop: 20
-  }
+  },
 }

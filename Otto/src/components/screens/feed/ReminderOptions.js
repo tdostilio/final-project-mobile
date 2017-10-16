@@ -66,8 +66,10 @@ export default class ReminderOptions extends Component {
                 title={`${item.first_name} ${item.last_name}`}>
                 <View style={styles.cardContent}>
                   <Text
-                    style={{ color: "white", fontSize: 13 }}>
-                    Have you spoke to &nbsp;
+
+                    style={{ color: "white", fontSize: 14 }}>
+                    Have you spoken to &nbsp;
+
                     <Text
                       style={{color: '#1FFFDA', fontWeight: 'bold', fontSize: 14}}>
                       {item.first_name} {item.last_name
