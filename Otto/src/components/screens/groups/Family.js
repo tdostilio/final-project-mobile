@@ -66,16 +66,18 @@ export default class Family extends Component {
           />
 
           <Icon
-            raised={true}
-            name='remove-circle'
-            onPress={this.handleReminderPress}
-            underlayColor='#001a33'
-            type='material'
-            color='tomato'
-            reverse={true}
-            reverseColor='#001a33'
-            onPress={this.handleAddReminderPress}
-          />
+          raised={true}
+          name='cancel'
+          onPress={this.handleReminderPress}
+          underlayColor='#001a33'
+          type='material'
+          color='tomato'
+          marginRight={20}
+
+          reverse={true}
+          reverseColor='#001a33'
+          onPress={this.handleAddReminderPress}
+        />
 
         </LinearGradient>
       )
