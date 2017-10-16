@@ -13,7 +13,8 @@ export default class LottieSuccess extends Component {
     const { groupName, person, reason } = this.props
     return (
         <View style={styles.container}>
-          <Text style={styles.textStyle}>{person.givenName} {person.familyName} has already been added to the Group: {groupName}.</Text>
+          <Text style={styles.textStyle}>
+          <Text style={{color: '#1FFFDA'}}>{person.givenName} {person.familyName} </ Text> has already been added to {groupName}.</Text>
           <View style={styles.container}>
             <Animation
             ref={animation => {
@@ -44,7 +45,10 @@ const styles = StyleSheet.create({
     shadowOffset: {width:0, height: 0}
   },
   textStyle: {
-    color: '#5D8DAD',
-    fontSize: 25
+    fontWeight: 'bold',
+    fontSize: 25,
+    color: 'white',
+    textAlign: 'center',
+    marginTop: 40
   }
 })

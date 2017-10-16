@@ -72,7 +72,7 @@ export default class Friends extends Component {
           underlayColor='#001a33'
           type='material'
           color='transparent'
-          marginRight={20}
+          marginRight={0}
           size={25}
           reverse={true}
           reverseColor='tomato'

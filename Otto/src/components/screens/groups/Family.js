@@ -73,7 +73,7 @@ export default class Family extends Component {
               underlayColor='#001a33'
               type='material'
               color='transparent'
-              marginRight={20}
+              marginRight={0}
               reverse={true}
               reverseColor='tomato'
               onPress={this.handleRemoveContactPress}
