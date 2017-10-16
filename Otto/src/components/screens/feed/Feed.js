@@ -12,7 +12,8 @@ export default class Feed extends Component {
     credentials: '',
     payload: [],
     payloadStatus: false,
-    refreshing: false
+    refreshing: false,
+    feedContacts: ''
   }
 
   async componentDidMount() {
@@ -46,6 +47,8 @@ export default class Feed extends Component {
         // for user with contacts in a group
         await this.setState({payload: result.data.payload, payloadStatus: true, refreshing: false}, () => {
           console.log('payload has contacts')
+          let feedContacts = this.state.payload
+          this.setState({feedContacts})
         })
       }
     } catch (e) {
@@ -63,7 +66,7 @@ export default class Feed extends Component {
 
   handleYesClick = () => {
     let contacts = this.state.payload
-    
+
     console.log('yes clicked')
   }
 
@@ -88,7 +91,7 @@ export default class Feed extends Component {
   
   render() {
     const { navigate } = this.props.navigation
-    const { credentials, payload, payloadStatus, refreshing } = this.state
+    const { credentials, payload, payloadStatus, refreshing, feedContacts } = this.state
     if (!payloadStatus) return <View style={styles.container}><LottieGears /></View>
     console.log(this.state)
 
@@ -104,6 +107,7 @@ export default class Feed extends Component {
           handleCallPress={this.handleCallPress}
           handleTextPress={this.handleTextPress}
           payload={payload}
+          feedContacts={feedContacts}
           credentials={credentials}
         />
 
