@@ -88,7 +88,7 @@ export default class CloseFriends extends Component {
           </View>
           <Text
             style={styles.headerStyle}>
-            Those Who Matter Most
+            Best Friends
           </Text>
         
           <View style={styles.buttonContainer}>

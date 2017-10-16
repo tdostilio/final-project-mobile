@@ -87,7 +87,7 @@ export default class Friends extends Component {
           </View>
           <Text
             style={styles.headerStyle}>
-            Those Who Matter Most
+            Keep In Touch
           </Text>
         
           <View style={styles.buttonContainer}>
