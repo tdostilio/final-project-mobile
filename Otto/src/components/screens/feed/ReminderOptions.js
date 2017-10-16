@@ -67,7 +67,7 @@ export default class ReminderOptions extends Component {
                 <View style={styles.cardContent}>
                   <Text
                     style={{ color: "white", fontSize: 14 }}>
-                    Have you spoke to &nbsp;
+                    Have you spoken to &nbsp;
                     <Text
                       style={{color: '#1FFFDA', fontWeight: 'bold', fontSize: 14}}>
                       {item.first_name} {item.last_name
