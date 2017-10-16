@@ -6,7 +6,7 @@ import LottieGears from '../../util/LottieGears'
 import ReminderOptions from './ReminderOptions'
 import config from '../../util/api/config'
 
-
+import Communications from 'react-native-communications';
 export default class Feed extends Component {
   state = {
     credentials: '',
@@ -62,6 +62,8 @@ export default class Feed extends Component {
   }
 
   handleYesClick = () => {
+    let contacts = this.state.payload
+
     console.log('yes clicked')
   }
 
@@ -69,13 +71,14 @@ export default class Feed extends Component {
     console.log('no clicked')
   }
 
-  handleCallPress = () => {
-    // console.log(item.phone_number);
-    // Communications.phonecall(item.phone_number, true)
+  handleCallPress = (phone) => {
+    console.log(phone);
+    Communications.phonecall(phone, true)
   }
 
-  handleTextPress = () => {
-    console.log('text pressed')
+  handleTextPress = (phone) => {
+    console.log('text pressed ' + phone)
+    Communications.text(phone, 'Hey! How have you been?')
   }
 
 
