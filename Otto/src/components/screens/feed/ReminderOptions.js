@@ -4,6 +4,7 @@ import { View, FlatList, ScrollView, Text, RefreshControl } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import { List, Card, Icon, Button} from 'react-native-elements'
 import uuid from 'uuid'
+import Communications from 'react-native-communications';
 
 import DefaultMsg from './DefaultMsg'
 
@@ -13,11 +14,19 @@ export default class ReminderOptions extends Component {
   static propTypes = {
     handleYesClick: PropTypes.func.isRequired,
     handleNoClick: PropTypes.func.isRequired,
-    handleCallPress: PropTypes.func.isRequired,
-    handleTextPress: PropTypes.func.isRequired,
+    //handleCallPress: PropTypes.func.isRequired,
+    //handleTextPress: PropTypes.func.isRequired,
     onRefresh: PropTypes.func.isRequired,
     refreshing: PropTypes.bool.isRequired
     // payload: will be boolean (false) or array of objs
+  }
+
+  callPerson = (number) => {
+    Communications.phonecall(number, true)
+  }
+
+  textPerson = (number) => {
+    Communications.text(number, 'Hey! How have you been?')
   }
 
   removeNullValues = (payload) => payload.filter(x => x != null)
@@ -57,8 +66,10 @@ export default class ReminderOptions extends Component {
                 title={`${item.first_name} ${item.last_name}`}>
                 <View style={styles.cardContent}>
                   <Text
+
                     style={{ color: "white", fontSize: 14 }}>
                     Have you spoken to &nbsp;
+
                     <Text
                       style={{color: '#1FFFDA', fontWeight: 'bold', fontSize: 14}}>
                       {item.first_name} {item.last_name
@@ -70,7 +81,7 @@ export default class ReminderOptions extends Component {
                   borderRadius={75}
                   raised
                   medium
-                  buttonStyle={{marginBottom: 5, backgroundColor: `green`}}
+                  buttonStyle={{marginBottom: 5, backgroundColor: `#03BA7F`}}
                   title='Yes'
                   color='white'
                   onPress={handleYesClick} 
@@ -79,30 +90,30 @@ export default class ReminderOptions extends Component {
                   borderRadius={75}
                   raised
                   medium
-                  buttonStyle={{marginBottom: 5, backgroundColor: `red`}}
+                  buttonStyle={{marginBottom: 5, backgroundColor: `#C61C08`}}
                   title='No'
                   color='white'
                   onPress={handleNoClick} 
                   />
                   <Button
-                  borderRadius={75}
+                  borderRadius={50}
                   raised
                   medium
                   buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
                   icon={{name: 'phone', type: 'material', color: 'white'}}
                   title='Call'
                   color='white'
-                  onPress={handleCallPress} 
+                  onPress={() => this.callPerson(item.phone_number)} 
                   />
                   <Button
-                  borderRadius={75}
+                  borderRadius={50}
                   raised
                   medium
                   buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
                   icon={{name: 'smartphone', type: 'material', color: 'white'}}
                   title='Text'
                   color='white'
-                  onPress={handleTextPress} 
+                  onPress={() => this.textPerson(item.phone_number)} 
                   />
                 </View>
               </Card>
@@ -123,11 +134,10 @@ const styles = {
     justifyContent: 'space-around',
     backgroundColor: `transparent`,
     borderWidth: 0
-
   },
   cardTitle: {
     color: `#fff`,
-    fontSize: 14,
+    fontSize: 16,
     margin: 0
   },
   cardContent: {
@@ -152,6 +162,7 @@ const styles = {
     marginBottom: 10,
     marginLeft: 10,
     marginRight: 10,
-    borderRadius: 5
+    borderRadius: 5,
+    overflow: 'hidden'
   }
 }

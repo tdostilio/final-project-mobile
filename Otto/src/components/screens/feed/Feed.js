@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { AsyncStorage, View, ScrollView, Text, RefreshControl } from 'react-native'
 import { List, ListItem, Icon, Button} from 'react-native-elements'
 import axios from 'axios'
-
 import LottieGears from '../../util/LottieGears'
 import ReminderOptions from './ReminderOptions'
 import config from '../../util/api/config'
@@ -71,7 +70,8 @@ export default class Feed extends Component {
   }
 
   handleCallPress = () => {
-    console.log('call pressed')
+    // console.log(item.phone_number);
+    // Communications.phonecall(item.phone_number, true)
   }
 
   handleTextPress = () => {
@@ -111,7 +111,7 @@ export default class Feed extends Component {
             onPress={this.handleReminderPress}
             underlayColor='#001a33'
             type='material'
-            color='#1FFFDA'
+            color='#1E90FF'
             reverse={true}
             reverseColor='#001a33'
             onPress={this.handleAddReminderPress}
