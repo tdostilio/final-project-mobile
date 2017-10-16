@@ -70,7 +70,7 @@ export default class ReminderOptions extends Component {
                   borderRadius={75}
                   raised
                   medium
-                  buttonStyle={{marginBottom: 5, backgroundColor: `green`}}
+                  buttonStyle={{marginBottom: 5, backgroundColor: `#03BA7F`}}
                   title='Yes'
                   color='white'
                   onPress={handleYesClick} 
@@ -79,7 +79,7 @@ export default class ReminderOptions extends Component {
                   borderRadius={75}
                   raised
                   medium
-                  buttonStyle={{marginBottom: 5, backgroundColor: `red`}}
+                  buttonStyle={{marginBottom: 5, backgroundColor: `#C61C08`}}
                   title='No'
                   color='white'
                   onPress={handleNoClick} 
