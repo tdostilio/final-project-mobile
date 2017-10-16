@@ -63,7 +63,7 @@ export default class Feed extends Component {
 
   handleYesClick = () => {
     let contacts = this.state.payload
-
+    
     console.log('yes clicked')
   }
 
