@@ -173,7 +173,7 @@ export default class Settings extends Component {
                 <ListItem
                   title="Sign Out"
                   titleStyle={{color: '#eee'}}
-                  rightIcon={{ name: 'cancel', color: 'dodgerblue' }}
+                  rightIcon={{ name: 'cancel', color: 'dodgerblue', size: 50, style: {marginRight: 20} }}
                   onPress={this.handleSignOut}
                 />
               </List>

@@ -66,8 +66,8 @@ export default class ReminderOptions extends Component {
                 title={`${item.first_name} ${item.last_name}`}>
                 <View style={styles.cardContent}>
                   <Text
-                    style={{ color: "white", fontSize: 14 }}>
-                    Have you spoken to &nbsp;
+                    style={{ color: "white", fontSize: 13 }}>
+                    Have you spoke to &nbsp;
                     <Text
                       style={{color: '#1FFFDA', fontWeight: 'bold', fontSize: 14}}>
                       {item.first_name} {item.last_name
@@ -79,7 +79,7 @@ export default class ReminderOptions extends Component {
                   borderRadius={75}
                   raised
                   medium
-                  buttonStyle={{marginBottom: 5, backgroundColor: `green`}}
+                  buttonStyle={{marginBottom: 5, backgroundColor: `#03BA7F`}}
                   title='Yes'
                   color='white'
                   onPress={handleYesClick} 
@@ -88,13 +88,13 @@ export default class ReminderOptions extends Component {
                   borderRadius={75}
                   raised
                   medium
-                  buttonStyle={{marginBottom: 5, backgroundColor: `red`}}
+                  buttonStyle={{marginBottom: 5, backgroundColor: `#C61C08`}}
                   title='No'
                   color='white'
                   onPress={handleNoClick} 
                   />
                   <Button
-                  borderRadius={75}
+                  borderRadius={50}
                   raised
                   medium
                   buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
@@ -104,7 +104,7 @@ export default class ReminderOptions extends Component {
                   onPress={() => this.callPerson(item.phone_number)} 
                   />
                   <Button
-                  borderRadius={75}
+                  borderRadius={50}
                   raised
                   medium
                   buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
@@ -132,11 +132,10 @@ const styles = {
     justifyContent: 'space-around',
     backgroundColor: `transparent`,
     borderWidth: 0
-
   },
   cardTitle: {
     color: `#fff`,
-    fontSize: 14,
+    fontSize: 16,
     margin: 0
   },
   cardContent: {
@@ -161,6 +160,7 @@ const styles = {
     marginBottom: 10,
     marginLeft: 10,
     marginRight: 10,
-    borderRadius: 5
+    borderRadius: 5,
+    overflow: 'hidden'
   }
 }

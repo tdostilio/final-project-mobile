@@ -111,7 +111,7 @@ export default class Feed extends Component {
             onPress={this.handleReminderPress}
             underlayColor='#001a33'
             type='material'
-            color='#1FFFDA'
+            color='#1E90FF'
             reverse={true}
             reverseColor='#001a33'
             onPress={this.handleAddReminderPress}
