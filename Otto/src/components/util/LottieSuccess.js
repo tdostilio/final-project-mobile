@@ -15,9 +15,9 @@ export default class LottieSuccess extends Component {
         <View style={styles.container}>
           <Text style={styles.textStyle}>Successfully added
           <Text style={{color: '#1FFFDA'}}>
-            {' ' + person.givenName} {person.familyName} 
+            {' ' + person.givenName} {person.familyName + ' '} 
           </ Text>
-            to {' ' + groupName}. </Text>
+            to {groupName}. </Text>
           <View style={styles.container}>
             <Animation
             ref={animation => {
