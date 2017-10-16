@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import { Picker, View, ScrollView, Text, TouchableOpacity } from 'react-native';
-import { List, ListItem, Button, Icon, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
-import DateTimePicker from 'react-native-modal-datetime-picker';
+import React, { Component } from 'react'
+import { Picker, View, ScrollView, Text, TouchableOpacity } from 'react-native'
+import { List, ListItem, Button, Icon, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
+import LinearGradient from 'react-native-linear-gradient'
+import DateTimePicker from 'react-native-modal-datetime-picker'
 
 export default class AddReminder extends Component {
   state = {
@@ -11,11 +12,6 @@ export default class AddReminder extends Component {
     task: '',
     isDateTimePickerVisible: false,
     datePicked: false
-  }
-
-  componentDidMount() {
-    // make ajax call to hydrate this state.. do it here or from `Me Component` and pass down as props
-    // change loading to false once state hydrated.. for development-- leave it true
   }
 
   backToHome = () => {
@@ -47,9 +43,9 @@ export default class AddReminder extends Component {
     this.setState({task: text})
   }
 
-  _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+  _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true })
   
-  _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+  _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false })
 
   _handleDatePicked = (date) => {
     this._hideDateTimePicker();
@@ -76,10 +72,13 @@ export default class AddReminder extends Component {
 
             <FormLabel>Date</FormLabel>
             { datePicked ? <FormInput value={date} /> :  
-              <View>
+              <LinearGradient
+                colors={['#4c669f', '#3b5998', '#192f6a']}
+                style={styles.gradientWrapper}
+              >
                 <Button
                   borderRadius={10}
-                  backgroundColor={`#1E90FF`}
+                  backgroundColor={`transparent`}
                   raised
                   onPress={this._showDateTimePicker}
                   icon={{name: 'calendar', type: 'font-awesome'}}
@@ -90,7 +89,7 @@ export default class AddReminder extends Component {
                   onConfirm={this._handleDatePicked}
                   onCancel={this._hideDateTimePicker}
                 />
-              </View>
+              </LinearGradient>
             }
 
             <FormLabel>Group</FormLabel>
@@ -113,24 +112,32 @@ export default class AddReminder extends Component {
         </View>
 
         <View style={styles.buttonContainer}>
-          <Button
-            large
-            buttonStyle={{ marginTop: 20, marginBottom: 20 }}
-            borderRadius={5}
-            raised
-            backgroundColor={`#1E90FF`}
-            icon={{name: 'check', type: 'material'}}
-            onPress={this.addReminder}
-            title='Remind Me' />
-          <Button
-            large
-            buttonStyle={{ marginTop: 20, marginBottom: 20 }}
-            borderRadius={5}
-            raised
-            backgroundColor={`#1E90FF`}
-            icon={{name: 'backspace', type: 'material'}}
-            onPress={this.backToHome}
-            title='Back to Feed' />
+          <LinearGradient
+                  colors={['#4c669f', '#3b5998', '#192f6a']}
+                  style={styles.gradientWrapper}
+          >
+            <Button
+              buttonStyle={{ marginTop: 20, marginBottom: 20 }}
+              borderRadius={5}
+              raised
+              backgroundColor={`transparent`}
+              icon={{name: 'check', type: 'material'}}
+              onPress={this.addReminder}
+              title='Remind Me' />
+          </LinearGradient>
+          <LinearGradient
+            colors={['#4c669f', '#3b5998', '#192f6a']}
+            style={styles.gradientWrapper}
+          >
+            <Button
+              buttonStyle={{ marginTop: 20, marginBottom: 20 }}
+              borderRadius={5}
+              raised
+              backgroundColor={`transparent`}
+              icon={{name: 'backspace', type: 'material'}}
+              onPress={this.backToHome}
+              title='Back to Feed' />
+          </LinearGradient>
         </View>
 
       </View>
@@ -145,9 +152,15 @@ const styles = {
     backgroundColor: `#001a33`
   },
   buttonContainer: {
-    flexGrow: 1,
     flexWrap: 'nowrap',
     flexDirection: 'row',
     justifyContent: 'space-around'
+  },
+  gradientWrapper: {
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 50,
+    marginRight: 50,
+    borderRadius: 8
   }
 }
