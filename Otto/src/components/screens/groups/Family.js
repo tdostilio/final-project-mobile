@@ -68,6 +68,10 @@ export default class Family extends Component {
     })
   }
 
+  handleRemoveContactPress = () => {
+    this.props...
+  }
+
   render() {
     const { navigate } = this.props.navigation
     const { payload, payloadStatus } = this.state
@@ -93,6 +97,22 @@ export default class Family extends Component {
           <View style={styles.buttonContainer}>
             {this.renderContacts(payload)}
           </View>
+
+
+          <View style={styles.removeButtonContainer}>
+            <Icon
+              raised={true}
+              name='remove-circle'
+              onPress={this.handleRemoveContactPress}
+              underlayColor='#001a33'
+              type='material'
+              color='tomato'
+              reverse={true}
+              reverseColor='#001a33'
+              onPress={this.handleRemoveContactPress}
+            />
+          </View>
+
         </ScrollView>
 
       </View>
@@ -131,5 +151,11 @@ const styles = {
   centerLogo: {
     alignItems: 'center',
     marginTop: 20
+  },
+  removeButtonContainer: {
+    bottom: 0,
+    left: 0,
+    marginTop: 200,
+    marginLeft: 15
   }
 }

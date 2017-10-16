@@ -93,6 +93,21 @@ export default class Friends extends Component {
           <View style={styles.buttonContainer}>
             {this.renderContacts(payload)}
           </View>
+
+          <View style={styles.removeButtonContainer}>
+              <Icon
+                raised={true}
+                name='remove-circle'
+                onPress={this.handleReminderPress}
+                underlayColor='#001a33'
+                type='material'
+                color='tomato'
+                reverse={true}
+                reverseColor='#001a33'
+                onPress={this.handleAddReminderPress}
+              />
+            </View>
+
         </ScrollView>
 
       </View>
@@ -131,5 +146,11 @@ const styles = {
   centerLogo: {
     alignItems: 'center',
     marginTop: 20
+  },
+  removeButtonContainer: {
+    bottom: 0,
+    left: 0,
+    marginTop: 200,
+    marginLeft: 15
   }
 }
