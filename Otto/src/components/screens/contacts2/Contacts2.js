@@ -5,7 +5,11 @@ import {
   ScrollView
 } from 'react-native'
 import { List, ListItem, SearchBar } from 'react-native-elements'
+<<<<<<< HEAD
 // import { users } from '../../router/data'
+=======
+
+>>>>>>> 0b0fbb8aa99ed848b226fbf7e42f91ea7cfd667f
 
 export default class Contacts2 extends Component {
 
