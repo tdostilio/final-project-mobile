@@ -14,7 +14,7 @@ export default class LottieSuccess extends Component {
     return (
         <View style={styles.container}>
           <Text style={styles.textStyle}>
-          <Text style={{color: '#1FFFDA'}}>{person.givenName} {person.familyName} </ Text> has already been added to {groupName}.</Text>
+          <Text style={{color: '#1FFFDA'}}>{person.givenName} {person.familyName} </ Text> has already been added to.</Text>
           <View style={styles.container}>
             <Animation
             ref={animation => {
