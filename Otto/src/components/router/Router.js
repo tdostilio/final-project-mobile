@@ -14,11 +14,10 @@ import CreateAccount from '../login/CreateAccount'
 
 // Feed Screen
 import Feed from '../screens/feed/Feed'
-import AddReminder from '../screens/feed/AddReminder'
 
 // Contacts2 Screen
-import Contacts2 from '../screens/contacts2/Contacts2'
-import Contacts2Detail from '../screens/contacts2/Contacts2Detail'
+// import Contacts2 from '../screens/contacts2/Contacts2'
+// import Contacts2Detail from '../screens/contacts2/Contacts2Detail'
 
 // Contact Screen
 import Contacts from '../screens/contacts/Contacts'
@@ -30,6 +29,7 @@ import Groups from '../screens/groups/Groups'
 import Family from '../screens/groups/Family'
 import CloseFriends from '../screens/groups/CloseFriends'
 import Friends from '../screens/groups/Friends'
+import AddReminder from '../screens/groups/AddReminder'
 
 // Settings Screen
 import Settings from '../screens/settings/Settings'
@@ -61,28 +61,28 @@ export const FeedStack = StackNavigator({
   }
 })
 
-export const Contacts2Stack = StackNavigator({
-  Contacts2: {
-    screen: Contacts2,
-    navigationOptions: {
-      title: 'Contacts2',
-      headerStyle: {
-        backgroundColor: `#001a33`
-      },
-      headerTintColor: '#fff'
-    },
-  },
-  Contacts2Detail: {
-    screen: Contacts2Detail,
-    navigationOptions: ({ navigation }) => ({
-      title: `${navigation.state.params.name.first.toUpperCase()} ${navigation.state.params.name.last.toUpperCase()}`,
-      headerStyle: {
-        backgroundColor: `#001a33`
-      },
-      headerTintColor: '#fff'
-    }),
-  },
-})
+// export const Contacts2Stack = StackNavigator({
+//   Contacts2: {
+//     screen: Contacts2,
+//     navigationOptions: {
+//       title: 'Contacts2',
+//       headerStyle: {
+//         backgroundColor: `#001a33`
+//       },
+//       headerTintColor: '#fff'
+//     },
+//   },
+//   Contacts2Detail: {
+//     screen: Contacts2Detail,
+//     navigationOptions: ({ navigation }) => ({
+//       title: `${navigation.state.params.name.first.toUpperCase()} ${navigation.state.params.name.last.toUpperCase()}`,
+//       headerStyle: {
+//         backgroundColor: `#001a33`
+//       },
+//       headerTintColor: '#fff'
+//     }),
+//   },
+// })
 
 export const ContactsStack = StackNavigator({
   Contacts: {
@@ -334,15 +334,6 @@ export const createRootNavigator = (signedIn = false) => {
   SignedOut: {
     screen: LoginStack
   },
-  // RecentCall: {
-  //   screen: RecentCallStack,
-  // },
-  // RecentText: {
-  //   screen: RecentTextStack,
-  // },
-  // RecentEmail: {
-  //   screen: RecentEmailStack,
-  // },
   AddReminder: {
     screen: AddReminderStack,
   },
