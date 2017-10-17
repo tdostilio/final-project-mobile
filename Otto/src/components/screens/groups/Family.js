@@ -58,15 +58,35 @@ export default class Family extends Component {
         >
           <Button
             borderRadius={50}
+            style={{marginTop: 10}}
             backgroundColor={`transparent`}
             title={`${x.first_name} ${x.last_name}`}
             color={'#1FFFDA'}
             fontWeight={'700'} 
           />
+
+          <Icon
+              raised={true}
+              name='clear'
+              size={25}
+              onPress={this.handleRemoveContactPress}
+              underlayColor='#001a33'
+              type='material'
+              color='transparent'
+              marginRight={0}
+              reverse={true}
+              reverseColor='tomato'
+              onPress={this.handleRemoveContactPress}
+            />
+
         </LinearGradient>
       )
     })
   }
+
+  // handleRemoveContactPress = () => {
+  //   this.props...
+  // }
 
   render() {
     const { navigate } = this.props.navigation
@@ -93,6 +113,7 @@ export default class Family extends Component {
           <View style={styles.buttonContainer}>
             {this.renderContacts(payload)}
           </View>
+
         </ScrollView>
 
       </View>
@@ -119,7 +140,9 @@ const styles = {
     marginLeft: 20,
     marginRight: 20,
     marginTop: 10,
-    borderRadius: 8
+    borderRadius: 8,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   buttonContainer: {
     marginTop: 15
@@ -131,5 +154,5 @@ const styles = {
   centerLogo: {
     alignItems: 'center',
     marginTop: 20
-  }
+  },
 }

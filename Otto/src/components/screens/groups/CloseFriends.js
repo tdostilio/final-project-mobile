@@ -59,11 +59,28 @@ export default class CloseFriends extends Component {
         >
           <Button
             borderRadius={50}
+            style={{marginTop: 10}}
             backgroundColor={`transparent`}
             title={`${x.first_name} ${x.last_name}`}
             color={'#1FFFDA'}
             fontWeight={'700'} 
           />
+
+          <Icon
+              raised={true}
+              name='clear'
+              size={25}
+              onPress={this.handleRemoveContactPress}
+              underlayColor='#001a33'
+              type='material'
+              color='transparent'
+              marginRight={0}
+              reverse={true}
+              reverseColor='tomato'
+              onPress={this.handleRemoveContactPress}
+            />
+
+
         </LinearGradient>
       )
     })
@@ -88,12 +105,13 @@ export default class CloseFriends extends Component {
           </View>
           <Text
             style={styles.headerStyle}>
-            Those Who Matter Most
+            Best Friends
           </Text>
         
           <View style={styles.buttonContainer}>
             {this.renderContacts(payload)}
           </View>
+
         </ScrollView>
 
       </View>
@@ -111,7 +129,7 @@ const styles = {
   headerStyle: {
     textAlign: 'center',
     color: 'white',
-    marginTop: 30,
+    marginTop: 15,
     fontSize: 20,
     fontWeight: '600',
     fontFamily: 'Geeza Pro'
@@ -120,7 +138,9 @@ const styles = {
     marginLeft: 20,
     marginRight: 20,
     marginTop: 10,
-    borderRadius: 8
+    borderRadius: 8,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   buttonContainer: {
     marginTop: 15
@@ -131,6 +151,12 @@ const styles = {
   },
   centerLogo: {
     alignItems: 'center',
-    marginTop: 20
+    marginTop: 4
+  },
+  removeButtonContainer: {
+     bottom: 0,
+    left: 0,
+    marginTop: 200,
+    marginLeft: 15
   }
 }

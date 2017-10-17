@@ -4,7 +4,6 @@ import { View, FlatList, ScrollView, Text, RefreshControl } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import { List, Card, Icon, Button} from 'react-native-elements'
 import uuid from 'uuid'
-import Communications from 'react-native-communications';
 
 import DefaultMsg from './DefaultMsg'
 
@@ -14,26 +13,18 @@ export default class ReminderOptions extends Component {
   static propTypes = {
     handleYesClick: PropTypes.func.isRequired,
     handleNoClick: PropTypes.func.isRequired,
-    //handleCallPress: PropTypes.func.isRequired,
-    //handleTextPress: PropTypes.func.isRequired,
+    handleCallPress: PropTypes.func.isRequired,
+    handleTextPress: PropTypes.func.isRequired,
     onRefresh: PropTypes.func.isRequired,
     refreshing: PropTypes.bool.isRequired
     // payload: will be boolean (false) or array of objs
-  }
-
-  callPerson = (number) => {
-    Communications.phonecall(number, true)
-  }
-
-  textPerson = (number) => {
-    Communications.text(number, 'Hey! How have you been?')
   }
 
   removeNullValues = (payload) => payload.filter(x => x != null)
   
   render() {
     const { payload, handleYesClick, handleNoClick,
-    onRefresh, refreshing, handleCallPress, handleTextPress
+    onRefresh, refreshing, handleCallPress, handleTextPress, feedContacts
     } = this.props
 
     // if user doesn't have any contacts added to any group
@@ -48,6 +39,7 @@ export default class ReminderOptions extends Component {
 
     // remove null values
     const modifiedPayload = this.removeNullValues(payload)
+    // const modifiedContacts = this.removeNullValues(feedContacts)
 
     return (
         <FlatList
@@ -66,8 +58,10 @@ export default class ReminderOptions extends Component {
                 title={`${item.first_name} ${item.last_name}`}>
                 <View style={styles.cardContent}>
                   <Text
-                    style={{ color: "white", fontSize: 13 }}>
-                    Have you spoke to &nbsp;
+
+                    style={{ color: "white", fontSize: 14 }}>
+                    Have you spoken to &nbsp;
+
                     <Text
                       style={{color: '#1FFFDA', fontWeight: 'bold', fontSize: 14}}>
                       {item.first_name} {item.last_name
@@ -79,10 +73,10 @@ export default class ReminderOptions extends Component {
                   borderRadius={75}
                   raised
                   medium
-                  buttonStyle={{marginBottom: 5, backgroundColor: `#03BA7F`}}
+                  buttonStyle={{marginBottom: 5, backgroundColor: `#00b300`}}
                   title='Yes'
                   color='white'
-                  onPress={handleYesClick} 
+                  onPress={() => handleYesClick(item)} 
                   />
                   <Button
                   borderRadius={75}
@@ -91,27 +85,27 @@ export default class ReminderOptions extends Component {
                   buttonStyle={{marginBottom: 5, backgroundColor: `#C61C08`}}
                   title='No'
                   color='white'
-                  onPress={handleNoClick} 
+                  onPress={() => handleNoClick(item)} 
                   />
                   <Button
                   borderRadius={50}
                   raised
                   medium
                   buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
-                  icon={{name: 'phone', type: 'material', color: 'white'}}
+                  icon={{name: 'phone', type: 'material', color: '#00b300'}}
                   title='Call'
                   color='white'
-                  onPress={() => this.callPerson(item.phone_number)} 
+                  onPress={() => handleCallPress(item.phone_number)} 
                   />
                   <Button
                   borderRadius={50}
                   raised
                   medium
                   buttonStyle={{marginBottom: 5, backgroundColor: `#001a33`}}
-                  icon={{name: 'smartphone', type: 'material', color: 'white'}}
+                  icon={{name: 'smartphone', type: 'material', color: '#1E90FF'}}
                   title='Text'
                   color='white'
-                  onPress={() => this.textPerson(item.phone_number)} 
+                  onPress={() => handleTextPress(item.phone_number)} 
                   />
                 </View>
               </Card>

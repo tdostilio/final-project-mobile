@@ -93,20 +93,20 @@ export default class Groups extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.centerLogo}>
-          <Image
-          style={styles.logo}
-          source={mainlogo}
-          />
-        </View>
-        <Text style={styles.textStyle}>Your Groups</Text>
-        <ScrollView>
-          <View style={styles.buttonContainer}>
-            {this.renderTemplates()}
+      <ScrollView style={styles.scrollStyle}>
+        <View style={styles.container}>
+          <View style={styles.centerLogo}>
+            <Image
+            style={styles.logo}
+            source={mainlogo}
+            />
           </View>
-        </ScrollView>
-      </View>
+          <Text style={styles.textStyle}>Your Groups</Text>
+            <View style={styles.buttonContainer}>
+              {this.renderTemplates()}
+            </View>
+          </View>
+      </ScrollView>
     )
   }
 }
@@ -148,5 +148,8 @@ const styles = {
     marginLeft: 35,
     marginRight: 35,
     marginBottom: 15
+  },
+  scrollStyle: {
+    backgroundColor: '#001a33'
   }
 }

@@ -22,7 +22,7 @@ class ContactOptions extends Component {
     }
 
     textContact = () => {
-        Communications.text(this.state.information.phoneNumbers[0]['number'], 'Hey! How have you been?')
+        Communications.textWithoutEncoding(this.state.information.phoneNumbers[0]['number'], 'Hey! How have you been?')
     }
 
     backToContacts = () => {
