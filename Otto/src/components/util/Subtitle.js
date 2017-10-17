@@ -2,9 +2,11 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 const Subtitle = (props) => {
-    <Text style={styles.subtitle}>
-        {props.text}
-    </Text>
+    return (
+        <Text style={styles.subtitle}>
+            {props.text}
+        </Text>
+    )
 }
 
 
