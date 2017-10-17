@@ -95,6 +95,7 @@ class Contacts extends React.Component {
                             onChangeText={this.handleSearch}
                             value={this.state.search}
                             placeholder='Search ...'
+                            autoCorrect={false}
                         />
                         <ScrollView>
                         <ContactList contacts={this.state.searching 
