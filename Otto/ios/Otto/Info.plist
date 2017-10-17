@@ -40,7 +40,7 @@
 		</dict>
 	</dict>
 	<key>NSContactsUsageDescription</key>
-	<string>Show me the things</string>
+	<string>Allow Access?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UIAppFonts</key>
