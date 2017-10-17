@@ -37,6 +37,7 @@ export default class LottieSuccess extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 55,
     backgroundColor: '#001a33',
     justifyContent: 'center',
     alignItems: 'center',
