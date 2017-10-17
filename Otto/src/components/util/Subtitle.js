@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 const Subtitle = (props) => {
     <Text style={styles.subtitle}>
-        {props}
+        {props.text}
     </Text>
 }
 
@@ -19,8 +19,7 @@ const styles = {
       }
 }
 
-export { Subtitle };
-
+export default Subtitle;
 
 
 

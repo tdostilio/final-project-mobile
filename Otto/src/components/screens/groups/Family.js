@@ -110,10 +110,7 @@ export default class Family extends Component {
             style={styles.headerStyle}>
             Those Who Matter Most
           </Text>
-          <Text
-            style={styles.subtitle}>
-            Weekly Reminders
-          </Text>
+          <Subtitle text={'Weekly Reminders'} />
           <View style={styles.buttonContainer}>
             {this.renderContacts(payload)}
           </View>
