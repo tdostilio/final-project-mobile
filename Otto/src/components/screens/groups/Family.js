@@ -109,7 +109,10 @@ export default class Family extends Component {
             style={styles.headerStyle}>
             Those Who Matter Most
           </Text>
-        
+          <Text
+            style={styles.subtitle}>
+            Weekly Reminders
+          </Text>
           <View style={styles.buttonContainer}>
             {this.renderContacts(payload)}
           </View>
@@ -155,4 +158,12 @@ const styles = {
     alignItems: 'center',
     marginTop: 20
   },
+  subtitle: {
+    textAlign: 'center',
+    color: 'white',
+    marginTop: 5,
+    fontSize: 15,
+    fontWeight: '200',
+    fontFamily: 'Geeza Pro'
+  }
 }
