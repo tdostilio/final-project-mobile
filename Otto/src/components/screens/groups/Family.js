@@ -48,12 +48,18 @@ export default class Family extends Component {
     }
   }
 
-  handleAddReminderPress = (user) => {
-    this.props.navigation.navigate('AddReminder', user)
+  compareAndRemove = (payload, user) => {
+    payload = payload.filter(x => x.phone_number != user.phone_number)
+    this.setState({payload})
   }
 
   handleRemoveContactPress = (user) => {
-    console.log(user)
+    let payload = [...this.state.payload]
+    this.compareAndRemove(payload, user)
+  }
+
+  handleAddReminderPress = (user) => {
+    this.props.navigation.navigate('AddReminder', user)
   }
 
   renderContacts = (payload) => {

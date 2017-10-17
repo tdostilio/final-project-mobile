@@ -48,6 +48,20 @@ export default class Friends extends Component {
     }
   }
 
+  compareAndRemove = (payload, user) => {
+    payload = payload.filter(x => x.phone_number != user.phone_number)
+    this.setState({payload})
+  }
+
+  handleAddReminderPress = (user) => {
+    this.props.navigation.navigate('AddReminder', user)
+  }
+
+  handleRemoveContactPress = (user) => {
+    let payload = [...this.state.payload]
+    this.compareAndRemove(payload, user)
+  }
+
   renderContacts = (payload) => {
     return payload.map((x, idx) => {
       return (
@@ -67,16 +81,25 @@ export default class Friends extends Component {
 
           <Icon
           raised={true}
-          name='clear'
-          onPress={this.handleReminderPress}
+          name='check'
+          size={25}
+          onPress={() => this.handleAddReminderPress(x)}
           underlayColor='#001a33'
           type='material'
           color='transparent'
-          marginRight={0}
-          size={25}
           reverse={true}
           reverseColor='tomato'
-          onPress={this.handleAddReminderPress}
+        />
+        <Icon
+          raised={true}
+          name='clear'
+          size={25}
+          onPress={() => this.handleRemoveContactPress(x)}
+          underlayColor='#001a33'
+          type='material'
+          color='transparent'
+          reverse={true}
+          reverseColor='tomato'
         />
 
         </LinearGradient>
