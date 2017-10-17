@@ -4,9 +4,10 @@ import { List, ListItem, Button, Icon } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient'
 import axios from 'axios'
 
-import LottieGears from '../../util/LottieGears'
+import LottieGears from '../../util/LottieGears';
 import heart from '../../../static/images/heart.png';
-import config from '../../util/api/config'
+import config from '../../util/api/config';
+import Subtitle from '../../util/Subtitle';
 
 
 export default class Family extends Component {
@@ -158,12 +159,4 @@ const styles = {
     alignItems: 'center',
     marginTop: 20
   },
-  subtitle: {
-    textAlign: 'center',
-    color: 'white',
-    marginTop: 5,
-    fontSize: 15,
-    fontWeight: '200',
-    fontFamily: 'Geeza Pro'
-  }
 }
