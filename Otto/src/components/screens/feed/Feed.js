@@ -119,19 +119,6 @@ export default class Feed extends Component {
           credentials={credentials}
         />
 
-        <View style={styles.buttonContainer}>
-          <Icon
-            raised={true}
-            name='add-circle'
-            underlayColor='#001a33'
-            type='material'
-            color='#1E90FF'
-            reverse={true}
-            reverseColor='#001a33'
-            onPress={this.handleAddReminderPress}
-          />
-        </View>
-
       </List>
     )
   }
@@ -144,15 +131,5 @@ const styles = {
     backgroundColor: `#001a33`,
     flexDirection: 'column',
     justifyContent: 'center'
-  },
-  buttonContainer: {
-    backgroundColor:`transparent`,
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    width: null,
-    height: null,
-    borderRadius: 80,
-    margin: 20
-  },
+  }
 }
