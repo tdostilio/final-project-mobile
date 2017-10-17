@@ -114,10 +114,12 @@ export default class AddReminder extends Component {
   }
   
   render() {
+    const user = this.props.navigation.state.params
     const { buttons } = this.props
     const { name, date, group, task, datePicked,
     reminderSent, eventIndex, validationError } = this.state
     console.log(this.state)
+    console.log(this.props)
 
     if (reminderSent && (!validationError)) {
       return (
@@ -158,8 +160,8 @@ export default class AddReminder extends Component {
             }
 
             <FormLabel>Name</FormLabel>
-            <FormInput value={name}
-                       onChangeText={this.handleNameChange}/>
+            <FormInput value={`${user.first_name} ${user.last_name}`}
+            />
 
             <FormLabel>Date</FormLabel>
             { datePicked ? <FormInput value={date} /> :  
@@ -183,7 +185,7 @@ export default class AddReminder extends Component {
               </LinearGradient>
             }
 
-            <FormLabel>Event</FormLabel>
+            <FormLabel>Group</FormLabel>
             <Picker selectedValue={this.state.group}
                     style={styles.picker}
                     itemStyle={{color: 'white', height: 85}}
@@ -195,7 +197,7 @@ export default class AddReminder extends Component {
                     {/* <Picker.Item label="Clients" value="clients" /> */}
             </Picker>
 
-            <FormLabel>Group</FormLabel>
+            <FormLabel>Event</FormLabel>
               <LinearGradient
                   colors={['#4c669f', '#3b5998', '#192f6a']}
                   style={styles.gradientWrapper}
