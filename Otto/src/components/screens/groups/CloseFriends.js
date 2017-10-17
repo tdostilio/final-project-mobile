@@ -7,6 +7,7 @@ import axios from 'axios'
 import LottieGears from '../../util/LottieGears'
 import heart from '../../../static/images/bestfriend.png';
 import config from '../../util/api/config'
+import Subtitle from '../../util/Subtitle'
 
 
 export default class CloseFriends extends Component {
@@ -130,7 +131,7 @@ export default class CloseFriends extends Component {
             style={styles.headerStyle}>
             Best Friends
           </Text>
-        
+          <Subtitle text={'Reminders Every Two Weeks'} />
           <View style={styles.buttonContainer}>
             {this.renderContacts(payload)}
           </View>

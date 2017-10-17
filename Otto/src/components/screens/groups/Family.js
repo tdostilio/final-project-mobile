@@ -4,9 +4,10 @@ import { List, ListItem, Button, Icon } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient'
 import axios from 'axios'
 
-import LottieGears from '../../util/LottieGears'
+import LottieGears from '../../util/LottieGears';
 import heart from '../../../static/images/heart.png';
-import config from '../../util/api/config'
+import config from '../../util/api/config';
+import Subtitle from '../../util/Subtitle';
 
 
 export default class Family extends Component {
@@ -129,7 +130,7 @@ export default class Family extends Component {
             style={styles.headerStyle}>
             Those Who Matter Most
           </Text>
-        
+          <Subtitle text={'Weekly Reminders'} />
           <View style={styles.buttonContainer}>
             {this.renderContacts(payload)}
           </View>

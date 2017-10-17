@@ -7,6 +7,7 @@ import axios from 'axios'
 import LottieGears from '../../util/LottieGears'
 import heart from '../../../static/images/friend.png';
 import config from '../../util/api/config'
+import Subtitle from '../../util/Subtitle'
 
 
 export default class Friends extends Component {
@@ -128,7 +129,7 @@ export default class Friends extends Component {
             style={styles.headerStyle}>
             Keep In Touch
           </Text>
-        
+          <Subtitle text='Monthly Reminders' />
           <View style={styles.buttonContainer}>
             {this.renderContacts(payload)}
           </View>
