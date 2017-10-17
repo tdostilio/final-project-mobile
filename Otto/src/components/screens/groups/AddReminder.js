@@ -28,6 +28,11 @@ export default class AddReminder extends Component {
     ]
   }
 
+  componentWillMount() {
+    const user = this.props.navigation.state.params
+    this.setState({name: `${user.first_name} ${user.last_name}`})
+  }
+
   backToHome = () => {
     this.props.navigation.goBack(null)
   }

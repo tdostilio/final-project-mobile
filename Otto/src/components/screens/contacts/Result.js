@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, ScrollView, AsyncStorage } from 'react-native'
 import { Button } from 'react-native-elements'
 import timer from 'react-native-timer'
-import LottieSuccess from '../../util/LottieSuccess'
+import LottieCheckSuccess from '../../util/LottieCheckSuccess'
 import LottieFailure from '../../util/LottieFailure'
 
 
@@ -17,7 +17,7 @@ export default class Result extends Component {
           <ScrollView>
             <View style={{flex: 1, justifyContent: 'center'}}>
                 {result.AddedContact
-                  ? <LottieSuccess
+                  ? <LottieCheckSuccess
                                   groupName={result.groupName}
                                   person={person} />
                   : <LottieFailure
@@ -31,7 +31,7 @@ export default class Result extends Component {
         <View style={styles.buttonContainer}>
           <Button
               large
-              buttonStyle={{ marginTop: 20, marginBottom: 20 }}
+              buttonStyle={{ marginTop: 5 }}
               borderRadius={5}
               raised
               backgroundColor={`red`}
