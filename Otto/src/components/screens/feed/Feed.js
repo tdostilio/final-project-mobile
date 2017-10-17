@@ -123,7 +123,6 @@ export default class Feed extends Component {
           <Icon
             raised={true}
             name='add-circle'
-            onPress={this.handleReminderPress}
             underlayColor='#001a33'
             type='material'
             color='#1E90FF'
