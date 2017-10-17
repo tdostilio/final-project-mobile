@@ -31,7 +31,7 @@ export default class Result extends Component {
         <View style={styles.buttonContainer}>
           <Button
               large
-              buttonStyle={{ marginTop: 20, marginBottom: 20 }}
+              buttonStyle={{ marginTop: 5 }}
               borderRadius={5}
               raised
               backgroundColor={`red`}
