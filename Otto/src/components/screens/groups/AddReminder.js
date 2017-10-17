@@ -140,7 +140,7 @@ export default class AddReminder extends Component {
               borderRadius={5}
               raised
               backgroundColor={`transparent`}
-              icon={{name: 'backspace', type: 'material'}}
+              icon={{name: 'backspace', type: 'material', color: 'tomato'}}
               onPress={this.backToHome}
               title='Back to Feed' />
           </LinearGradient>
@@ -179,8 +179,10 @@ export default class AddReminder extends Component {
                   backgroundColor={`transparent`}
                   raised
                   onPress={this._showDateTimePicker}
-                  icon={{name: 'calendar', type: 'font-awesome'}}
-                  title='Choose a date...' />
+                  icon={{name: 'calendar', type: 'font-awesome', color: 'lightskyblue'}}
+                  title='Choose a date...'
+                   />
+                  
                 <DateTimePicker
                   mode={'datetime'}
                   isVisible={this.state.isDateTimePickerVisible}
@@ -193,7 +195,7 @@ export default class AddReminder extends Component {
             <FormLabel>Group</FormLabel>
             <Picker selectedValue={this.state.group}
                     style={styles.picker}
-                    itemStyle={{color: 'white', height: 85}}
+                    itemStyle={{color: '#1FFFDA', height: 85}}
                     onValueChange={(itemValue, itemIndex) => this.setState({group: itemValue})}>
                     <Picker.Item label="Close Friends" value="close_friends" />
                     <Picker.Item label="Family" value="family" />
@@ -211,7 +213,7 @@ export default class AddReminder extends Component {
                       selectedBackgroundColor={`transparent`}
                       textStyle={{color: '#001a33'}}
                       innerBorderStyle={{color: '#001a33'}}
-                      selectedTextStyle={{color: '#ffffff'}}
+                      selectedTextStyle={{color: '#1FFFDA'}}
                       containerStyle={styles.buttonGroup}
                       onPress={this.updateEventIndex}
                       selectedIndex={eventIndex}
@@ -236,7 +238,7 @@ export default class AddReminder extends Component {
               borderRadius={5}
               raised
               backgroundColor={`transparent`}
-              icon={{name: 'backspace', type: 'material'}}
+              icon={{name: 'backspace', type: 'material', color: 'tomato'}}
               onPress={this.backToHome}
               title='Back to Feed' />
           </LinearGradient>
@@ -249,9 +251,10 @@ export default class AddReminder extends Component {
               borderRadius={5}
               raised
               backgroundColor={`transparent`}
-              icon={{name: 'check', type: 'material'}}
+              icon={{name: 'check', type: 'material', color: '#00b300'}}
               onPress={this.addReminder}
-              title='Remind Me' />
+              title='Remind Me' 
+              />
           </LinearGradient>
         </View>
 
