@@ -48,6 +48,14 @@ export default class Family extends Component {
     }
   }
 
+  handleAddReminderPress = (user) => {
+    this.props.navigation.navigate('AddReminder', user)
+  }
+
+  handleRemoveContactPress = (user) => {
+    console.log(user)
+  }
+
   renderContacts = (payload) => {
     return payload.map((x, idx) => {
       return (
@@ -67,16 +75,25 @@ export default class Family extends Component {
 
           <Icon
               raised={true}
-              name='clear'
+              name='check'
               size={25}
-              onPress={this.handleRemoveContactPress}
+              onPress={() => this.handleAddReminderPress(x)}
               underlayColor='#001a33'
               type='material'
               color='transparent'
-              marginRight={0}
               reverse={true}
               reverseColor='tomato'
-              onPress={this.handleRemoveContactPress}
+            />
+            <Icon
+              raised={true}
+              name='clear'
+              size={25}
+              onPress={() => this.handleRemoveContactPress(x)}
+              underlayColor='#001a33'
+              type='material'
+              color='transparent'
+              reverse={true}
+              reverseColor='tomato'
             />
 
         </LinearGradient>
@@ -84,16 +101,13 @@ export default class Family extends Component {
     })
   }
 
-  // handleRemoveContactPress = () => {
-  //   this.props...
-  // }
 
   render() {
     const { navigate } = this.props.navigation
     const { payload, payloadStatus } = this.state
 
     if (!payloadStatus) return <View style={styles.container}><LottieGears /></View>
-
+    console.log(this.props)
     return (
       
       <View style={styles.container}>
