@@ -14,7 +14,6 @@ import CreateAccount from '../login/CreateAccount'
 
 // Feed Screen
 import Feed from '../screens/feed/Feed'
-import AddReminder from '../screens/feed/AddReminder'
 
 // Contacts2 Screen
 // import Contacts2 from '../screens/contacts2/Contacts2'
@@ -30,6 +29,7 @@ import Groups from '../screens/groups/Groups'
 import Family from '../screens/groups/Family'
 import CloseFriends from '../screens/groups/CloseFriends'
 import Friends from '../screens/groups/Friends'
+import AddReminder from '../screens/groups/AddReminder'
 
 // Settings Screen
 import Settings from '../screens/settings/Settings'
@@ -334,15 +334,6 @@ export const createRootNavigator = (signedIn = false) => {
   SignedOut: {
     screen: LoginStack
   },
-  // RecentCall: {
-  //   screen: RecentCallStack,
-  // },
-  // RecentText: {
-  //   screen: RecentTextStack,
-  // },
-  // RecentEmail: {
-  //   screen: RecentEmailStack,
-  // },
   AddReminder: {
     screen: AddReminderStack,
   },
