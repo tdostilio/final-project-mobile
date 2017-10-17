@@ -8,7 +8,6 @@ import config from '../../util/api/config';
 
 
 class Contacts extends React.Component {
-    
 
     state = {   
         contacts: null,
@@ -80,7 +79,7 @@ class Contacts extends React.Component {
     render() {
       const { navigate } = this.props.navigation;
       const { search } = this.state;
-
+        console.log(this.state.contacts)
       return (
         <View style={{ flex: 1, backgroundColor: '#001a33' }}>
             <View style={{ flex: 1 }}>
