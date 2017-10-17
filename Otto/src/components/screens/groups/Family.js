@@ -71,6 +71,18 @@ export default class Family extends Component {
           style={styles.gradientWrapper}
           key={idx}
         >
+        <View style={styles.nameContainer}>
+        <Icon
+              raised={true}
+              name='perm-contact-calendar'
+              size={25}
+              onPress={() => this.handleAddReminderPress(x)}
+              underlayColor='#001a33'
+              type='material'
+              color='transparent'
+              reverse={true}
+              reverseColor='white'
+            />
           <Button
             borderRadius={50}
             style={{marginTop: 10}}
@@ -79,18 +91,7 @@ export default class Family extends Component {
             color={'#1FFFDA'}
             fontWeight={'700'} 
           />
-
-          <Icon
-              raised={true}
-              name='check'
-              size={25}
-              onPress={() => this.handleAddReminderPress(x)}
-              underlayColor='#001a33'
-              type='material'
-              color='transparent'
-              reverse={true}
-              reverseColor='tomato'
-            />
+          </View>
             <Icon
               raised={true}
               name='clear'
@@ -163,7 +164,8 @@ const styles = {
     marginTop: 10,
     borderRadius: 8,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-around',
+    alignItems: 'center'
   },
   buttonContainer: {
     marginTop: 15
@@ -176,4 +178,8 @@ const styles = {
     alignItems: 'center',
     marginTop: 20
   },
+  nameContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+  }
 }
